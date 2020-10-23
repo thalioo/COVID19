@@ -75,7 +75,7 @@
 
 #include "./core/PhysiCell.h"
 #include "./modules/PhysiCell_standard_modules.h" 
-
+#include "./addons/PhysiBoSSa/src/maboss_intracellular.h"
 // put custom code modules here! 
 
 #include "./custom_modules/custom.h" 
@@ -134,7 +134,6 @@ int main( int argc, char* argv[] )
 	char filename[1024];
 	sprintf( filename , "%s/initial" , PhysiCell_settings.folder.c_str() ); 
 	save_PhysiCell_to_MultiCellDS_xml_pugi( filename , microenvironment , PhysiCell_globals.current_time ); 
-	
 	// save a quick SVG cross section through z = 0, after setting its 
 	// length bar to 200 microns 
 
@@ -146,6 +145,7 @@ int main( int argc, char* argv[] )
 	
 	sprintf( filename , "%s/initial.svg" , PhysiCell_settings.folder.c_str() ); 
 	SVG_plot( filename , microenvironment, 0.0 , PhysiCell_globals.current_time, cell_coloring_function );
+	MaBoSSIntracellular::save_PhysiBoSS( PhysiCell_settings.folder, "initial" );
 	
 	display_citations(); 
 	
@@ -199,6 +199,10 @@ int main( int argc, char* argv[] )
 					sprintf( filename , "%s/snapshot%08u.svg" , PhysiCell_settings.folder.c_str() , PhysiCell_globals.SVG_output_index ); 
 					SVG_plot_virus( filename , microenvironment, 0.0 , PhysiCell_globals.current_time, cell_coloring_function );
 					
+					char index_str[16];
+					sprintf(index_str, "%08u", PhysiCell_globals.SVG_output_index);
+					MaBoSSIntracellular::save_PhysiBoSS( PhysiCell_settings.folder, std::string(index_str) );
+					
  					PhysiCell_globals.SVG_output_index++; 
 					PhysiCell_globals.next_SVG_save_time  += PhysiCell_settings.SVG_save_interval;
 				}
@@ -250,7 +254,8 @@ int main( int argc, char* argv[] )
 		
 		sprintf( filename , "%s/error.svg" , PhysiCell_settings.folder.c_str() ); 
 		SVG_plot( filename , microenvironment, 0.0 , PhysiCell_globals.current_time, cell_coloring_function );
-	
+		MaBoSSIntracellular::save_PhysiBoSS( PhysiCell_settings.folder, "final" );
+
 		std::cout << e.what(); // information from length_error printed
 	}
 	
@@ -258,10 +263,11 @@ int main( int argc, char* argv[] )
 	
 	sprintf( filename , "%s/final" , PhysiCell_settings.folder.c_str() ); 
 	save_PhysiCell_to_MultiCellDS_xml_pugi( filename , microenvironment , PhysiCell_globals.current_time ); 
-	
+
 	sprintf( filename , "%s/final.svg" , PhysiCell_settings.folder.c_str() ); 
 	SVG_plot( filename , microenvironment, 0.0 , PhysiCell_globals.current_time, cell_coloring_function );
-	
+	MaBoSSIntracellular::save_PhysiBoSS( PhysiCell_settings.folder, "final" );
+
 	// timer 
 	
 	std::cout << std::endl << "Total simulation runtime: " << std::endl; 

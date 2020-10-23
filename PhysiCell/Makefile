@@ -55,7 +55,7 @@ ARCH := native # best auto-tuning
 # CFLAGS := -march=$(ARCH) -Ofast -s -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11
 # remove the -march arg to avoid SIGILL error on nanoHUB
 #CFLAGS := -march=$(ARCH) -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11
-CFLAGS := -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11
+CFLAGS := -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11 -ggdb
 #CFLAGS := -g -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11
 
 COMPILE_COMMAND := $(CC) $(CFLAGS) 
@@ -84,7 +84,7 @@ ALL_OBJECTS := $(PhysiCell_OBJECTS) $(PhysiCell_custom_module_OBJECTS) $(PhysiBo
 # compile the project 
 
 all: MaBoSS main.cpp $(ALL_OBJECTS)
-	$(COMPILE_COMMAND) -o $(PROGRAM_NAME) $(ALL_OBJECTS) main.cpp $(LIB)
+	$(COMPILE_COMMAND) $(INC) -o $(PROGRAM_NAME) $(ALL_OBJECTS) main.cpp $(LIB)
 
 # PhysiCell core components	
 
