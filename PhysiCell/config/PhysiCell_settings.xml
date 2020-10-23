@@ -301,8 +301,8 @@
 
 				<molecular />
 				<intracellular type="maboss">
-					<bnd_filename>./config/boolean_models/replication.bnd</bnd_filename>
-					<cfg_filename>./config/boolean_models/replication.cfg</cfg_filename>
+					<bnd_filename>./config/boolean_network/replication.bnd</bnd_filename>
+					<cfg_filename>./config/boolean_network/replication.cfg</cfg_filename>
 					<time_step units="min">12</time_step>
 				</intracellular>			
 			</phenotype>
