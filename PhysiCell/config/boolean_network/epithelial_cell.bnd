@@ -5,3 +5,7 @@ Node Virus_inside {
 Node Virus_replication {
 	logic = Virus_inside;
 }
+
+Node Chemokin_secretion {
+	logic = Virus_inside;
+}

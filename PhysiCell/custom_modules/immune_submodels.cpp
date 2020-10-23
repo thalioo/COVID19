@@ -470,7 +470,8 @@ void immune_cell_motility_direction( Cell* pCell, Phenotype& phenotype , double 
 
 	phenotype.motility.migration_bias_direction = pCell->nearest_gradient(debris_index);
 	normalize( &phenotype.motility.migration_bias_direction ); 
-	if( pCell->custom_data["activated_immune_cell"] < 0.5 )
+	// if( pCell->custom_data["activated_immune_cell"] < 0.5 )
+	if (!pCell->phenotype.intracellular->get_boolean_node_value("Active"))
 	{ return; }
 
 	// if activated, follow the weighted direction 
@@ -506,7 +507,8 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 	static int debris_index = microenvironment.find_density_index( "debris");
 	
 	// no apoptosis until activation (resident macrophages in constant number for homeostasis) 
-	if( pCell->custom_data["activated_immune_cell"] < 0.5 )
+	// if( pCell->custom_data["activated_immune_cell"] < 0.5 )
+	if (!pCell->phenotype.intracellular->get_boolean_node_value("Active"))
 	{ phenotype.death.rates[apoptosis_index] = 0.0; }
 	else
 	{ phenotype.death.rates[apoptosis_index] = pCD->phenotype.death.rates[apoptosis_index]; } 
@@ -571,7 +573,8 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 
 			phenotype.motility.migration_speed = pCell->custom_data["activated_speed"]; 
 				
-			pCell->custom_data["activated_immune_cell"] = 1.0; 
+			pCell->phenotype.intracellular->set_boolean_node_value("Active", true);
+			// pCell->custom_data["activated_immune_cell"] = 1.0; 
 			
 			return; 
 		}
@@ -664,8 +667,8 @@ void neutrophil_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 
 			phenotype.motility.migration_speed = pCell->custom_data["activated_speed"]; 
 				
-			pCell->custom_data["activated_immune_cell"] = 1.0; 
-			
+			// pCell->custom_data["activated_immune_cell"] = 1.0; 
+			pCell->phenotype.intracellular->set_boolean_node_value("Active", true);
 			return; 
 		}
 		

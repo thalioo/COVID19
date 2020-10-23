@@ -103,12 +103,15 @@ void internal_virus_response_model( Cell* pCell, Phenotype& phenotype, double dt
 	static int nR = pCell->custom_data.find_variable_index( "viral_RNA");
 	double R = pCell->custom_data[nR];
 	
+	pCell->phenotype.intracellular->set_boolean_node_value("Virus_inside", R >= 1.00 - 1e-16);
+	
 	if( R >= 1.00 - 1e-16 ) 
 	{
 		pCell->custom_data["infected_cell_chemokine_secretion_activated"] = 1.0; 
 	}
 
-	if( pCell->custom_data["infected_cell_chemokine_secretion_activated"] > 0.1 && phenotype.death.dead == false )
+	if (pCell->phenotype.intracellular->get_boolean_node_value("Chemokin_secretion") && !phenotype.death.dead)
+	// if( pCell->custom_data["infected_cell_chemokine_secretion_activated"] > 0.1 && phenotype.death.dead == false )
 	{
 		double rate = AV; 
 		rate /= pCell->custom_data["max_apoptosis_half_max"];

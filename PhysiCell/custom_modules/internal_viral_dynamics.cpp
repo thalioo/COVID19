@@ -131,7 +131,6 @@ void internal_virus_model( Cell* pCell, Phenotype& phenotype, double dt )
 			pCell->custom_data[nV_internal] > 1
 		);
 		pCell->phenotype.intracellular->update();
-		// from_nodes_to_cell(pCustomCell, phenotype, dt);
 	}
 	
 	
