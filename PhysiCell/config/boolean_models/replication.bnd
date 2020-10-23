@@ -1,0 +1,7 @@
+Node Virus_inside {
+	logic = Virus_inside;
+}
+
+Node Virus_replication {
+	logic = Virus_inside;
+}
