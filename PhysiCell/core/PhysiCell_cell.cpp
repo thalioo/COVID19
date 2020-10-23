@@ -77,6 +77,9 @@
 #include <algorithm>
 #include <iterator> 
 
+#ifdef ADDON_PHYSIBOSS
+#include "../addons/PhysiBoSSa/src/maboss_intracellular.h"
+#endif
 namespace PhysiCell{
 	
 std::unordered_map<std::string,Cell_Definition*> cell_definitions_by_name; 
@@ -2172,6 +2175,28 @@ Cell_Definition* initialize_cell_definition_from_pugixml( pugi::xml_node cd_node
 		}
 	}	
 
+	// intracellular
+	
+	node = cd_node.child( "phenotype" );
+	node = node.child( "intracellular" ); 
+	if( node )
+	{
+		std::string model_type = node.attribute( "type" ).value(); 
+		
+#ifdef ADDON_PHYSIBOSS
+		if (model_type == "maboss") {
+			// If it has already be copied
+			if (pParent != NULL && pParent->phenotype.intracellular != NULL) {
+				pCD->phenotype.intracellular->initialize_intracellular_from_pugixml(node);
+				
+			// Otherwise we need to create a new one
+			} else {
+				MaBoSSIntracellular* pIntra = new MaBoSSIntracellular(node);
+				pCD->phenotype.intracellular = pIntra->getIntracellularModel();
+			}
+		}
+#endif
+	}	
 	
 	// set up custom data 
 	node = cd_node.child( "custom_data" );
