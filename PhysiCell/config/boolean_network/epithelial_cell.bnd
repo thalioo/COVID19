@@ -17,3 +17,11 @@ Node Virus_damage {
 Node Apoptosis {
 	logic = Virus_damage;
 }
+
+Node TCell_attached {
+	logic = TCell_attached;
+}
+
+Node Death_by_tcell {
+	logic = TCell_attached;
+}
