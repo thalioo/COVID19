@@ -34,6 +34,10 @@ void internal_virus_response_model_setup( void )
 	return; 
 }
 
+// bool fuzzy_heavyside_normal(double value, double average, double stddev) {
+// 	return value > PhysiCell::NormalRandom(average, stddev);
+// }
+
 void internal_virus_response_model( Cell* pCell, Phenotype& phenotype, double dt )
 {
 	static Cell_Definition* pCD = find_cell_definition( "lung epithelium" ); 
@@ -48,26 +52,40 @@ void internal_virus_response_model( Cell* pCell, Phenotype& phenotype, double dt
 	
 	// actual model goes here 
 
-	// now, set apoptosis rate 
+	// boolean-controlled apoptosis
 	
 	static int apoptosis_model_index = cell_defaults.phenotype.death.find_death_model_index( "apoptosis" );
-	// phenotype.death.rates[apoptosis_model_index] = 
+	pCell->phenotype.intracellular->set_boolean_node_value(
+		"Virus_damage", 
+		// fuzzy_heavyside_normal(pCell->custom_data[nA_internal], 50, 10)
+		pCell->custom_data[nA_internal] > 50.0
+	);
 	
-	// base death rate (from cell line)
-	double base_death_rate = 
-		pCD->phenotype.death.rates[apoptosis_model_index]; 
+	if ( pCell->phenotype.intracellular->get_boolean_node_value("Apoptosis")) {
+		// std::cout << "Triggering apoptosis based on boolean model" << std::endl;
+		pCell->start_death(apoptosis_model_index);
+	}
+
+	// // now, set apoptosis rate 
 	
-	// additional death rate from infectoin  
-	double additional_death_rate = pCell->custom_data["max_infected_apoptosis_rate"] ; 
+	// static int apoptosis_model_index = cell_defaults.phenotype.death.find_death_model_index( "apoptosis" );
+	// // phenotype.death.rates[apoptosis_model_index] = 
+	
+	// // base death rate (from cell line)
+	// double base_death_rate = 
+	// 	pCD->phenotype.death.rates[apoptosis_model_index]; 
+	
+	// // additional death rate from infectoin  
+	// double additional_death_rate = pCell->custom_data["max_infected_apoptosis_rate"] ; 
 	
 	
-	double v = pCell->custom_data[nA_internal] / 
-		pCell->custom_data["max_apoptosis_half_max"] ; 
-	v = pow( v, pCell->custom_data["apoptosis_hill_power"] ); 
+	// double v = pCell->custom_data[nA_internal] / 
+	// 	pCell->custom_data["max_apoptosis_half_max"] ; 
+	// v = pow( v, pCell->custom_data["apoptosis_hill_power"] ); 
 	
-	double effect = v / (1.0+v); 
-	additional_death_rate *= effect; 
-	phenotype.death.rates[apoptosis_model_index] = base_death_rate + additional_death_rate; 
+	// double effect = v / (1.0+v); 
+	// additional_death_rate *= effect; 
+	// phenotype.death.rates[apoptosis_model_index] = base_death_rate + additional_death_rate; 
 	
 	// if we're infected, secrete a chemokine for the immune model
 	static int nAV = pCell->custom_data.find_variable_index( "assembled_virion" ); 	

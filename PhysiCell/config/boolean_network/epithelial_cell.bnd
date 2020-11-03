@@ -9,3 +9,11 @@ Node Virus_replication {
 Node Chemokin_secretion {
 	logic = Virus_inside;
 }
+
+Node Virus_damage {
+	logic = Virus_damage;
+}
+
+Node Apoptosis {
+	logic = Virus_damage;
+}
