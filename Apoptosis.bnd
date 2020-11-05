@@ -13,7 +13,7 @@ Node BAD_BBC3_BCL2L11_complex {
 
 Node Apoptosome_complex {
 
-	logic = (CYCS & APAF1 & !AKT1 & CASP9_Cytoplasm);
+	logic = (CYCS & APAF1 & !AKT1 & CASP9_Cytoplasm_input);
 	rate_up = @logic ? $u_Apoptosome_complex : 0;
 	rate_down = @logic ? 0 : $d_Apoptosome_complex;
 }
@@ -55,14 +55,21 @@ Node CASP8 {
 
 Node CASP3 {
 
-	logic = (!CASP8 & CASP9_Cytoplasm) | (CASP8);
+	logic = ( CASP9_Cytoplasm | CASP8);
 	rate_up = @logic ? $u_CASP3 : 0;
 	rate_down = @logic ? 0 : $d_CASP3;
 }
 
+Node CASP9_Cytoplasm_input {
+
+	logic = (CASP9_Cytoplasm_input);
+	rate_up = @logic ? $u_CASP9_Cytoplasm_input : 0;
+	rate_down = @logic ? 0 : $d_CASP9_Cytoplasm_input;
+}
+
 Node CASP9_Cytoplasm {
 
-	logic = (CASP9_Cytoplasm);
+	logic = (Apoptosome_complex & !AKT1);
 	rate_up = @logic ? $u_CASP9_Cytoplasm : 0;
 	rate_down = @logic ? 0 : $d_CASP9_Cytoplasm;
 }
@@ -83,7 +90,7 @@ Node CYCS {
 
 Node APAF1 {
 
-	logic = (APAF1);
+	logic = (BAX);
 	rate_up = @logic ? $u_APAF1 : 0;
 	rate_down = @logic ? 0 : $d_APAF1;
 }
