@@ -14,14 +14,222 @@ Node Virus_damage {
 	logic = Virus_damage;
 }
 
-Node Apoptosis {
-	logic = Virus_damage;
-}
-
 Node TCell_attached {
 	logic = TCell_attached;
 }
 
-Node Death_by_tcell {
-	logic = TCell_attached;
+Node FAS_FASL_complex {
+
+	logic = (TCell_attached);
+	rate_up = @logic ? $u_FAS_FASL_complex : 0;
+	rate_down = @logic ? 0 : $d_FAS_FASL_complex;
+}
+Node BAD_BBC3_BCL2L11_complex {
+
+	logic = (BCL2_MCL1_BCL2L1_complex);
+	rate_up = @logic ? $u_BAD_BBC3_BCL2L11_complex : 0;
+	rate_down = @logic ? 0 : $d_BAD_BBC3_BCL2L11_complex;
+}
+
+Node Apoptosome_complex {
+
+	logic = (CYCS & APAF1 & !AKT1 & CASP9_Cytoplasm_input);
+	rate_up = @logic ? $u_Apoptosome_complex : 0;
+	rate_down = @logic ? 0 : $d_Apoptosome_complex;
+}
+
+Node TNF_TNFRSF1A_complex {
+
+	logic = (TNF_TNFRSF1A_complex);
+	rate_up = @logic ? $u_TNF_TNFRSF1A_complex : 0;
+	rate_down = @logic ? 0 : $d_TNF_TNFRSF1A_complex;
+}
+
+Node TRADD_FADD_complex {
+
+	logic = (TNF_TNFRSF1A_complex & FADD & TRADD);
+	rate_up = @logic ? $u_TRADD_FADD_complex : 0;
+	rate_down = @logic ? 0 : $d_TRADD_FADD_complex;
+}
+
+Node BCL2_MCL1_BCL2L1_complex {
+
+	logic = (!Orf7a & E & !BAD) | (Orf7a & !BAD);
+	rate_up = @logic ? $u_BCL2_MCL1_BCL2L1_complex : 0;
+	rate_down = @logic ? 0 : $d_BCL2_MCL1_BCL2L1_complex;
+}
+
+Node FADD {
+
+	logic = (FAS_FASL_complex);
+	rate_up = @logic ? $u_FADD : 0;
+	rate_down = @logic ? 0 : $d_FADD;
+}
+
+Node CASP8 {
+
+	logic = (!TRADD_FADD_complex & FADD) | (TRADD_FADD_complex);
+	rate_up = @logic ? $u_CASP8 : 0;
+	rate_down = @logic ? 0 : $d_CASP8;
+}
+
+Node CASP3 {
+
+	logic = ( CASP9_Cytoplasm | CASP8);
+	rate_up = @logic ? $u_CASP3 : 0;
+	rate_down = @logic ? 0 : $d_CASP3;
+}
+
+Node CASP9_Cytoplasm_input {
+
+	logic = (CASP9_Cytoplasm_input);
+	rate_up = @logic ? $u_CASP9_Cytoplasm_input : 0;
+	rate_down = @logic ? 0 : $d_CASP9_Cytoplasm_input;
+}
+
+Node CASP9_Cytoplasm {
+
+	logic = (Apoptosome_complex & !AKT1);
+	rate_up = @logic ? $u_CASP9_Cytoplasm : 0;
+	rate_down = @logic ? 0 : $d_CASP9_Cytoplasm;
+}
+
+Node BID {
+
+	logic = (CASP8);
+	rate_up = @logic ? $u_BID : 0;
+	rate_down = @logic ? 0 : $d_BID;
+}
+
+Node CYCS {
+
+	logic = (MAPK14);
+	rate_up = @logic ? $u_CYCS : 0;
+	rate_down = @logic ? 0 : $d_CYCS;
+}
+
+Node APAF1 {
+
+	logic = (BAX);
+	rate_up = @logic ? $u_APAF1 : 0;
+	rate_down = @logic ? 0 : $d_APAF1;
+}
+
+Node AKT1 {
+
+	logic = (!M);
+	rate_up = @logic ? $u_AKT1 : 0;
+	rate_down = @logic ? 0 : $d_AKT1;
+}
+
+Node BAX {
+
+	logic = (!BAD_BBC3_BCL2L11_complex & !BCL2_MCL1_BCL2L1_complex & BID) | (BAD_BBC3_BCL2L11_complex & !BCL2_MCL1_BCL2L1_complex);
+	rate_up = @logic ? $u_BAX : 0;
+	rate_down = @logic ? 0 : $d_BAX;
+}
+
+Node CASP7 {
+
+	logic = (!CASP8 & CASP9_Cytoplasm) | (CASP8);
+	rate_up = @logic ? $u_CASP7 : 0;
+	rate_down = @logic ? 0 : $d_CASP7;
+}
+
+Node Apoptosis_phenotype {
+
+	logic = (!CASP3 & !CASP7 & !Orf3b & !Orf8a & !N & !Orf6 & !S & Orf9b) | (!CASP3 & !CASP7 & !Orf3b & !Orf8a & !N & !Orf6 & S) | (!CASP3 & !CASP7 & !Orf3b & !Orf8a & !N & Orf6) | (!CASP3 & !CASP7 & !Orf3b & !Orf8a & N) | (!CASP3 & !CASP7 & !Orf3b & Orf8a) | (!CASP3 & !CASP7 & Orf3b) | (!CASP3 & CASP7) | (CASP3);
+	rate_up = @logic ? $u_Apoptosis_phenotype : 0;
+	rate_down = @logic ? 0 : $d_Apoptosis_phenotype;
+}
+
+Node M {
+
+	logic = (Virus_damage);
+	rate_up = @logic ? $u_M : 0;
+	rate_down = @logic ? 0 : $d_M;
+}
+
+Node Orf7a {
+
+	logic = (Virus_damage);
+	rate_up = @logic ? $u_Orf7a : 0;
+	rate_down = @logic ? 0 : $d_Orf7a;
+}
+
+Node TRADD {
+
+	logic = (TRADD);
+	rate_up = @logic ? $u_TRADD : 0;
+	rate_down = @logic ? 0 : $d_TRADD;
+}
+
+Node Orf3a {
+
+	logic = (Virus_damage);
+	rate_up = @logic ? $u_Orf3a : 0;
+	rate_down = @logic ? 0 : $d_Orf3a;
+}
+
+Node MAPK14 {
+
+	logic = (Orf3a);
+	rate_up = @logic ? $u_MAPK14 : 0;
+	rate_down = @logic ? 0 : $d_MAPK14;
+}
+
+Node E {
+
+	logic = (Virus_damage);
+	rate_up = @logic ? $u_E : 0;
+	rate_down = @logic ? 0 : $d_E;
+}
+
+Node Orf3b {
+
+	logic = (Virus_damage);
+	rate_up = @logic ? $u_Orf3b : 0;
+	rate_down = @logic ? 0 : $d_Orf3b;
+}
+
+Node Orf8a {
+
+	logic = (Virus_damage);
+	rate_up = @logic ? $u_Orf8a : 0;
+	rate_down = @logic ? 0 : $d_Orf8a;
+}
+
+Node N {
+
+	logic = (Virus_damage);
+	rate_up = @logic ? $u_N : 0;
+	rate_down = @logic ? 0 : $d_N;
+}
+
+Node Orf6 {
+
+	logic = (Virus_damage);
+	rate_up = @logic ? $u_Orf6 : 0;
+	rate_down = @logic ? 0 : $d_Orf6;
+}
+
+Node S {
+
+	logic = (Virus_damage);
+	rate_up = @logic ? $u_S : 0;
+	rate_down = @logic ? 0 : $d_S;
+}
+
+Node Orf9b {
+
+	logic = (Virus_damage);
+	rate_up = @logic ? $u_Orf9b : 0;
+	rate_down = @logic ? 0 : $d_Orf9b;
+}
+
+Node BAD {
+
+	logic = (!AKT1);
+	rate_up = @logic ? $u_BAD : 0;
+	rate_down = @logic ? 0 : $d_BAD;
 }
