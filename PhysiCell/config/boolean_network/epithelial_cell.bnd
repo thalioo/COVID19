@@ -75,7 +75,7 @@ Node CASP8 {
 
 Node CASP3 {
 
-	logic = ( CASP9_Cytoplasm | CASP8);
+	logic = ( CASP9_Cytoplasm );
 	rate_up = @logic ? $u_CASP3 : 0;
 	rate_down = @logic ? 0 : $d_CASP3;
 }
@@ -129,16 +129,9 @@ Node BAX {
 	rate_down = @logic ? 0 : $d_BAX;
 }
 
-Node CASP7 {
-
-	logic = (!CASP8 & CASP9_Cytoplasm) | (CASP8);
-	rate_up = @logic ? $u_CASP7 : 0;
-	rate_down = @logic ? 0 : $d_CASP7;
-}
-
 Node Apoptosis_phenotype {
 
-	logic = (!CASP3 & !CASP7 & !Orf3b & !Orf8a & !N & !Orf6 & !S & Orf9b) | (!CASP3 & !CASP7 & !Orf3b & !Orf8a & !N & !Orf6 & S) | (!CASP3 & !CASP7 & !Orf3b & !Orf8a & !N & Orf6) | (!CASP3 & !CASP7 & !Orf3b & !Orf8a & N) | (!CASP3 & !CASP7 & !Orf3b & Orf8a) | (!CASP3 & !CASP7 & Orf3b) | (!CASP3 & CASP7) | (CASP3);
+	logic = (CASP3);
 	rate_up = @logic ? $u_Apoptosis_phenotype : 0;
 	rate_down = @logic ? 0 : $d_Apoptosis_phenotype;
 }
@@ -183,48 +176,6 @@ Node E {
 	logic = (Virus_damage);
 	rate_up = @logic ? $u_E : 0;
 	rate_down = @logic ? 0 : $d_E;
-}
-
-Node Orf3b {
-
-	logic = (Virus_damage);
-	rate_up = @logic ? $u_Orf3b : 0;
-	rate_down = @logic ? 0 : $d_Orf3b;
-}
-
-Node Orf8a {
-
-	logic = (Virus_damage);
-	rate_up = @logic ? $u_Orf8a : 0;
-	rate_down = @logic ? 0 : $d_Orf8a;
-}
-
-Node N {
-
-	logic = (Virus_damage);
-	rate_up = @logic ? $u_N : 0;
-	rate_down = @logic ? 0 : $d_N;
-}
-
-Node Orf6 {
-
-	logic = (Virus_damage);
-	rate_up = @logic ? $u_Orf6 : 0;
-	rate_down = @logic ? 0 : $d_Orf6;
-}
-
-Node S {
-
-	logic = (Virus_damage);
-	rate_up = @logic ? $u_S : 0;
-	rate_down = @logic ? 0 : $d_S;
-}
-
-Node Orf9b {
-
-	logic = (Virus_damage);
-	rate_up = @logic ? $u_Orf9b : 0;
-	rate_down = @logic ? 0 : $d_Orf9b;
 }
 
 Node BAD {
