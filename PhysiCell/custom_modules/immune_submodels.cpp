@@ -378,6 +378,11 @@ void CD8_Tcell_contact_function( Cell* pC1, Phenotype& p1, Cell* pC2, Phenotype&
 
 void CD8_Tcell_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 {
+	if (pCell->phenotype.intracellular->need_update())
+	{	
+		pCell->phenotype.intracellular->update();
+	}
+
 	static int debris_index = microenvironment.find_density_index( "debris");
 	
 	if( phenotype.death.dead == true )
@@ -500,6 +505,11 @@ void immune_cell_motility_direction( Cell* pCell, Phenotype& phenotype , double 
 
 void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 {
+	if (pCell->phenotype.intracellular->need_update())
+	{	
+		pCell->phenotype.intracellular->update();
+	}
+	
 	static int apoptosis_index = phenotype.death.find_death_model_index( "Apoptosis" ); 
 	static Cell_Definition* pCD = find_cell_definition( "macrophage" ); 
 	static int proinflammatory_cytokine_index = microenvironment.find_density_index( "pro-inflammatory cytokine");
@@ -616,6 +626,11 @@ void macrophage_mechanics( Cell* pCell, Phenotype& phenotype, double dt )
 
 void neutrophil_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 {
+	if (pCell->phenotype.intracellular->need_update())
+	{	
+		pCell->phenotype.intracellular->update();
+	}
+	
 	//	std::cout << __FUNCTION__ << " " << __LINE__ << std::endl; 
 	static int apoptosis_index = phenotype.death.find_death_model_index( "apoptosis" ); 
 	static Cell_Definition* pCD = find_cell_definition( "neutrophil" ); 

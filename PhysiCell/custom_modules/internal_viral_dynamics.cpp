@@ -124,15 +124,10 @@ void internal_virus_model( Cell* pCell, Phenotype& phenotype, double dt )
 	phenotype.molecular.internalized_total_substrates[nA_external] = 
 		pCell->custom_data[nA_internal];	
 	
-	if (pCell->phenotype.intracellular->need_update())
-	{	
-		pCell->phenotype.intracellular->set_boolean_node_value(
-			"Virus_inside",
-			pCell->custom_data[nV_internal] > 1
-		);
-		pCell->phenotype.intracellular->update();
-	}
-	
+	pCell->phenotype.intracellular->set_boolean_node_value(
+		"Virus_inside",
+		pCell->custom_data[nV_internal] > 1
+	);
 	
 	return; 
 }
