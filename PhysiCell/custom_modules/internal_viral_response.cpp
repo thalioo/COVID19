@@ -58,7 +58,7 @@ void internal_virus_response_model( Cell* pCell, Phenotype& phenotype, double dt
 	pCell->phenotype.intracellular->set_boolean_node_value(
 		"Virus_expression", 
 		// fuzzy_heavyside_normal(pCell->custom_data[nA_internal], 50, 10)
-		pCell->custom_data[nA_internal] > 10.0
+		pCell->custom_data[nA_internal] > pCell->custom_data["virus_expression_threshold"]
 	);
 	
 	if ( pCell->phenotype.intracellular->get_boolean_node_value("Apoptosis_type_II") && !pCell->phenotype.death.dead) {

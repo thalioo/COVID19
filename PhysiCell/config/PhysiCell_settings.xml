@@ -405,6 +405,8 @@
 				<activated_immune_cell units="dimensionless" type="double" 
 					description="used internally to track activation state">0.0</activated_immune_cell>
 
+				<virus_expression_threshold units="dimensionless" type="double"
+					description="minimal quantity of virus to activate virus_expression node">10.0</virus_expression_threshold>
 				<!-- your custom data and parameters go here (for new submodels) --> 
 				
 			
