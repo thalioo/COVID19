@@ -173,7 +173,7 @@ void TCell_induced_apoptosis( Cell* pCell, Phenotype& phenotype, double dt )
 		pCell->custom_data["TCell_contact_time"] > pCell->custom_data["TCell_contact_death_threshold"]
 	);
 	
-	if ( pCell->phenotype.intracellular->get_boolean_node_value("Apoptosis_phenotype") && pCell->phenotype.intracellular->get_boolean_node_value("TCell_attached"))
+	if ( pCell->phenotype.intracellular->get_boolean_node_value("Apoptosis_type_I") && !pCell->phenotype.death.dead )
 	// if( pCell->custom_data["TCell_contact_time"] > pCell->custom_data["TCell_contact_death_threshold"] )
 	{
 		// make sure to get rid of all adhesions! 

@@ -56,12 +56,12 @@ void internal_virus_response_model( Cell* pCell, Phenotype& phenotype, double dt
 	
 	static int apoptosis_model_index = cell_defaults.phenotype.death.find_death_model_index( "apoptosis" );
 	pCell->phenotype.intracellular->set_boolean_node_value(
-		"Virus_damage", 
+		"Virus_expression", 
 		// fuzzy_heavyside_normal(pCell->custom_data[nA_internal], 50, 10)
 		pCell->custom_data[nA_internal] > 10.0
 	);
 	
-	if ( pCell->phenotype.intracellular->get_boolean_node_value("Apoptosis_phenotype") && !pCell->phenotype.intracellular->get_boolean_node_value("TCell_attached")) {
+	if ( pCell->phenotype.intracellular->get_boolean_node_value("Apoptosis_type_II") && !pCell->phenotype.death.dead) {
 		// std::cout << "Triggering apoptosis based on boolean model" << std::endl;
 		pCell->start_death(apoptosis_model_index);
 	}
