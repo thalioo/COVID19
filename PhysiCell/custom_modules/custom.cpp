@@ -215,7 +215,9 @@ void setup_tissue( void )
 		{
 			pC = create_cell( get_cell_definition("lung epithelium" ) ); 
 			pC->assign_position( x,y, 0.0 );
-			
+			if (PhysiCell::UniformRandom() < pC->custom_data["m_inhibition_percentage"])
+				pC->phenotype.intracellular->set_parameter_value("$M_ko", 1.0);
+				
 			double dx = x - center_x;
 			double dy = y - center_y; 
 			

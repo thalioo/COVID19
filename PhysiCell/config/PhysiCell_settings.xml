@@ -407,6 +407,9 @@
 
 				<virus_expression_threshold units="dimensionless" type="double"
 					description="minimal quantity of virus to activate virus_expression node">10.0</virus_expression_threshold>
+
+				<m_inhibition_percentage units="dimensionless" type="double"
+					description="ratio of the population capable of inhibiting M protein">0.0</m_inhibition_percentage>
 				<!-- your custom data and parameters go here (for new submodels) --> 
 				
 			
