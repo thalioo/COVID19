@@ -1,0 +1,215 @@
+Node AKT1 {
+
+	logic = (!M);
+	rate_up = @logic ? $u_AKT1 : 0;
+	rate_down = @logic ? 0 : $d_AKT1;
+}
+Node APAF1 {
+
+	logic = (BAX);
+	rate_up = @logic ? $u_APAF1 : 0;
+	rate_down = @logic ? 0 : $d_APAF1;
+}
+
+Node Apoptosis_phenotype {
+
+	logic = (!CASP3 & !CASP7 & !N & !Orf3b & !Orf6 & !Orf8a & !Orf9b & S) | (!CASP3 & !CASP7 & !N & !Orf3b & !Orf6 & !Orf8a & Orf9b) | (!CASP3 & !CASP7 & !N & !Orf3b & !Orf6 & Orf8a) | (!CASP3 & !CASP7 & !N & !Orf3b & Orf6) | (!CASP3 & !CASP7 & !N & Orf3b) | (!CASP3 & !CASP7 & N) | (!CASP3 & CASP7) | (CASP3);
+	rate_up = @logic ? $u_Apoptosis_phenotype : 0;
+	rate_down = @logic ? 0 : $d_Apoptosis_phenotype;
+}
+
+Node Apoptosome_complex {
+
+	logic = (!AKT1 & APAF1 & CASP9_Cytoplasm_input & CYCS);
+	rate_up = @logic ? $u_Apoptosome_complex : 0;
+	rate_down = @logic ? 0 : $d_Apoptosome_complex;
+}
+
+Node BAD {
+
+	logic = (!AKT1);
+	rate_up = @logic ? $u_BAD : 0;
+	rate_down = @logic ? 0 : $d_BAD;
+}
+
+Node BAD_BBC3_BCL2L11_complex {
+
+	logic = (BCL2_MCL1_BCL2L1_complex);
+	rate_up = @logic ? $u_BAD_BBC3_BCL2L11_complex : 0;
+	rate_down = @logic ? 0 : $d_BAD_BBC3_BCL2L11_complex;
+}
+
+Node BAX {
+
+	logic = (!BAD_BBC3_BCL2L11_complex & !BCL2_MCL1_BCL2L1_complex & BID) | (BAD_BBC3_BCL2L11_complex & !BCL2_MCL1_BCL2L1_complex);
+	rate_up = @logic ? $u_BAX : 0;
+	rate_down = @logic ? 0 : $d_BAX;
+}
+
+Node BCL2_MCL1_BCL2L1_complex {
+
+	logic = (!BAD & !E & Orf7a) | (!BAD & E);
+	rate_up = @logic ? $u_BCL2_MCL1_BCL2L1_complex : 0;
+	rate_down = @logic ? 0 : $d_BCL2_MCL1_BCL2L1_complex;
+}
+
+Node BID {
+
+	logic = (CASP8);
+	rate_up = @logic ? $u_BID : 0;
+	rate_down = @logic ? 0 : $d_BID;
+}
+
+Node CASP3 {
+
+	logic = (!CASP8 & CASP9_Cytoplasm) | (CASP8);
+	rate_up = @logic ? $u_CASP3 : 0;
+	rate_down = @logic ? 0 : $d_CASP3;
+}
+
+Node CASP7 {
+
+	logic = (!CASP8 & CASP9_Cytoplasm) | (CASP8);
+	rate_up = @logic ? $u_CASP7 : 0;
+	rate_down = @logic ? 0 : $d_CASP7;
+}
+
+Node CASP8 {
+
+	logic = (!FADD & TRADD_FADD_complex) | (FADD);
+	rate_up = @logic ? $u_CASP8 : 0;
+	rate_down = @logic ? 0 : $d_CASP8;
+}
+
+Node CASP9_Cytoplasm {
+
+	logic = (!AKT1 & Apoptosome_complex);
+	rate_up = @logic ? $u_CASP9_Cytoplasm : 0;
+	rate_down = @logic ? 0 : $d_CASP9_Cytoplasm;
+}
+
+Node CASP9_Cytoplasm_input {
+
+	logic = (CASP9_Cytoplasm_input);
+	rate_up = @logic ? $u_CASP9_Cytoplasm_input : 0;
+	rate_down = @logic ? 0 : $d_CASP9_Cytoplasm_input;
+}
+
+Node CYCS {
+
+	logic = (MAPK14);
+	rate_up = @logic ? $u_CYCS : 0;
+	rate_down = @logic ? 0 : $d_CYCS;
+}
+
+Node E {
+
+	logic = (E);
+	rate_up = @logic ? $u_E : 0;
+	rate_down = @logic ? 0 : $d_E;
+}
+
+Node FADD {
+
+	logic = (FAS_FASL_complex);
+	rate_up = @logic ? $u_FADD : 0;
+	rate_down = @logic ? 0 : $d_FADD;
+}
+
+Node FAS_FASL_complex {
+
+	logic = (FAS_FASL_complex);
+	rate_up = @logic ? $u_FAS_FASL_complex : 0;
+	rate_down = @logic ? 0 : $d_FAS_FASL_complex;
+}
+
+Node M {
+
+	logic = (M);
+	rate_up = @logic ? $u_M : 0;
+	rate_down = @logic ? 0 : $d_M;
+}
+
+Node MAPK14 {
+
+	logic = (Orf3a);
+	rate_up = @logic ? $u_MAPK14 : 0;
+	rate_down = @logic ? 0 : $d_MAPK14;
+}
+
+Node N {
+
+	logic = (N);
+	rate_up = @logic ? $u_N : 0;
+	rate_down = @logic ? 0 : $d_N;
+}
+
+Node Orf3a {
+
+	logic = (Orf3a);
+	rate_up = @logic ? $u_Orf3a : 0;
+	rate_down = @logic ? 0 : $d_Orf3a;
+}
+
+Node Orf3b {
+
+	logic = (Orf3b);
+	rate_up = @logic ? $u_Orf3b : 0;
+	rate_down = @logic ? 0 : $d_Orf3b;
+}
+
+Node Orf6 {
+
+	logic = (Orf6);
+	rate_up = @logic ? $u_Orf6 : 0;
+	rate_down = @logic ? 0 : $d_Orf6;
+}
+
+Node Orf7a {
+
+	logic = (Orf7a);
+	rate_up = @logic ? $u_Orf7a : 0;
+	rate_down = @logic ? 0 : $d_Orf7a;
+}
+
+Node Orf8a {
+
+	logic = (Orf8a);
+	rate_up = @logic ? $u_Orf8a : 0;
+	rate_down = @logic ? 0 : $d_Orf8a;
+}
+
+Node Orf9b {
+
+	logic = (Orf9b);
+	rate_up = @logic ? $u_Orf9b : 0;
+	rate_down = @logic ? 0 : $d_Orf9b;
+}
+
+Node S {
+
+	logic = (S);
+	rate_up = @logic ? $u_S : 0;
+	rate_down = @logic ? 0 : $d_S;
+}
+
+Node TNF_TNFRSF1A_complex {
+
+	logic = (TNF_TNFRSF1A_complex);
+	rate_up = @logic ? $u_TNF_TNFRSF1A_complex : 0;
+	rate_down = @logic ? 0 : $d_TNF_TNFRSF1A_complex;
+}
+
+Node TRADD {
+
+	logic = (TRADD);
+	rate_up = @logic ? $u_TRADD : 0;
+	rate_down = @logic ? 0 : $d_TRADD;
+}
+
+Node TRADD_FADD_complex {
+
+	logic = (FADD & TNF_TNFRSF1A_complex & TRADD);
+	rate_up = @logic ? $u_TRADD_FADD_complex : 0;
+	rate_down = @logic ? 0 : $d_TRADD_FADD_complex;
+}
