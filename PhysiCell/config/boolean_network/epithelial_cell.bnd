@@ -265,14 +265,14 @@ Node Unknown_mechanism {
 
 Node Apoptosis_type_I {
 
-	logic = ( Apoptosis_phenotype & CASP8 );
+	logic = ( Apoptosis_phenotype & CASP8 & !Apoptosis_type_II);
 	rate_up = @logic ? $u_Apoptosis_type_I : 0;
 	rate_down = @logic ? 0 : $d_Apoptosis_type_I;
 }
 
 Node Apoptosis_type_II {
 
-	logic = ( Apoptosis_phenotype & CASP9_Cytoplasm );
+	logic = ( Apoptosis_phenotype & CASP9_Cytoplasm & !Apoptosis_type_I);
 	rate_up = @logic ? $u_Apoptosis_type_II : 0;
 	rate_down = @logic ? 0 : $d_Apoptosis_type_II;
 }
