@@ -408,8 +408,6 @@
 				<virus_expression_threshold units="dimensionless" type="double"
 					description="minimal quantity of virus to activate virus_expression node">10.0</virus_expression_threshold>
 
-				<m_inhibition_percentage units="dimensionless" type="double"
-					description="ratio of the population capable of inhibiting M protein">0.0</m_inhibition_percentage>
 				<!-- your custom data and parameters go here (for new submodels) --> 
 				
 			
@@ -669,7 +667,7 @@
 			<CD8_Tcell_recruitment_min_signal type="double" units="substrate/micron^3"
 				description="min concentration to attract CD8 T cells">0.4</CD8_Tcell_recruitment_min_signal> <!-- 0.3 debug -->
 			<CD8_Tcell_recruitment_saturation_signal type="double" units="substrate/micron^3"
-				description="saturating concentration to attract CD8 T cells">0.7</CD8_Tcell_recruitment_saturation_signal> <!-- 0.7 debug -->
+				description="saturating concentration to attract CD8 T cells">0.7</CD8_Tcell_recruitment_saturation_signal> <!-- 0.7 debug -->	
 		
 		<div_initialization type="divider" description="---Initialization Options--"/>
 			<multiplicity_of_infection type="double" units="none" 
@@ -686,7 +684,13 @@
 			
 			<perecentage_tissue_vascularized units="percentage" type="double"
 				description="percentage of tissue sitting above blood vessels">8.8</perecentage_tissue_vascularized>			
-
+			
+			<m_inhibition_percentage units="dimensionless" type="double"
+				description="ratio of the population capable of inhibiting M protein">0.0</m_inhibition_percentage>
+			
+			<fadd_inhibition_percentage units="dimensionless" type="double"
+				description="ratio of the population capable of inhibiting FADD protein">0.0</fadd_inhibition_percentage>
+			
 		<div_colors type="divider" description="---Cell Color Options--"/>
 			<color_variable type="string" description="color cells based on this variable">assembled_virion</color_variable>
 			
