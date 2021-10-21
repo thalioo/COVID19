@@ -558,8 +558,19 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 	static int nV_external = microenvironment.find_density_index( "virion" ); 
 	pCell->phenotype.intracellular->set_boolean_variable_value(
 		"SARS_CoV_2",
-		pCell->custom_data[nV_external] > 1
+		// pCell->custom_data[nV_external] > 1.0
+		pCell->nearest_density_vector()[nV_external] > 1.0
 	);
+
+	// 3- when you detect interferon outside, turn nodes IFNa_e, IFNb_e ON
+	// if( pCell->custom_data["interferon_activation"] == 1 ) // this will probably do not work as interferon_activation should be only activated in epithelial cells
+	static int nINF1 = microenvironment.find_density_index( "interferon 1" );
+	// if (pCell->nearest_density_vector()[nINF1] / ( pCell->custom_data["interferon_max_response_threshold"] + 1e-32 ) > 0.5) // comes from internal_viral_response.cpp, line 185
+	if ( pCell->nearest_density_vector()[nINF1] > 1.0 ) // TODO: which sensibility should the macrophages have ?
+	{
+		pCell->phenotype.intracellular->set_boolean_variable_value("IFNa_e",1);
+		pCell->phenotype.intracellular->set_boolean_variable_value("IFNb_e",1);
+	}
 
 	//  BN inputs are set, run maboss:
 	if (pCell->phenotype.intracellular->need_update())
