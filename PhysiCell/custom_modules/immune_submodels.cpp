@@ -526,7 +526,7 @@ void immune_cell_motility_direction( Cell* pCell, Phenotype& phenotype , double 
 	return; 
 }
 
-void macrophage_phenotype ( Cell* pCell, Phenotype& phenotype, double dt )
+void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 {
 	// macrophage_BN_inputs:
 	// 1- when you detect dead epithelial cell in your vicinity, turn node Apoptosis_cell ON
