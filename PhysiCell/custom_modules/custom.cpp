@@ -216,6 +216,13 @@ void setup_tissue( void )
 			pC = create_cell( get_cell_definition("lung epithelium" ) ); 
 			pC->assign_position( x,y, 0.0 );
 			
+			if (PhysiCell::UniformRandom() < parameters.doubles("m_inhibition_percentage"))
+				pC->phenotype.intracellular->set_parameter_value("$M_ko", 1.0);
+			
+			if (PhysiCell::UniformRandom() < parameters.doubles("fadd_inhibition_percentage"))
+				pC->phenotype.intracellular->set_parameter_value("$FADD_ko", 1.0);
+				
+			
 			double dx = x - center_x;
 			double dy = y - center_y; 
 			
@@ -409,7 +416,9 @@ std::vector<std::string> tissue_coloring_function( Cell* pCell )
 	if( pCell->phenotype.death.dead == false && pCell->type == Macrophage_type )
 	{
 		std::string color = parameters.strings("Macrophage_color");  
-		if( pCell->custom_data["activated_immune_cell" ] > 0.5 )
+		// if( pCell->custom_data["activated_immune_cell" ] > 0.5 )
+		if( pCell->phenotype.intracellular->get_boolean_variable_value("Active") )
+
 		{ color = parameters.strings("activated_macrophage_color"); }
 		
 		// (Adrianne) added colours to show when macrophages are exhausted and when they are hyperactivated
@@ -436,7 +445,9 @@ std::vector<std::string> tissue_coloring_function( Cell* pCell )
 	if( pCell->phenotype.death.dead == false && pCell->type == DC_type )
 	{
 		std::string color = parameters.strings("DC_color");  
-		if( pCell->custom_data["activated_immune_cell" ] > 0.5 )
+		// if( pCell->custom_data["activated_immune_cell" ] > 0.5 )
+		if( pCell->phenotype.intracellular->get_boolean_variable_value("Active") )
+
 		{ color = parameters.strings("activated_DC_color"); }
 	
 		output[0] = color; 

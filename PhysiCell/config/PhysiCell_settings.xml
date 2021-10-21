@@ -818,6 +818,11 @@
 					<cytoplasmic_biomass_change_rate units="1/min">0.045</cytoplasmic_biomass_change_rate> 
 					<!-- set this higher so that cells "digest" phagocytosed materials faster -->
 				</volume>
+				<intracellular type="maboss">
+					<bnd_filename>./config/boolean_network/dc.bnd</bnd_filename>
+					<cfg_filename>./config/boolean_network/dc.cfg</cfg_filename>
+					<time_step units="min">12</time_step>
+				</intracellular>
 			</phenotype>
 			<custom_data>
 			</custom_data>
@@ -987,6 +992,13 @@
 				
 			<perecentage_tissue_vascularized units="percentage" type="double"
 				description="percentage of tissue sitting above blood vessels">8.8</perecentage_tissue_vascularized>			
+
+			<m_inhibition_percentage units="dimensionless" type="double"
+				description="ratio of the population capable of inhibiting M protein">0.0</m_inhibition_percentage>
+			
+			<fadd_inhibition_percentage units="dimensionless" type="double"
+				description="ratio of the population capable of inhibiting FADD protein">0.0</fadd_inhibition_percentage>
+			
 
 		<div_colors type="divider" description="---Cell Color Options--"/>
 			<color_variable type="string" description="color cells based on this variable">assembled_virion</color_variable>
