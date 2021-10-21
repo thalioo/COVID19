@@ -18,6 +18,10 @@ Node TCell_attached {
 	logic = TCell_attached;
 }
 
+Node Cell_Pyroptosis {
+	logic = Cell_Pyroptosis;
+}
+
 Node FASLG {
 
 	logic = (TCell_attached);
