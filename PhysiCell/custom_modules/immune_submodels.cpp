@@ -562,7 +562,7 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 		pCell->nearest_density_vector()[nV_external] > 1.0
 	);
 
-	// 3- when you detect interferon outside, turn nodes IFNa_e, IFNb_e ON
+	// 3- when you detect interferon outside, turn nodes IFNa_e, IFNb_e ON (what about IFN?)
 	// if( pCell->custom_data["interferon_activation"] == 1 ) // this will probably do not work as interferon_activation should be only activated in epithelial cells
 	static int nINF1 = microenvironment.find_density_index( "interferon 1" );
 	// if (pCell->nearest_density_vector()[nINF1] / ( pCell->custom_data["interferon_max_response_threshold"] + 1e-32 ) > 0.5) // comes from internal_viral_response.cpp, line 185
