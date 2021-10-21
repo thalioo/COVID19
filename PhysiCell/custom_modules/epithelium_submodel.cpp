@@ -16,6 +16,20 @@ void epithelium_contact_function( Cell* pC1, Phenotype& p1, Cell* pC2, Phenotype
 
 void epithelium_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 {
+	// macrophage_BN_inputs:
+	// when you detect virus particles outside, turn node SARS_CoV_2 ON
+	static int nV_internal = pCell->custom_data.find_variable_index( "virion" ); 
+	pCell->phenotype.intracellular->set_boolean_variable_value(
+		"Virus_inside",
+		pCell->custom_data[nV_internal] > 1
+	);
+	// static int nV_external = microenvironment.find_density_index( "virion" ); 
+	// pCell->phenotype.intracellular->set_boolean_variable_value(
+	// 	"SARS_CoV_2",
+	// 	pCell->custom_data[nV_external] > 1
+	// );
+
+	//  BN inputs are set, run maboss:
 	if (pCell->phenotype.intracellular->need_update())
 	{		
 		pCell->phenotype.intracellular->update();
