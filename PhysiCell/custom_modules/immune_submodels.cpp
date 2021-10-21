@@ -566,7 +566,7 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 	// if( pCell->custom_data["interferon_activation"] == 1 ) // this will probably do not work as interferon_activation should be only activated in epithelial cells
 	static int nINF1 = microenvironment.find_density_index( "interferon 1" );
 	// if (pCell->nearest_density_vector()[nINF1] / ( pCell->custom_data["interferon_max_response_threshold"] + 1e-32 ) > 0.5) // comes from internal_viral_response.cpp, line 185
-	if ( pCell->nearest_density_vector()[nINF1] > 1.0 ) // TODO: which sensibility should the macrophages have ?
+	if ( pCell->nearest_density_vector()[nINF1] > 1.0 ) // TODO: which sensitivity should the macrophages have ?
 	{
 		pCell->phenotype.intracellular->set_boolean_variable_value("IFNa_e",1);
 		pCell->phenotype.intracellular->set_boolean_variable_value("IFNb_e",1);
