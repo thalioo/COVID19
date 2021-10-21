@@ -48,6 +48,7 @@ void CD8_Tcell_mechanics( Cell* pCell, Phenotype& phenotype, double dt );
 void immune_cell_motility_direction( Cell* pCell, Phenotype& phenotype , double dt );
 
 void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt ); 
+void macrophage_phenotype_original( Cell* pCell, Phenotype& phenotype, double dt ); 
 void macrophage_mechanics( Cell* pCell, Phenotype& phenotype, double dt ); 
 
 void neutrophil_phenotype( Cell* pCell, Phenotype& phenotype, double dt ); 
