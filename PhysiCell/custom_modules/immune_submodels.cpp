@@ -529,7 +529,7 @@ void immune_cell_motility_direction( Cell* pCell, Phenotype& phenotype , double 
 void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 {
 	// macrophage_BN_inputs:
-	// 1- when you detect dead epithelial cell in your vicinity, turn node Apoptosis_cell ON
+	// 1- when you detect dead epithelial cell in your vicinity, turn node Apoptotic_cell ON
 	// OR when you touch cell in your vecinitiy and these are apoptotic OR debris is above a threshold
 	// check for cells to eat
 	std::vector<Cell*> neighbors = pCell->cells_in_my_container(); 
@@ -548,7 +548,7 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 			// if it is not me and it's dead
 			if( pTestCell != pCell && pTestCell->phenotype.death.dead == true ) 
 			{
-				pCell->phenotype.intracellular->set_boolean_variable_value("Apoptosis_cell", 1);
+				pCell->phenotype.intracellular->set_boolean_variable_value("Apoptotic_cell", 1);
 			}
 			n++; 
 		}
