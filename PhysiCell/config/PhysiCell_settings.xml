@@ -578,8 +578,8 @@
 					</substrate>
 				</secretion>
 				<intracellular type="maboss">
-					<bnd_filename>./config/boolean_network/epithelial_cell_2.bnd</bnd_filename>
-					<cfg_filename>./config/boolean_network/epithelial_cell_2.cfg</cfg_filename>
+					<bnd_filename>./config/boolean_network/personalized/epithelial_cell_2_personalized_C141_FADD_ko.bnd</bnd_filename>
+					<cfg_filename>./config/boolean_network/personalized/epithelial_cell_2_personalized_C141_FADD_ko.cfg</cfg_filename>
 					<time_step units="min">12</time_step>
 				</intracellular>
 			</phenotype>
@@ -703,8 +703,8 @@
 				</volume>
 				
 				<intracellular type="maboss">
-					<bnd_filename>./config/boolean_network/macrophage.bnd</bnd_filename>
-					<cfg_filename>./config/boolean_network/macrophage.cfg</cfg_filename>
+					<bnd_filename>./config/boolean_network/personalized/macrophage_personalized_C141_p38_ko.bnd</bnd_filename>
+					<cfg_filename>./config/boolean_network/personalized/macrophage_personalized_C141_p38_ko.cfg</cfg_filename>
 					<time_step units="min">12</time_step>
 				</intracellular>
 			</phenotype>
