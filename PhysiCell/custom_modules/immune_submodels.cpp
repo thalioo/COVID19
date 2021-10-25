@@ -646,7 +646,7 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 	*/
 
 	// check for cells to eat 
-	std::vector<Cell*> neighbors = pCell->cells_in_my_container(); 
+	// std::vector<Cell*> neighbors = pCell->cells_in_my_container(); 
 
 	// at least one of the cells is pCell 
 	if( neighbors.size() < 2 )
