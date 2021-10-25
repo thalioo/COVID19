@@ -194,11 +194,7 @@ maboss_intracellular.o: ./addons/PhysiBoSS/src/maboss_intracellular.cpp
 	$(COMPILE_COMMAND) $(INC) -c ./addons/PhysiBoSS/src/maboss_intracellular.cpp
 
 MaBoSS: 
-ifeq ($(OS), Windows_NT)
-	python beta/setup_libmaboss.py
-else
-	python3 beta/setup_libmaboss.py
-endif
+	python3 addons/PhysiBoSS/setup_libmaboss.py
 
 MaBoSS-clean:
 	rm -fr addons/PhysiBoSS/MaBoSS-env-2.0
@@ -206,7 +202,7 @@ MaBoSS-clean:
 
 # cleanup
 	
-clean: MaBoSS-clean
+clean:
 	rm -f *.o
 	rm -f $(PROGRAM_NAME)*
 	
