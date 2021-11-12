@@ -115,13 +115,14 @@ void internal_virus_response_model( Cell* pCell, Phenotype& phenotype, double dt
 	
 	
 	
-	
 	if( R >= 1.00 - 1e-16 ) 
 	{
-		pCell->custom_data["infected_cell_chemokine_secretion_activated"] = 1.0; 
+		// pCell->custom_data["infected_cell_chemokine_secretion_activated"] = 1.0; 
+		pCell->phenotype.intracellular->set_boolean_variable_value("Chemokin_secretion", true);
 	}
 
-	if( pCell->custom_data["infected_cell_chemokine_secretion_activated"] > 0.1 && phenotype.death.dead == false )
+	// if( pCell->custom_data["infected_cell_chemokine_secretion_activated"] > 0.1 && phenotype.death.dead == false )
+	if( pCell->phenotype.intracellular->get_boolean_variable_value("Chemokin_secretion") && phenotype.death.dead == false )
 	{
 		double rate = AV; 
 		rate /= pCell->custom_data["max_apoptosis_half_max"];
@@ -137,7 +138,8 @@ void internal_virus_response_model( Cell* pCell, Phenotype& phenotype, double dt
 	}
 	
 	// (Adrianne) check whether the cell is undergoing pyroptosis and if so, evalute the pyropotosis model
-	if( pCell->custom_data["cell_pyroptosis_flag"]==1 )
+	// if( pCell->custom_data["cell_pyroptosis_flag"]==1 )
+	if( pCell->phenotype.intracellular->get_boolean_variable_value("Cell_Pyroptosis") )
 	{
 		pyroptosis_cascade( pCell, phenotype, dt ); 
 		return;
@@ -154,7 +156,8 @@ void internal_virus_response_model( Cell* pCell, Phenotype& phenotype, double dt
     //phenotype.secretion.uptake_rates[nV_external] = pCell->custom_data[nR_bind] * pCell->custom_data[nR_EU]; 
 
     // (Sara&Fiona) pyroptosis cascade in the cell is initiated if cell's viral_RNA is >1 (i.e. >=3). This is arbitraty to check things work.
-	if( R>=200 && (int)pCell->custom_data["cell_pyroptosis_flag"]==0 && (int)pCell->custom_data["cell_virus_induced_apoptosis_flag"]==0)
+	// if( R>=200 && (int)pCell->custom_data["cell_pyroptosis_flag"]==0 && (int)pCell->custom_data["cell_virus_induced_apoptosis_flag"]==0)
+	if( R>=200 && !pCell->phenotype.intracellular->get_boolean_variable_value("Cell_Pyroptosis") && (int)pCell->custom_data["cell_virus_induced_apoptosis_flag"]==0)
 	{
 		// set the probability (in 0,1) that a cell with a death-sentence pyroptoses (not apoptoses)
 		double cell_death_pyroptosis_probability = (R-200)/(1000-200); 
@@ -164,15 +167,19 @@ void internal_virus_response_model( Cell* pCell, Phenotype& phenotype, double dt
 		// randomise a number in 0,1 that determines the cell death mode (pyroptosis or apoptosis)
 		if(UniformRandom() < cell_death_pyroptosis_probability) 
 		{
-			pCell->custom_data["cell_pyroptosis_flag"]=1; //cell pyroptoses
+			// pCell->custom_data["cell_pyroptosis_flag"]=1; //cell pyroptoses
+			pCell->phenotype.intracellular->set_boolean_variable_value("Cell_Pyroptosis", true); //cell pyroptoses
 		}
 		
 		return;
 	}
 	// (Sara&Fiona)
-    else if(pyroptotic_cytokine_concentration>100.0 && (int)pCell->custom_data["cell_pyroptosis_flag"]==0) 
+    // else if(pyroptotic_cytokine_concentration>100.0 && (int)pCell->custom_data["cell_pyroptosis_flag"]==0) 
+    else if(pyroptotic_cytokine_concentration>100.0 && !pCell->phenotype.intracellular->get_boolean_variable_value("Cell_Pyroptosis")) 
     {
-		pCell->custom_data["cell_pyroptosis_flag"]=1; // Pyroptosis cascade is initiated
+		// pCell->custom_data["cell_pyroptosis_flag"]=1; // Pyroptosis cascade is initiated
+		pCell->phenotype.intracellular->set_boolean_variable_value("Cell_Pyroptosis", true); // Pyroptosis cascade is initiated
+		
 		pCell->custom_data["cell_bystander_pyroptosis_flag"]=1; // Pyroptosis cascade is initiated
 		//printf("Pyro bystander effect!\n");
 		return;

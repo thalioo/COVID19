@@ -32,7 +32,7 @@ ARCH := native # best auto-tuning
 ### MaBoSS configuration 
 # MaBoSS max nodes
 ifndef MABOSS_MAX_NODES
-MABOSS_MAX_NODES = 64
+MABOSS_MAX_NODES = 256
 endif
 
 # MaBoSS directory

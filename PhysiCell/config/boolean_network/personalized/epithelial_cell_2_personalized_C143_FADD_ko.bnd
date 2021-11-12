@@ -11,7 +11,7 @@ Node Chemokin_secretion {
 }
 
 Node Virus_expression {
-	logic = Virus_expression;
+	logic = Virus_inside;
 }
 
 Node TCell_attached {
