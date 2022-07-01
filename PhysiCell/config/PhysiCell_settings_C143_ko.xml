@@ -859,7 +859,11 @@
 						<uptake_rate units="1/min">0</uptake_rate>
 					</substrate> 	
 				</secretion>
-
+				<intracellular type="maboss">
+					<bnd_filename>./config/boolean_network/cd8t_cell.bnd</bnd_filename>
+					<cfg_filename>./config/boolean_network/cd8t_cell.cfg</cfg_filename>
+					<time_step units="min">12</time_step>
+				</intracellular>
 			</phenotype>
 			<custom_data>
 			</custom_data>
@@ -895,6 +899,11 @@
 						<uptake_rate units="1/min">0</uptake_rate>
 					</substrate> 	
 				</secretion>
+				<intracellular type="maboss">
+					<bnd_filename>./config/boolean_network/fibroblast.bnd</bnd_filename>
+					<cfg_filename>./config/boolean_network/fibroblast.cfg</cfg_filename>
+					<time_step units="min">12</time_step>
+				</intracellular>
 			</phenotype>
 			<custom_data>
 			</custom_data>
