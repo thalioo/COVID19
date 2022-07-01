@@ -548,7 +548,7 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 			// if it is not me and it's dead
 			if( pTestCell != pCell && pTestCell->phenotype.death.dead == true ) 
 			{
-				pCell->phenotype.intracellular->set_boolean_variable_value("Apoptosis_cell", 1);
+				pCell->phenotype.intracellular->set_boolean_variable_value("Apoptotic_cell", 1);
 			}
 			n++; 
 		}
