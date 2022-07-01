@@ -206,7 +206,7 @@ MaBoSS-clean:
 
 # cleanup
 	
-clean: MaBoSS-clean
+clean: 
 	rm -f *.o
 	rm -f $(PROGRAM_NAME)*
 	
