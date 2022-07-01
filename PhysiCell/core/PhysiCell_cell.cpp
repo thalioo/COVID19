@@ -610,6 +610,9 @@ void Cell::set_total_volume(double volume)
 	// phenotype.update_radius();
 	//if( get_container()->max_cell_interactive_distance_in_voxel[get_current_mechanics_voxel_index()] < 
 	//	phenotype.geometry.radius * parameters.max_interaction_distance_factor )
+	if (get_current_mechanics_voxel_index() == -1)
+	current_mechanics_voxel_index= get_container()->underlying_mesh.nearest_voxel_index( position );
+
 	if( get_container()->max_cell_interactive_distance_in_voxel[get_current_mechanics_voxel_index()] < 
 		phenotype.geometry.radius * phenotype.mechanics.relative_maximum_adhesion_distance )
 	{
