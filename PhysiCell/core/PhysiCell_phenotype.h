@@ -578,7 +578,7 @@ class Intracellular
 	virtual std::string get_state() = 0;  
 	
 	virtual Intracellular* clone() = 0;
-    
+	virtual ~Intracellular(){};
 	
 
     // ================  specific to "maboss" ================
