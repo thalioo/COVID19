@@ -108,7 +108,7 @@
 		<folder>output_C141</folder> <!-- use . for root --> 
 
 		<full_data>
-			<interval units="min">60</interval>
+			<interval units="min">15</interval>
 			<enable>true</enable>
 		</full_data>
 		
