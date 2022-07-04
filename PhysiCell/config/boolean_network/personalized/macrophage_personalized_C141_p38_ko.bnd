@@ -594,8 +594,8 @@ Node JNK {
 
 Node p38 {
   logic = (!TAK1K63 & TAK1K158) | (TAK1K63);
-  rate_up = @logic ? $u_p38 : 0;
-  rate_down = @logic ? 0 : $d_p38;
+	rate_up = $Low_p38 ? 0 : ($High_p38 ? 1E308/$nb_mutable : (@logic ? $u_p38 : 0));
+	rate_down = $High_p38 ? 0 : ($Low_p38 ? 1E308/$nb_mutable : (@logic ? 0 : $d_p38));
 }
 
 Node SOCS3 {
