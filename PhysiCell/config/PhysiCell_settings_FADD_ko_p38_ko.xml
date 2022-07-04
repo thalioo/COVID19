@@ -98,17 +98,17 @@
 	
 	<parallel>
 		<omp_num_threads>6</omp_num_threads>
-	</parallel> 
+	</parallel>
 
 	<options>
 		<legacy_random_points_on_sphere_in_divide>false</legacy_random_points_on_sphere_in_divide>
 	</options>	
 	
 	<save>
-		<folder>output</folder> <!-- use . for root --> 
+		<folder>output_FADD_ko_p38_ko</folder> <!-- use . for root --> 
 
 		<full_data>
-			<interval units="min">60</interval>
+			<interval units="min">15</interval>
 			<enable>true</enable>
 		</full_data>
 		
