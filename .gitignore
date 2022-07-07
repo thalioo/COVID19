@@ -33,3 +33,13 @@
 math/~$derlying assumptions.docx
 .DS_Store
 PhysiCell/.DS_Store
+
+PhysiCell/output/*.mat
+PhysiCell/output_*/*.mat
+PhysiCell/output/*.xml
+PhysiCell/output_*/*.xml
+PhysiCell/output/*.svg
+PhysiCell/output_*/*.svg
+PhysiCell/output/*.csv
+PhysiCell/output_*/*.csv
+
