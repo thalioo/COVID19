@@ -78,8 +78,9 @@
 #include <iterator> 
 
 #ifdef ADDON_PHYSIBOSS
-#include "../addons/PhysiBoSSa/src/maboss_intracellular.h"
+#include "../addons/PhysiBoSS/src/maboss_intracellular.h"
 #endif
+
 namespace PhysiCell{
 	
 std::unordered_map<std::string,Cell_Definition*> cell_definitions_by_name; 
@@ -546,6 +547,8 @@ Cell* Cell::divide( )
 	
 	// child->set_phenotype( phenotype ); 
 	child->phenotype = phenotype; 
+	if (child->phenotype.intracellular)
+        child->phenotype.intracellular->start();
 	
 	return child;
 }
@@ -607,6 +610,9 @@ void Cell::set_total_volume(double volume)
 	// phenotype.update_radius();
 	//if( get_container()->max_cell_interactive_distance_in_voxel[get_current_mechanics_voxel_index()] < 
 	//	phenotype.geometry.radius * parameters.max_interaction_distance_factor )
+	if (get_current_mechanics_voxel_index() == -1)
+	current_mechanics_voxel_index= get_container()->underlying_mesh.nearest_voxel_index( position );
+
 	if( get_container()->max_cell_interactive_distance_in_voxel[get_current_mechanics_voxel_index()] < 
 		phenotype.geometry.radius * phenotype.mechanics.relative_maximum_adhesion_distance )
 	{

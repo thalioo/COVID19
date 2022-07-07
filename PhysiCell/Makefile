@@ -1,5 +1,5 @@
 VERSION := $(shell grep . VERSION.txt | cut -f1 -d:)
-PROGRAM_NAME := myproj
+PROGRAM_NAME := COVID19
 
 CC := g++
 
@@ -8,31 +8,6 @@ CC := g++
 ifdef PHYSICELL_CPP 
 	CC := $(PHYSICELL_CPP)
 endif
-
-### MaBoSS configuration 
-# MaBoSS max nodes
-ifndef MABOSS_MAX_NODES
-MABOSS_MAX_NODES = 64
-endif
-
-# MaBoSS directory
-MABOSS_DIR = addons/PhysiBoSSa/MaBoSS-env-2.0/engine
-CUR_DIR = $(shell pwd)
-CUSTOM_DIR = custom_modules
-
-ifneq ($(OS), Windows_NT)
-	LDL_FLAG = -ldl
-endif
-
-LIB := -L$(CUR_DIR)/$(MABOSS_DIR)/lib -lMaBoSS $(LDL_FLAG)
-INC := -DADDON_PHYSIBOSS -I$(CUR_DIR)/$(MABOSS_DIR)/include -DMAXNODES=$(MABOSS_MAX_NODES)
-
-
-# If max nodes > 64, change lib path 
-ifeq ($(shell expr $(MABOSS_MAX_NODES) '>' 64), 1)
-LIB := -L$(CUR_DIR)/$(MABOSS_DIR)/lib -lMaBoSS_$(MABOSS_MAX_NODES)n $(LDL_FLAG)
-endif
-
 
 ARCH := native # best auto-tuning
 # ARCH := core2 # a reasonably safe default for most CPUs since 2007
@@ -52,6 +27,29 @@ ARCH := native # best auto-tuning
 # ARCH := skylake-avx512
 # ARCH := nocona #64-bit pentium 4 or later 
 
+### MaBoSS configuration 
+# MaBoSS max nodes
+ifndef MABOSS_MAX_NODES
+MABOSS_MAX_NODES = 256
+endif
+
+# MaBoSS directory
+CUR_DIR = $(shell pwd)
+MABOSS_DIR = addons/PhysiBoSS/MaBoSS-env-2.0/engine
+
+ifneq ($(OS), Windows_NT)
+	LDL_FLAG = -ldl
+endif
+
+LIB := -L$(CUR_DIR)/$(MABOSS_DIR)/lib -lMaBoSS-static $(LDL_FLAG)
+INC := -DADDON_PHYSIBOSS -I$(CUR_DIR)/$(MABOSS_DIR)/include -DMAXNODES=$(MABOSS_MAX_NODES)
+
+
+# If max nodes > 64, change lib path 
+ifeq ($(shell expr $(MABOSS_MAX_NODES) '>' 64), 1)
+LIB := -L$(CUR_DIR)/$(MABOSS_DIR)/lib -lMaBoSS_$(MABOSS_MAX_NODES)n-static $(LDL_FLAG)
+endif
+
 # CFLAGS := -march=$(ARCH) -Ofast -s -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11
 # remove the -march arg to avoid SIGILL error on nanoHUB
 #CFLAGS := -march=$(ARCH) -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11
@@ -69,17 +67,16 @@ PhysiCell_cell.o PhysiCell_custom.o PhysiCell_utilities.o PhysiCell_constants.o
 PhysiCell_module_OBJECTS := PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o \
 PhysiCell_pugixml.o PhysiCell_settings.o
 
-# PhysiBoSS objects
-PhysiBoSSa_OBJECTS := maboss_network.o maboss_intracellular.o
-
 # put your custom objects here (they should be in the custom_modules directory)
 
-PhysiCell_custom_module_OBJECTS := custom.o submodel_data_structures.o internal_viral_dynamics.o internal_viral_response.o receptor_dynamics.o immune_submodels.o epithelium_submodel.o
+PhysiBoSS_OBJECTS := maboss_network.o maboss_intracellular.o
+
+PhysiCell_custom_module_OBJECTS := custom.o external_immune.o submodel_data_structures.o internal_viral_dynamics.o internal_viral_response.o receptor_dynamics.o immune_submodels.o epithelium_submodel.o
 
 pugixml_OBJECTS := pugixml.o
 
 PhysiCell_OBJECTS := $(BioFVM_OBJECTS)  $(pugixml_OBJECTS) $(PhysiCell_core_OBJECTS) $(PhysiCell_module_OBJECTS)
-ALL_OBJECTS := $(PhysiCell_OBJECTS) $(PhysiCell_custom_module_OBJECTS) $(PhysiBoSSa_OBJECTS) 
+ALL_OBJECTS := $(PhysiCell_OBJECTS) $(PhysiCell_custom_module_OBJECTS) $(PhysiBoSS_OBJECTS)
 
 # compile the project 
 
@@ -164,18 +161,6 @@ PhysiCell_pugixml.o: ./modules/PhysiCell_pugixml.cpp
 PhysiCell_settings.o: ./modules/PhysiCell_settings.cpp
 	$(COMPILE_COMMAND) -c ./modules/PhysiCell_settings.cpp
 	
-# MaBoSS objects
-
-MaBoSS:
-	cd $(MABOSS_DIR)/src && make MAXNODES=$(MABOSS_MAX_NODES) install_alib
-
-maboss_network.o: ./addons/PhysiBoSSa/src/maboss_network.cpp
-	$(COMPILE_COMMAND) $(INC) -c ./addons/PhysiBoSSa/src/maboss_network.cpp
-
-maboss_intracellular.o: ./addons/PhysiBoSSa/src/maboss_intracellular.cpp
-	$(COMPILE_COMMAND) $(INC) -c ./addons/PhysiBoSSa/src/maboss_intracellular.cpp
-
-
 # user-defined PhysiCell modules
 
 custom.o: ./custom_modules/custom.cpp 
@@ -189,6 +174,9 @@ internal_viral_dynamics.o: ./custom_modules/internal_viral_dynamics.cpp
 
 internal_viral_response.o: ./custom_modules/internal_viral_response.cpp
 	$(COMPILE_COMMAND) -c ./custom_modules/internal_viral_response.cpp
+	
+external_immune.o: ./custom_modules/external_immune.cpp
+	$(COMPILE_COMMAND) -c ./custom_modules/external_immune.cpp
 
 receptor_dynamics.o: ./custom_modules/receptor_dynamics.cpp
 	$(COMPILE_COMMAND) -c ./custom_modules/receptor_dynamics.cpp
@@ -199,11 +187,26 @@ immune_submodels.o: ./custom_modules/immune_submodels.cpp
 epithelium_submodel.o: ./custom_modules/epithelium_submodel.cpp
 	$(COMPILE_COMMAND) -c ./custom_modules/epithelium_submodel.cpp 
 
+# MaBoSS objects
+
+maboss_network.o: ./addons/PhysiBoSS/src/maboss_network.cpp
+	$(COMPILE_COMMAND) $(INC) -c ./addons/PhysiBoSS/src/maboss_network.cpp
+
+maboss_intracellular.o: ./addons/PhysiBoSS/src/maboss_intracellular.cpp
+	$(COMPILE_COMMAND) $(INC) -c ./addons/PhysiBoSS/src/maboss_intracellular.cpp
+
+MaBoSS: 
+ifeq ($(OS), Windows_NT)
+	python beta/setup_libmaboss.py
+else
+	python3 beta/setup_libmaboss.py
+endif
+
 # cleanup
 MaBoSS-clean:
 	cd $(MABOSS_DIR)/src && make clean
 	
-clean: MaBoSS-clean
+clean: 
 	rm -f *.o
 	rm -f $(PROGRAM_NAME)*
 	

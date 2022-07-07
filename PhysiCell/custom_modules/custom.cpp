@@ -218,9 +218,13 @@ void setup_tissue( void )
 			if (PhysiCell::UniformRandom() < parameters.doubles("m_inhibition_percentage"))
 				pC->phenotype.intracellular->set_parameter_value("$M_ko", 1.0);
 			
+			if (PhysiCell::UniformRandom() < parameters.doubles("m_inhibition_percentage"))
+				pC->phenotype.intracellular->set_parameter_value("$M_ko", 1.0);
+			
 			if (PhysiCell::UniformRandom() < parameters.doubles("fadd_inhibition_percentage"))
 				pC->phenotype.intracellular->set_parameter_value("$FADD_ko", 1.0);
 				
+			
 			double dx = x - center_x;
 			double dy = y - center_y; 
 			
@@ -362,6 +366,9 @@ std::vector<std::string> tissue_coloring_function( Cell* pCell )
 	static int CD8_Tcell_type = get_cell_definition( "CD8 Tcell" ).type; 
 	static int Macrophage_type = get_cell_definition( "macrophage" ).type; 
 	static int Neutrophil_type = get_cell_definition( "neutrophil" ).type; 
+	static int DC_type = get_cell_definition( "DC" ).type; 
+	static int CD4_Tcell_type = get_cell_definition( "CD4 Tcell" ).type; 
+	static int fibroblast_type = get_cell_definition( "fibroblast" ).type; 
 	
 	// start with white 
 	
@@ -398,13 +405,29 @@ std::vector<std::string> tissue_coloring_function( Cell* pCell )
 		output[3] = output[0];
 		return output; 
 	}
+	
+	// (Adrianne) adding CD4 T cell colouring
+	if( pCell->phenotype.death.dead == false && pCell->type == CD4_Tcell_type )
+	{
+		output[0] = parameters.strings("CD4_Tcell_color");  
+		output[2] = output[0];
+		output[3] = output[0];
+		return output; 
+	}
 
 	if( pCell->phenotype.death.dead == false && pCell->type == Macrophage_type )
 	{
 		std::string color = parameters.strings("Macrophage_color");  
 		// if( pCell->custom_data["activated_immune_cell" ] > 0.5 )
-		if( pCell->phenotype.intracellular->get_boolean_node_value("Active") )
+		if( pCell->phenotype.intracellular->get_boolean_variable_value("Active") )
+
 		{ color = parameters.strings("activated_macrophage_color"); }
+		
+		// (Adrianne) added colours to show when macrophages are exhausted and when they are hyperactivated
+		if( pCell->phenotype.volume.total> pCell->custom_data["threshold_macrophage_volume"] )// macrophage exhausted
+		{ color = parameters.strings("exhausted_macrophage_color"); }
+		else if( pCell->custom_data["ability_to_phagocytose_infected_cell"] == 1)// macrophage has been activated to kill infected cells by T cell
+		{ color = parameters.strings("hyperactivated_macrophage_color"); }
 		
 		output[0] = color; 
 		output[2] = output[0];
@@ -415,6 +438,29 @@ std::vector<std::string> tissue_coloring_function( Cell* pCell )
 	if( pCell->phenotype.death.dead == false && pCell->type == Neutrophil_type )
 	{
 		output[0] = parameters.strings("Neutrophil_color");  
+		output[2] = output[0];
+		output[3] = output[0];
+		return output; 
+	}
+	
+	//(Adrianne) adding colour for DCs
+	if( pCell->phenotype.death.dead == false && pCell->type == DC_type )
+	{
+		std::string color = parameters.strings("DC_color");  
+		// if( pCell->custom_data["activated_immune_cell" ] > 0.5 )
+		if( pCell->phenotype.intracellular->get_boolean_variable_value("Active") )
+
+		{ color = parameters.strings("activated_DC_color"); }
+	
+		output[0] = color; 
+		output[2] = output[0];
+		output[3] = output[0];
+		return output; 
+	}
+	
+	if( pCell->phenotype.death.dead == false && pCell->type == fibroblast_type )
+	{
+		output[0] = parameters.strings("fibroblast_color");  
 		output[2] = output[0];
 		output[3] = output[0];
 		return output; 
@@ -436,17 +482,20 @@ bool Write_SVG_circle_opacity( std::ostream& os, double center_x, double center_
 //
 void SVG_plot_virus( std::string filename , Microenvironment& M, double z_slice , double time, std::vector<std::string> (*cell_coloring_function)(Cell*) )
 {
-	double X_lower = M.mesh.bounding_box[0];
-	double X_upper = M.mesh.bounding_box[3];
+	static double X_lower = M.mesh.bounding_box[0];
+	static double X_upper = M.mesh.bounding_box[3];
  
-	double Y_lower = M.mesh.bounding_box[1]; 
-	double Y_upper = M.mesh.bounding_box[4]; 
+	static double Y_lower = M.mesh.bounding_box[1]; 
+	static double Y_upper = M.mesh.bounding_box[4]; 
 
-	double plot_width = X_upper - X_lower; 
-	double plot_height = Y_upper - Y_lower; 
+	static double plot_width = X_upper - X_lower; 
+	static double plot_height = Y_upper - Y_lower; 
 
-	double font_size = 0.025 * plot_height; // PhysiCell_SVG_options.font_size; 
-	double top_margin = font_size*(.2+1+.2+.9+.5 ); 
+	static double font_size = 0.025 * plot_height; // PhysiCell_SVG_options.font_size; 
+	static double top_margin = font_size*(.2+1+.2+.9+.5 ); 
+	
+	static double epithelial_opacity = parameters.doubles("epithelial_opacity");
+	static double non_epithelial_opacity = parameters.doubles("non_epithelial_opacity"); 
 
 	// open the file, write a basic "header"
 	std::ofstream os( filename , std::ios::out );
@@ -571,8 +620,8 @@ void SVG_plot_virus( std::string filename , Microenvironment& M, double z_slice 
    
 			double plot_radius = sqrt( r*r - z*z ); 
 
-			Write_SVG_circle( os, (pC->position)[0]-X_lower, (pC->position)[1]-Y_lower, 
-				plot_radius , 0.5, Colors[1], Colors[0] ); 
+			Write_SVG_circle_opacity( os, (pC->position)[0]-X_lower, (pC->position)[1]-Y_lower, 
+				plot_radius , 0.5, Colors[1], Colors[0] , epithelial_opacity ); 
 	/*
 			// plot the nucleus if it, too intersects z = 0;
 			if( fabs(z) < rn && PhysiCell_SVG_options.plot_nuclei == true )
@@ -609,7 +658,7 @@ void SVG_plot_virus( std::string filename , Microenvironment& M, double z_slice 
 			double plot_radius = sqrt( r*r - z*z ); 
 
 			Write_SVG_circle_opacity( os, (pC->position)[0]-X_lower, (pC->position)[1]-Y_lower, 
-				plot_radius , 0.5, Colors[1], Colors[0] , 0.7 ); 
+				plot_radius , 0.5, Colors[1], Colors[0] , non_epithelial_opacity ); 
 /*
 			// plot the nucleus if it, too intersects z = 0;
 			if( fabs(z) < rn && PhysiCell_SVG_options.plot_nuclei == true )

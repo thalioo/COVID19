@@ -1063,8 +1063,18 @@ Phenotype::Phenotype()
 	return; 
 }
 
+Phenotype::Phenotype(const Phenotype &p) {
+	intracellular = NULL;
+	*this = p;
+}
 
-void Phenotype::operator=(const Phenotype &p ) { 
+Phenotype::~Phenotype() 
+{
+	if (intracellular != NULL)
+		delete intracellular;
+}
+
+Phenotype& Phenotype::operator=(const Phenotype &p ) { 
 		
 	flagged_for_division = p.flagged_for_division;
 	flagged_for_removal = p.flagged_for_removal;
@@ -1079,27 +1089,14 @@ void Phenotype::operator=(const Phenotype &p ) {
 	
 	molecular = p.molecular;
 	
-	if (p.intracellular != NULL)
-		intracellular = p.intracellular->clone();
-}
-	
-void Phenotype::operator=(Phenotype &p ) { 
-	
-	flagged_for_division = p.flagged_for_division;
-	flagged_for_removal = p.flagged_for_removal;
-	
-	cycle = p.cycle;
-	death = p.death;
-	volume = p.volume;
-	geometry = p.geometry;
-	mechanics = p.mechanics;
-	motility = p.motility;
-	secretion = p.secretion;
-	
-	molecular = p.molecular;
+	delete intracellular;
 	
 	if (p.intracellular != NULL)
 		intracellular = p.intracellular->clone();
+	else
+		intracellular = NULL;
+	
+	return *this;
 }
 /*
 class Bools
