@@ -20,6 +20,30 @@ ARCH := native # best auto-tuning
 # ARCH := skylake-avx512
 # ARCH := nocona #64-bit pentium 4 or later 
 
+### MaBoSS configuration 
+# MaBoSS max nodes
+ifndef MABOSS_MAX_NODES
+MABOSS_MAX_NODES = 256
+endif
+
+# MaBoSS directory
+CUR_DIR = $(shell pwd)
+MABOSS_DIR = addons/PhysiBoSS/MaBoSS-env-2.0/engine
+
+ifneq ($(OS), Windows_NT)
+	LDL_FLAG = -ldl
+endif
+
+LIB := -L$(CUR_DIR)/$(MABOSS_DIR)/lib -lMaBoSS-static $(LDL_FLAG)
+INC := -DADDON_PHYSIBOSS -I$(CUR_DIR)/$(MABOSS_DIR)/include -DMAXNODES=$(MABOSS_MAX_NODES)
+
+
+# If max nodes > 64, change lib path 
+ifeq ($(shell expr $(MABOSS_MAX_NODES) '>' 64), 1)
+LIB := -L$(CUR_DIR)/$(MABOSS_DIR)/lib -lMaBoSS_$(MABOSS_MAX_NODES)n-static $(LDL_FLAG)
+endif
+
+
 # CFLAGS := -march=$(ARCH) -Ofast -s -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11
 CFLAGS := -march=$(ARCH) -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11
 
@@ -47,6 +71,8 @@ PhysiCell_signal_behavior.o
 PhysiCell_module_OBJECTS := PhysiCell_SVG.o PhysiCell_pathology.o PhysiCell_MultiCellDS.o PhysiCell_various_outputs.o \
 PhysiCell_pugixml.o PhysiCell_settings.o PhysiCell_geometry.o
 
+PhysiBoSS_OBJECTS := maboss_network.o maboss_intracellular.o
+
 # put your custom objects here (they should be in the custom_modules directory)
 
 PhysiCell_custom_module_OBJECTS := custom.o DC_history.o external_immune.o submodel_data_structures.o internal_viral_dynamics.o internal_viral_response.o receptor_dynamics.o immune_submodels.o epithelium_submodel.o 
@@ -54,12 +80,12 @@ PhysiCell_custom_module_OBJECTS := custom.o DC_history.o external_immune.o submo
 pugixml_OBJECTS := pugixml.o
 
 PhysiCell_OBJECTS := $(BioFVM_OBJECTS)  $(pugixml_OBJECTS) $(PhysiCell_core_OBJECTS) $(PhysiCell_module_OBJECTS)
-ALL_OBJECTS := $(PhysiCell_OBJECTS) $(PhysiCell_custom_module_OBJECTS)
+ALL_OBJECTS := $(PhysiCell_OBJECTS) $(PhysiCell_custom_module_OBJECTS) $(PhysiBoSS_OBJECTS)
 
 # compile the project 
 
-all: main.cpp $(ALL_OBJECTS)
-	$(COMPILE_COMMAND) -o $(PROGRAM_NAME) $(ALL_OBJECTS) main.cpp 
+all: MaBoSS main.cpp $(ALL_OBJECTS)
+	$(COMPILE_COMMAND) $(INC) -o $(PROGRAM_NAME) $(ALL_OBJECTS) main.cpp $(LIB)
 
 # PhysiCell core components	
 
@@ -70,7 +96,7 @@ PhysiCell_digital_cell_line.o: ./core/PhysiCell_digital_cell_line.cpp
 	$(COMPILE_COMMAND) -c ./core/PhysiCell_digital_cell_line.cpp
 
 PhysiCell_cell.o: ./core/PhysiCell_cell.cpp
-	$(COMPILE_COMMAND) -c ./core/PhysiCell_cell.cpp 
+	$(COMPILE_COMMAND) $(INC) -c ./core/PhysiCell_cell.cpp 
 
 PhysiCell_cell_container.o: ./core/PhysiCell_cell_container.cpp
 	$(COMPILE_COMMAND) -c ./core/PhysiCell_cell_container.cpp 
@@ -176,6 +202,25 @@ epithelium_submodel.o: ./custom_modules/epithelium_submodel.cpp
 	
 DC_history.o: ./custom_modules/DC_history.cpp
 	$(COMPILE_COMMAND) -c ./custom_modules/DC_history.cpp 
+
+# MaBoSS objects
+
+maboss_network.o: ./addons/PhysiBoSS/src/maboss_network.cpp
+	$(COMPILE_COMMAND) $(INC) -c ./addons/PhysiBoSS/src/maboss_network.cpp
+
+maboss_intracellular.o: ./addons/PhysiBoSS/src/maboss_intracellular.cpp
+	$(COMPILE_COMMAND) $(INC) -c ./addons/PhysiBoSS/src/maboss_intracellular.cpp
+
+MaBoSS: 
+ifeq ($(OS), Windows_NT)
+	python beta/setup_libmaboss.py
+else
+	python3 beta/setup_libmaboss.py
+endif
+
+# cleanup
+MaBoSS-clean:
+	cd $(MABOSS_DIR)/src && make clean
 
 # cleanup
 

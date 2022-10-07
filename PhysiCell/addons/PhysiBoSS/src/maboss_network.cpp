@@ -16,13 +16,15 @@ void MaBoSSNetwork::init_maboss( std::string networkFile, std::string configFile
 	}
 	
 	try{
-		// Initialize MaBoSS Objects for a model
-		this->network = new Network();
-		this->network->parse(networkFile.c_str());
+		#pragma omp critical
+		{
+			// Initialize MaBoSS Objects for a model
+			this->network = new Network();
+			this->network->parse(networkFile.c_str());
 
-		this->config = new RunConfig();
-		this->config->parse(this->network, configFile.c_str());
-
+			this->config = new RunConfig();
+			this->config->parse(this->network, configFile.c_str());
+		}
 		IStateGroup::checkAndComplete(this->network);
 
 		engine = new StochasticSimulationEngine(this->network, this->config, PhysiCell::UniformInt());
@@ -112,11 +114,18 @@ bool MaBoSSNetwork::has_node( std::string name ) {
 }
 
 void MaBoSSNetwork::set_node_value(std::string name, bool value) {
-	state.setNodeState(nodesByName[name], value);
+	if (has_node(name))
+		state.setNodeState(nodesByName[name], value);
+	else 
+		std::cout << "Can't find node " << name  << "!!!!" << std::endl;
 }
 
 bool MaBoSSNetwork::get_node_value(std::string name) {
-	return state.getNodeState(nodesByName[name]);
+	if (has_node(name))
+		return state.getNodeState(nodesByName[name]);
+	else
+		std::cout << "Can't find node " << name  << "!!!!" << std::endl;
+		return true;
 }
 
 std::string MaBoSSNetwork::get_state() {
