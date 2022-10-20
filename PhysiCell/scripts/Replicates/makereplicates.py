@@ -23,7 +23,7 @@ def generate_parSamples(Replicas_number, fileOut):
         # set system time as seed
         # create a seed
         seed_value = random.randrange(sys.maxsize)
-        omp_num_threads = 8
+        omp_num_threads =20 
         # save this seed somewhere. So if you like the result you can use this seed to reproduce it
         file.write("random_seed"+" "+str(seed_value)+"\n")
         file.write("omp_num_threads"+" "+str(omp_num_threads)+"\n")
