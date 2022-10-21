@@ -10,7 +10,13 @@ import sys
 os.chdir('../../')
 sys.path.append('.')
 from pyMCDS import pyMCDS
+import argparse
 
+
+parser = argparse.ArgumentParser(description='Process input')
+parser.add_argument('folder', type=str, default="", help='Choose which results to analyse')
+
+args = parser.parse_args()
 
 # In[ ]:
 
@@ -28,7 +34,10 @@ temp1_DL = []  # 3
 for j in range(20): 
 
     file_name = 'dm_tc.dat'
-    path = 'output_R'+str("%02d"%j)
+    if len(args.folder) > 0:
+            path = os.path.join(args.folder, 'output_R'+str("%02d"%j))
+        else:
+            path = 'output_R'+str("%02d"%j)
     
     os.chdir(path)
     d = np.loadtxt(file_name)
