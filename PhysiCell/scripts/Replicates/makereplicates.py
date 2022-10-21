@@ -10,6 +10,7 @@ import os
 import sys
 import random
 import time
+import argparse
 
 os.chdir('../../')
 def generate_parSamples(Replicas_number, fileOut):
@@ -30,9 +31,10 @@ def generate_parSamples(Replicas_number, fileOut):
         file.write("#"+"\n")
     file.close()
 
-def generate_configXML(params_file):
-    xml_file_in = 'config/PhysiCell_settings.xml'
+def generate_configXML(settings, params_file):
+    xml_file_in = 'config/%s' % settings
     xml_file_out = 'config/tmp.xml'
+    prefix = settings.replace("PhysiCell_settings","").replace(".xml", "")[1:]
     copyfile(xml_file_in,xml_file_out)
     tree = ET.parse(xml_file_out)
     xml_root = tree.getroot()
@@ -53,8 +55,8 @@ def generate_configXML(params_file):
                     # write the config file to the previous folder (output) dir and start a simulation
                     print('---write (previous) config file and start its sim')
                     tree.write(xml_file_out)
-                xml_file_out = val + '/config.xml'  # copy config file into the output dir
-                output_dirs.append(val)
+                xml_file_out = os.path.join(prefix, val) + '/config.xml'  # copy config file into the output dir
+                output_dirs.append(os.path.join(prefix, val))
             if ('.' in key):
                 k = key.split('.')
                 uep = xml_root
@@ -62,18 +64,25 @@ def generate_configXML(params_file):
                     uep = uep.find('.//' + k[idx])  # unique entry point (uep) into xml
                 uep.text = val
             else:
-                if (key == 'folder' and not os.path.exists(val)):
+                if (key == 'folder' and not os.path.exists(os.path.join(prefix, val))):
                     print('creating ' + val)
-                    os.makedirs(val)
-                xml_root.find('.//' + key).text = val
-
+                    os.makedirs(os.path.join(prefix, val))
+                if key == "folder" and len(prefix) > 0:
+                    xml_root.find('.//' + key).text = os.path.join(prefix, val)
+                else:            
+                    xml_root.find('.//' + key).text = val
     tree.write(xml_file_out)
     print(output_dirs)
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Process input')
+    parser.add_argument('settings', type=str, default="PhysiCell_settings.xml", help='Choose which settings to simulate')
+    
+    args = parser.parse_args()
+
     file = "Seeds.txt"
     Replicas_number = 12
     # Generate samples from Latin Hypercube
     generate_parSamples(Replicas_number, file)
     # Create .xml and folder to each simulation
-    generate_configXML(file)
+    generate_configXML(args.settings, file)

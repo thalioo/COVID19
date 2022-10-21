@@ -7,9 +7,15 @@ import scipy.io as sio
 import numpy as np
 import os
 import sys
+import argparse
 os.chdir('../../')
 sys.path.append('.')
 from pyMCDS import pyMCDS
+
+parser = argparse.ArgumentParser(description='Process input')
+parser.add_argument('folder', type=str, default="", help='Choose which results to analyse')
+
+args = parser.parse_args()
 
 
 # In[ ]:
@@ -55,8 +61,12 @@ for j in range(12):
     temp1_epi = []  # 1
 
     for k in range(145):
+
         str_name = 'output{:08d}.xml'.format(k)
-        path = 'output_R'+str("%02d"%j)
+        if len(args.folder) > 0:
+            path = os.path.join(args.folder, 'output_R'+str("%02d"%j))
+        else:
+            path = 'output_R'+str("%02d"%j)
         mcds = pyMCDS(str_name, path)  # /case1/run3/output
 
         cycle = mcds.data['discrete_cells']['cycle_model']
