@@ -14,7 +14,7 @@ import argparse
 
 
 parser = argparse.ArgumentParser(description='Process input')
-parser.add_argument('folder', type=str, default="", help='Choose which results to analyse')
+parser.add_argument('--folder', type=str, default="", help='Choose which results to analyse')
 
 args = parser.parse_args()
 
@@ -35,9 +35,9 @@ for j in range(20):
 
     file_name = 'dm_tc.dat'
     if len(args.folder) > 0:
-            path = os.path.join(args.folder, 'output_R'+str("%02d"%j))
-        else:
-            path = 'output_R'+str("%02d"%j)
+        path = os.path.join(args.folder, 'output_R'+str("%02d"%j))
+    else:
+        path = 'output_R'+str("%02d"%j)
     
     os.chdir(path)
     d = np.loadtxt(file_name)
@@ -87,8 +87,12 @@ data.append( np.vstack((meanDM, meanTC, meanTH1, meanTH2, meanBC, meanPS, meanDL
 datatrace= np.dstack([aDM,aTC,aTH1,aTH2,aBC,aPS,aDL])
 
 timedata = np.asarray(data)
+if len(args.folder) > 0:
+    sio.savemat(os.path.join(args.folder, 'timeReplicateDat.mat'), {'timedata':timedata})
+    sio.savemat(os.path.join(args.folder, 'timeTracesDat.mat'), {'tracedata':datatrace})
 
-sio.savemat('timeReplicateDat.mat', {'timedata':timedata})
-sio.savemat('timeTracesDat.mat', {'tracedata':datatrace})
+else:
+    sio.savemat('timeReplicateDat.mat', {'timedata':timedata})
+    sio.savemat('timeTracesDat.mat', {'tracedata':datatrace})
 
 
