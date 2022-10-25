@@ -51,6 +51,8 @@ class MaBoSSIntracellular : public PhysiCell::Intracellular {
 	
 	void start() {
 		this->maboss.restart_node_values();
+		this->next_physiboss_run = PhysiCell::PhysiCell_globals.current_time + this->maboss.get_time_to_update();
+
 	}
 	
 	void update() {
