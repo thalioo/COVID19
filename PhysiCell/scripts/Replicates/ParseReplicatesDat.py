@@ -14,7 +14,7 @@ import argparse
 
 
 parser = argparse.ArgumentParser(description='Process input')
-parser.add_argument('folder', type=str, default="", help='Choose which results to analyse')
+parser.add_argument('--folder', type=str, default="", help='Choose which results to analyse')
 
 args = parser.parse_args()
 
@@ -34,9 +34,9 @@ for j in range(12):
 
     file_name = 'dm_tc.dat'
     if len(args.folder) > 0:
-            path = os.path.join(args.folder, 'output_R'+str("%02d"%j))
-        else:
-            path = 'output_R'+str("%02d"%j)
+        path = os.path.join(args.folder, 'output_R'+str("%02d"%j))
+    else:
+        path = 'output_R'+str("%02d"%j)
     
     os.chdir(path)
     d = np.loadtxt(file_name)
@@ -85,6 +85,8 @@ stdDL = np.std(aDL, axis=0)
 data.append( np.vstack((meanDM, meanTC, meanTH1, meanTH2, meanBC, meanPS, meanDL, stdDM, stdTC, stdTH1, stdTH2, stdBC, stdPS, stdDL)) )
 
 timedata = np.asarray(data)
-
-sio.savemat('timeReplicateDat.mat', {'timedata':timedata})
+if len(args.folder) > 0:
+    sio.savemat(os.path.join(args.folder, 'timeReplicateDat.mat'), {'timedata':timedata})
+else:
+    sio.savemat('timeReplicateDat.mat', {'timedata':timedata})
 

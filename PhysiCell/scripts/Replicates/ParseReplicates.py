@@ -13,7 +13,7 @@ sys.path.append('.')
 from pyMCDS import pyMCDS
 
 parser = argparse.ArgumentParser(description='Process input')
-parser.add_argument('folder', type=str, default="", help='Choose which results to analyse')
+parser.add_argument('--folder', type=str, default="", help='Choose which results to analyse')
 
 args = parser.parse_args()
 
@@ -205,5 +205,8 @@ data.append( np.vstack((meanCD8, meanmac, meanmacM2, meanmaci, meanmach, meanmac
 
 timedata = np.asarray(data)
 
-sio.savemat('timeReplicate.mat', {'timedata':timedata})
+if len(args.folder) > 0:
+    sio.savemat(os.path.join(args.folder, 'timeReplicate.mat'), {'timedata':timedata})
+else:    
+    sio.savemat('timeReplicate.mat', {'timedata':timedata})
 

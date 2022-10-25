@@ -6,14 +6,25 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 os.chdir('../../')
+import argparse
 
-a = sio.loadmat('timeReplicate.mat')
-cells = a['timedata']
-b = sio.loadmat('timeReplicateDat.mat')
-cellsb = b['timedata']
 
-cells.shape
-cellsb.shape
+parser = argparse.ArgumentParser(description='Process input')
+parser.add_argument('--folder', type=str, default="", help='Choose which results to analyse')
+
+args = parser.parse_args()
+
+if len(args.folder) > 0:
+    a = sio.loadmat(os.path.join(args.folder, 'timeReplicate.mat'))
+    cells = a['timedata']
+    b = sio.loadmat(os.path.join(args.folder, 'timeReplicateDat.mat'))
+    cellsb = b['timedata']
+
+else:
+    a = sio.loadmat('timeReplicate.mat')
+    cells = a['timedata']
+    b = sio.loadmat('timeReplicateDat.mat')
+    cellsb = b['timedata']
 
 mac = np.squeeze(np.sum([cells[:,1:5,:]], axis=2))
 mac_v = np.squeeze(np.sum([cells[:,1+17:5+17,:]], axis=2))
@@ -70,7 +81,12 @@ for i in range(1):
     ax.set_facecolor("#EEEEEE")  # #E6E6E6, #D3D3D3
 
 plt.tight_layout()
-fig.savefig('lymphimmune.png', dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600,
+
+if len(args.folder) > 0:
+    fig.savefig(os.path.join(args.folder, 'lymphimmune.png'), dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600,
+
+else:
+    fig.savefig('lymphimmune.png', dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600,
 plt.cla()  
 plt.clf()
 
@@ -99,7 +115,11 @@ for i in range(1):
     ax.set_facecolor("#EEEEEE")  # #E6E6E6, #D3D3D3
 
 plt.tight_layout()
-fig.savefig('innateimmune.png', dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600,
+if len(args.folder) > 0:
+    fig.savefig(os.path.join(args.folder, 'innateimmune.png'), dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600,
+else:
+    fig.savefig('innateimmune.png', dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600,
+  
 plt.cla()  
 plt.clf()
 
@@ -126,7 +146,11 @@ for i in range(1):
     ax.set_facecolor("#EEEEEE")  # #E6E6E6, #D3D3D3
 
 plt.tight_layout()
-fig.savefig('immune.png', dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600,
+if len(args.folder) > 0:
+    fig.savefig(os.path.join(args.folder, 'immune.png'), dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600,
+else:
+    fig.savefig('immune.png', dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600,
+
 plt.cla()  
 plt.clf()
 
@@ -161,7 +185,12 @@ for i in range(1):
     #ax.set_facecolor("#EEEEEE")  # #E6E6E6, #D3D3D3
 
 plt.tight_layout()
-fig.savefig('populationvir.png', dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
+if len(args.folder) > 0:
+    fig.savefig(os.path.join(args.folder, 'populationvir.png'), dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
+else:
+    fig.savefig('populationvir.png', dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
+
+
 plt.clf()
 
 fig, ax = plt.subplots(figsize=(6, 4))
@@ -196,7 +225,10 @@ for i in range(1):
     #ax.set_facecolor("#EEEEEE")  # #E6E6E6, #D3D3D3
 
 plt.tight_layout()
-fig.savefig('populationaIpI.png', dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
+if len(args.folder) > 0:
+    fig.savefig(os.path.join(args.folder, 'populationaIpI.png'), dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
+else:
+    fig.savefig('populationaIpI.png', dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
 plt.clf()
 
 fig, ax = plt.subplots(figsize=(6, 4))
@@ -221,7 +253,10 @@ for i in range(1):
     ax.set_facecolor("#EEEEEE")  # #E6E6E6, #D3D3D3
 
 plt.tight_layout()
-fig.savefig('populationcol.png', dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
+if len(args.folder) > 0:
+    fig.savefig(os.path.join(args.folder, 'populationcol.png'), dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
+else:
+    fig.savefig('populationcol.png', dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
 plt.clf()
 
 fig, ax = plt.subplots(figsize=(6, 4))
@@ -246,4 +281,7 @@ for i in range(1):
     ax.set_facecolor("#EEEEEE")  # #E6E6E6, #D3D3D3
 
 plt.tight_layout()
-fig.savefig('populationepi.png', dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
+if len(args.folder) > 0:
+    fig.savefig(os.path.join(args.folder, 'populationepi.png'), dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
+else:
+    fig.savefig('populationepi.png', dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
