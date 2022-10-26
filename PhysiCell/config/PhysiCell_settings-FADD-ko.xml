@@ -605,7 +605,7 @@
 				</secretion>
 				<intracellular type="maboss">
 					<bnd_filename>./config/boolean_network/epithelial_cell_2.bnd</bnd_filename>
-					<cfg_filename>./config/boolean_network/epithelial_cell_2.cfg</cfg_filename>
+					<cfg_filename>./config/boolean_network/epithelial_cell_2_FADD_ko.cfg</cfg_filename>
 					<time_step units="min">12</time_step>
 				</intracellular>
 			</phenotype>
