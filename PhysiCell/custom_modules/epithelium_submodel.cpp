@@ -38,6 +38,20 @@ void epithelium_contact_function( Cell* pC1, Phenotype& p1, Cell* pC2, Phenotype
 
 void epithelium_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 {
+	// when you detect virus particles outside, turn node SARS_CoV_2 ON
+	static int nV_internal = pCell->custom_data.find_variable_index( "virion" ); 
+	pCell->phenotype.intracellular->set_boolean_variable_value(
+		"Virus_inside",
+		// pCell->custom_data[nV_internal] > 1.0
+		pCell->nearest_density_vector()[nV_internal] > 1.0
+	);
+
+	//  BN inputs are set, run maboss:
+	if (pCell->phenotype.intracellular->need_update())
+	{		
+		pCell->phenotype.intracellular->update();
+	}
+
 	static int debris_index = microenvironment.find_density_index( "debris");
 	
 	// receptor dynamics 
@@ -159,7 +173,15 @@ void TCell_induced_apoptosis( Cell* pCell, Phenotype& phenotype, double dt )
 	static int proinflammatory_cytokine_index = microenvironment.find_density_index("pro-inflammatory cytokine");
 	static int antiinflammatory_cytokine_index = microenvironment.find_density_index("anti-inflammatory cytokine");
 	
-	if( pCell->custom_data["TCell_contact_time"] > pCell->custom_data["TCell_contact_death_threshold"] )
+	pCell->phenotype.intracellular->set_boolean_variable_value(
+		"TCell_attached", 
+		pCell->custom_data["TCell_contact_time"] > pCell->custom_data["TCell_contact_death_threshold"]
+	);
+	
+	if ( pCell->phenotype.intracellular->get_boolean_variable_value("Apoptosis_type_I") && !pCell->phenotype.death.dead )
+	
+
+	// if( pCell->custom_data["TCell_contact_time"] > pCell->custom_data["TCell_contact_death_threshold"] )
 	{
 		// make sure to get rid of all adhesions! 
 		// detach all attached cells 
