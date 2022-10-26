@@ -76,6 +76,17 @@ def generate_configXML(settings, params_file):
     tree.write(xml_file_out)
     print(output_dirs)
 
+def generate_slurm_script(settings):
+
+    if len(settings) > 0:
+        template = []
+        with open("template_run_replicates.bash", "r") as temp_file:
+            template = temp_file.readlines()
+
+        template = [line.replace("__SETTINGS__", settings) for line in template]
+        with open("run_%s.bash" % settings, "w") as new_file:
+            new_file.writelines(template)
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Process input')
     parser.add_argument('--settings', type=str, default="", help='Choose which settings to simulate')
@@ -88,3 +99,6 @@ if __name__ == '__main__':
     generate_parSamples(Replicas_number, file)
     # Create .xml and folder to each simulation
     generate_configXML(args.settings, file)
+
+    generate_slurm_script(args.settings)
+
