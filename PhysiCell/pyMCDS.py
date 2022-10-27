@@ -325,7 +325,7 @@ class pyMCDS:
         xml_file = output_path / xml_file
         tree = ET.parse(xml_file)
 
-        print('Reading {}'.format(xml_file))
+        # print('Reading {}'.format(xml_file))
 
         root = tree.getroot()
         MCDS = {}
@@ -381,7 +381,7 @@ class pyMCDS:
                 "No such file or directory:\n'{}' referenced in '{}'".format(voxel_path, xml_file))
             sys.exit(1)
 
-        print('Reading {}'.format(voxel_path))
+        # print('Reading {}'.format(voxel_path))
 
         # center of voxel specified by first three rows [ x, y, z ]
         # volume specified by fourth row
@@ -411,7 +411,7 @@ class pyMCDS:
                 "No such file or directory:\n'{}' referenced in '{}'".format(me_path, xml_file))
             sys.exit(1)
 
-        print('Reading {}'.format(me_path))
+        # print('Reading {}'.format(me_path))
 
         var_children = variables_node.findall('variable')
 
@@ -425,7 +425,7 @@ class pyMCDS:
             MCDS['continuum_variables'][species_name]['units'] = species.get(
                 'units')
 
-            print('Parsing {:s} data'.format(species_name))
+            # print('Parsing {:s} data'.format(species_name))
 
             # initialize array for concentration data
             MCDS['continuum_variables'][species_name]['data'] = np.zeros(xx.shape)
@@ -472,7 +472,7 @@ class pyMCDS:
                 cell_node = child
                 break
 
-        print( 'workign on discrete cell data...\n')
+        # print( 'workign on discrete cell data...\n')
 
         MCDS['discrete_cells'] = {}
         data_labels = []
@@ -484,21 +484,21 @@ class pyMCDS:
             fixed_label = label.text.replace(' ', '_')
             if int(label.get('size')) > 1:
                 # tags to differentiate repeated labels (usually space related)
-                print(n)
-                print(int(label.get('size')))
+                # p'rint(n)
+                # print(int(label.get('size')))
                 if( n < 19 ):
                     dir_label = ['_x', '_y', '_z']
                 else:
                     dir_label = []; 
                     for nn in range(100):
                         dir_label.append( '_%u' % nn )
-                print( dir_label )
+                # print( dir_label )
                 for i in range(int(label.get('size'))):
-                    print( fixed_label + dir_label[i] )
+                    # print( fixed_label + dir_label[i] )
                     data_labels.append(fixed_label + dir_label[i])
             else:
                 data_labels.append(fixed_label)
-            print(fixed_label)
+            # print(fixed_label)
             n += 1
         # load the file
         cell_file = cell_node.find('filename').text
@@ -510,7 +510,7 @@ class pyMCDS:
                 "No such file or directory:\n'{}' referenced in '{}'".format(cell_path, xml_file))
             sys.exit(1)
 
-        print('Reading {}'.format(cell_path))
+        # print(Reading {}'.format(cell_path))
 
         for col in range(len(data_labels)):
             MCDS['discrete_cells'][data_labels[col]] = cell_data[col, :]
