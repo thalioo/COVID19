@@ -90,13 +90,13 @@ def generate_slurm_script(settings):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Process input')
     parser.add_argument('--settings', type=str, default="", help='Choose which settings to simulate')
-    
+    parser.add_argument('--replicates', type=int, default=12, help='Inform how many replicated where done')
+
     args = parser.parse_args()
 
     file = "Seeds.txt"
-    Replicas_number = 12
     # Generate samples from Latin Hypercube
-    generate_parSamples(Replicas_number, file)
+    generate_parSamples(args.replicates, file)
     # Create .xml and folder to each simulation
     generate_configXML(args.settings, file)
 

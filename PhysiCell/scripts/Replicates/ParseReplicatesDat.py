@@ -15,6 +15,7 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Process input')
 parser.add_argument('--folder', type=str, default="", help='Choose which results to analyse')
+parser.add_argument('--replicates', type=int, default=12, help='Inform how many replicated where done')
 
 args = parser.parse_args()
 
@@ -31,7 +32,7 @@ temp1_BC = []  # 3
 temp1_PS = []  # 3
 temp1_DL = []  # 3
 
-for j in range(20): 
+for j in range(args.replicates): 
 
     file_name = 'dm_tc.dat'
     if len(args.folder) > 0:

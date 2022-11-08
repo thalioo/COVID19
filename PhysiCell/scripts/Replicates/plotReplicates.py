@@ -11,6 +11,7 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Process input')
 parser.add_argument('--folder', type=str, default="", help='Choose which results to analyse')
+parser.add_argument('--replicates', type=int, default=12, help='Inform how many replicated where done')
 
 args = parser.parse_args()
 
@@ -37,7 +38,7 @@ else:
 mac = np.squeeze(np.sum([cells[:,1:5,:]], axis=2))
 mac_v = np.squeeze(np.sum([cells[:,1+17:5+17,:]], axis=2))
 
-t = np.linspace(0, 15, 181)
+t = np.linspace(0, args.replicates, 181)
 
 
 immune_cells = ['CD8 T', 'Mac', 'M2Mac', 'Maci', 'Mach', 'Macexh', 'Neut', 'DC', 'CD4 T', 'Fib', 'virion', 'IFN', 'Ig', 'pro-I', 'anti-I', 'collagen', 'epi']
