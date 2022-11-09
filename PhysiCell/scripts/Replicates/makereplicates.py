@@ -13,7 +13,7 @@ import time
 import argparse
 
 os.chdir('../../')
-def generate_parSamples(Replicas_number, fileOut):
+def generate_parSamples(Replicas_number, omp_num_threads, days, fileOut):
 
     file = open(fileOut, "w")
 
@@ -24,10 +24,10 @@ def generate_parSamples(Replicas_number, fileOut):
         # set system time as seed
         # create a seed
         seed_value = random.randrange(sys.maxsize)
-        omp_num_threads =20 
         # save this seed somewhere. So if you like the result you can use this seed to reproduce it
         file.write("random_seed"+" "+str(seed_value)+"\n")
         file.write("omp_num_threads"+" "+str(omp_num_threads)+"\n")
+        file.write("max_time"+" "+str((days*24*60))+"\n")
         file.write("#"+"\n")
     file.close()
 
@@ -91,12 +91,14 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Process input')
     parser.add_argument('--settings', type=str, default="", help='Choose which settings to simulate')
     parser.add_argument('--replicates', type=int, default=12, help='Inform how many replicated where done')
+    parser.add_argument('--cores', type=int, default=20, help='Inform how many replicated where done')
+    parser.add_argument('--days', type=int, default=12, help='Inform how many replicated where done')
 
     args = parser.parse_args()
 
     file = "Seeds.txt"
     # Generate samples from Latin Hypercube
-    generate_parSamples(args.replicates, file)
+    generate_parSamples(args.replicates, args.cores, args.days, file)
     # Create .xml and folder to each simulation
     generate_configXML(args.settings, file)
 
