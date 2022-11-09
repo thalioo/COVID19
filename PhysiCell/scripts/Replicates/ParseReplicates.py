@@ -62,12 +62,18 @@ for j in range(args.replicates):
     temp1_col = []   # env
     temp1_epi = []  # 1
 
-    for k in range(181):
+    if len(args.folder) > 0:
+        path = os.path.join(args.folder, 'output_R'+str("%02d"%j))
+    else:
+        path = 'output_R'+str("%02d"%j)
+    
+    nb_timesteps = 0
+    while os.path.exists(os.path.join(path, 'output{:08d}.xml'.format(nb_timesteps))):
+        nb_timesteps += 1
+    
+    for k in range(nb_timesteps):
+
         str_name = 'output{:08d}.xml'.format(k)
-        if len(args.folder) > 0:
-            path = os.path.join(args.folder, 'output_R'+str("%02d"%j))
-        else:
-            path = 'output_R'+str("%02d"%j)
         mcds = pyMCDS(str_name, path)  # /case1/run3/output
 
         cycle = mcds.data['discrete_cells']['cycle_model']
