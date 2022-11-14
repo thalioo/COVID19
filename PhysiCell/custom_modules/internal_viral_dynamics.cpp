@@ -134,5 +134,10 @@ void internal_virus_model( Cell* pCell, Phenotype& phenotype, double dt )
 	{ pCell->nearest_density_vector()[nV_external] += alpha1 / microenvironment.mesh.dV; }
 	pCell->custom_data[eP] -= alpha1; 
 	
+	pCell->phenotype.intracellular->set_boolean_variable_value(
+		"Virus_inside",
+		pCell->custom_data[nV_internal] > 1
+	);
+	
 	return; 
 }

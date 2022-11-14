@@ -47,26 +47,43 @@ void internal_virus_response_model( Cell* pCell, Phenotype& phenotype, double dt
 	
 	// actual model goes here 
 
-	// now, set apoptosis rate 
+	// boolean-controlled apoptosis
 	
 	static int apoptosis_model_index = cell_defaults.phenotype.death.find_death_model_index( "apoptosis" );
-	// phenotype.death.rates[apoptosis_model_index] = 
+	pCell->phenotype.intracellular->set_boolean_variable_value(
+		"Virus_expression", 
+		// fuzzy_heavyside_normal(pCell->custom_data[nA_internal], 50, 10)
+		pCell->custom_data[nA_internal] > pCell->custom_data["virus_expression_threshold"]
+	);
 	
 	// base death rate (from cell line)
-	double base_death_rate = 
-		pCD->phenotype.death.rates[apoptosis_model_index]; 
+	// double base_death_rate = 
+	// 	pCD->phenotype.death.rates[apoptosis_model_index]; 
 	
-	// additional death rate from infectoin  
-	double additional_death_rate = pCell->custom_data["max_infected_apoptosis_rate"] ; 
+	// // additional death rate from infectoin  
+	// double additional_death_rate = pCell->custom_data["max_infected_apoptosis_rate"] ; 
 	
 	
-	double v = pCell->custom_data[nA_internal] / 
-		pCell->custom_data["max_apoptosis_half_max"] ; 
-	v = pow( v, pCell->custom_data["apoptosis_hill_power"] ); 
+	// double v = pCell->custom_data[nA_internal] / 
+	// 	pCell->custom_data["max_apoptosis_half_max"] ; 
+	// v = pow( v, pCell->custom_data["apoptosis_hill_power"] ); 
 	
-	double effect = v / (1.0+v); 
-	additional_death_rate *= effect; 
-	phenotype.death.rates[apoptosis_model_index] = base_death_rate + additional_death_rate; 
+	// double effect = v / (1.0+v); 
+	// additional_death_rate *= effect; 
+	// phenotype.death.rates[apoptosis_model_index] = base_death_rate + additional_death_rate; 
+	
+	pCell->phenotype.intracellular->set_boolean_variable_value(
+		"Virus_expression", 
+		// fuzzy_heavyside_normal(pCell->custom_data[nA_internal], 50, 10)
+		pCell->custom_data[nA_internal] > pCell->custom_data["virus_expression_threshold"]
+	);
+	
+	if ( pCell->phenotype.intracellular->get_boolean_variable_value("Apoptosis_type_II") && !pCell->phenotype.death.dead) {
+		// std::cout << "Triggering apoptosis based on boolean model" << std::endl;
+		pCell->start_death(apoptosis_model_index);
+	}
+	
+	
 	
 	// if we're infected, secrete a chemokine for the immune model
 	double AV = pCell->custom_data[nA_internal];  
@@ -87,7 +104,8 @@ void internal_virus_response_model( Cell* pCell, Phenotype& phenotype, double dt
 	
 	if( R >= 1.00 - 1e-16 ) 
 	{
-		pCell->custom_data["infected_cell_chemokine_secretion_activated"] = 1.0; 
+		// pCell->custom_data["infected_cell_chemokine_secretion_activated"] = 1.0; 
+		pCell->phenotype.intracellular->set_boolean_variable_value("Chemokin_secretion", true);
 		// (AJ-V5) Antibody binding starts once the cell is infected
 		double uptakerate = parameters.doubles("Antibody_binding_rate")*(1000-phenotype.molecular.internalized_total_substrates[antibody_index])/1000;
 		if( uptakerate < 0)
@@ -97,7 +115,7 @@ void internal_virus_response_model( Cell* pCell, Phenotype& phenotype, double dt
 		pCell->phenotype.secretion.uptake_rates[antibody_index]=uptakerate; 
 	}
 
-	if( pCell->custom_data["infected_cell_chemokine_secretion_activated"] > 0.1 && phenotype.death.dead == false )
+	if( pCell->phenotype.intracellular->get_boolean_variable_value("Chemokin_secretion") && phenotype.death.dead == false )
 	{
 		double rate = AV; 
 		rate /= pCell->custom_data["max_apoptosis_half_max"];
@@ -309,18 +327,34 @@ void pyroptosis_cascade( Cell* pCell, Phenotype& phenotype, double dt )
 	static int apoptosis_model_index = cell_defaults.phenotype.death.find_death_model_index( "apoptosis" );	
 	static double initial_total_volume = 2494;
 
-	if( pCell->custom_data[volume_c] > 1.2*initial_total_volume ) // FIONA: SHOULD THIS BE 1.5 times
-	{
-		pCell->custom_data["cell_pyroptosis_flag"]=3;   // FIONA: ADDED REMOVE CELL PHENOTYPE
-		phenotype.death.rates[apoptosis_model_index] = 9e9; 
+	// if( pCell->custom_data[volume_c] > 1.2*initial_total_volume )
+	// {
+	// 	//std::cout<<"Pyroptotic cell burst!"<<std::endl;
+	// 	//The cell's 'apoptosis death rate' is set to be "super high" 
+	// 	phenotype.death.rates[apoptosis_model_index] = 9e9; 
+	// }
+	
+	
+	// Here is how we plug the typeII apoptosis. Maybe we should have a node linked to cell volume ?
+	if ( pCell->phenotype.intracellular->get_boolean_variable_value("Apoptosis_type_II") && !pCell->phenotype.death.dead) {
+		// std::cout << "Triggering apoptosis based on boolean model" << std::endl;
+		pCell->start_death(apoptosis_model_index);
 	}
-	// (Adrianne) update cell pro-inflammatory secretion rate based on IL18 secretion rate - need to double check unit conversion
-	static int proinflammatory_cytokine_index = microenvironment.find_density_index( "pro-inflammatory cytokine");
-	pCell->phenotype.secretion.secretion_rates[proinflammatory_cytokine_index] = pCell->custom_data["activated_cytokine_secretion_rate"]+k_il18_cte*g_gsdmd*pCell->custom_data[il_18_c];
-    // (Sara and Fiona)
-	static int propyroptotic_cytokine_index = microenvironment.find_density_index("pro-pyroptosis cytokine");
-	pCell->phenotype.secretion.secretion_rates[propyroptotic_cytokine_index] = k_il1b_cte*g_gsdmd*pCell->custom_data[il_1b_c];
+	
+	// Here I'm not sure why I was doing this. It should already be set by viral_dynamics
+	// pCell->phenotype.intracellular->set_boolean_node_value("Virus_inside", R >= 1.00 - 1e-16);
 
+	// Here I activate (in one go) the chemokin secretion. At that time there was only one cytokin
+	if (pCell->phenotype.intracellular->get_boolean_variable_value("Chemokin_secretion") && !phenotype.death.dead)
+	// if( pCell->custom_data["infected_cell_chemokine_secretion_activated"] > 0.1 && phenotype.death.dead == false )
+	{	
+		// (Adrianne) update cell pro-inflammatory secretion rate based on IL18 secretion rate - need to double check unit conversion
+		static int proinflammatory_cytokine_index = microenvironment.find_density_index( "pro-inflammatory cytokine");
+		pCell->phenotype.secretion.secretion_rates[proinflammatory_cytokine_index] = pCell->custom_data["activated_cytokine_secretion_rate"]+k_il18_cte*g_gsdmd*pCell->custom_data[il_18_c];
+		// (Sara and Fiona)
+		static int propyroptotic_cytokine_index = microenvironment.find_density_index("pro-pyroptosis cytokine");
+		pCell->phenotype.secretion.secretion_rates[propyroptotic_cytokine_index] = k_il1b_cte*g_gsdmd*pCell->custom_data[il_1b_c];
+	}
 	
 	return; 
 }

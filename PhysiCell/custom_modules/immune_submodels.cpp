@@ -407,6 +407,11 @@ void CD8_Tcell_contact_function( Cell* pC1, Phenotype& p1, Cell* pC2, Phenotype&
 
 void CD8_Tcell_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 {
+	if (pCell->phenotype.intracellular->need_update())
+	{	
+		pCell->phenotype.intracellular->update();
+	}
+
 	int cycle_G0G1_index = flow_cytometry_separated_cycle_model.find_phase_index( PhysiCell_constants::G0G1_phase ); 
 	int cycle_S_index = flow_cytometry_separated_cycle_model.find_phase_index( PhysiCell_constants::S_phase );
 	static int debris_index = microenvironment.find_density_index( "debris");
@@ -519,7 +524,8 @@ void immune_cell_motility_direction( Cell* pCell, Phenotype& phenotype , double 
 
 	phenotype.motility.migration_bias_direction = pCell->nearest_gradient(debris_index);
 	normalize( &phenotype.motility.migration_bias_direction ); 
-	if( pCell->custom_data["activated_immune_cell"] < 0.5 )
+	// if( pCell->custom_data["activated_immune_cell"] < 0.5 )
+	if (!pCell->phenotype.intracellular->get_boolean_variable_value("Active"))
 	{ return; }
 
 	// if activated, follow the weighted direction 
@@ -548,9 +554,88 @@ void immune_cell_motility_direction( Cell* pCell, Phenotype& phenotype , double 
 
 void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 {
+		// macrophage_BN_inputs:
+	// 1- when you detect dead epithelial cell in your vicinity, turn node Apoptosis_cell ON
+	// OR when you touch cell in your vecinitiy and these are apoptotic OR debris is above a threshold
+	// check for cells to eat
+	std::vector<Cell*> neighbors = pCell->cells_in_my_container(); 
+	// at least one of the cells is pCell 
+	if( neighbors.size() < 2 )
+	{ 
+		return; 
+	} 
+	else
+	{
+		int n = 0; 
+		Cell* pTestCell = neighbors[n]; 
+		while( n < neighbors.size() )
+		{
+			pTestCell = neighbors[n]; 
+			// if it is not me and it's dead
+			if( pTestCell != pCell && pTestCell->phenotype.death.dead == true ) 
+			{
+				pCell->phenotype.intracellular->set_boolean_variable_value("Apoptotic_cell", 1);
+			}
+			n++; 
+		}
+	}
+	
+	// 2- when you detect virus particles outside, turn node SARS_CoV_2 ON
+	static int nV_external = microenvironment.find_density_index( "virion" ); 
+	pCell->phenotype.intracellular->set_boolean_variable_value(
+		"SARS_CoV_2",
+		// pCell->custom_data[nV_external] > 1.0
+		pCell->nearest_density_vector()[nV_external] > 1.0
+	);
+
+	// 3- when you detect interferon outside, turn nodes IFNa_e, IFNb_e ON (what about IFNG?)
+	// if( pCell->custom_data["interferon_activation"] == 1 ) // this will probably do not work as interferon_activation should be only activated in epithelial cells
+	static int nINF1 = microenvironment.find_density_index( "interferon 1" );
+	// if (pCell->nearest_density_vector()[nINF1] / ( pCell->custom_data["interferon_max_response_threshold"] + 1e-32 ) > 0.5) // comes from internal_viral_response.cpp, line 185
+	if ( pCell->nearest_density_vector()[nINF1] > 1.0 ) // TODO: which sensitivity should the macrophages have ?
+	{
+		pCell->phenotype.intracellular->set_boolean_variable_value("IFNa_e",1);
+		pCell->phenotype.intracellular->set_boolean_variable_value("IFNb_e",1);
+	}
+
+	//  BN inputs are set, run maboss:
+	if (pCell->phenotype.intracellular->need_update())
+	{		
+		pCell->phenotype.intracellular->update();
+	}
+
+	// do something downstream maboss with its outputs
+	static int proinflammatory_cytokine_index = microenvironment.find_density_index( "pro-inflammatory cytokine");
+
+	// when node Inflammation is ON,  release proinflammatory cytokines
+	// when node Neutrophil_recruitment is ON,  release proinflammatory cytokines
+	// when node CD4_Tcell_activation is ON,  release proinflammatory cytokines
+	// when node CD8_Tcell_activation is ON,  release proinflammatory cytokines
+	if (
+		pCell->phenotype.intracellular->get_boolean_variable_value("Inflammation") ||
+		pCell->phenotype.intracellular->get_boolean_variable_value("Neutrophil_recruitment") ||
+		pCell->phenotype.intracellular->get_boolean_variable_value("CD4_Tcell_activation") ||
+		pCell->phenotype.intracellular->get_boolean_variable_value("CD8_Tcell_activation")
+	)
+	{
+		phenotype.secretion.secretion_rates[proinflammatory_cytokine_index] = 
+			pCell->custom_data["activated_cytokine_secretion_rate"]; // 10;
+		phenotype.secretion.saturation_densities[proinflammatory_cytokine_index] = 1;
+		phenotype.secretion.uptake_rates[proinflammatory_cytokine_index] = 0.0; 
+	}
+
+	// when node Antiviral_response is ON, clear viral particles (is this something already in place?)
+	
+	// other outputs are embedded in the secretion of cytokines:
+	// Antiinflammation <-> CD8 stops secretion of MP's cytokines
+	// Neutrophil_recruitment <-> MP secrete proinflammatory cytokines and NK are recruited by those
+	// Neutrophil_activation <-> not in model, but it is downstream of Neutrophil_recruitment and we can use this one
+	// CD4_Tcell_activation <-> MP secrete proinflammatory cytokines and CD4 Tcells are recruited by those
+	// CD8_Tcell_activation <-> MP secrete proinflammatory cytokines and CD8 Tcells are recruited by those
+
 	static int apoptosis_index = phenotype.death.find_death_model_index( "Apoptosis" ); 
 	static Cell_Definition* pCD = find_cell_definition( "macrophage" ); 
-	static int proinflammatory_cytokine_index = microenvironment.find_density_index( "pro-inflammatory cytokine");
+	// static int proinflammatory_cytokine_index = microenvironment.find_density_index( "pro-inflammatory cytokine");
 	static int chemokine_index = microenvironment.find_density_index( "chemokine");
 	static int debris_index = microenvironment.find_density_index( "debris");
 	static int virus_index = microenvironment.find_density_index( "virion");
@@ -558,7 +643,9 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 	static int antiinflammatory_cytokine_index = microenvironment.find_density_index("anti-inflammatory cytokine");
 	
 	// no apoptosis until activation (resident macrophages in constant number for homeostasis) 
-	if( pCell->custom_data["activated_immune_cell"] < 0.5 )
+	// if( pCell->custom_data["activated_immune_cell"] < 0.5 )
+	if (!pCell->phenotype.intracellular->get_boolean_variable_value("Active"))
+
 	{ phenotype.death.rates[apoptosis_index] = 0.0; }
 	else
 	{ phenotype.death.rates[apoptosis_index] = pCD->phenotype.death.rates[apoptosis_index]; } 
@@ -589,7 +676,7 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 	*/
 
 	// check for cells to eat 
-	std::vector<Cell*> neighbors = pCell->cells_in_my_container(); 
+	neighbors = pCell->cells_in_my_container(); 
 
 	// at least one of the cells is pCell 
 	if( neighbors.size() < 2 )
@@ -612,7 +699,8 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 					
 		// (Adrianne) if it is not me, not dead and is a CD8 T cell that is within a very short distance from me, I will stop secreting pro-inflammatory cytokine
 		if( pContactCell != pCell && pContactCell->phenotype.death.dead == false && pContactCell->type == CD8_Tcell_type 
-			&& pCell->custom_data["activated_immune_cell"] > 0.5 && cell_cell_distance<=parameters.doubles("epsilon_distance")*(radius_mac+radius_test_cell)) 
+			// && pCell->custom_data["activated_immune_cell"] > 0.5 && cell_cell_distance<=parameters.doubles("epsilon_distance")*(radius_mac+radius_test_cell)) 
+			&& pCell->phenotype.intracellular->get_boolean_variable_value("Active") && cell_cell_distance<=parameters.doubles("epsilon_distance")*(radius_mac+radius_test_cell)) 
 		{
 			pCell->custom_data["M2_phase"] = 1; // counter for finding if cell is in M2 phase
 			pCell->custom_data["ability_to_phagocytose_infected_cell"] = 0; // turn off hyperactivity
@@ -622,7 +710,8 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 		}
 		// (Adrianne) if it is not me, not dead and is a CD4 T cell that is within a very short distance from me, I will be able to phagocytose infected (but not neccesarily dead) cells
 		else if( pContactCell != pCell && pContactCell->phenotype.death.dead == false && pContactCell->type == CD4_Tcell_type  && pCell->custom_data["M2_phase"] < 0.5
-			&& pCell->custom_data["activated_immune_cell"] > 0.5 && cell_cell_distance<=parameters.doubles("epsilon_distance")*(radius_mac+radius_test_cell))
+			// && pCell->custom_data["activated_immune_cell"] > 0.5 && cell_cell_distance<=parameters.doubles("epsilon_distance")*(radius_mac+radius_test_cell))
+			&& pCell->phenotype.intracellular->get_boolean_variable_value("Active") && cell_cell_distance<=parameters.doubles("epsilon_distance")*(radius_mac+radius_test_cell))
 		{
 			pCell->custom_data["ability_to_phagocytose_infected_cell"] = 1; // (Adrianne) contact with CD4 T cell induces macrophage's ability to phagocytose infected cells
 			n=neighbors.size();
@@ -665,7 +754,8 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 				UniformRandom() < probability_of_phagocytosis && pTestCell->type != residual_type ) // && // remove in v 3.2 
 	//			pTestCell->phenotype.volume.total < max_phagocytosis_volume ) / remove in v 3.2 
 			{
-				if (pTestCell->custom_data[nR]>0 && pCell->custom_data["activated_immune_cell"] < 0.5)
+				// if (pTestCell->custom_data[nR]>0 && pCell->custom_data["activated_immune_cell"] < 0.5)
+				if (pTestCell->custom_data[nR]>0 && !pCell->phenotype.intracellular->get_boolean_variable_value("Active"))
 				{
 					// (Adrianne) obtain volume of cell to be ingested
 					double volume_ingested_cell = pTestCell->phenotype.volume.total;
@@ -687,7 +777,9 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 					phenotype.motility.migration_speed = pCell->custom_data["activated_speed"]; 
 					
 						
-					pCell->custom_data["activated_immune_cell"] = 1.0; 					
+					// pCell->custom_data["activated_immune_cell"] = 1.0; 					
+					pCell->phenotype.intracellular->set_boolean_variable_value("Active", true);
+
 				}	
 				else
 				{
@@ -737,7 +829,8 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 						pCell->custom_data.variables[time_to_next_phagocytosis_index].value = PhysiCell_globals.current_time+time_to_ingest;	
 						
 						// activate the cell if not already active 
-						if (pCell->custom_data["activated_immune_cell"] < 0.5){
+						// if (pCell->custom_data["activated_immune_cell"] < 0.5){
+						if (!pCell->phenotype.intracellular->get_boolean_variable_value("Active")){
 							phenotype.secretion.secretion_rates[proinflammatory_cytokine_index] = 
 							pCell->custom_data["activated_cytokine_secretion_rate"]; // 10;
 							phenotype.secretion.saturation_densities[proinflammatory_cytokine_index] = 1;
@@ -747,7 +840,9 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 							phenotype.motility.migration_speed = pCell->custom_data["activated_speed"]; 
 					
 						
-							pCell->custom_data["activated_immune_cell"] = 1.0; 
+							// pCell->custom_data["activated_immune_cell"] = 1.0; 
+							pCell->phenotype.intracellular->set_boolean_variable_value("Active", true);
+
 						}
 						
 						return;						
@@ -789,6 +884,11 @@ void macrophage_mechanics( Cell* pCell, Phenotype& phenotype, double dt )
 
 void neutrophil_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 {
+	if (pCell->phenotype.intracellular->need_update())
+	{		
+		pCell->phenotype.intracellular->update();
+	}
+	
 	static Cell_Definition* pCD = find_cell_definition( "neutrophil" ); 
 	static int proinflammatory_cytokine_index = microenvironment.find_density_index( "pro-inflammatory cytokine");
 	static int debris_index = microenvironment.find_density_index( "debris" );
@@ -863,7 +963,8 @@ void neutrophil_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 
 			phenotype.motility.migration_speed = pCell->custom_data["activated_speed"]; 
 				
-			pCell->custom_data["activated_immune_cell"] = 1.0; 
+			// pCell->custom_data["activated_immune_cell"] = 1.0; 
+			pCell->phenotype.intracellular->set_boolean_variable_value("Active", true);
 			
 			return; 
 		}
@@ -905,10 +1006,16 @@ void neutrophil_mechanics( Cell* pCell, Phenotype& phenotype, double dt )
 // (Adrianne) DC phenotype function
 void DC_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 {
+	if (pCell->phenotype.intracellular->need_update())
+	{		
+		pCell->phenotype.intracellular->update();
+	}
+	
 	static Cell_Definition* pCD = find_cell_definition( "DC" ); 
 	static int apoptosis_index = phenotype.death.find_death_model_index( "Apoptosis" ); 
 	// no apoptosis until activation (resident macrophages in constant number for homeostasis) 
-	if( pCell->custom_data["activated_immune_cell"] < 0.5 )
+	// if( pCell->custom_data["activated_immune_cell"] < 0.5 )
+	if( !pCell->phenotype.intracellular->get_boolean_variable_value("Active"))
 	{ phenotype.death.rates[apoptosis_index] = 0.0; }
 	else
 	{ phenotype.death.rates[apoptosis_index] = pCD->phenotype.death.rates[apoptosis_index]; } 
@@ -916,7 +1023,8 @@ void DC_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 	// (Adrianne) get type of CD8+ T cell
 	static int CD8_Tcell_type = get_cell_definition( "CD8 Tcell" ).type;
 	
-	if( pCell->custom_data["activated_immune_cell"] > 0.5 ) // (Adrianne) activated DCs that don't leave the tissue can further activate CD8s increasing their proliferation rate and attachment rates
+	// if( pCell->custom_data["activated_immune_cell"] > 0.5 ) // (Adrianne) activated DCs that don't leave the tissue can further activate CD8s increasing their proliferation rate and attachment rates
+	if( pCell->phenotype.intracellular->get_boolean_variable_value("Active"))
 	{
 		
 		std::vector<Cell*> neighbors = pCell->cells_in_my_container(); // (Adrianne) find cells in a neighbourhood of DCs
@@ -962,7 +1070,8 @@ void DC_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 		double dt_act = virus_amount * microenvironment.mesh.dV/parameters.doubles("virions_needed_for_DC_activation"); //check for activation prob
 		if( dt_act>0 && UniformRandom()<= dt_act) // (Adrianne) see if activated, maxing at 10
 		{		
-			pCell->custom_data["activated_immune_cell"] = 1.0; // (Adrianne) DC becomes activated
+			//pCell->custom_data["activated_immune_cell"] = 1.0; // (Adrianne) DC becomes activated
+			pCell->phenotype.intracellular->set_boolean_variable_value("Active", true);
 		}
 		else //(Adrianne) check for infected cells nearby
 		{	
@@ -976,7 +1085,8 @@ void DC_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 				// if it is not me and the target is dead 
 				if( pTestCell != pCell && pTestCell->phenotype.death.dead == false && pTestCell->custom_data[nP]>1 )
 				{			
-					pCell->custom_data["activated_immune_cell"] = 1.0; 
+					//pCell->custom_data["activated_immune_cell"] = 1.0; 
+					pCell->phenotype.intracellular->set_boolean_variable_value("Active", true);
 					
 					n = neighbors.size();
 					
@@ -1090,7 +1200,8 @@ void fibroblast_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 	static Cell_Definition* pCD = find_cell_definition( "fibroblast" );
 
 	// no apoptosis until activation for homeostasis
-	if( pCell->custom_data["activated_immune_cell"] < 0.5 )
+	// if( pCell->custom_data["activated_immune_cell"] < 0.5 )
+	if( !pCell->phenotype.intracellular->get_boolean_variable_value("Active") )
 	{ phenotype.death.rates[apoptosis_index] = 0.0; }
 	else
 	{ phenotype.death.rates[apoptosis_index] = pCD->phenotype.death.rates[apoptosis_index]; }			
@@ -1110,7 +1221,8 @@ void fibroblast_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 
         if( TGF_beta > 0 )
         {
-            pCell->custom_data["activated_immune_cell"] = 1.0;
+            // pCell->custom_data["activated_immune_cell"] = 1.0;
+            pCell->phenotype.intracellular->set_boolean_variable_value("Active", true);
 
             return;
          }
