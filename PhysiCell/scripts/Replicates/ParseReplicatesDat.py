@@ -7,9 +7,6 @@ import scipy.io as sio
 import numpy as np
 import os
 import sys
-os.chdir('../../')
-sys.path.append('.')
-from pyMCDS import pyMCDS
 import argparse
 
 
@@ -18,6 +15,9 @@ parser.add_argument('--folder', type=str, default="", help='Choose which results
 parser.add_argument('--replicates', type=int, default=12, help='Inform how many replicated where done')
 
 args = parser.parse_args()
+os.chdir('../../')
+sys.path.append('.')
+from pyMCDS import pyMCDS
 
 # In[ ]:
 
@@ -40,9 +40,9 @@ for j in range(args.replicates):
     else:
         path = 'output_R'+str("%02d"%j)
     
-    os.chdir(path)
-    d = np.loadtxt(file_name)
-    os.chdir('../')
+    # os.chdir(path)
+    d = np.loadtxt(os.path.join(path, file_name))
+    # os.chdir('../')
 
     DM = d[:,0]
     TC = d[:,1]

@@ -30,9 +30,9 @@ nb_timesteps = 0
 for j in range(args.replicates): 
     
     if len(args.folder) > 0:
-            path = os.path.join(args.folder, 'output_R'+str("%02d"%j))
-        else:
-            path = 'output_R'+str("%02d"%j)
+        path = os.path.join(args.folder, 'output_R'+str("%02d"%j))
+    else:
+        path = 'output_R'+str("%02d"%j)
 
 
     nb_timesteps = 0
