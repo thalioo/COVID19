@@ -13,6 +13,7 @@ export PATH="/mnt/beegfs/common/apps/gcc/gcc-11.1/bin":$PATH
 export PATH="/mnt/beegfs/common/apps/python/python-3.9.5/bin/":$PATH
 export LD_LIBRARY_PATH="/mnt/beegfs/common/apps/gcc/gcc-11.1/lib":$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH="/mnt/beegfs/common/apps/gcc/gcc-11.1/lib64":$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH="/mnt/beegfs/common/apps/python/python-3.9.5/lib64/":$LD_LIBRARY_PATH
 export OMP_NUM_THREADS=20
 
 make clean; make -j
