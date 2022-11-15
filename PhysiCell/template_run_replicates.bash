@@ -19,3 +19,9 @@ make clean; make -j
 
 srun -n 12 ./run_replicate.sh __SETTINGS__
 
+cd scripts/Replicates
+python3 ParseReplicates.py --folder __SETTINGS__
+python3 ParseReplicatesDat.py --folder __SETTINGS__
+python3 ParseReplicatesStates.py --folder __SETTINGS__
+python3 plotReplicates.py --folder __SETTINGS__
+
