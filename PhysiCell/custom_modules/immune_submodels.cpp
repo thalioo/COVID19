@@ -777,7 +777,7 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 					phenotype.motility.migration_speed = pCell->custom_data["activated_speed"]; 
 					
 						
-					// pCell->custom_data["activated_immune_cell"] = 1.0; 					
+					pCell->custom_data["activated_immune_cell"] = 1.0; 					
 					pCell->phenotype.intracellular->set_boolean_variable_value("Active", true);
 
 				}	
@@ -840,7 +840,7 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 							phenotype.motility.migration_speed = pCell->custom_data["activated_speed"]; 
 					
 						
-							// pCell->custom_data["activated_immune_cell"] = 1.0; 
+							pCell->custom_data["activated_immune_cell"] = 1.0; 
 							pCell->phenotype.intracellular->set_boolean_variable_value("Active", true);
 
 						}
@@ -963,7 +963,7 @@ void neutrophil_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 
 			phenotype.motility.migration_speed = pCell->custom_data["activated_speed"]; 
 				
-			// pCell->custom_data["activated_immune_cell"] = 1.0; 
+			pCell->custom_data["activated_immune_cell"] = 1.0; 
 			pCell->phenotype.intracellular->set_boolean_variable_value("Active", true);
 			
 			return; 
@@ -1070,7 +1070,7 @@ void DC_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 		double dt_act = virus_amount * microenvironment.mesh.dV/parameters.doubles("virions_needed_for_DC_activation"); //check for activation prob
 		if( dt_act>0 && UniformRandom()<= dt_act) // (Adrianne) see if activated, maxing at 10
 		{		
-			//pCell->custom_data["activated_immune_cell"] = 1.0; // (Adrianne) DC becomes activated
+			pCell->custom_data["activated_immune_cell"] = 1.0; // (Adrianne) DC becomes activated
 			pCell->phenotype.intracellular->set_boolean_variable_value("Active", true);
 		}
 		else //(Adrianne) check for infected cells nearby
@@ -1085,7 +1085,7 @@ void DC_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 				// if it is not me and the target is dead 
 				if( pTestCell != pCell && pTestCell->phenotype.death.dead == false && pTestCell->custom_data[nP]>1 )
 				{			
-					//pCell->custom_data["activated_immune_cell"] = 1.0; 
+					pCell->custom_data["activated_immune_cell"] = 1.0; 
 					pCell->phenotype.intracellular->set_boolean_variable_value("Active", true);
 					
 					n = neighbors.size();
@@ -1221,7 +1221,7 @@ void fibroblast_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 
         if( TGF_beta > 0 )
         {
-            // pCell->custom_data["activated_immune_cell"] = 1.0;
+            pCell->custom_data["activated_immune_cell"] = 1.0;
             pCell->phenotype.intracellular->set_boolean_variable_value("Active", true);
 
             return;
