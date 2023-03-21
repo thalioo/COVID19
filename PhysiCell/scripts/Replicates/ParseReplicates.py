@@ -102,7 +102,7 @@ with Pool(args.cores) as pool:
 
 
 stacked_data = np.vstack([re[1] for re in res])
-data = np.asarray([stacked_data.transpose()])
+timedata = np.asarray([stacked_data.transpose()])
 
 f_res = [re[0] for re in res]
 datatrace = np.transpose(np.dstack(f_res),axes=[0,2, 1])
