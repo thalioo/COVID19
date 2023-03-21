@@ -38,8 +38,7 @@ else:
 mac = np.squeeze(np.sum([cells[:,1:5,:]], axis=2))
 mac_v = np.squeeze(np.sum([cells[:,1+17:5+17,:]], axis=2))
 
-t = np.linspace(0, args.replicates, 181)
-
+t = np.linspace(0, 12, 145)
 
 immune_cells = ['CD8 T', 'Mac', 'M2Mac', 'Maci', 'Mach', 'Macexh', 'Neut', 'DC', 'CD4 T', 'Fib', 'virion', 'IFN', 'Ig', 'pro-I', 'anti-I', 'collagen', 'epi']
 innate = ['totalMac', 'Mac', 'M2Mac', 'Maci', 'Mach', 'Neut']
@@ -296,3 +295,43 @@ if len(args.folder) > 0:
     fig.savefig(os.path.join(args.folder, 'populationepi.png'), dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
 else:
     fig.savefig('populationepi.png', dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
+
+import pickle
+with open("trajs_states.pickle", "br") as f_trajs:
+    trajs_by_celltype = pickle.load(f_trajs)
+
+with open("errors_states.pickle", "br") as f_trajs:
+    errors_by_celltype = pickle.load(f_trajs)
+
+for i_state, state in enumerate(trajs_by_celltype[1].keys()):
+    
+    plt.plot(t, trajs_by_celltype[1][state])
+    plt.fill_between(t, 
+                    trajs_by_celltype[1][state] - errors_by_celltype[1][state],
+                    trajs_by_celltype[1][state] + errors_by_celltype[1][state],
+                    color='C%d' % (i_state%6), alpha=0.35
+    )  
+plt.tight_layout()
+plt.legend(trajs_by_celltype[1].keys())
+plt.title("States of Epithelial cells")
+if len(args.folder) > 0:
+    plt.savefig(os.path.join(args.folder, 'states_epitelials.png'), dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
+else:
+    plt.savefig('states_epitelials.png', dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
+
+plt.clf()
+for i_state, state in enumerate(trajs_by_celltype[4].keys()):
+    plt.plot(t, trajs_by_celltype[4][state])
+    plt.fill_between(t, 
+                    trajs_by_celltype[4][state] - errors_by_celltype[4][state],
+                    trajs_by_celltype[4][state] + errors_by_celltype[4][state],
+                    color='C%d' % (i_state%6), alpha=0.35
+    )
+plt.legend(trajs_by_celltype[4].keys())
+
+plt.tight_layout()
+plt.title("States of Macrophages")
+if len(args.folder) > 0:
+    plt.savefig(os.path.join(args.folder, 'states_macrophages.png'), dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
+else:
+    plt.savefig('states_macrophages.png', dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 

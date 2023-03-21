@@ -15,7 +15,7 @@ from pyMCDS import pyMCDS
 import matplotlib.pyplot as plt
 parser = argparse.ArgumentParser(description='Process input')
 parser.add_argument('--folder', type=str, default="", help='Choose which results to analyse')
-parser.add_argument('--replicates', type=int, default=12, help='Inform how many replicated where done')
+parser.add_argument('--replicates', type=int, default=2, help='Inform how many replicated where done')
 
 args = parser.parse_args()
 
@@ -104,28 +104,10 @@ for celltype, data in count_dict.items():
     errors_by_celltype.update({celltype: error_by_state})
 
 
-plt.plot(range(nb_timesteps), trajs_by_celltype[1]["<nil>"])
-plt.fill_between(range(nb_timesteps), 
-                trajs_by_celltype[1]["<nil>"] - errors_by_celltype[1]["<nil>"],
-                trajs_by_celltype[1]["<nil>"] + errors_by_celltype[1]["<nil>"],
-                color='C0', alpha=0.35
-)  
-plt.tight_layout()
-if len(args.folder) > 0:
-    plt.savefig(os.path.join(args.folder, 'states_epitelials.png'), dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
-else:
-    plt.savefig('states_epitelials.png', dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
+import pickle
 
+with open("trajs_states.pickle", "bw") as f_trajs:
+    pickle.dump(trajs_by_celltype, f_trajs)
 
-
-plt.plot(range(nb_timesteps), trajs_by_celltype[4]["Active"])
-plt.fill_between(range(nb_timesteps), 
-                trajs_by_celltype[4]["Active"] - errors_by_celltype[4]["Active"],
-                trajs_by_celltype[4]["Active"] + errors_by_celltype[4]["Active"],
-                color='C0', alpha=0.35
-)
-plt.tight_layout()
-if len(args.folder) > 0:
-    plt.savefig(os.path.join(args.folder, 'states_macrophages.png'), dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
-else:
-    plt.savefig('states_macrophages.png', dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
+with open("errors_states.pickle", "bw") as f_trajs:
+    pickle.dump(errors_by_celltype, f_trajs)
