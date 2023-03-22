@@ -302,17 +302,29 @@ with open("trajs_states.pickle", "br") as f_trajs:
 
 with open("errors_states.pickle", "br") as f_trajs:
     errors_by_celltype = pickle.load(f_trajs)
+plt.clf()
 
-for i_state, state in enumerate(trajs_by_celltype[1].keys()):
-    
-    plt.plot(t, trajs_by_celltype[1][state])
+for i_state, state in enumerate(trajs_by_celltype[1].keys()):   
+    plt.plot(t, trajs_by_celltype[1][state],color='C%d' % (i_state%10))
+    # plt.fill_between(t, 
+    #                 trajs_by_celltype[1][state] - errors_by_celltype[1][state],
+    #                 trajs_by_celltype[1][state] + errors_by_celltype[1][state],
+    #                 color='C%d' % (i_state%6), alpha=0.35
+    # )  
+# plt.tight_layout()
+plt.legend(trajs_by_celltype[1].keys(),loc='upper center', bbox_to_anchor=(0.5, -0.05),
+          fancybox=True)
+for i_state, state in enumerate(trajs_by_celltype[1].keys()):   
+    # plt.plot(t, trajs_by_celltype[1][state],color='C%d' % (i_state%6))
     plt.fill_between(t, 
                     trajs_by_celltype[1][state] - errors_by_celltype[1][state],
                     trajs_by_celltype[1][state] + errors_by_celltype[1][state],
-                    color='C%d' % (i_state%6), alpha=0.35
+                    color='C%d' % (i_state%10), alpha=0.35
     )  
-plt.tight_layout()
-plt.legend(trajs_by_celltype[1].keys())
+# plt.tight_layout()
+plt.xlabel('Time (days)', fontsize=16)
+plt.ylabel('PhysiBoSS States [Count]', fontsize=16)
+
 plt.title("States of Epithelial cells")
 if len(args.folder) > 0:
     plt.savefig(os.path.join(args.folder, 'states_epitelials.png'), dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 
@@ -321,15 +333,26 @@ else:
 
 plt.clf()
 for i_state, state in enumerate(trajs_by_celltype[4].keys()):
-    plt.plot(t, trajs_by_celltype[4][state])
+    plt.plot(t, trajs_by_celltype[4][state],color='C%d' % (i_state%10))
+    # plt.fill_between(t, 
+    #                 trajs_by_celltype[4][state] - errors_by_celltype[4][state],
+    #                 trajs_by_celltype[4][state] + errors_by_celltype[4][state],
+    #                 color='C%d' % (i_state%6), alpha=0.35
+    # )
+plt.legend(trajs_by_celltype[4].keys(),loc='upper center', bbox_to_anchor=(0.5, -0.05),
+          fancybox=True)
+for i_state, state in enumerate(trajs_by_celltype[4].keys()):
+    # plt.plot(t, trajs_by_celltype[4][state],color='C%d' % (i_state%6))
     plt.fill_between(t, 
                     trajs_by_celltype[4][state] - errors_by_celltype[4][state],
                     trajs_by_celltype[4][state] + errors_by_celltype[4][state],
-                    color='C%d' % (i_state%6), alpha=0.35
+                    color='C%d' % (i_state%10), alpha=0.35
     )
-plt.legend(trajs_by_celltype[4].keys())
+# plt.legend(trajs_by_celltype[4].keys())
+# plt.tight_layout()
+plt.xlabel('Time (days)', fontsize=16)
+plt.ylabel('PhysiBoSS States [Count]', fontsize=16)
 
-plt.tight_layout()
 plt.title("States of Macrophages")
 if len(args.folder) > 0:
     plt.savefig(os.path.join(args.folder, 'states_macrophages.png'), dpi=600, pad_inches=0.1, bbox_inches='tight')  # dpi=600, 

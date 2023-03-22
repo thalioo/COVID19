@@ -12,102 +12,122 @@ import csv
 os.chdir('../../')
 sys.path.append('.')
 from pyMCDS import pyMCDS
-import matplotlib.pyplot as plt
+from multiprocessing import Pool
+import pickle
+
 parser = argparse.ArgumentParser(description='Process input')
 parser.add_argument('--folder', type=str, default="", help='Choose which results to analyse')
-parser.add_argument('--replicates', type=int, default=2, help='Inform how many replicated where done')
+parser.add_argument('--replicates', type=int, default=12, help='Inform how many replicated where done')
+parser.add_argument('--cores', type=int, default=10, help='Number of cores to use for analysing results')
 
 args = parser.parse_args()
 
-
-counts = []
-
-# Here we are storing all the existing states for each cell type
-# state_dict = {}
-count_dict = {}
-
-nb_timesteps = 0
-for j in range(args.replicates): 
+def get_replicate(path, k):
+    str_name = 'output{:08d}.xml'.format(k)
+        
+    mcds = pyMCDS(str_name, path)  
     
-    if len(args.folder) > 0:
-        path = os.path.join(args.folder, 'output_R'+str("%02d"%j))
-    else:
-        path = 'output_R'+str("%02d"%j)
+    type_by_id = dict(zip(
+        mcds.data['discrete_cells']['ID'].astype(int), 
+        mcds.data['discrete_cells']['cell_type'].astype(int)
+    ))
+    types = mcds.data['discrete_cells']['cell_type'].astype(int)
 
-
-    nb_timesteps = 0
-    while os.path.exists(os.path.join(path, 'output{:08d}.xml'.format(nb_timesteps))):
-        nb_timesteps += 1
+    list_types = list(set(types))
     
-    for k in range(nb_timesteps):
+    count_dict = {}
+    for celltype in list_types:
+        if celltype not in count_dict.keys():
+            count_dict.update({celltype: {}})
+    
+    with open(os.path.join(path, 'states_%08u.csv' % k), newline='') as csvfile:
+        states_reader = csv.reader(csvfile, delimiter=',')
+    
+        for row in states_reader:
+            if row[0] != 'ID':
+                t_id = int(row[0])
+                state = row[1]
 
-
-        
-        str_name = 'output{:08d}.xml'.format(k)
-        
-        mcds = pyMCDS(str_name, path)  # /case1/run3/output
-
-        
-        type_by_id = dict(zip(
-            mcds.data['discrete_cells']['ID'].astype(int), 
-            mcds.data['discrete_cells']['cell_type'].astype(int)
-        ))
-        types = mcds.data['discrete_cells']['cell_type'].astype(int)
-
-        list_types = list(set(types))
-        
-        # count_dict = {type_id : {} for type_id in list_types}
-
-        for celltype in list_types:
-            if celltype not in count_dict.keys():
-                count_dict.update({celltype: {}})
+                if state not in count_dict[type_by_id[t_id]]:
+                    count_dict[type_by_id[t_id]][state] = 1
+                else:
+                    count_dict[type_by_id[t_id]][state] += 1
+    
+    return count_dict
+    
+def get_timestep(k):
+    print(".", end = '')
+    counts = []
+    for j in range(args.replicates):
+        if len(args.folder) > 0:
+            path = os.path.join(args.folder, 'output_R'+str("%02d"%j))
+        else:
+            path = 'output_R'+str("%02d"%j)
             
-            # if celltype not in state_dict.keys():
-            #     state_dict.update({celltype: []})
-
-        with open(os.path.join(path, 'states_%08u.csv' % k), newline='') as csvfile:
-            states_reader = csv.reader(csvfile, delimiter=',')
+        counts.append(get_replicate(path, k))
         
-            for row in states_reader:
-                if row[0] != 'ID':
-                    t_id = int(row[0])
-                    state = row[1]
-
-                    if state not in count_dict[type_by_id[t_id]]:
-                        count_dict[type_by_id[t_id]][state] = [np.zeros((args.replicates, 1)) for _ in range(nb_timesteps)]
-                    else:
-                        count_dict[type_by_id[t_id]][state][k][j] += 1
-
-                    # if state not in state_dict[type_by_id[t_id]]:
-                    #     state_dict[type_by_id[t_id]].append(state)
-        # print(count_dict)
-
-# print(state_dict)
-trajs_by_celltype = {}
-errors_by_celltype = {}
-for celltype, data in count_dict.items():
-
-    error_by_state = {}
-    traj_by_state = {}
-    for state, values in data.items():
-
-        ks = []
-        es = []
-        for k in range(nb_timesteps):
-            ks.append(np.mean(values[k]))
-            es.append(np.std(values[k]))
-        
-        traj_by_state.update({state:np.array(ks)})
-        error_by_state.update({state:np.array(es)})
+    cell_types = set()
+    for count in counts:
+        cell_types = cell_types.union(count.keys())
     
-    trajs_by_celltype.update({celltype: traj_by_state})
-    errors_by_celltype.update({celltype: error_by_state})
+    avg_counts = {cell_type:{} for cell_type in cell_types}
+    std_counts = {cell_type:{} for cell_type in cell_types}
+    states_by_celltypes = {cell_type: set() for cell_type in cell_types}
+    
+    for cell_type in cell_types:
+        state_counts = {}    
+        for states_pop in [count[cell_type] for count in counts if cell_type in count]:
+            for state, pop in states_pop.items():
+                if state not in state_counts.keys():
+                    state_counts[state] = [pop]
+                else:
+                    state_counts[state].append(pop)
+                    
+        states_by_celltypes[cell_type] = states_by_celltypes[cell_type].union(state_counts.keys())
+        
+        for state, s_counts in state_counts.items():
+            avg_counts[cell_type][state] = np.mean(s_counts)
+            std_counts[cell_type][state] = np.std(s_counts)
+            
+    return (avg_counts, std_counts, states_by_celltypes)
 
 
-import pickle
+if len(args.folder) > 0:
+    path = os.path.join(args.folder, 'output_R00')
+else:
+    path = 'output_R00'
+    
+nb_timesteps = 0
+while os.path.exists(os.path.join(path, 'output{:08d}.xml'.format(nb_timesteps))):
+    nb_timesteps += 1
+
+with Pool(args.cores) as pool:
+    res = pool.map(get_timestep, range(nb_timesteps))
+
+
+cell_types = set()
+for avgs, _, _ in res:
+    cell_types = cell_types.union(avgs.keys())
+
+states_by_celltypes = {celltype: set() for celltype in cell_types}
+
+for (avgs, stds, states) in res:
+    for cell_type, avg in avgs.items():
+        states_by_celltypes[cell_type] = states_by_celltypes[cell_type].union(avg.keys())
+
+avgs_counts = {cell_type: { state: np.zeros(len(res)) for state in states_by_celltypes[cell_type]} for cell_type in cell_types}
+stds_counts = {cell_type: { state: np.zeros(len(res)) for state in states_by_celltypes[cell_type]} for cell_type in cell_types}
+
+for i, (avgs, stds, states) in enumerate(res):
+    for cell_type in cell_types:        
+        if cell_type in avgs.keys():
+            for state, avg in avgs[cell_type].items():
+                avgs_counts[cell_type][state][i] = avg
+                stds_counts[cell_type][state][i] = stds[cell_type][state]
+                
 
 with open("trajs_states.pickle", "bw") as f_trajs:
-    pickle.dump(trajs_by_celltype, f_trajs)
+    pickle.dump(avgs_counts, f_trajs)
 
 with open("errors_states.pickle", "bw") as f_trajs:
-    pickle.dump(errors_by_celltype, f_trajs)
+    pickle.dump(stds_counts, f_trajs)
