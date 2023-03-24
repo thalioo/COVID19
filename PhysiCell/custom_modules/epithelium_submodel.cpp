@@ -42,8 +42,8 @@ void epithelium_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 	static int nV_internal = pCell->custom_data.find_variable_index( "virion" ); 
 	pCell->phenotype.intracellular->set_boolean_variable_value(
 		"Virus_inside",
-		// pCell->custom_data[nV_internal] > 1.0
-		pCell->nearest_density_vector()[nV_internal] > 1.0
+		pCell->custom_data[nV_internal] > 1.0
+		// pCell->nearest_density_vector()[nV_internal] > 1.0
 	);
 	// static int nV_external = microenvironment.find_density_index( "virion" ); 
 	// pCell->phenotype.intracellular->set_boolean_variable_value(
