@@ -45,11 +45,11 @@ void epithelium_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 	// 	// pCell->custom_data[nV_internal] > 1.0
 	// 	pCell->nearest_density_vector()[nV_internal] > 1.0
 	// );
-	// // static int nV_external = microenvironment.find_density_index( "virion" ); 
-	// // pCell->phenotype.intracellular->set_boolean_variable_value(
-	// // 	"SARS_CoV_2",
-	// // 	pCell->custom_data[nV_external] > 1
-	// // );
+	static int nV_external = microenvironment.find_density_index( "virion" ); 
+	pCell->phenotype.intracellular->set_boolean_variable_value(
+		"SARS_CoV_2",
+		pCell->custom_data[nV_external] > 1
+	);
 
 	//  BN inputs are set, run maboss:
 	if (pCell->phenotype.intracellular->need_update())

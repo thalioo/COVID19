@@ -599,10 +599,10 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 	// }
 
 	//  BN inputs are set, run maboss:
-	if (pCell->phenotype.intracellular->need_update())
-	{		
-		pCell->phenotype.intracellular->update();
-	}
+	// if (pCell->phenotype.intracellular->need_update())
+	// {		
+	// 	pCell->phenotype.intracellular->update();
+	// }
 
 	// // do something downstream maboss with its outputs
 	static int proinflammatory_cytokine_index = microenvironment.find_density_index( "pro-inflammatory cytokine");
