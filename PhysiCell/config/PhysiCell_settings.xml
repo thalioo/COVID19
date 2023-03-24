@@ -604,6 +604,7 @@
 					<bnd_filename>./config/boolean_network/epithelial_cell_2.bnd</bnd_filename>
 					<cfg_filename>./config/boolean_network/epithelial_cell_2.cfg</cfg_filename>
 					<time_step units="min">12</time_step>
+					<scaling>100</scaling>
 				</intracellular>
 			</phenotype>
 			<custom_data>
