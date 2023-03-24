@@ -51,11 +51,11 @@ void epithelium_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 	// // 	pCell->custom_data[nV_external] > 1
 	// // );
 
-	// //  BN inputs are set, run maboss:
-	// if (pCell->phenotype.intracellular->need_update())
-	// {		
-	// 	pCell->phenotype.intracellular->update();
-	// }
+	//  BN inputs are set, run maboss:
+	if (pCell->phenotype.intracellular->need_update())
+	{		
+		pCell->phenotype.intracellular->update();
+	}
 	
 	static int debris_index = microenvironment.find_density_index( "debris");
 	
