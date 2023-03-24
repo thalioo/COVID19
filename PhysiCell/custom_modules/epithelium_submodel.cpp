@@ -40,9 +40,10 @@ void epithelium_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 {
 	// when you detect virus particles outside, turn node SARS_CoV_2 ON
 	static int nV_internal = pCell->custom_data.find_variable_index( "virion" ); 
+	// if (pCell->custom_data[nV_internal] > 0) { std::cout << pCell->custom_data[nV_internal] << std::endl;}
 	pCell->phenotype.intracellular->set_boolean_variable_value(
 		"Virus_inside",
-		pCell->custom_data[nV_internal] > 1.0
+		pCell->custom_data[nV_internal] > 0.2
 		// pCell->nearest_density_vector()[nV_internal] > 1.0
 	);
 	// static int nV_external = microenvironment.find_density_index( "virion" ); 
