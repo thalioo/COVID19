@@ -54,7 +54,7 @@
 #include <iomanip>
 #include <iostream>
 
-const std::string MaBEstEngine::VERSION = "2.5.0";
+const std::string MaBEstEngine::VERSION = "2.5.2";
 size_t RandomGenerator::generated_number_count = 0;
 
 MaBEstEngine::MaBEstEngine(Network* network, RunConfig* runconfig) :
@@ -335,6 +335,8 @@ void MaBEstEngine::epilogue()
 
 MaBEstEngine::~MaBEstEngine()
 {
+  delete fixpoint_map_v[0];
+  
   for (auto t_arg_wrapper: arg_wrapper_v)
     delete t_arg_wrapper;
 
