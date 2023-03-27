@@ -304,23 +304,25 @@ with open("errors_states.pickle", "br") as f_trajs:
     errors_by_celltype = pickle.load(f_trajs)
 plt.clf()
 
-for i_state, state in enumerate(trajs_by_celltype[1].keys()):   
-    plt.plot(t, trajs_by_celltype[1][state],color='C%d' % (i_state%10))
-    # plt.fill_between(t, 
-    #                 trajs_by_celltype[1][state] - errors_by_celltype[1][state],
-    #                 trajs_by_celltype[1][state] + errors_by_celltype[1][state],
-    #                 color='C%d' % (i_state%6), alpha=0.35
-    # )  
+for i_state, state in enumerate(trajs_by_celltype[1].keys()): 
+    if state != "<nil>":  
+        plt.plot(t, trajs_by_celltype[1][state],color='C%d' % (i_state%10))
+        # plt.fill_between(t, 
+        #                 trajs_by_celltype[1][state] - errors_by_celltype[1][state],
+        #                 trajs_by_celltype[1][state] + errors_by_celltype[1][state],
+        #                 color='C%d' % (i_state%6), alpha=0.35
+        # )  
 # plt.tight_layout()
-plt.legend(trajs_by_celltype[1].keys(),loc='upper center', bbox_to_anchor=(0.5, -0.05),
+plt.legend([state for state in trajs_by_celltype[1].keys() if state != "<nil>"],loc='upper center', bbox_to_anchor=(0.5, -0.05),
           fancybox=True)
-for i_state, state in enumerate(trajs_by_celltype[1].keys()):   
-    # plt.plot(t, trajs_by_celltype[1][state],color='C%d' % (i_state%6))
-    plt.fill_between(t, 
-                    trajs_by_celltype[1][state] - errors_by_celltype[1][state],
-                    trajs_by_celltype[1][state] + errors_by_celltype[1][state],
-                    color='C%d' % (i_state%10), alpha=0.35
-    )  
+for i_state, state in enumerate(trajs_by_celltype[1].keys()):  
+    if state != "<nil>": 
+        # plt.plot(t, trajs_by_celltype[1][state],color='C%d' % (i_state%6))
+        plt.fill_between(t, 
+                        trajs_by_celltype[1][state] - errors_by_celltype[1][state],
+                        trajs_by_celltype[1][state] + errors_by_celltype[1][state],
+                        color='C%d' % (i_state%10), alpha=0.35
+        )  
 # plt.tight_layout()
 plt.xlabel('Time (days)', fontsize=16)
 plt.ylabel('PhysiBoSS States [Count]', fontsize=16)
