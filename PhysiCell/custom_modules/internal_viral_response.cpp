@@ -104,7 +104,7 @@ void internal_virus_response_model( Cell* pCell, Phenotype& phenotype, double dt
 	
 	if( R >= 1.00 - 1e-16 ) 
 	{
-		// pCell->custom_data["infected_cell_chemokine_secretion_activated"] = 1.0; 
+		pCell->custom_data["infected_cell_chemokine_secretion_activated"] = 1.0; 
 		pCell->phenotype.intracellular->set_boolean_variable_value("Chemokin_secretion", true);
 		// (AJ-V5) Antibody binding starts once the cell is infected
 		double uptakerate = parameters.doubles("Antibody_binding_rate")*(1000-phenotype.molecular.internalized_total_substrates[antibody_index])/1000;
