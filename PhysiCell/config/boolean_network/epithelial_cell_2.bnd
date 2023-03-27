@@ -8,6 +8,8 @@ Node Virus_replication {
 
 Node Chemokin_secretion {
 	logic = Virus_inside;
+	rate_up = Virus_inside ? 0.1 : 0.0;
+	rate_down = 0;
 }
 
 Node Virus_expression {
