@@ -136,7 +136,7 @@ void internal_virus_model( Cell* pCell, Phenotype& phenotype, double dt )
 	
 	pCell->phenotype.intracellular->set_boolean_variable_value(
 		"Virus_inside",
-		pCell->custom_data[nV_internal] > 1
+		pCell->custom_data[nV_internal] > 1e-16
 	);
 	
 	return; 
