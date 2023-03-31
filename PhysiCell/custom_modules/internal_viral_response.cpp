@@ -336,10 +336,10 @@ void pyroptosis_cascade( Cell* pCell, Phenotype& phenotype, double dt )
 	
 	
 	// Here is how we plug the typeII apoptosis. Maybe we should have a node linked to cell volume ?
-	if ( pCell->phenotype.intracellular->get_boolean_variable_value("Apoptosis_type_II") && !pCell->phenotype.death.dead) {
+	// if ( pCell->phenotype.intracellular->get_boolean_variable_value("Apoptosis_type_II") && !pCell->phenotype.death.dead) {
 		// std::cout << "Triggering apoptosis based on boolean model" << std::endl;
-		pCell->start_death(apoptosis_model_index);
-	}
+		// pCell->start_death(apoptosis_model_index);
+	// }
 	
 	// Here I'm not sure why I was doing this. It should already be set by viral_dynamics
 	// pCell->phenotype.intracellular->set_boolean_node_value("Virus_inside", R >= 1.00 - 1e-16);
