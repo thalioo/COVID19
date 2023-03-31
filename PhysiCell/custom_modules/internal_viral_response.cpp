@@ -78,10 +78,10 @@ void internal_virus_response_model( Cell* pCell, Phenotype& phenotype, double dt
 		pCell->custom_data[nA_internal] > pCell->custom_data["virus_expression_threshold"]
 	);
 	
-	if ( pCell->phenotype.intracellular->get_boolean_variable_value("Apoptosis_type_II") && !pCell->phenotype.death.dead) {
-		// std::cout << "Triggering apoptosis based on boolean model" << std::endl;
-		pCell->start_death(apoptosis_model_index);
-	}
+	// if ( pCell->phenotype.intracellular->get_boolean_variable_value("Apoptosis_type_II") && !pCell->phenotype.death.dead) {
+	// 	// std::cout << "Triggering apoptosis based on boolean model" << std::endl;
+	// 	pCell->start_death(apoptosis_model_index);
+	// }
 	
 	
 	
