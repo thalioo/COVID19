@@ -38,11 +38,11 @@ void epithelium_contact_function( Cell* pC1, Phenotype& p1, Cell* pC2, Phenotype
 
 void epithelium_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 {
-	// //  BN inputs are set, run maboss:
-	// if (pCell->phenotype.intracellular->need_update())
-	// {		
-	// 	pCell->phenotype.intracellular->update();
-	// }
+	//  BN inputs are set, run maboss:
+	if (pCell->phenotype.intracellular->need_update())
+	{		
+		pCell->phenotype.intracellular->update();
+	}
 	
 	static int debris_index = microenvironment.find_density_index( "debris");
 	
