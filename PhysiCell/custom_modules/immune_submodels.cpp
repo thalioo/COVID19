@@ -554,75 +554,75 @@ void immune_cell_motility_direction( Cell* pCell, Phenotype& phenotype , double 
 
 void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 {
-	// // macrophage_BN_inputs:
-	// // 1- when you detect dead epithelial cell in your vicinity, turn node Apoptosis_cell ON
-	// // OR when you touch cell in your vecinitiy and these are apoptotic OR debris is above a threshold
-	// // check for cells to eat
+	// macrophage_BN_inputs:
+	// 1- when you detect dead epithelial cell in your vicinity, turn node Apoptosis_cell ON
+	// OR when you touch cell in your vecinitiy and these are apoptotic OR debris is above a threshold
+	// check for cells to eat
 	std::vector<Cell*> neighbors = pCell->cells_in_my_container(); 
-	// // at least one of the cells is pCell 
-	// if( neighbors.size() < 2 )
-	// { 
-	// 	return; 
-	// } 
-	// else
-	// {
-	// 	int n = 0; 
-	// 	Cell* pTestCell = neighbors[n]; 
-	// 	while( n < neighbors.size() )
-	// 	{
-	// 		pTestCell = neighbors[n]; 
-	// 		// if it is not me and it's dead
-	// 		if( pTestCell != pCell && pTestCell->phenotype.death.dead == true ) 
-	// 		{
-	// 			pCell->phenotype.intracellular->set_boolean_variable_value("Apoptotic_cell", 1);
-	// 		}
-	// 		n++; 
-	// 	}
-	// }
+	// at least one of the cells is pCell 
+	if( neighbors.size() < 2 )
+	{ 
+		return; 
+	} 
+	else
+	{
+		int n = 0; 
+		Cell* pTestCell = neighbors[n]; 
+		while( n < neighbors.size() )
+		{
+			pTestCell = neighbors[n]; 
+			// if it is not me and it's dead
+			if( pTestCell != pCell && pTestCell->phenotype.death.dead == true ) 
+			{
+				pCell->phenotype.intracellular->set_boolean_variable_value("Apoptotic_cell", 1);
+			}
+			n++; 
+		}
+	}
 	
-	// // 2- when you detect virus particles outside, turn node SARS_CoV_2 ON
-	// static int nV_external = microenvironment.find_density_index( "virion" ); 
-	// pCell->phenotype.intracellular->set_boolean_variable_value(
-	// 	"SARS_CoV_2",
-	// 	// pCell->custom_data[nV_external] > 1.0
-	// 	pCell->nearest_density_vector()[nV_external] > 1.0
-	// );
+	// 2- when you detect virus particles outside, turn node SARS_CoV_2 ON
+	static int nV_external = microenvironment.find_density_index( "virion" ); 
+	pCell->phenotype.intracellular->set_boolean_variable_value(
+		"SARS_CoV_2",
+		// pCell->custom_data[nV_external] > 1.0
+		pCell->nearest_density_vector()[nV_external] > 1.0
+	);
 
-	// // 3- when you detect interferon outside, turn nodes IFNa_e, IFNb_e ON (what about IFNG?)
-	// // if( pCell->custom_data["interferon_activation"] == 1 ) // this will probably do not work as interferon_activation should be only activated in epithelial cells
-	// static int nINF1 = microenvironment.find_density_index( "interferon 1" );
-	// // if (pCell->nearest_density_vector()[nINF1] / ( pCell->custom_data["interferon_max_response_threshold"] + 1e-32 ) > 0.5) // comes from internal_viral_response.cpp, line 185
-	// if ( pCell->nearest_density_vector()[nINF1] > 1.0 ) // TODO: which sensitivity should the macrophages have ?
-	// {
-	// 	pCell->phenotype.intracellular->set_boolean_variable_value("IFNa_e",1);
-	// 	pCell->phenotype.intracellular->set_boolean_variable_value("IFNb_e",1);
-	// }
+	// 3- when you detect interferon outside, turn nodes IFNa_e, IFNb_e ON (what about IFNG?)
+	// if( pCell->custom_data["interferon_activation"] == 1 ) // this will probably do not work as interferon_activation should be only activated in epithelial cells
+	static int nINF1 = microenvironment.find_density_index( "interferon 1" );
+	// if (pCell->nearest_density_vector()[nINF1] / ( pCell->custom_data["interferon_max_response_threshold"] + 1e-32 ) > 0.5) // comes from internal_viral_response.cpp, line 185
+	if ( pCell->nearest_density_vector()[nINF1] > 1.0 ) // TODO: which sensitivity should the macrophages have ?
+	{
+		pCell->phenotype.intracellular->set_boolean_variable_value("IFNa_e",1);
+		pCell->phenotype.intracellular->set_boolean_variable_value("IFNb_e",1);
+	}
 
-	//  BN inputs are set, run maboss:
-	// if (pCell->phenotype.intracellular->need_update())
-	// {		
-	// 	pCell->phenotype.intracellular->update();
-	// }
+	 BN inputs are set, run maboss:
+	if (pCell->phenotype.intracellular->need_update())
+	{		
+		pCell->phenotype.intracellular->update();
+	}
 
 	// // do something downstream maboss with its outputs
 	static int proinflammatory_cytokine_index = microenvironment.find_density_index( "pro-inflammatory cytokine");
 
-	// // when node Inflammation is ON,  release proinflammatory cytokines
-	// // when node Neutrophil_recruitment is ON,  release proinflammatory cytokines
-	// // when node CD4_Tcell_activation is ON,  release proinflammatory cytokines
-	// // when node CD8_Tcell_activation is ON,  release proinflammatory cytokines
-	// if (
-	// 	pCell->phenotype.intracellular->get_boolean_variable_value("Inflammation") ||
-	// 	pCell->phenotype.intracellular->get_boolean_variable_value("Neutrophil_recruitment") ||
-	// 	pCell->phenotype.intracellular->get_boolean_variable_value("CD4_Tcell_activation") ||
-	// 	pCell->phenotype.intracellular->get_boolean_variable_value("CD8_Tcell_activation")
-	// )
-	// {
-	// 	phenotype.secretion.secretion_rates[proinflammatory_cytokine_index] = 
-	// 		pCell->custom_data["activated_cytokine_secretion_rate"]; // 10;
-	// 	phenotype.secretion.saturation_densities[proinflammatory_cytokine_index] = 1;
-	// 	phenotype.secretion.uptake_rates[proinflammatory_cytokine_index] = 0.0; 
-	// }
+	// when node Inflammation is ON,  release proinflammatory cytokines
+	// when node Neutrophil_recruitment is ON,  release proinflammatory cytokines
+	// when node CD4_Tcell_activation is ON,  release proinflammatory cytokines
+	// when node CD8_Tcell_activation is ON,  release proinflammatory cytokines
+	if (
+		pCell->phenotype.intracellular->get_boolean_variable_value("Inflammation") ||
+		pCell->phenotype.intracellular->get_boolean_variable_value("Neutrophil_recruitment") ||
+		pCell->phenotype.intracellular->get_boolean_variable_value("CD4_Tcell_activation") ||
+		pCell->phenotype.intracellular->get_boolean_variable_value("CD8_Tcell_activation")
+	)
+	{
+		phenotype.secretion.secretion_rates[proinflammatory_cytokine_index] = 
+			pCell->custom_data["activated_cytokine_secretion_rate"]; // 10;
+		phenotype.secretion.saturation_densities[proinflammatory_cytokine_index] = 1;
+		phenotype.secretion.uptake_rates[proinflammatory_cytokine_index] = 0.0; 
+	}
 
 	// when node Antiviral_response is ON, clear viral particles (is this something already in place?)
 	
@@ -755,7 +755,9 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 	//			pTestCell->phenotype.volume.total < max_phagocytosis_volume ) / remove in v 3.2 
 			{
 				// if (pTestCell->custom_data[nR]>0 && pCell->custom_data["activated_immune_cell"] < 0.5)
-				if (pTestCell->custom_data[nR]>0 && !pCell->phenotype.intracellular->get_boolean_variable_value("Active"))
+				if (pTestCell->custom_data[nR]>0 
+					&& !pCell->phenotype.intracellular->get_boolean_variable_value("Active")
+				)
 				{
 					// (Adrianne) obtain volume of cell to be ingested
 					double volume_ingested_cell = pTestCell->phenotype.volume.total;
