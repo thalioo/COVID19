@@ -99,11 +99,13 @@ for i in range(args.replicates):
 
     while os.path.exists(os.path.join(path, 'output{:08d}.xml'.format(nb_timesteps[i]))):
         nb_timesteps[i] += 1
-    print(nb_timesteps[i])
 
 max_timesteps = np.max(nb_timesteps)
 replicates = np.where(nb_timesteps == max_timesteps)[0].tolist()
 
+if len(replicates) < args.replicates:
+    print("Detected failed replicates : %s" % str(np.where(nb_timesteps < max_timesteps)[0].tolist()))
+    
 with Pool(args.cores) as pool:
     res = pool.starmap(get_timestep, [(ts, replicates) for ts in range(max_timesteps)])
 
