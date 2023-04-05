@@ -67,10 +67,10 @@ def get_values(path, k):
         len(neut[0]), len(DC[0]), len(CD4[0]), len(fib[0]), 
         vir, IFN, Ig, pI, aI, col, len(epi[0])])
 
-def get_timestep(k):
+def get_timestep(k, replicates):
     
     data_timestep = []
-    for j in range(args.replicates): 
+    for j in replicates: 
 
         if len(args.folder) > 0:
             path = os.path.join(args.folder, 'output_R'+str("%02d"%j))
@@ -86,19 +86,26 @@ def get_timestep(k):
     # return np.concatenate([mean_timestep, std_timestep])
     return [stack_timestep, np.concatenate([mean_timestep, std_timestep])]
 
-if len(args.folder) > 0:
-    path = os.path.join(args.folder, 'output_R00')
-else:
-    path = 'output_R00'
-    
+
 from multiprocessing import Pool
 
-nb_timesteps = 0
-while os.path.exists(os.path.join(path, 'output{:08d}.xml'.format(nb_timesteps))):
-    nb_timesteps += 1
+nb_timesteps = np.zeros((args.replicates)).astype(np.int32)
+for i in range(args.replicates):
+    # print(nb_timesteps[i])
+    if len(args.folder) > 0:
+        path = os.path.join(args.folder, 'output_R%02d' % i)
+    else:
+        path = 'output_R%02d' % i
+
+    while os.path.exists(os.path.join(path, 'output{:08d}.xml'.format(nb_timesteps[i]))):
+        nb_timesteps[i] += 1
+    print(nb_timesteps[i])
+
+max_timesteps = np.max(nb_timesteps)
+replicates = np.where(nb_timesteps == max_timesteps)[0].tolist()
 
 with Pool(args.cores) as pool:
-    res = pool.map(get_timestep, range(nb_timesteps))
+    res = pool.starmap(get_timestep, [(ts, replicates) for ts in range(max_timesteps)])
 
 
 stacked_data = np.vstack([re[1] for re in res])

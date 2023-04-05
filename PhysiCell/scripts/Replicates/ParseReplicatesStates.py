@@ -55,10 +55,10 @@ def get_replicate(path, k):
     
     return count_dict
     
-def get_timestep(k):
+def get_timestep(k, replicates):
     print(".", end = '')
     counts = []
-    for j in range(args.replicates):
+    for j in replicates:
         if len(args.folder) > 0:
             path = os.path.join(args.folder, 'output_R'+str("%02d"%j))
         else:
@@ -91,18 +91,23 @@ def get_timestep(k):
             
     return (avg_counts, std_counts, states_by_celltypes)
 
+nb_timesteps = np.zeros((args.replicates)).astype(np.int32)
+for i in range(args.replicates):
+    # print(nb_timesteps[i])
+    if len(args.folder) > 0:
+        path = os.path.join(args.folder, 'output_R%02d' % i)
+    else:
+        path = 'output_R%02d' % i
 
-if len(args.folder) > 0:
-    path = os.path.join(args.folder, 'output_R00')
-else:
-    path = 'output_R00'
-    
-nb_timesteps = 0
-while os.path.exists(os.path.join(path, 'output{:08d}.xml'.format(nb_timesteps))):
-    nb_timesteps += 1
+    while os.path.exists(os.path.join(path, 'output{:08d}.xml'.format(nb_timesteps[i]))):
+        nb_timesteps[i] += 1
+
+max_timesteps = np.max(nb_timesteps)
+replicates = np.where(nb_timesteps == max_timesteps)[0].tolist()
+
 
 with Pool(args.cores) as pool:
-    res = pool.map(get_timestep, range(nb_timesteps))
+    res = pool.starmap(get_timestep, [(ts, replicates) for ts in range(max_timesteps)])
 
 
 cell_types = set()
