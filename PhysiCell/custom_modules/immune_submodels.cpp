@@ -598,7 +598,7 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 		pCell->phenotype.intracellular->set_boolean_variable_value("IFNb_e",1);
 	}
 
-	 BN inputs are set, run maboss:
+	//  BN inputs are set, run maboss:
 	if (pCell->phenotype.intracellular->need_update())
 	{		
 		pCell->phenotype.intracellular->update();
