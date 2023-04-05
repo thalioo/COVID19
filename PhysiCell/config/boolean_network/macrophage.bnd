@@ -1084,7 +1084,7 @@ Node oxPS {
 
 Node Phagocytosis {
 
-	logic = (!ELMO1_DOCK180_RAC1 & !RhoA_Rac1_Rac2 & SRB1) | (!ELMO1_DOCK180_RAC1 & RhoA_Rac1_Rac2) | (ELMO1_DOCK180_RAC1);
+	logic = ((!ELMO1_DOCK180_RAC1 & !RhoA_Rac1_Rac2 & SRB1) | (!ELMO1_DOCK180_RAC1 & RhoA_Rac1_Rac2) | (ELMO1_DOCK180_RAC1)) & !M2_Phenotype;
 	rate_up = @logic ? $u_Phagocytosis : 0;
 	rate_down = @logic ? 0 : $d_Phagocytosis;
 }
@@ -1092,6 +1092,12 @@ Node Phagocytosis {
 Node Active {
 
 	logic = Inflammation | Neutrophil_recruitment | CD4_Tcell_activation | CD8_Tcell_activation;
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node M2_Phenotype {
+	logic = M2_Phenotype;
 	rate_up = @logic ? 1.0 : 0.0;
 	rate_down = @logic ? 0.0 : 1.0;
 }
