@@ -585,7 +585,7 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 	pCell->phenotype.intracellular->set_boolean_variable_value(
 		"SARS_CoV_2",
 		// pCell->custom_data[nV_external] > 1.0
-		pCell->nearest_density_vector()[nV_external] > 1.0
+		pCell->nearest_density_vector()[nV_external] > 0.01
 	);
 
 	// 3- when you detect interferon outside, turn nodes IFNa_e, IFNb_e ON (what about IFNG?)
@@ -797,7 +797,10 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 				}		
 				return; 
 			}
-			else if( pTestCell != pCell && pCell->custom_data["ability_to_phagocytose_infected_cell"]== 1 && pTestCell->custom_data[nP]>1 &&
+			else if( pTestCell != pCell 
+				// && pCell->custom_data["ability_to_phagocytose_infected_cell"]== 1 
+				&& pCell->phenotype.intracellular->get_boolean_variable_value("Phagocytosis")
+				&& pTestCell->custom_data[nP]>1 &&
 				UniformRandom() < probability_of_phagocytosis) // (Adrianne) macrophages that have been activated by T cells can phagocytose infected cells that contain at least 1 viral protein
 			{
 				// (Adrianne) obtain volume of cell to be ingested
