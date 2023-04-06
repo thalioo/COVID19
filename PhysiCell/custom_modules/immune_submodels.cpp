@@ -804,7 +804,7 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 			}
 			else if( pTestCell != pCell 
 				// && pCell->custom_data["ability_to_phagocytose_infected_cell"]== 1 
-				&& pCell->phenotype.intracellular->get_boolean_variable_value("Phagocytosis")
+				&& pCell->phenotype.intracellular->get_boolean_variable_value("Phagocytosis") && !pCell->phenotype.intracellular->get_boolean_variable_value("M2_Phenotype")
 				&& pTestCell->custom_data[nP]>1 &&
 				UniformRandom() < probability_of_phagocytosis) // (Adrianne) macrophages that have been activated by T cells can phagocytose infected cells that contain at least 1 viral protein
 			{
