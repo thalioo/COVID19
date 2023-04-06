@@ -713,9 +713,9 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 		}
 		// (Adrianne) if it is not me, not dead and is a CD4 T cell that is within a very short distance from me, I will be able to phagocytose infected (but not neccesarily dead) cells
 		else if( pContactCell != pCell && pContactCell->phenotype.death.dead == false && pContactCell->type == CD4_Tcell_type  && pCell->custom_data["M2_phase"] < 0.5
-			&& pCell->custom_data["activated_immune_cell"] > 0.5
+			&& pCell->custom_data["activated_immune_cell"] > 0.5 && cell_cell_distance<=parameters.doubles("epsilon_distance")*(radius_mac+radius_test_cell))
 			// && pCell->phenotype.intracellular->get_boolean_variable_value("Phagocytosis") 
-			&& cell_cell_distance<=parameters.doubles("epsilon_distance")*(radius_mac+radius_test_cell))
+			
 		{
 			pCell->custom_data["ability_to_phagocytose_infected_cell"] = 1; // (Adrianne) contact with CD4 T cell induces macrophage's ability to phagocytose infected cells
 			n=neighbors.size();
@@ -804,10 +804,9 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 				}		
 				return; 
 			}
-			else if( pTestCell != pCell 
-				&& pCell->custom_data["ability_to_phagocytose_infected_cell"]== 1 
+			else if( pTestCell != pCell && pCell->custom_data["ability_to_phagocytose_infected_cell"]== 1 && pTestCell->custom_data[nP]>1 &&
+
 				// && pCell->phenotype.intracellular->get_boolean_variable_value("Phagocytosis") && !pCell->phenotype.intracellular->get_boolean_variable_value("M2_Phenotype")
-				&& pTestCell->custom_data[nP]>1 &&
 				UniformRandom() < probability_of_phagocytosis) // (Adrianne) macrophages that have been activated by T cells can phagocytose infected cells that contain at least 1 viral protein
 			{
 				// (Adrianne) obtain volume of cell to be ingested
