@@ -607,24 +607,24 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 	// // do something downstream maboss with its outputs
 	static int proinflammatory_cytokine_index = microenvironment.find_density_index( "pro-inflammatory cytokine");
 
-	// when node Inflammation is ON,  release proinflammatory cytokines
-	// when node Neutrophil_recruitment is ON,  release proinflammatory cytokines
-	// when node CD4_Tcell_activation is ON,  release proinflammatory cytokines
-	// when node CD8_Tcell_activation is ON,  release proinflammatory cytokines
-	if ((
-			pCell->phenotype.intracellular->get_boolean_variable_value("Inflammation") ||
-			pCell->phenotype.intracellular->get_boolean_variable_value("Neutrophil_recruitment") ||
-			pCell->phenotype.intracellular->get_boolean_variable_value("CD4_Tcell_activation") ||
-			pCell->phenotype.intracellular->get_boolean_variable_value("CD8_Tcell_activation")
-		)
-		&& !pCell->phenotype.intracellular->get_boolean_variable_value("M2_Phenotype")
-	)
-	{
-		phenotype.secretion.secretion_rates[proinflammatory_cytokine_index] = 
-			pCell->custom_data["activated_cytokine_secretion_rate"]; // 10;
-		phenotype.secretion.saturation_densities[proinflammatory_cytokine_index] = 1;
-		phenotype.secretion.uptake_rates[proinflammatory_cytokine_index] = 0.0; 
-	}
+	// // when node Inflammation is ON,  release proinflammatory cytokines
+	// // when node Neutrophil_recruitment is ON,  release proinflammatory cytokines
+	// // when node CD4_Tcell_activation is ON,  release proinflammatory cytokines
+	// // when node CD8_Tcell_activation is ON,  release proinflammatory cytokines
+	// if ((
+	// 		pCell->phenotype.intracellular->get_boolean_variable_value("Inflammation") ||
+	// 		pCell->phenotype.intracellular->get_boolean_variable_value("Neutrophil_recruitment") ||
+	// 		pCell->phenotype.intracellular->get_boolean_variable_value("CD4_Tcell_activation") ||
+	// 		pCell->phenotype.intracellular->get_boolean_variable_value("CD8_Tcell_activation")
+	// 	)
+	// 	&& !pCell->phenotype.intracellular->get_boolean_variable_value("M2_Phenotype")
+	// )
+	// {
+	// 	phenotype.secretion.secretion_rates[proinflammatory_cytokine_index] = 
+	// 		pCell->custom_data["activated_cytokine_secretion_rate"]; // 10;
+	// 	phenotype.secretion.saturation_densities[proinflammatory_cytokine_index] = 1;
+	// 	phenotype.secretion.uptake_rates[proinflammatory_cytokine_index] = 0.0; 
+	// }
 
 	// when node Antiviral_response is ON, clear viral particles (is this something already in place?)
 	
@@ -701,8 +701,8 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 					
 		// (Adrianne) if it is not me, not dead and is a CD8 T cell that is within a very short distance from me, I will stop secreting pro-inflammatory cytokine
 		if( pContactCell != pCell && pContactCell->phenotype.death.dead == false && pContactCell->type == CD8_Tcell_type 
-			// && pCell->custom_data["activated_immune_cell"] > 0.5 && cell_cell_distance<=parameters.doubles("epsilon_distance")*(radius_mac+radius_test_cell)) 
-			&& pCell->phenotype.intracellular->get_boolean_variable_value("Phagocytosis") && cell_cell_distance<=parameters.doubles("epsilon_distance")*(radius_mac+radius_test_cell)) 
+			&& pCell->custom_data["activated_immune_cell"] > 0.5 && cell_cell_distance<=parameters.doubles("epsilon_distance")*(radius_mac+radius_test_cell)) 
+			// && pCell->phenotype.intracellular->get_boolean_variable_value("Phagocytosis") && cell_cell_distance<=parameters.doubles("epsilon_distance")*(radius_mac+radius_test_cell)) 
 		{
 			pCell->custom_data["M2_phase"] = 1; // counter for finding if cell is in M2 phase
 			pCell->phenotype.intracellular->set_boolean_variable_value("M2_Phenotype", true);
@@ -713,8 +713,8 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 		}
 		// (Adrianne) if it is not me, not dead and is a CD4 T cell that is within a very short distance from me, I will be able to phagocytose infected (but not neccesarily dead) cells
 		else if( pContactCell != pCell && pContactCell->phenotype.death.dead == false && pContactCell->type == CD4_Tcell_type  && pCell->custom_data["M2_phase"] < 0.5
-			// && pCell->custom_data["activated_immune_cell"] > 0.5 && cell_cell_distance<=parameters.doubles("epsilon_distance")*(radius_mac+radius_test_cell))
-			&& pCell->phenotype.intracellular->get_boolean_variable_value("Phagocytosis") 
+			&& pCell->custom_data["activated_immune_cell"] > 0.5
+			// && pCell->phenotype.intracellular->get_boolean_variable_value("Phagocytosis") 
 			&& cell_cell_distance<=parameters.doubles("epsilon_distance")*(radius_mac+radius_test_cell))
 		{
 			pCell->custom_data["ability_to_phagocytose_infected_cell"] = 1; // (Adrianne) contact with CD4 T cell induces macrophage's ability to phagocytose infected cells
@@ -756,7 +756,7 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 			
 			if( pTestCell != pCell && pTestCell->phenotype.death.dead == true &&  
 				UniformRandom() < probability_of_phagocytosis && pTestCell->type != residual_type 
-				&& pCell->phenotype.intracellular->get_boolean_variable_value("Phagocytosis")
+				// && pCell->phenotype.intracellular->get_boolean_variable_value("Phagocytosis")
 
 			) // && // remove in v 3.2 
 	//			pTestCell->phenotype.volume.total < max_phagocytosis_volume ) / remove in v 3.2 
@@ -787,7 +787,7 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 					
 						
 					pCell->custom_data["activated_immune_cell"] = 1.0; 					
-					pCell->phenotype.intracellular->set_boolean_variable_value("Active", true);
+					// pCell->phenotype.intracellular->set_boolean_variable_value("Active", true);
 
 				}	
 				else
@@ -805,8 +805,8 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 				return; 
 			}
 			else if( pTestCell != pCell 
-				// && pCell->custom_data["ability_to_phagocytose_infected_cell"]== 1 
-				&& pCell->phenotype.intracellular->get_boolean_variable_value("Phagocytosis") && !pCell->phenotype.intracellular->get_boolean_variable_value("M2_Phenotype")
+				&& pCell->custom_data["ability_to_phagocytose_infected_cell"]== 1 
+				// && pCell->phenotype.intracellular->get_boolean_variable_value("Phagocytosis") && !pCell->phenotype.intracellular->get_boolean_variable_value("M2_Phenotype")
 				&& pTestCell->custom_data[nP]>1 &&
 				UniformRandom() < probability_of_phagocytosis) // (Adrianne) macrophages that have been activated by T cells can phagocytose infected cells that contain at least 1 viral protein
 			{
@@ -823,7 +823,7 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 			}
 			else if( pTestCell != pCell && pTestCell->phenotype.death.dead == false &&  
 				pTestCell->phenotype.molecular.internalized_total_substrates[antibody_index]>1e-12
-				&& 	pCell->phenotype.intracellular->get_boolean_variable_value("Phagocytosis")
+				// && 	pCell->phenotype.intracellular->get_boolean_variable_value("Phagocytosis")
 ) 
 				// (Adrianne V5) macrophages can phaogyctose infected cell if it has some non-trivial bound antibody
 			{
@@ -843,8 +843,8 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 						pCell->custom_data.variables[time_to_next_phagocytosis_index].value = PhysiCell_globals.current_time+time_to_ingest;	
 						
 						// activate the cell if not already active 
-						// if (pCell->custom_data["activated_immune_cell"] < 0.5){
-						if (!pCell->phenotype.intracellular->get_boolean_variable_value("Active")){
+						if (pCell->custom_data["activated_immune_cell"] < 0.5){
+						// if (!pCell->phenotype.intracellular->get_boolean_variable_value("Active")){
 							phenotype.secretion.secretion_rates[proinflammatory_cytokine_index] = 
 							pCell->custom_data["activated_cytokine_secretion_rate"]; // 10;
 							phenotype.secretion.saturation_densities[proinflammatory_cytokine_index] = 1;
