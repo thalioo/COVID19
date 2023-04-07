@@ -704,6 +704,7 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 			// && pCell->custom_data["activated_immune_cell"] > 0.5 
 			&& cell_cell_distance<=parameters.doubles("epsilon_distance")*(radius_mac+radius_test_cell)
 			&& pCell->phenotype.intracellular->get_boolean_variable_value("Active") 
+			&& pCell->phenotype.intracellular->get_boolean_variable_value("Phagocytosis")
 		)
 		{
 			pCell->custom_data["M2_phase"] = 1; // counter for finding if cell is in M2 phase
@@ -714,7 +715,9 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 			n=neighbors.size();
 		}
 		// (Adrianne) if it is not me, not dead and is a CD4 T cell that is within a very short distance from me, I will be able to phagocytose infected (but not neccesarily dead) cells
-		else if( pContactCell != pCell && pContactCell->phenotype.death.dead == false && pContactCell->type == CD4_Tcell_type  && pCell->custom_data["M2_phase"] < 0.5
+		else if( pContactCell != pCell && pContactCell->phenotype.death.dead == false && pContactCell->type == CD4_Tcell_type  
+			// && pCell->custom_data["M2_phase"] < 0.5
+			&& !pCell->phenotype.intracellular->get_boolean_variable_value("M2_Phenotype")
 			// && pCell->custom_data["activated_immune_cell"] > 0.5 
 			&& cell_cell_distance<=parameters.doubles("epsilon_distance")*(radius_mac+radius_test_cell)
 			&& pCell->phenotype.intracellular->get_boolean_variable_value("Active") 
