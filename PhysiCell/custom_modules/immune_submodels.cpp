@@ -771,6 +771,7 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 					// && pCell->custom_data["activated_immune_cell"] < 0.5)
 				// if (pTestCell->custom_data[nR]>0 
 					&& !pCell->phenotype.intracellular->get_boolean_variable_value("Active")
+					&& pCell->phenotype.intracellular->get_boolean_variable_value("CD8_Tcell_activation")
 				)
 				{
 					// (Adrianne) obtain volume of cell to be ingested
