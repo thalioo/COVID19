@@ -38,6 +38,20 @@ void epithelium_contact_function( Cell* pC1, Phenotype& p1, Cell* pC2, Phenotype
 
 void epithelium_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 {
+	int necrosis_model_index = cell_defaults.phenotype.death.find_death_model_index( "necrosis" );
+	static int apoptosis_model_index = phenotype.death.find_death_model_index( "Apoptosis" );
+	static int oxygen_substrate_index = pCell->get_microenvironment()->find_density_index( "oxygen" ); 
+
+	double oxygen_internal = pCell->phenotype.molecular.internalized_total_substrates[oxygen_substrate_index];
+
+	float my_custom_threshold = 5.0;
+
+	if(oxygen_internal < my_custom_threshold){
+
+		pCell-> phenotype.death.rates[necrosis_model_index] *= 0.0001;
+		pCell-> phenotype.death.dead == true;
+		std::cout<<pCell-> phenotype.death.rates[necrosis_model_index] <<std::endl;
+	}
 	//  BN inputs are set, run maboss:
 	if (pCell->phenotype.intracellular->need_update())
 	{		
