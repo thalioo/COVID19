@@ -45,12 +45,14 @@ phase_grouping = {
     "live": "live", 
     "apoptotic": "apoptotic",  
     "necrotic_lysed": "necrotic", 
+    "necrotic": "necrotic",
     "necrotic_swelling": "necrotic"
     }
+# ena=True
 ena=False
 def generate_csv():
-
-    directory = "/home/thalia/BSC/current/COVID19/PhysiCell/output_FADD_ko_38"
+    # directory = "/home/thalia/BSC/PhysiCell/output/"
+    directory = "../PhysiCell/output_FADD_ko_o2_38/"
     timestep = 0
     data_by_time = {}
     data_frames = [] 
@@ -70,21 +72,19 @@ def generate_csv():
 
     combined_df = pd.concat(data_frames,axis=0)
     print(combined_df)
-    combined_df.to_csv("cell_phases.csv")
+    combined_df.to_csv("cell_phases_with_o2.csv")
 def plot():    
-    combined_df = pd.read_csv("cell_phases.csv",index_col=0).T
+    combined_df = pd.read_csv("cell_phases_with_o2.csv",index_col=0).T
     print(combined_df.head())
 
-    cell_types = set()
-    # print(combined_df.apply(lambda col: col.unique()))
-    # print(combined_df.columns)
-    # print(combined_df.index)
+
     category_counts = {}
 
     # Iterate over timepoints
     for timepoint in combined_df.columns:
         # Map cell phases to categories using the phases_dict and category_mapping
-        category_data = combined_df[timepoint].map(phases_dict).map(phase_grouping)
+        category_data = combined_df[timepoint].map(phases_dict)
+        # .map(phase_grouping)
         
         # Calculate the counts for each category in the current timepoint
         counts = category_data.value_counts()
@@ -98,12 +98,12 @@ def plot():
     print(category_df)
     # Plot the time series 
     # with reversed axes
-    # category_df.T.plot(kind='line', marker='o')
-    # plt.xlabel('Timepoints')
-    # plt.ylabel('Number of Cells')
-    # plt.title('Cell Category Time Series')
-    # plt.legend(title='Cell Category')
-    # plt.show()
+    category_df.T.plot(kind='line', marker='o')
+    plt.xlabel('Timepoints')
+    plt.ylabel('Number of Cells')
+    plt.title('Cell Category Time Series')
+    plt.legend(title='Cell Category')
+    plt.show()
 
 # 
 # generate_csv()
