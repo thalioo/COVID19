@@ -43,14 +43,19 @@ void epithelium_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 	static int oxygen_substrate_index = pCell->get_microenvironment()->find_density_index( "oxygen" ); 
 
 	double oxygen_internal = pCell->phenotype.molecular.internalized_total_substrates[oxygen_substrate_index];
+	double oxygen_external = pCell->nearest_density_vector()[oxygen_substrate_index];
 
 	float my_custom_threshold = 5.0;
 
-	if(oxygen_internal < my_custom_threshold){
+	if(oxygen_external < my_custom_threshold)
+	// if(oxygen_internal < my_custom_threshold)
 
 		pCell-> phenotype.death.rates[necrosis_model_index] *= 0.0001;
+		// pCell-> phenotype.death.rates[necrosis_model_index] = 9e99; 
 		pCell-> phenotype.death.dead == true;
-		std::cout<<pCell-> phenotype.death.rates[necrosis_model_index] <<std::endl;
+		// std::cout<<pCell-> phenotype.death.rates[necrosis_model_index] <<std::endl;
+		std::cout << "Death code: "  << pCell-> phenotype.death.dead << "; Current cycle code: " << pCell-> phenotype.cycle.data.current_phase_index << std::endl;
+		std::cout << "External O2: "  << oxygen_external << "; Internal O2: " << oxygen_internal << std::endl;
 	}
 	//  BN inputs are set, run maboss:
 	if (pCell->phenotype.intracellular->need_update())
