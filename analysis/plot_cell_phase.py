@@ -1,5 +1,5 @@
 from scipy.io import loadmat
-import os,glob
+import os,glob,sys
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -49,9 +49,8 @@ phase_grouping = {
     "necrotic_swelling": "necrotic"
     }
 # ena=True
-ena=False
+# ena=False
 def generate_csv():
-    # directory = "/home/thalia/BSC/PhysiCell/output/"
     directory = "../PhysiCell/output_FADD_ko_o2_38/"
     timestep = 0
     data_by_time = {}
@@ -59,7 +58,7 @@ def generate_csv():
     for filename in sorted(os.listdir(directory)):
         if filename.endswith("cells_physicell.mat") and filename.startswith("output"):
             file_path = os.path.join(directory, filename)
-            
+            print(file_path)
             # Load the .mat file
             mat_data = loadmat(file_path)
             mat_data = mat_data['cells']
@@ -67,24 +66,21 @@ def generate_csv():
             mat_data= mat_data[[0,7],:].astype(int)
             # Convert the MATLAB data to a pandas DataFrame
             df = pd.DataFrame(mat_data[1:], columns=mat_data[0],index = [timestep])
-            timestep+=60
+            timestep+=120
             data_frames.append(df)
 
     combined_df = pd.concat(data_frames,axis=0)
-    print(combined_df)
     combined_df.to_csv("cell_phases_with_o2.csv")
 def plot():    
+    print("mpika")
     combined_df = pd.read_csv("cell_phases_with_o2.csv",index_col=0).T
-    print(combined_df.head())
-
 
     category_counts = {}
 
     # Iterate over timepoints
     for timepoint in combined_df.columns:
         # Map cell phases to categories using the phases_dict and category_mapping
-        category_data = combined_df[timepoint].map(phases_dict)
-        # .map(phase_grouping)
+        category_data = combined_df[timepoint].map(phases_dict).map(phase_grouping)
         
         # Calculate the counts for each category in the current timepoint
         counts = category_data.value_counts()
@@ -98,14 +94,16 @@ def plot():
     print(category_df)
     # Plot the time series 
     # with reversed axes
-    category_df.T.plot(kind='line', marker='o')
+    category_df.T.plot(kind='line')
     plt.xlabel('Timepoints')
     plt.ylabel('Number of Cells')
     plt.title('Cell Category Time Series')
     plt.legend(title='Cell Category')
+    plt.savefig('cell_phase.png')
     plt.show()
+    
 
-# 
+ena = int(sys.argv[1])
 # generate_csv()
 if ena:
     generate_csv()

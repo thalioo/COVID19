@@ -35,30 +35,87 @@ void epithelium_contact_function( Cell* pC1, Phenotype& p1, Cell* pC2, Phenotype
 	
 	return; 
 }
+void custom_update_cell_and_death_parameters_O2_based( Cell* pCell, Phenotype& phenotype, double dt )
+{
+	static int	start_phase_index = phenotype.cycle.model().find_phase_index( PhysiCell_constants::G0G1_phase );
+	static int	necrosis_index = phenotype.death.find_death_model_index( PhysiCell_constants::necrosis_death_model ); 
+	static int	end_phase_index = phenotype.cycle.model().find_phase_index( PhysiCell_constants::S_phase );
+	static int oxygen_substrate_index = pCell->get_microenvironment()->find_density_index( "oxygen" ); 
+	// sample the microenvironment to get the pO2 value 
+	
+	double pO2 = (pCell->nearest_density_vector())[oxygen_substrate_index]; // PhysiCell_constants::oxygen_index]; 
+	int n = pCell->phenotype.cycle.current_phase_index(); 
+	double my_necrosis_threshold = 5.0;
+	double my_o2_necrosis_max = 2.5; 
+	// this multiplier is for linear interpolation of the oxygen value 
+	double multiplier = 1.0;
+	if( pO2 < pCell->parameters.o2_proliferation_saturation )
+	{
+		multiplier = ( pO2 - pCell->parameters.o2_proliferation_threshold ) 
+			/ ( pCell->parameters.o2_proliferation_saturation - pCell->parameters.o2_proliferation_threshold );
+	}
+	if( pO2 < pCell->parameters.o2_proliferation_threshold )
+	{ 
+		multiplier = 0.0; 
+	}
+	
+	// now, update the appropriate cycle transition rate 
+	
+	phenotype.cycle.data.transition_rate(start_phase_index,end_phase_index) = multiplier * 
+		pCell->parameters.pReference_live_phenotype->cycle.data.transition_rate(start_phase_index,end_phase_index);
+	
+	// Update necrosis rate
+	
+	multiplier = 0.0;
+	if( pO2 < my_necrosis_threshold )
+	{
+		multiplier = ( my_necrosis_threshold - pO2 ) 
+			/ ( my_necrosis_threshold - my_o2_necrosis_max );
+	}
+	if( pO2 < my_o2_necrosis_max )
+	{ 
+		multiplier = 1.0; 
+	}	
+	
+	// now, update the necrosis rate 
+	
+	pCell->phenotype.death.rates[necrosis_index] = multiplier * pCell->parameters.max_necrosis_rate; 
+	
+	// check for deterministic necrosis 
+	
+	if( pCell->parameters.necrosis_type == PhysiCell_constants::deterministic_necrosis && multiplier > 1e-16 )
+	{ pCell->phenotype.death.rates[necrosis_index] = 9e99; } 
+	
+	return; 
 
+
+
+
+}
 void epithelium_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 {
-	int necrosis_model_index = cell_defaults.phenotype.death.find_death_model_index( "necrosis" );
-	static int apoptosis_model_index = phenotype.death.find_death_model_index( "Apoptosis" );
-	static int oxygen_substrate_index = pCell->get_microenvironment()->find_density_index( "oxygen" ); 
+	custom_update_cell_and_death_parameters_O2_based(pCell,phenotype,dt);
+	// int necrosis_model_index = cell_defaults.phenotype.death.find_death_model_index( "necrosis" );
+	// static int apoptosis_model_index = phenotype.death.find_death_model_index( "Apoptosis" );
+	// static int oxygen_substrate_index = pCell->get_microenvironment()->find_density_index( "oxygen" ); 
 
-	double oxygen_internal = pCell->phenotype.molecular.internalized_total_substrates[oxygen_substrate_index];
-	double oxygen_external = pCell->nearest_density_vector()[oxygen_substrate_index];
+	// double oxygen_internal = pCell->phenotype.molecular.internalized_total_substrates[oxygen_substrate_index];
+	// double oxygen_external = pCell->nearest_density_vector()[oxygen_substrate_index];
 
-	float my_custom_threshold = 5.0;
+	// float my_custom_threshold = 5.0;
 
-	if(oxygen_external < my_custom_threshold)
-	// if(oxygen_internal < my_custom_threshold)
+	// if(oxygen_external < my_custom_threshold)
+	// {
+	// // if(oxygen_internal < my_custom_threshold)
 
-		pCell-> phenotype.death.rates[necrosis_model_index] *= 0.0001;
-		// pCell-> phenotype.death.rates[necrosis_model_index] = 9e99; 
-		pCell-> phenotype.death.dead == true;
-		// std::cout<<pCell-> phenotype.death.rates[necrosis_model_index] <<std::endl;
-		std::cout << "Death code: "  << pCell-> phenotype.death.dead << "; Current cycle code: " << pCell-> phenotype.cycle.data.current_phase_index << std::endl;
-		std::cout << "External O2: "  << oxygen_external << "; Internal O2: " << oxygen_internal << std::endl;
-	}
+	// 	pCell-> phenotype.death.rates[necrosis_model_index] *= 0.0001;
+	// 	// pCell-> phenotype.death.rates[necrosis_model_index] = 9e99; 
+	// 	pCell-> phenotype.death.dead == true;
+	// 	std::cout << "Death code: "  << pCell-> phenotype.death.dead << "; Current cycle code: " <<pCell-> phenotype.cycle.data.current_phase_index<< std::endl;
+	// 	std::cout << "External O2: "  << oxygen_external << "; Internal O2: " << oxygen_internal << std::endl;
+	// }
 	//  BN inputs are set, run maboss:
-	if (pCell->phenotype.intracellular->need_update())
+	if(pCell->phenotype.intracellular->need_update())
 	{		
 		pCell->phenotype.intracellular->update();
 	}
