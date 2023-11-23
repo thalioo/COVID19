@@ -74,10 +74,10 @@
 
 <PhysiCell_settings version="devel-version">
 	<domain>
-		<x_min>-400</x_min>
-		<x_max>400</x_max>
-		<y_min>-400</y_min>
-		<y_max>400</y_max>
+		<x_min>-1400</x_min>
+		<x_max>1400</x_max>
+		<y_min>-1400</y_min>
+		<y_max>1400</y_max>
 		<z_min>-10</z_min>
 		<z_max>10</z_max>
 		<dx>20</dx>
@@ -1114,14 +1114,14 @@
 			<number_of_CD8_Tcells type="int" units="none" 
 				description="initial number of CD8 T cells in tissue">0</number_of_CD8_Tcells>
 			<number_of_macrophages type="int" units="none" 
-				description="initial number of macrophages">50</number_of_macrophages>
+				description="initial number of macrophages">175</number_of_macrophages>
 			<number_of_neutrophils type="int" units="none" 
 				description="initial number of neutrophils">0</number_of_neutrophils>
 			<number_of_fibroblast type="int" units="none"
-				description="initial number of fibroblast cells">57</number_of_fibroblast>	
+				description="initial number of fibroblast cells">208</number_of_fibroblast>	
 		<!-- (Adrianne) initial number of DCs in the lung -->
 			<number_of_DCs type="int" units="none" 
-				description="initial number of Dendritic Cells">28</number_of_DCs> 
+				description="initial number of Dendritic Cells">98</number_of_DCs> 
 		<!-- (Adrianne) initial number of CD4 T cells in the lung -->
 			<number_of_CD4_Tcells type="int" units="none" 
 				description="initial number of CD4 Tcells in tissue">0</number_of_CD4_Tcells> 
@@ -1152,9 +1152,9 @@
 			<Bc_init type="double" units="cells" description="Initial value of B Cells in the lymph">0</Bc_init>
 			<Ps_init type="double" units="cells" description="Initial value of Plasma Cells in the lymph">0</Ps_init>
 			<Ig_init type="double" units="cells" description="Initial value of Antibody in the lymph to transport (should be 0)">0</Ig_init>
-			<TCN_init type="double" units="cells" description="Initial value of Naive Cytotoxic T Cells in the lymph">1000</TCN_init>
-			<THN_init type="double" units="cells" description="Initial value of Naive Helper T Cells in the lymph">1000</THN_init>
-			<BN_init type="double" units="cells" description="Initial value of Naive B Cells in the lymph">1000</BN_init>
+			<TCN_init type="double" units="cells" description="Initial value of Naive Cytotoxic T Cells in the lymph">3500</TCN_init>
+			<THN_init type="double" units="cells" description="Initial value of Naive Helper T Cells in the lymph">3500</THN_init>
+			<BN_init type="double" units="cells" description="Initial value of Naive B Cells in the lymph">3500</BN_init>
 
 		<div_Therapy type="divider" description="--options for late Ig addition--"/>
 			<therapy_dt type="double" units="min" description="time of Ig injection">0</therapy_dt>
