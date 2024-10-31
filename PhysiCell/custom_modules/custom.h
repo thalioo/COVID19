@@ -84,7 +84,7 @@ using namespace PhysiCell;
 
 void create_cell_types( void );
 void setup_tissue( void ); 
-
+void set_virion_concentration(void);
 // set up the BioFVM microenvironment 
 void setup_microenvironment( void ); 
 
@@ -95,3 +95,4 @@ std::vector<std::string> epithelium_coloring_function( Cell* );
 std::vector<std::string> tissue_coloring_function( Cell* );
 
 void SVG_plot_virus( std::string filename , Microenvironment& M, double z_slice , double time, std::vector<std::string> (*cell_coloring_function)(Cell*) );
+double total_cell_count();

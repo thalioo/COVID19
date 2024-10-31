@@ -66,6 +66,7 @@
 */
 
 #include "./custom.h"
+#include <sstream>
 
 void create_cell_types( void )
 {
@@ -167,7 +168,69 @@ void setup_microenvironment( void )
 	// initialize BioFVM 
 	
 	initialize_microenvironment(); 	
+	set_virion_concentration(); 	
 	
+	return; 
+}
+void set_virion_concentration(void)
+{
+		// File pointer
+	std::fstream fin;
+	std::map<int, int> voxel_counts; 
+	std::string filename = parameters.strings("input_virion_alya");
+	std::cout<<"filename : " <<filename<<std::endl;
+	// use following variable to define different multiplications of the virus
+	int multiplicity_of_infection = (int) ( parameters.doubles("multiplicity_of_infection"));
+	// , char delimiter, bool header
+	// Open an existing file
+	fin.open(filename, std::ios::in);
+
+	// Read the Data from the file
+	// as String Vector
+	std::vector<std::string> row;
+	std::string line, word;
+    while (getline(fin, line)) {
+
+		row.clear();
+
+
+		// used for breaking words
+		std::stringstream s(line);
+
+		while (getline(s, word,' '))
+		{ 
+			row.push_back(word); 
+			// std::cout<<"word "<<word<<std::endl;
+		}
+		std::vector<double> tempPoint;
+		for (const auto& w : row) {
+            tempPoint.push_back(std::stod(w));
+        }
+		int n = microenvironment.nearest_voxel_index( tempPoint );
+		// std::cout<<n<<std::endl;
+		voxel_counts[n]++;
+		// voxel_indexes.push_back(n);
+		row.clear();
+
+	}
+		// positions.push_back(tempPoint);
+	    fin.close();
+	for (const auto& pair : voxel_counts) {
+        int voxel_index = pair.first;
+        int virion_count = pair.second;
+
+        // Calculate volume of the voxel in cubic micrometers
+        double voxel_volume = 20 * 20  * 20;
+
+        // Calculate concentration: virions per micron^3
+        double concentration = (static_cast<double>(virion_count) / voxel_volume)*multiplicity_of_infection;
+
+        std::cout << "Voxel " << voxel_index << " concentration: " << concentration << " virions per micron^3" << std::endl;
+		microenvironment.density_vector(voxel_index)[microenvironment.find_density_index("virion")] = concentration;
+	
+    }
+	// std::cout<<microenvironment.density_vector[microenvironment.find_density_index("virion")]<<std::endl;
+	std::cout<<"exiting.."<<std::endl;
 	return; 
 }
 
@@ -235,77 +298,77 @@ void setup_tissue( void )
 		}
 	}
 	
-	extern double EPICOUNT;
-	EPICOUNT = (*all_cells).size();
-	int number_of_virions = (int) ( parameters.doubles("multiplicity_of_infection") * 
-		(*all_cells).size() ); 
-	double single_virion_density_change = 1.0 / microenvironment.mesh.dV; 
-	double viral_stddev = parameters.doubles("infection_std_dev");
-	// infect the cell closest to the center 
+	// extern double EPICOUNT;
+	// EPICOUNT = (*all_cells).size();
+	// int number_of_virions = (int) ( parameters.doubles("multiplicity_of_infection") * 
+	// 	(*all_cells).size() ); 
+	// double single_virion_density_change = 1.0 / microenvironment.mesh.dV; 
+	// double viral_stddev = parameters.doubles("infection_std_dev");
+	// // infect the cell closest to the center 
 
-	std::default_random_engine generator;
-	std::normal_distribution<double> distribution(0,viral_stddev);
+	// std::default_random_engine generator;
+	// std::normal_distribution<double> distribution(0,viral_stddev);
 
-	if( parameters.bools( "use_single_infected_cell" ) == true )
-	{
-		std::cout << "Infecting center cell with one virion ... " << std::endl; 
-		pNearestCell->phenotype.molecular.internalized_total_substrates[ nV ] = 1.0; 
-	}
-	else
-	{
-		std::cout << "Placing " << number_of_virions << " virions ... " << std::endl;
-		if( parameters.bools( "use_uniform_dist" ) == true )
-		{
-			for( int n=0 ; n < number_of_virions ; n++ )
-			{
-			// pick a random voxel 
-			std::vector<double> position = {0,0,0}; 
-			position[0] = x_min + (x_max-x_min)*UniformRandom(); 
-			position[1] = y_min + (y_max-y_min)*UniformRandom(); 
+	// if( parameters.bools( "use_single_infected_cell" ) == true )
+	// {
+	// 	std::cout << "Infecting center cell with one virion ... " << std::endl; 
+	// 	pNearestCell->phenotype.molecular.internalized_total_substrates[ nV ] = 1.0; 
+	// }
+	// else
+	// {
+	// 	std::cout << "Placing " << number_of_virions << " virions ... " << std::endl;
+	// 	if( parameters.bools( "use_uniform_dist" ) == true )
+	// 	{
+	// 		for( int n=0 ; n < number_of_virions ; n++ )
+	// 		{
+	// 		// pick a random voxel 
+	// 		std::vector<double> position = {0,0,0}; 
+	// 		position[0] = x_min + (x_max-x_min)*UniformRandom(); 
+	// 		position[1] = y_min + (y_max-y_min)*UniformRandom(); 
 			
-			int m = microenvironment.nearest_voxel_index( position ); 
-			microenvironment(m)[nV] += single_virion_density_change;
-			}			
-		}
-		else
-		{
-			for( int n=0 ; n < number_of_virions ; n++ )
-			{
-				// pick a random voxel in a dist
-				std::vector<double> position = {0,0,0};
-				double number = distribution(generator);
-				double number2 = distribution(generator);
-				if ((number>=x_min)&&(number<=x_max)) {
-					//place at position
-					position[0] = number;
+	// 		int m = microenvironment.nearest_voxel_index( position ); 
+	// 		microenvironment(m)[nV] += single_virion_density_change;
+	// 		}			
+	// 	}
+	// 	else
+	// 	{
+	// 		for( int n=0 ; n < number_of_virions ; n++ )
+	// 		{
+	// 			// pick a random voxel in a dist
+	// 			std::vector<double> position = {0,0,0};
+	// 			double number = distribution(generator);
+	// 			double number2 = distribution(generator);
+	// 			if ((number>=x_min)&&(number<=x_max)) {
+	// 				//place at position
+	// 				position[0] = number;
 
-				}
-				else if (number<x_min) {
-					//place at edge
-					position[0] = x_min + (x_max-x_min)*UniformRandom();
-				}
-				else {
-					//place at edge
-					position[0] = x_min + (x_max-x_min)*UniformRandom();
-				}
-				if ((number2>=y_min)&&(number2<=y_max)) {
-					//place at position
-					position[1] = number2;
-				}
-				else if (number2<y_min) {
-					//place at edge
-					position[1] = y_min + (y_max-y_min)*UniformRandom(); 
-				}
-				else {
-					//place at edge
-					position[1] = y_min + (y_max-y_min)*UniformRandom(); 
-				}
+	// 			}
+	// 			else if (number<x_min) {
+	// 				//place at edge
+	// 				position[0] = x_min + (x_max-x_min)*UniformRandom();
+	// 			}
+	// 			else {
+	// 				//place at edge
+	// 				position[0] = x_min + (x_max-x_min)*UniformRandom();
+	// 			}
+	// 			if ((number2>=y_min)&&(number2<=y_max)) {
+	// 				//place at position
+	// 				position[1] = number2;
+	// 			}
+	// 			else if (number2<y_min) {
+	// 				//place at edge
+	// 				position[1] = y_min + (y_max-y_min)*UniformRandom(); 
+	// 			}
+	// 			else {
+	// 				//place at edge
+	// 				position[1] = y_min + (y_max-y_min)*UniformRandom(); 
+	// 			}
 				
-				int m = microenvironment.nearest_voxel_index( position ); 
-				microenvironment(m)[nV] += single_virion_density_change; 
-			}
-		}
-	}
+	// 			int m = microenvironment.nearest_voxel_index( position ); 
+	// 			microenvironment(m)[nV] += single_virion_density_change; 
+	// 		}
+	// 	}
+	// }
 	
 	// now place immune cells 
 	
@@ -770,5 +833,15 @@ void SVG_plot_virus( std::string filename , Microenvironment& M, double z_slice 
  
 	return; 
 }
-
+double total_cell_count()
+{
+	// double out = 0.0;
+	
+	// for( int i=0; i < (*all_cells).size() ; i++ )
+	// {
+	// 	out += 1.0;
+	// }
+	
+	return (*all_cells).size(); 
+}
 

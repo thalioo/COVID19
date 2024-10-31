@@ -49,6 +49,10 @@ void custom_update_cell_and_death_parameters_O2_based( Cell* pCell, Phenotype& p
 	double my_o2_necrosis_max = 2.5; 
 	// this multiplier is for linear interpolation of the oxygen value 
 	double multiplier = 1.0;
+
+	if( phenotype.death.dead == true )	
+	{ return; }
+
 	if( pO2 < pCell->parameters.o2_proliferation_saturation )
 	{
 		multiplier = ( pO2 - pCell->parameters.o2_proliferation_threshold ) 
@@ -286,7 +290,7 @@ void ROS_induced_apoptosis( Cell* pCell, Phenotype& phenotype, double dt )
 	
 	double prob_apoptosis = ROS_amount/(ROS_amount+epsilon_ROS);
 	
-	if( UniformRandom() < prob_apoptosis )
+	if( UniformRandom() < prob_apoptosis && !pCell->phenotype.death.dead  )
 	{
 		//std::cout<<ROS_amount<<" "<<epsilon_ROS<<std::endl;
 		// make sure to get rid of all adhesions! 
@@ -309,4 +313,96 @@ void ROS_induced_apoptosis( Cell* pCell, Phenotype& phenotype, double dt )
 	
 	return; 
 }
+double total_epithelial_cell_count()
+{
+	double out = 0.0;
+	
+	for( int i=0; i < (*all_cells).size() ; i++ )
+	{
+		if( (*all_cells)[i]->type == 1 )
+		{ out += 1.0; } 
+	}
+	
+	return out; 
+
+}
+double total_alive_epithelial_cell_count()
+{
+	double out = 0.0;
+	
+	for( int i=0; i < (*all_cells).size() ; i++ )
+	{
+		if( (*all_cells)[i]->phenotype.cycle.current_phase().code==4 && (*all_cells)[i]->type == 1 )
+		{ out += 1.0; } 
+	}
+	
+	return out; 
+
+}
+double total_apoptotic_epithelial_cell_count()
+{
+	double out = 0.0;
+	int apoptosis_model_index = PhysiCell_constants::apoptosis_death_model;
+
+
+	for( int i=0; i < (*all_cells).size() ; i++ )
+	{
+		if((*all_cells)[i]->phenotype.cycle.current_phase().code == 100  && (*all_cells)[i]->type == 1 )
+		{ out += 1.0; } 
+	}
+	// std::cout<<apoptosis_model_index<<std::endl;
+	// out=apoptotic_dead-out;
+
+	return out; 
+
+}
+double total_necrotic_epithelial_cell_count()
+{
+	double out = 0.0;
+	int necrosis_model_index = PhysiCell_constants::necrosis_death_model;
+	Cell* deadCell;
+	// if (deadCell == NULL){std::cout<<"im null "<<std::endl;}
+	for( int i=0; i < (*all_cells).size() ; i++ )
+	{	
+		// std::cout<<"phenotype.cycle.current_phase().code "<<(*all_cells)[i]->phenotype.cycle.current_phase().code<<std::endl;
+
+		
+
+		if( (*all_cells)[i]->phenotype.cycle.current_phase().code == 101 && (*all_cells)[i]->type == 1 )
+		//  if(  (*all_cells)[i]->type == 1 )
+		{	
+			// std::cout<<(*all_cells)[i]->ID<<std::endl;
+			 out += 1.0; } 
+	}
+	// std::cout<<necrosis_model_index<<std::endl;
+	// out = necrotic_dead-out;
+	return out; 
+
+}
+double total_infected_epithelial_cell_count()
+{
+	int infected_count = 0;
+    double infection_threshold = 1.0;  // The threshold value for infection
+
+    // Iterate over all cells
+    for( int i = 0; i < (*all_cells).size(); i++ )
+    {
+        Cell* pCell = (*all_cells)[i];
+
+	if(pCell->type==1){
+		// Access the microenvironment variables for the current cell
+        double virion = pCell->nearest_density_vector()[microenvironment.find_density_index( "virion" )];
+		
+        // Check if the variable value exceeds the threshold
+        if( virion > infection_threshold )
+
+        {
+            std::cout<<virion<<std::endl;
+			infected_count++;
+        }
+	}
+	}
+	return infected_count;	
+}
+
 

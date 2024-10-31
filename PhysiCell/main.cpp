@@ -73,6 +73,7 @@
 #include <omp.h>
 #include <fstream>
 #include <algorithm>    // std::rotate
+#include <sys/stat.h>
 
 #include "./core/PhysiCell.h"
 #include "./modules/PhysiCell_standard_modules.h" 
@@ -157,7 +158,17 @@ std::vector<int> history(144001); //144000 - full day delay - set max (lets say 
 std::vector<int> historyTc(121); //120 - half day delay
 std::vector<int> historyTh(121);
 //size 72000 - 0.5 day -> 0.01min
-
+void checkKillFileExistsAndExit(const std::string& folderPath) {
+    std::string filePath = folderPath + "/kill.txt";
+    std::ifstream file(filePath.c_str());
+    if (file.good()) {
+        std::cout << "kill.txt file found. Exiting program." << std::endl;
+        exit(EXIT_SUCCESS);
+    }
+	else{
+		std::cout<<"no kill found"<< std::endl;
+	}
+}
 int main( int argc, char* argv[] )
 {
 	// load and parse settings file(s)
@@ -169,6 +180,25 @@ int main( int argc, char* argv[] )
 	{ XML_status = load_PhysiCell_config_file( "./config/PhysiCell_settings.xml" ); }
 	if( !XML_status )
 	{ exit(-1); }
+    // 
+    	int status = mkdir(PhysiCell_settings.folder.c_str(), 0777);
+    if (status == 0 || errno == EEXIST) {
+        std::cout << "Succesfully created the directory" << std::endl;
+    } else {
+
+        std::cerr << "Failed to create directory: " << PhysiCell_settings.folder.c_str() << std::endl;
+		std::string str(PhysiCell_settings.folder.c_str()); // Convert the C-style string to a C++ string
+    	size_t found = str.rfind('/'); // Find the last occurrence of '/'
+		if (found != std::string::npos) {
+        std::string leftPart = str.substr(0, found); // Get the left part before the last '/'
+        std::string rightPart = str.substr(found + 1); // Get the right part after the last '/'
+
+        std::cout << "Left Part: " << leftPart << std::endl;
+        std::cout << "Right Part: " << rightPart << std::endl;
+		int status = mkdir(leftPart.c_str(), 0777);
+		status = mkdir(PhysiCell_settings.folder.c_str(), 0777);
+		}
+    }
 
 	//Define initial values for Globals
 	DM = parameters.doubles("DM_init");
@@ -257,13 +287,20 @@ int main( int argc, char* argv[] )
 	BioFVM::TIC();
 	
 	std::ofstream report_file;
-	if( PhysiCell_settings.enable_legacy_saves == true )
-	{	
-		sprintf( filename , "%s/simulation_report.txt" , PhysiCell_settings.folder.c_str() ); 
+	// char filename_rf[1024];
+
+	sprintf( filename , "%s/simulation_report.txt" , PhysiCell_settings.folder.c_str() ); 
+	report_file.open(filename);
+	report_file<<"process_id\ttimepoint\tnum_all_cells\tnum_total_epithelial\tnum_alive_epithelial\tnum_apoptotic_epithelial\tnum_necrotic_epithelial\tnum_infected_epithelial"<<std::endl;
+	// report_file.close();
+	// if( PhysiCell_settings.enable_legacy_saves == true )
+	// {	
+	// 	sprintf( filename , "%s/simulation_report.txt" , PhysiCell_settings.folder.c_str() ); 
 		
-		report_file.open(filename); 	// create the data log file 
-		report_file<<"simulated time\tnum cells\tnum division\tnum death\twall time"<<std::endl;
-	}
+	// 	report_file.open(filename); 	// create the data log file 
+	// 	report_file<<"simulated time\tnum cells\tnum division\tnum death\twall time"<<std::endl;
+	// }
+
 
     
     
@@ -283,11 +320,32 @@ int main( int argc, char* argv[] )
 			if( fabs( PhysiCell_globals.current_time - PhysiCell_globals.next_full_save_time ) < 0.01 * diffusion_dt )
 			{
 				display_simulation_status( std::cout ); 
-				if( PhysiCell_settings.enable_legacy_saves == true )
-				{	
-					log_output( PhysiCell_globals.current_time , PhysiCell_globals.full_output_index, microenvironment, report_file);
-				}
-				
+					for (unsigned int n=0; n < microenvironment.number_of_voxels() ; n++ ) 
+					{
+					// std::cout << voxel[microenvironment.find_density_index("virion")] << std::endl;
+					// std::cout<<microenvironment.density_vector(n)[microenvironment.find_density_index("virion")]<<std::endl;
+					}
+
+				// Check for kill file	
+				std::string folderPath = PhysiCell_settings.folder;
+    			checkKillFileExistsAndExit(folderPath);
+				// if( PhysiCell_settings.enable_legacy_saves == true )
+				// {	
+				// 	log_output( PhysiCell_globals.current_time , PhysiCell_globals.full_output_index, microenvironment, report_file);
+				// }
+				// nnow write the kafka_file
+				// report_file.open(filename_rf);
+				report_file << PhysiCell_settings.folder.c_str() <<","
+				<< PhysiCell_globals.current_time << ","
+				<< total_cell_count() << ","
+				<< total_epithelial_cell_count() << ","
+				<< total_alive_epithelial_cell_count() << ","
+				<< total_apoptotic_epithelial_cell_count() << ","
+				<< total_necrotic_epithelial_cell_count() << ","
+				<< total_infected_epithelial_cell_count()
+				<< std::endl;
+				// report_file.close();
+
 				if( PhysiCell_settings.enable_full_saves == true )
 				{	
 					sprintf( filename , "%s/output%08u" , PhysiCell_settings.folder.c_str(),  PhysiCell_globals.full_output_index ); 
@@ -296,8 +354,8 @@ int main( int argc, char* argv[] )
 					
 					save_PhysiCell_to_MultiCellDS_xml_pugi( filename , microenvironment , PhysiCell_globals.current_time ); 
 
-					sprintf( filename , "%s/states_%08u.csv", PhysiCell_settings.folder.c_str(), PhysiCell_globals.full_output_index);
-					MaBoSSIntracellular::save( filename, *PhysiCell::all_cells );
+					// sprintf( filename , "%s/states_%08u.csv", PhysiCell_settings.folder.c_str(), PhysiCell_globals.full_output_index);
+					// MaBoSSIntracellular::save( filename, *PhysiCell::all_cells );
 				}
 				
 				PhysiCell_globals.full_output_index++; 

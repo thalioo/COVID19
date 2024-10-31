@@ -32,5 +32,10 @@ void ROS_induced_apoptosis( Cell* pCell, Phenotype& phenotype, double dt );
 void create_secreting_agentcall(double positionpass0, double positionpass1);
 void create_secreting_agent( Cell_Definition* pCD, double positionpass0, double positionpass1);
 // void create_secreting_agent( std::string cell_name );
+double total_epithelial_cell_count();
+double total_alive_epithelial_cell_count();
+double total_apoptotic_epithelial_cell_count();
+double total_necrotic_epithelial_cell_count();
+double total_infected_epithelial_cell_count();
 
 #endif 
