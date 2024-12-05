@@ -1,0 +1,2854 @@
+ID,state
+0,<nil>
+1,<nil>
+2,<nil>
+3,<nil>
+4,<nil>
+5,<nil>
+6,<nil>
+7,<nil>
+8,<nil>
+9,<nil>
+10,<nil>
+11,<nil>
+12,<nil>
+13,<nil>
+14,<nil>
+15,<nil>
+16,<nil>
+17,<nil>
+18,<nil>
+19,<nil>
+20,<nil>
+21,<nil>
+22,<nil>
+23,<nil>
+24,<nil>
+25,<nil>
+26,<nil>
+27,<nil>
+28,<nil>
+29,<nil>
+30,<nil>
+31,<nil>
+32,<nil>
+33,<nil>
+34,<nil>
+35,<nil>
+36,<nil>
+37,<nil>
+38,<nil>
+39,<nil>
+40,<nil>
+41,<nil>
+42,<nil>
+43,<nil>
+44,<nil>
+45,<nil>
+46,<nil>
+47,<nil>
+48,<nil>
+49,<nil>
+50,<nil>
+51,<nil>
+52,<nil>
+53,<nil>
+54,<nil>
+55,<nil>
+56,<nil>
+57,<nil>
+58,<nil>
+59,<nil>
+60,<nil>
+61,<nil>
+62,<nil>
+63,<nil>
+64,<nil>
+65,<nil>
+66,<nil>
+67,<nil>
+68,<nil>
+69,<nil>
+70,<nil>
+71,<nil>
+72,<nil>
+73,<nil>
+74,<nil>
+75,<nil>
+76,<nil>
+77,<nil>
+78,<nil>
+79,<nil>
+80,<nil>
+81,<nil>
+82,<nil>
+83,Virus_inside -- Virus_replication -- Chemokin_secretion
+84,<nil>
+85,<nil>
+86,<nil>
+87,<nil>
+88,<nil>
+89,<nil>
+90,<nil>
+91,<nil>
+92,<nil>
+93,<nil>
+94,<nil>
+95,<nil>
+96,<nil>
+97,<nil>
+98,<nil>
+99,<nil>
+100,<nil>
+101,<nil>
+102,<nil>
+103,<nil>
+104,<nil>
+105,<nil>
+106,<nil>
+107,<nil>
+108,<nil>
+109,<nil>
+110,<nil>
+111,<nil>
+112,<nil>
+113,<nil>
+114,<nil>
+115,<nil>
+116,<nil>
+117,<nil>
+118,<nil>
+119,<nil>
+120,<nil>
+121,<nil>
+122,<nil>
+123,<nil>
+124,<nil>
+125,<nil>
+126,<nil>
+127,<nil>
+128,<nil>
+129,<nil>
+130,<nil>
+131,<nil>
+132,<nil>
+133,<nil>
+134,<nil>
+135,<nil>
+136,<nil>
+137,<nil>
+138,<nil>
+139,<nil>
+140,<nil>
+141,<nil>
+142,<nil>
+143,<nil>
+144,<nil>
+145,<nil>
+146,<nil>
+147,<nil>
+148,<nil>
+149,<nil>
+150,<nil>
+151,<nil>
+152,<nil>
+153,<nil>
+154,<nil>
+155,<nil>
+156,<nil>
+157,<nil>
+158,<nil>
+159,<nil>
+160,<nil>
+161,<nil>
+162,<nil>
+163,<nil>
+164,<nil>
+165,<nil>
+166,<nil>
+167,<nil>
+168,<nil>
+169,<nil>
+170,<nil>
+171,<nil>
+172,<nil>
+173,<nil>
+174,<nil>
+175,<nil>
+176,<nil>
+177,<nil>
+178,<nil>
+179,<nil>
+180,Virus_inside -- Virus_replication -- Chemokin_secretion
+181,<nil>
+182,<nil>
+183,<nil>
+184,<nil>
+185,<nil>
+186,<nil>
+187,<nil>
+188,<nil>
+189,<nil>
+190,<nil>
+191,<nil>
+192,<nil>
+193,<nil>
+194,<nil>
+195,<nil>
+196,<nil>
+197,<nil>
+198,<nil>
+199,<nil>
+200,<nil>
+201,<nil>
+202,<nil>
+203,<nil>
+204,<nil>
+205,<nil>
+206,<nil>
+207,<nil>
+208,<nil>
+209,<nil>
+210,<nil>
+211,<nil>
+212,<nil>
+213,<nil>
+214,<nil>
+215,<nil>
+216,<nil>
+217,<nil>
+218,<nil>
+219,<nil>
+220,Virus_inside -- Virus_replication -- Chemokin_secretion
+221,<nil>
+222,Virus_inside -- Virus_replication
+223,<nil>
+224,<nil>
+225,<nil>
+226,<nil>
+227,<nil>
+228,Virus_inside -- Virus_replication -- Chemokin_secretion
+229,<nil>
+3972,Phagocytosis -- Apoptotic_cell -- Active
+231,Virus_inside -- Virus_replication -- Chemokin_secretion
+232,<nil>
+233,<nil>
+234,<nil>
+235,<nil>
+236,<nil>
+237,<nil>
+238,<nil>
+239,<nil>
+240,<nil>
+241,<nil>
+242,<nil>
+243,<nil>
+244,<nil>
+245,<nil>
+246,<nil>
+247,<nil>
+248,<nil>
+249,<nil>
+250,<nil>
+251,<nil>
+252,<nil>
+253,<nil>
+254,<nil>
+255,<nil>
+256,<nil>
+257,<nil>
+258,<nil>
+259,<nil>
+260,<nil>
+261,<nil>
+262,<nil>
+263,<nil>
+264,<nil>
+265,<nil>
+266,Virus_inside -- Virus_replication
+267,<nil>
+268,<nil>
+269,<nil>
+270,<nil>
+271,<nil>
+272,<nil>
+273,<nil>
+274,<nil>
+275,<nil>
+276,<nil>
+3142,Phagocytosis -- Apoptotic_cell
+278,Virus_inside -- Virus_replication -- Chemokin_secretion
+279,Virus_inside -- Virus_replication -- Chemokin_secretion
+280,<nil>
+281,<nil>
+282,<nil>
+283,<nil>
+284,<nil>
+285,<nil>
+286,<nil>
+287,<nil>
+288,<nil>
+289,<nil>
+290,<nil>
+291,<nil>
+292,<nil>
+293,<nil>
+294,<nil>
+295,<nil>
+296,<nil>
+297,<nil>
+298,<nil>
+299,<nil>
+300,<nil>
+301,<nil>
+302,<nil>
+303,<nil>
+304,<nil>
+305,<nil>
+306,<nil>
+307,<nil>
+308,<nil>
+309,<nil>
+310,<nil>
+311,<nil>
+312,<nil>
+313,<nil>
+314,<nil>
+315,<nil>
+316,<nil>
+317,<nil>
+318,Virus_inside -- Virus_replication -- Chemokin_secretion
+319,Virus_inside -- Virus_replication -- Chemokin_secretion
+320,<nil>
+321,<nil>
+322,Virus_inside
+323,Virus_inside -- Virus_replication -- Chemokin_secretion
+324,<nil>
+325,<nil>
+326,Virus_inside -- Virus_replication -- Chemokin_secretion
+327,<nil>
+3958,Active
+3921,Active
+330,<nil>
+331,<nil>
+332,<nil>
+333,<nil>
+334,<nil>
+335,<nil>
+336,<nil>
+337,<nil>
+338,<nil>
+339,<nil>
+340,<nil>
+341,<nil>
+342,<nil>
+343,<nil>
+344,<nil>
+345,<nil>
+346,<nil>
+347,<nil>
+348,<nil>
+349,<nil>
+350,<nil>
+351,<nil>
+352,<nil>
+353,<nil>
+354,<nil>
+355,<nil>
+356,<nil>
+357,<nil>
+358,<nil>
+359,<nil>
+360,<nil>
+361,<nil>
+362,<nil>
+363,<nil>
+364,<nil>
+365,Virus_inside
+366,Virus_inside -- Virus_replication
+367,Virus_inside -- Virus_replication -- Chemokin_secretion
+368,Virus_inside -- Virus_replication -- Chemokin_secretion
+369,Virus_inside -- Virus_replication -- Chemokin_secretion
+370,<nil>
+371,<nil>
+372,<nil>
+373,<nil>
+374,<nil>
+375,<nil>
+376,<nil>
+377,Virus_inside -- Virus_replication -- Chemokin_secretion
+378,<nil>
+379,<nil>
+380,<nil>
+381,<nil>
+382,<nil>
+383,<nil>
+384,<nil>
+385,<nil>
+386,<nil>
+387,<nil>
+388,<nil>
+389,<nil>
+390,<nil>
+391,<nil>
+392,<nil>
+393,<nil>
+394,<nil>
+395,<nil>
+396,<nil>
+397,<nil>
+398,<nil>
+399,<nil>
+400,<nil>
+401,<nil>
+402,<nil>
+403,<nil>
+404,<nil>
+405,<nil>
+406,<nil>
+407,<nil>
+408,<nil>
+409,<nil>
+410,<nil>
+411,<nil>
+412,<nil>
+413,<nil>
+414,Virus_inside -- Virus_replication -- Chemokin_secretion
+415,<nil>
+416,Virus_inside -- Virus_replication -- Chemokin_secretion
+417,Virus_inside -- Virus_replication -- Chemokin_secretion -- Apoptosis_type_II
+418,Virus_inside -- Virus_replication -- Chemokin_secretion
+419,Virus_inside -- Virus_replication -- Chemokin_secretion
+420,<nil>
+421,<nil>
+422,<nil>
+423,Virus_inside -- Virus_replication -- Chemokin_secretion
+424,<nil>
+425,Virus_inside -- Virus_replication
+426,Virus_inside -- Virus_replication -- Chemokin_secretion
+427,<nil>
+428,Virus_inside -- Virus_replication
+429,<nil>
+430,<nil>
+431,<nil>
+432,<nil>
+433,<nil>
+434,<nil>
+435,<nil>
+436,<nil>
+437,<nil>
+438,<nil>
+439,<nil>
+440,<nil>
+441,<nil>
+442,<nil>
+443,<nil>
+444,<nil>
+445,<nil>
+446,<nil>
+447,<nil>
+448,<nil>
+449,<nil>
+450,<nil>
+451,<nil>
+452,<nil>
+453,<nil>
+454,<nil>
+455,<nil>
+456,<nil>
+457,<nil>
+458,<nil>
+459,<nil>
+460,<nil>
+461,<nil>
+462,<nil>
+463,Virus_inside -- Virus_replication -- Chemokin_secretion
+3124,<nil>
+3761,Active
+466,Virus_inside -- Virus_replication -- Chemokin_secretion
+467,Virus_inside -- Virus_replication -- Chemokin_secretion
+468,Virus_inside -- Virus_replication -- Chemokin_secretion
+469,<nil>
+470,<nil>
+471,<nil>
+472,<nil>
+473,<nil>
+474,<nil>
+475,<nil>
+476,<nil>
+477,<nil>
+478,<nil>
+479,<nil>
+480,<nil>
+481,<nil>
+482,<nil>
+483,<nil>
+484,<nil>
+485,<nil>
+486,<nil>
+487,<nil>
+488,<nil>
+489,<nil>
+490,<nil>
+491,<nil>
+492,<nil>
+493,<nil>
+494,<nil>
+495,<nil>
+496,<nil>
+497,<nil>
+498,<nil>
+499,<nil>
+500,<nil>
+501,<nil>
+502,<nil>
+503,<nil>
+504,<nil>
+505,<nil>
+506,<nil>
+507,<nil>
+508,<nil>
+509,<nil>
+510,<nil>
+511,<nil>
+512,<nil>
+513,<nil>
+514,<nil>
+515,Virus_inside -- Virus_replication -- Chemokin_secretion
+516,Virus_inside -- Virus_replication -- Chemokin_secretion
+517,Virus_inside -- Virus_replication
+518,Virus_inside -- Virus_replication
+519,<nil>
+520,<nil>
+521,<nil>
+522,<nil>
+523,<nil>
+524,<nil>
+525,<nil>
+526,<nil>
+527,<nil>
+528,<nil>
+529,<nil>
+530,<nil>
+531,<nil>
+532,<nil>
+533,<nil>
+534,<nil>
+535,<nil>
+536,<nil>
+537,<nil>
+538,<nil>
+539,<nil>
+540,<nil>
+541,<nil>
+542,<nil>
+543,<nil>
+544,<nil>
+545,<nil>
+546,<nil>
+547,<nil>
+548,<nil>
+549,<nil>
+550,<nil>
+551,<nil>
+552,<nil>
+553,<nil>
+554,<nil>
+555,<nil>
+556,<nil>
+557,<nil>
+3245,<nil>
+3436,Active
+3717,Phagocytosis -- Apoptotic_cell -- Active
+3901,Active
+562,<nil>
+3895,Active
+3587,Active
+565,Virus_inside
+566,<nil>
+3104,<nil>
+3682,Active
+569,<nil>
+570,<nil>
+571,<nil>
+572,<nil>
+573,<nil>
+574,<nil>
+575,<nil>
+576,<nil>
+577,<nil>
+578,<nil>
+579,<nil>
+580,<nil>
+581,<nil>
+582,<nil>
+583,<nil>
+584,<nil>
+585,<nil>
+586,<nil>
+587,<nil>
+588,<nil>
+589,<nil>
+590,<nil>
+591,<nil>
+592,<nil>
+593,<nil>
+594,<nil>
+595,<nil>
+596,<nil>
+597,<nil>
+598,<nil>
+599,<nil>
+600,<nil>
+601,<nil>
+602,<nil>
+603,<nil>
+604,<nil>
+605,<nil>
+3483,Active
+607,<nil>
+3289,<nil>
+609,<nil>
+610,Virus_inside -- Virus_replication -- Chemokin_secretion
+611,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+612,Virus_inside -- Virus_replication -- Chemokin_secretion
+613,Virus_inside -- Virus_replication -- Chemokin_secretion
+3382,Phagocytosis -- Apoptotic_cell -- Active
+615,Virus_inside -- Virus_replication -- Chemokin_secretion
+616,Virus_inside
+617,<nil>
+618,<nil>
+619,<nil>
+620,<nil>
+621,<nil>
+622,<nil>
+623,<nil>
+624,<nil>
+625,<nil>
+626,<nil>
+627,<nil>
+628,<nil>
+629,<nil>
+630,<nil>
+631,<nil>
+632,<nil>
+633,<nil>
+634,<nil>
+635,<nil>
+636,<nil>
+637,<nil>
+638,<nil>
+639,<nil>
+640,<nil>
+641,<nil>
+642,<nil>
+643,<nil>
+644,<nil>
+645,<nil>
+646,<nil>
+647,<nil>
+648,<nil>
+649,<nil>
+650,<nil>
+651,<nil>
+652,<nil>
+653,<nil>
+3204,<nil>
+655,<nil>
+656,<nil>
+3456,Active
+658,<nil>
+659,<nil>
+660,Virus_inside -- Virus_replication -- Chemokin_secretion
+661,Virus_inside -- Virus_replication -- Chemokin_secretion
+662,Virus_inside -- Virus_replication -- Chemokin_secretion
+3228,Active
+664,<nil>
+665,<nil>
+3942,Active
+667,<nil>
+668,<nil>
+669,<nil>
+670,<nil>
+671,<nil>
+672,<nil>
+673,<nil>
+674,<nil>
+675,<nil>
+676,<nil>
+677,<nil>
+678,<nil>
+679,<nil>
+680,<nil>
+681,<nil>
+682,<nil>
+683,<nil>
+684,<nil>
+685,<nil>
+686,<nil>
+687,<nil>
+688,<nil>
+689,<nil>
+690,<nil>
+691,<nil>
+692,<nil>
+693,<nil>
+694,<nil>
+695,<nil>
+696,<nil>
+697,<nil>
+698,<nil>
+699,<nil>
+700,<nil>
+701,<nil>
+702,<nil>
+703,Virus_inside -- Virus_replication -- Chemokin_secretion
+704,<nil>
+705,Virus_inside
+3582,Active
+707,<nil>
+708,Virus_inside -- Virus_replication -- Chemokin_secretion
+709,<nil>
+710,Virus_inside -- Virus_replication -- Chemokin_secretion
+711,Virus_inside -- Virus_replication -- Chemokin_secretion
+3902,Phagocytosis -- Apoptotic_cell
+713,<nil>
+714,<nil>
+715,<nil>
+3960,<nil>
+717,<nil>
+718,Virus_inside -- Virus_replication
+719,<nil>
+720,Virus_inside -- Virus_replication -- Chemokin_secretion
+721,<nil>
+722,<nil>
+723,<nil>
+724,<nil>
+725,<nil>
+726,<nil>
+727,<nil>
+728,<nil>
+729,<nil>
+730,<nil>
+731,<nil>
+732,<nil>
+733,<nil>
+734,<nil>
+735,<nil>
+736,<nil>
+737,<nil>
+738,<nil>
+739,<nil>
+740,<nil>
+741,<nil>
+742,<nil>
+743,<nil>
+744,<nil>
+745,<nil>
+746,<nil>
+747,<nil>
+748,<nil>
+749,<nil>
+750,<nil>
+751,<nil>
+752,<nil>
+3983,Active
+754,<nil>
+755,<nil>
+756,<nil>
+3697,Active
+3906,Phagocytosis -- Apoptotic_cell -- Active
+3929,Active
+3886,Phagocytosis -- Apoptotic_cell
+761,<nil>
+3330,<nil>
+763,<nil>
+764,Virus_inside -- Virus_replication
+765,Virus_inside -- Virus_replication -- Chemokin_secretion
+3618,Phagocytosis -- Apoptotic_cell
+767,<nil>
+3959,Phagocytosis -- Apoptotic_cell
+769,<nil>
+770,<nil>
+771,<nil>
+772,<nil>
+773,<nil>
+774,<nil>
+775,<nil>
+776,<nil>
+777,<nil>
+778,<nil>
+779,<nil>
+780,<nil>
+781,<nil>
+782,<nil>
+783,<nil>
+784,<nil>
+785,<nil>
+786,<nil>
+787,<nil>
+788,<nil>
+789,<nil>
+790,<nil>
+791,<nil>
+792,<nil>
+793,Virus_inside -- Virus_replication
+794,<nil>
+795,<nil>
+796,<nil>
+797,<nil>
+798,<nil>
+799,<nil>
+800,<nil>
+3908,Active
+802,<nil>
+3808,Phagocytosis -- Apoptotic_cell
+3492,Phagocytosis -- Apoptotic_cell -- Active
+805,<nil>
+3941,Phagocytosis -- Apoptotic_cell
+807,<nil>
+3503,Phagocytosis -- Apoptotic_cell -- Active
+809,<nil>
+3566,Phagocytosis -- Apoptotic_cell
+3528,Active
+812,<nil>
+813,<nil>
+814,<nil>
+815,<nil>
+816,<nil>
+3363,Phagocytosis -- Apoptotic_cell
+818,<nil>
+819,<nil>
+820,<nil>
+821,<nil>
+822,<nil>
+823,<nil>
+824,<nil>
+825,<nil>
+826,<nil>
+827,<nil>
+828,<nil>
+829,<nil>
+830,<nil>
+831,<nil>
+832,<nil>
+833,<nil>
+834,<nil>
+835,<nil>
+836,<nil>
+837,<nil>
+838,<nil>
+839,<nil>
+840,Virus_inside -- Virus_replication -- Chemokin_secretion
+841,Virus_inside -- Virus_replication
+842,Virus_inside
+3897,Phagocytosis -- Apoptotic_cell -- Active
+844,Virus_inside -- Virus_replication -- Chemokin_secretion
+845,Virus_inside -- Virus_replication -- Chemokin_secretion
+846,<nil>
+847,<nil>
+848,<nil>
+849,<nil>
+3619,Active
+3748,Active
+3380,Phagocytosis -- Apoptotic_cell
+3948,Active
+3743,Active
+3936,Phagocytosis -- Apoptotic_cell -- Active
+3600,Phagocytosis -- Apoptotic_cell -- Active
+3704,Active
+3367,<nil>
+3198,<nil>
+3573,Active
+861,<nil>
+862,<nil>
+863,<nil>
+3207,<nil>
+865,<nil>
+866,Virus_inside -- Virus_replication
+867,<nil>
+868,<nil>
+869,<nil>
+870,<nil>
+871,<nil>
+872,<nil>
+873,<nil>
+874,<nil>
+875,<nil>
+876,<nil>
+877,<nil>
+878,<nil>
+879,<nil>
+880,<nil>
+881,<nil>
+882,<nil>
+883,<nil>
+884,<nil>
+885,<nil>
+886,<nil>
+887,<nil>
+888,<nil>
+889,Virus_inside -- Virus_replication
+890,Virus_inside -- Virus_replication
+891,Virus_inside -- Virus_replication -- Chemokin_secretion
+3916,Phagocytosis -- Apoptotic_cell
+893,<nil>
+894,<nil>
+895,Virus_inside -- Virus_replication
+896,Virus_inside -- Virus_replication
+897,<nil>
+898,<nil>
+3859,Active
+900,Virus_inside -- Virus_replication -- Chemokin_secretion
+4000,Active
+3233,<nil>
+3962,<nil>
+3073,<nil>
+905,<nil>
+906,Virus_inside -- Virus_replication -- Chemokin_secretion
+3934,Active
+3846,Active
+3890,Phagocytosis -- Apoptotic_cell
+910,<nil>
+911,<nil>
+3827,Active
+913,<nil>
+914,<nil>
+915,<nil>
+916,<nil>
+917,<nil>
+918,<nil>
+919,<nil>
+920,<nil>
+921,<nil>
+922,<nil>
+923,<nil>
+924,<nil>
+925,<nil>
+926,<nil>
+927,<nil>
+928,<nil>
+929,<nil>
+930,<nil>
+931,<nil>
+932,<nil>
+933,<nil>
+934,<nil>
+935,<nil>
+936,<nil>
+937,<nil>
+3996,<nil>
+939,Virus_inside
+940,Virus_inside -- Virus_replication -- Chemokin_secretion
+941,Virus_inside -- Virus_replication -- Chemokin_secretion
+3126,<nil>
+943,Virus_inside -- Virus_replication -- Chemokin_secretion
+944,Virus_inside -- Virus_replication -- Chemokin_secretion
+945,Virus_inside -- Virus_replication
+946,<nil>
+947,Virus_inside -- Virus_replication -- Chemokin_secretion
+948,Virus_inside -- Virus_replication -- Chemokin_secretion
+3219,<nil>
+3271,<nil>
+951,Virus_inside -- Virus_replication
+3510,Phagocytosis -- Apoptotic_cell
+3193,<nil>
+3793,Phagocytosis -- Apoptotic_cell -- Active
+3945,Active
+3226,<nil>
+3681,Active
+3205,Phagocytosis -- Apoptotic_cell -- Active
+3978,<nil>
+3638,Phagocytosis -- Apoptotic_cell
+3275,<nil>
+962,<nil>
+963,Virus_inside -- Virus_replication
+964,<nil>
+965,<nil>
+966,<nil>
+967,<nil>
+968,<nil>
+969,<nil>
+970,<nil>
+971,<nil>
+972,<nil>
+973,<nil>
+974,<nil>
+975,<nil>
+976,<nil>
+977,<nil>
+978,<nil>
+979,<nil>
+980,<nil>
+981,<nil>
+982,<nil>
+983,<nil>
+984,<nil>
+985,<nil>
+986,<nil>
+987,Virus_inside
+988,Virus_inside -- Virus_replication -- Chemokin_secretion
+989,<nil>
+3521,Phagocytosis -- Apoptotic_cell -- Active
+991,Virus_inside -- Virus_replication -- Chemokin_secretion
+992,Virus_inside -- Virus_replication -- Chemokin_secretion
+3845,Active
+994,Virus_inside -- Virus_replication -- Chemokin_secretion
+995,Virus_inside -- Virus_replication -- Chemokin_secretion
+996,<nil>
+997,Virus_inside -- Virus_replication
+998,<nil>
+3191,<nil>
+3404,Phagocytosis -- Apoptotic_cell -- Active
+3545,Phagocytosis -- Apoptotic_cell -- Active
+3917,Active
+3854,Active
+3359,Phagocytosis -- Apoptotic_cell -- Active
+3310,<nil>
+3139,<nil>
+3990,Phagocytosis -- Apoptotic_cell
+3737,Active
+3903,Active
+3647,Active
+3766,Active
+3796,Active
+3215,<nil>
+3586,Phagocytosis -- Apoptotic_cell -- Active
+1015,<nil>
+1016,<nil>
+1017,<nil>
+1018,<nil>
+1019,<nil>
+1020,<nil>
+1021,<nil>
+1022,<nil>
+1023,<nil>
+1024,<nil>
+1025,<nil>
+1026,<nil>
+1027,<nil>
+1028,<nil>
+1029,<nil>
+1030,<nil>
+1031,<nil>
+1032,<nil>
+1033,<nil>
+1034,<nil>
+1035,<nil>
+1036,Virus_inside -- Virus_replication -- Chemokin_secretion -- Apoptosis_type_II
+3674,Active
+3248,<nil>
+1039,Virus_inside -- Virus_replication -- Chemokin_secretion
+3729,Active
+1041,Virus_inside -- Virus_replication -- Chemokin_secretion
+1042,Virus_inside -- Virus_replication -- Chemokin_secretion
+1043,Virus_inside -- Virus_replication -- Chemokin_secretion
+1044,Virus_inside -- Virus_replication -- Chemokin_secretion
+1045,<nil>
+1046,<nil>
+3930,Active
+3665,Phagocytosis -- Apoptotic_cell -- Active
+3722,Phagocytosis -- Apoptotic_cell
+3783,Phagocytosis -- Apoptotic_cell
+3643,Active
+3097,<nil>
+3115,<nil>
+3819,Active
+3803,Active
+3439,Active
+3889,<nil>
+3826,Phagocytosis -- Apoptotic_cell
+3828,<nil>
+3676,Active
+3153,<nil>
+1062,<nil>
+3622,Phagocytosis -- Apoptotic_cell -- Active
+1064,<nil>
+1065,<nil>
+3951,Active
+1067,<nil>
+1068,<nil>
+1069,<nil>
+1070,<nil>
+1071,<nil>
+1072,<nil>
+1073,<nil>
+1074,<nil>
+1075,<nil>
+1076,<nil>
+1077,<nil>
+1078,<nil>
+1079,<nil>
+1080,<nil>
+1081,<nil>
+1082,<nil>
+1083,<nil>
+1084,<nil>
+1085,<nil>
+1086,<nil>
+1087,Virus_inside -- Virus_replication -- Chemokin_secretion
+1088,Virus_inside -- Virus_replication -- Chemokin_secretion
+1089,Virus_inside -- Virus_replication -- Chemokin_secretion
+1090,Virus_inside -- Virus_replication -- Chemokin_secretion
+1091,Virus_inside -- Virus_replication -- Chemokin_secretion
+3856,Active
+1093,Virus_inside -- Virus_replication
+1094,<nil>
+1095,<nil>
+1096,<nil>
+1097,<nil>
+3734,Active
+3438,Phagocytosis -- Apoptotic_cell -- Active
+3536,Active
+3114,<nil>
+3269,Phagocytosis -- Apoptotic_cell -- Active
+3173,<nil>
+3137,<nil>
+3992,<nil>
+3650,Active
+3511,Active
+3946,Active
+3160,Phagocytosis -- Apoptotic_cell
+3787,Phagocytosis -- Apoptotic_cell -- Active
+3813,Active
+3559,Phagocytosis -- Apoptotic_cell -- Active
+3512,Phagocytosis -- Apoptotic_cell -- Active
+1114,<nil>
+1115,<nil>
+1116,<nil>
+1117,<nil>
+1118,<nil>
+1119,<nil>
+1120,<nil>
+1121,<nil>
+1122,<nil>
+1123,<nil>
+1124,<nil>
+1125,<nil>
+1126,<nil>
+1127,<nil>
+1128,<nil>
+1129,<nil>
+1130,<nil>
+1131,<nil>
+1132,<nil>
+1133,<nil>
+1134,<nil>
+1135,Virus_inside -- Virus_replication -- Chemokin_secretion
+1136,Virus_inside -- Virus_replication -- Chemokin_secretion
+1137,Virus_inside -- Virus_replication -- Chemokin_secretion
+1138,Virus_inside -- Virus_replication -- Chemokin_secretion
+1139,Virus_inside -- Virus_replication -- Chemokin_secretion -- Apoptosis_type_II
+1140,Virus_inside -- Virus_replication -- Chemokin_secretion
+1141,Virus_inside -- Virus_replication -- Chemokin_secretion
+1142,Virus_inside -- Virus_replication -- Chemokin_secretion
+1143,<nil>
+1144,<nil>
+3357,Active
+1146,Virus_inside -- Virus_replication -- Chemokin_secretion
+3952,Active
+3909,Active
+2926,Active
+3984,<nil>
+2908,Active
+2900,Active
+3253,<nil>
+3401,Phagocytosis -- Apoptotic_cell
+3144,<nil>
+3974,Active
+3955,Active
+3078,<nil>
+3834,Active
+3169,Phagocytosis -- Apoptotic_cell
+1161,<nil>
+1162,<nil>
+1163,<nil>
+1164,<nil>
+1165,<nil>
+1166,<nil>
+1167,<nil>
+1168,<nil>
+1169,<nil>
+1170,<nil>
+1171,<nil>
+1172,<nil>
+1173,<nil>
+1174,<nil>
+1175,<nil>
+1176,<nil>
+1177,<nil>
+1178,<nil>
+1179,<nil>
+1180,<nil>
+1181,Virus_inside
+1182,Virus_inside -- Virus_replication -- Chemokin_secretion
+1183,Virus_inside -- Virus_replication -- Chemokin_secretion
+1184,<nil>
+1185,<nil>
+1186,<nil>
+1187,Virus_inside -- Virus_replication -- Chemokin_secretion
+1188,Virus_inside -- Virus_replication
+1189,Virus_inside -- Virus_replication
+1190,Virus_inside -- Virus_replication
+1191,<nil>
+1192,<nil>
+3546,Active
+1194,<nil>
+3833,Phagocytosis -- Apoptotic_cell
+2891,Active
+2906,Active
+2925,Active
+2919,Active
+2924,Active
+3964,<nil>
+2913,Active
+3182,<nil>
+2917,Active
+2909,Active
+3257,<nil>
+3839,Active
+3641,Active
+3869,Active
+1210,<nil>
+3911,<nil>
+1212,<nil>
+1213,<nil>
+1214,<nil>
+1215,<nil>
+1216,<nil>
+1217,<nil>
+1218,<nil>
+1219,<nil>
+1220,<nil>
+1221,<nil>
+1222,<nil>
+1223,<nil>
+1224,<nil>
+1225,<nil>
+1226,<nil>
+1227,<nil>
+1228,<nil>
+1229,Virus_inside -- Virus_replication -- Chemokin_secretion
+1230,Virus_inside
+1231,Virus_inside -- Virus_replication -- Chemokin_secretion
+1232,Virus_inside -- Virus_replication -- Chemokin_secretion
+1233,Virus_inside -- Virus_replication
+1234,Virus_inside -- Virus_replication -- Chemokin_secretion
+1235,Virus_inside
+1236,<nil>
+1237,Virus_inside -- Virus_replication -- Chemokin_secretion
+1238,<nil>
+1239,<nil>
+3396,Phagocytosis -- Apoptotic_cell
+1241,<nil>
+1242,<nil>
+1243,Virus_inside -- Virus_replication -- Chemokin_secretion
+3178,<nil>
+3979,<nil>
+2888,Active
+3994,Active
+2911,Active
+2962,Phagocytosis -- Apoptotic_cell
+2910,Active
+2887,Active
+2905,Active
+2907,Active
+2915,Active
+3581,Active
+3947,Phagocytosis -- Apoptotic_cell
+3792,Active
+1258,<nil>
+1259,<nil>
+1260,<nil>
+1261,<nil>
+3263,<nil>
+1263,<nil>
+1264,<nil>
+1265,<nil>
+1266,<nil>
+1267,<nil>
+1268,<nil>
+1269,<nil>
+1270,<nil>
+1271,<nil>
+1272,<nil>
+1273,<nil>
+1274,<nil>
+1275,<nil>
+1276,<nil>
+1277,<nil>
+1278,<nil>
+1279,<nil>
+3927,Active
+1281,<nil>
+1282,<nil>
+1283,<nil>
+1284,<nil>
+1285,<nil>
+1286,<nil>
+1287,<nil>
+1288,<nil>
+1289,<nil>
+3299,<nil>
+3774,Active
+3249,<nil>
+3570,Phagocytosis -- Apoptotic_cell
+3023,Phagocytosis -- Apoptotic_cell
+2912,Active
+2881,Active
+3452,Active
+3976,Active
+3163,<nil>
+2923,Active
+3873,Active
+2918,Active
+3308,Active
+3818,Phagocytosis -- Apoptotic_cell
+3166,<nil>
+3660,Phagocytosis -- Apoptotic_cell -- Active
+3112,Phagocytosis -- Apoptotic_cell -- Active
+1308,<nil>
+3136,<nil>
+1310,<nil>
+3780,Phagocytosis -- Apoptotic_cell -- Active
+1312,<nil>
+3998,<nil>
+1314,<nil>
+1315,<nil>
+1316,<nil>
+1317,<nil>
+1318,<nil>
+1319,<nil>
+1320,<nil>
+1321,<nil>
+1322,<nil>
+1323,<nil>
+1324,<nil>
+1325,<nil>
+1326,<nil>
+1327,<nil>
+1328,<nil>
+1329,<nil>
+1330,<nil>
+1331,<nil>
+1332,<nil>
+1333,Virus_inside -- Virus_replication
+1334,<nil>
+1335,<nil>
+1336,<nil>
+1337,<nil>
+3458,Active
+3980,Phagocytosis -- Apoptotic_cell -- Active
+1340,Virus_inside -- Virus_replication -- Chemokin_secretion
+1341,<nil>
+2921,Active
+2892,Active
+2899,Active
+3278,Phagocytosis -- Apoptotic_cell
+3277,<nil>
+3866,Phagocytosis -- Apoptotic_cell
+3832,Active
+3894,Active
+3699,Active
+3883,Active
+2879,Active
+3504,Active
+3659,Active
+3999,<nil>
+3406,<nil>
+1357,<nil>
+3741,Phagocytosis -- Apoptotic_cell
+3272,<nil>
+3196,<nil>
+1361,<nil>
+3534,Active
+1363,<nil>
+1364,<nil>
+1365,<nil>
+1366,<nil>
+1367,<nil>
+1368,<nil>
+1369,<nil>
+1370,<nil>
+1371,<nil>
+1372,<nil>
+1373,<nil>
+1374,<nil>
+1375,<nil>
+1376,<nil>
+1377,<nil>
+1378,<nil>
+1379,<nil>
+1380,<nil>
+1381,<nil>
+1382,<nil>
+1383,<nil>
+3026,Phagocytosis -- Apoptotic_cell
+3785,Active
+2997,Phagocytosis -- Apoptotic_cell
+1387,<nil>
+3627,Active
+3878,Active
+1390,Virus_inside -- Virus_replication -- Chemokin_secretion
+3885,Active
+2882,Active
+3977,Active
+3001,Phagocytosis -- Apoptotic_cell
+3256,<nil>
+2922,Active
+3778,Active
+3982,<nil>
+3519,Phagocytosis -- Apoptotic_cell
+2901,Active
+3164,<nil>
+3455,Phagocytosis -- Apoptotic_cell -- Active
+3956,Phagocytosis -- Apoptotic_cell
+3807,Active
+3923,Active
+1406,<nil>
+3884,Phagocytosis -- Apoptotic_cell -- Active
+1408,<nil>
+1409,<nil>
+3673,Phagocytosis -- Apoptotic_cell
+1411,<nil>
+1412,<nil>
+1413,<nil>
+1414,<nil>
+1415,<nil>
+1416,<nil>
+1417,<nil>
+1418,<nil>
+1419,<nil>
+1420,<nil>
+1421,<nil>
+1422,<nil>
+1423,<nil>
+1424,<nil>
+1425,<nil>
+1426,<nil>
+1427,<nil>
+1428,<nil>
+1429,<nil>
+1430,<nil>
+1431,<nil>
+1432,<nil>
+1433,<nil>
+1434,<nil>
+1435,<nil>
+1436,<nil>
+1437,Virus_inside -- Virus_replication -- Chemokin_secretion
+3706,Phagocytosis -- Apoptotic_cell -- Active
+1439,<nil>
+3235,<nil>
+3290,<nil>
+3346,<nil>
+3538,Active
+3513,Active
+3809,Active
+3472,Active
+3620,Phagocytosis -- Apoptotic_cell
+3733,Active
+2952,Phagocytosis -- Apoptotic_cell
+2893,Active
+3987,<nil>
+3224,<nil>
+3777,Phagocytosis -- Apoptotic_cell
+3684,Phagocytosis -- Apoptotic_cell -- Active
+1455,<nil>
+3229,<nil>
+1457,Virus_inside -- Virus_replication
+3108,Active
+1459,<nil>
+1460,<nil>
+1461,<nil>
+1462,<nil>
+1463,<nil>
+1464,<nil>
+1465,<nil>
+1466,<nil>
+1467,<nil>
+1468,<nil>
+1469,<nil>
+1470,<nil>
+1471,<nil>
+1472,<nil>
+1473,<nil>
+1474,<nil>
+1475,<nil>
+1476,<nil>
+1477,<nil>
+1478,<nil>
+1479,<nil>
+1480,<nil>
+1481,<nil>
+1482,<nil>
+1483,<nil>
+1484,<nil>
+1485,<nil>
+1486,Virus_inside -- Virus_replication -- Chemokin_secretion
+3315,<nil>
+3914,Phagocytosis -- Apoptotic_cell -- Active
+3132,<nil>
+2977,Phagocytosis -- Apoptotic_cell
+2896,Active
+3769,Active
+3374,Phagocytosis -- Apoptotic_cell -- Active
+3490,Phagocytosis -- Apoptotic_cell
+3540,Active
+3264,<nil>
+2998,Phagocytosis -- Apoptotic_cell
+2897,Active
+2895,Active
+3105,<nil>
+3811,Active
+3349,Phagocytosis -- Apoptotic_cell -- Active
+3935,<nil>
+1504,Virus_inside -- Virus_replication -- Chemokin_secretion
+3446,Phagocytosis -- Apoptotic_cell -- Active
+1506,<nil>
+3867,Active
+1508,<nil>
+1509,<nil>
+3557,Phagocytosis -- Apoptotic_cell -- Active
+1511,<nil>
+1512,<nil>
+1513,<nil>
+1514,<nil>
+1515,<nil>
+1516,<nil>
+1517,<nil>
+1518,<nil>
+1519,<nil>
+1520,<nil>
+1521,<nil>
+1522,<nil>
+1523,<nil>
+1524,<nil>
+1525,<nil>
+1526,<nil>
+1527,<nil>
+1528,<nil>
+1529,<nil>
+1530,<nil>
+3562,Active
+1532,<nil>
+1533,<nil>
+3672,Active
+3634,Active
+1536,<nil>
+3837,Active
+3240,<nil>
+3216,<nil>
+3399,Phagocytosis -- Apoptotic_cell
+3912,Active
+3853,Active
+3605,Apoptotic_cell -- M2_Phenotype -- Active
+3841,Active
+3700,Active
+3190,<nil>
+3189,<nil>
+2886,Active
+3949,Active
+3088,<nil>
+1551,Virus_inside -- Virus_replication -- Chemokin_secretion
+1552,Virus_inside -- Virus_replication -- Chemokin_secretion
+3152,<nil>
+1554,<nil>
+1555,<nil>
+1556,<nil>
+1557,<nil>
+1558,<nil>
+1559,<nil>
+1560,<nil>
+1561,<nil>
+1562,<nil>
+1563,<nil>
+1564,<nil>
+1565,<nil>
+1566,<nil>
+1567,<nil>
+1568,<nil>
+1569,<nil>
+1570,<nil>
+1571,<nil>
+1572,<nil>
+1573,<nil>
+1574,<nil>
+1575,<nil>
+1576,<nil>
+1577,<nil>
+3817,Active
+1579,<nil>
+1580,<nil>
+1581,<nil>
+3595,Phagocytosis -- Apoptotic_cell
+1583,<nil>
+1584,<nil>
+3797,Phagocytosis -- Apoptotic_cell
+1586,Virus_inside -- Virus_replication -- Chemokin_secretion
+1587,<nil>
+3474,Phagocytosis -- Apoptotic_cell -- Active
+2889,Active
+2885,Active
+3625,Active
+2914,Active
+2898,Active
+2916,Active
+2883,Active
+2920,Active
+3397,Phagocytosis -- Apoptotic_cell
+3770,Active
+3147,Phagocytosis -- Apoptotic_cell -- Active
+3758,Active
+1601,Virus_inside -- Virus_replication -- Chemokin_secretion
+1602,Virus_inside -- Virus_replication -- Chemokin_secretion
+1603,Virus_inside -- Virus_replication -- Chemokin_secretion
+1604,Virus_inside -- Virus_replication -- Chemokin_secretion
+1605,<nil>
+1606,<nil>
+3336,<nil>
+1608,<nil>
+1609,<nil>
+1610,<nil>
+1611,<nil>
+1612,<nil>
+1613,<nil>
+1614,<nil>
+1615,<nil>
+1616,<nil>
+1617,<nil>
+1618,<nil>
+1619,<nil>
+1620,<nil>
+1621,<nil>
+1622,<nil>
+1623,<nil>
+1624,<nil>
+1625,Virus_inside -- Virus_replication -- Chemokin_secretion
+1626,Virus_inside -- Virus_replication -- Chemokin_secretion
+1627,Virus_inside
+3896,Active
+1629,<nil>
+1630,<nil>
+3246,Phagocytosis -- Apoptotic_cell
+1632,<nil>
+3963,Active
+1634,Virus_inside -- Virus_replication -- Chemokin_secretion
+1635,Virus_inside -- Virus_replication -- Chemokin_secretion
+2902,Active
+2927,Active
+3403,Active
+3473,Phagocytosis -- Apoptotic_cell
+3882,Phagocytosis -- Apoptotic_cell
+3303,<nil>
+3950,Phagocytosis -- Apoptotic_cell -- Active
+3486,Active
+2872,Active
+3098,<nil>
+3141,<nil>
+3558,Active
+1648,Virus_inside
+1649,Virus_inside -- Virus_replication -- Chemokin_secretion
+1650,Virus_inside -- Virus_replication -- Chemokin_secretion
+1651,Virus_inside -- Virus_replication -- Chemokin_secretion
+3223,<nil>
+3694,Phagocytosis -- Apoptotic_cell -- Active
+1654,<nil>
+1655,<nil>
+3095,<nil>
+1657,<nil>
+1658,<nil>
+1659,<nil>
+1660,<nil>
+1661,<nil>
+1662,<nil>
+1663,<nil>
+1664,<nil>
+1665,<nil>
+1666,<nil>
+1667,<nil>
+1668,<nil>
+1669,<nil>
+1670,<nil>
+1671,<nil>
+1672,<nil>
+1673,<nil>
+1674,<nil>
+1675,<nil>
+1676,<nil>
+1677,<nil>
+1678,Virus_inside -- Virus_replication
+1679,Virus_inside -- Virus_replication
+1680,<nil>
+3424,Phagocytosis -- Apoptotic_cell
+3849,Active
+1683,Virus_inside -- Virus_replication -- Chemokin_secretion
+1684,Virus_inside -- Virus_replication -- Chemokin_secretion
+3731,Active
+3427,Phagocytosis -- Apoptotic_cell
+3971,Active
+3954,Phagocytosis -- Apoptotic_cell -- Active
+3285,<nil>
+3918,Active
+2904,Active
+2884,Active
+2903,Active
+3062,Active
+3905,Phagocytosis -- Apoptotic_cell -- Active
+3745,Active
+3392,Phagocytosis -- Apoptotic_cell
+1698,Virus_inside -- Virus_replication -- Chemokin_secretion
+1699,Virus_inside -- Virus_replication -- Chemokin_secretion
+1700,Virus_inside -- Virus_replication -- Chemokin_secretion
+1701,Virus_inside -- Virus_replication -- Chemokin_secretion
+3601,Active
+3928,Phagocytosis -- Apoptotic_cell -- Active
+3742,Phagocytosis -- Apoptotic_cell -- Active
+1705,<nil>
+3471,Phagocytosis -- Apoptotic_cell -- Active
+1707,<nil>
+1708,<nil>
+1709,<nil>
+1710,<nil>
+1711,<nil>
+1712,<nil>
+1713,<nil>
+1714,<nil>
+1715,<nil>
+1716,<nil>
+1717,<nil>
+1718,<nil>
+1719,<nil>
+1720,<nil>
+1721,<nil>
+1722,<nil>
+1723,<nil>
+1724,<nil>
+1725,Virus_inside -- Virus_replication -- Chemokin_secretion
+3389,Active
+3484,Active
+1728,Virus_inside -- Virus_replication -- Chemokin_secretion
+1729,<nil>
+1730,<nil>
+1731,Virus_inside -- Virus_replication -- Chemokin_secretion
+1732,Virus_inside -- Virus_replication -- Chemokin_secretion
+1733,Virus_inside -- Virus_replication -- Chemokin_secretion
+1734,Virus_inside -- Virus_replication
+1735,Virus_inside
+3171,<nil>
+3457,Phagocytosis -- Apoptotic_cell
+3013,Phagocytosis -- Apoptotic_cell
+3598,Active
+3150,<nil>
+3337,<nil>
+1742,<nil>
+3064,Phagocytosis -- Apoptotic_cell
+3993,Active
+3070,<nil>
+1746,Virus_inside -- Virus_replication
+1747,Virus_inside -- Virus_replication -- Chemokin_secretion
+3991,<nil>
+3089,<nil>
+3898,<nil>
+1751,<nil>
+1752,<nil>
+1753,<nil>
+1754,<nil>
+1755,<nil>
+1756,<nil>
+1757,<nil>
+1758,<nil>
+1759,<nil>
+1760,<nil>
+1761,<nil>
+1762,<nil>
+1763,<nil>
+1764,<nil>
+1765,<nil>
+1766,<nil>
+1767,<nil>
+1768,<nil>
+1769,<nil>
+1770,<nil>
+1771,<nil>
+1772,<nil>
+1773,Virus_inside -- Virus_replication -- Chemokin_secretion
+1774,<nil>
+3495,Phagocytosis -- Apoptotic_cell -- Active
+3860,Phagocytosis -- Apoptotic_cell
+3317,<nil>
+3836,Phagocytosis -- Apoptotic_cell
+1779,Virus_inside -- Virus_replication -- Chemokin_secretion
+1780,Virus_inside -- Virus_replication -- Chemokin_secretion
+1781,Virus_inside -- Virus_replication
+1782,Virus_inside -- Virus_replication -- Chemokin_secretion
+1783,Virus_inside -- Virus_replication -- Chemokin_secretion
+1784,<nil>
+1785,Virus_inside -- Virus_replication -- Chemokin_secretion
+3184,<nil>
+3252,<nil>
+3751,Active
+1789,Virus_inside -- Virus_replication -- Chemokin_secretion
+3145,<nil>
+1791,Virus_inside -- Virus_replication -- Chemokin_secretion
+3203,<nil>
+1793,Virus_inside -- Virus_replication -- Chemokin_secretion
+1794,<nil>
+1795,<nil>
+1796,<nil>
+1797,<nil>
+1798,<nil>
+1799,<nil>
+1800,<nil>
+3857,Phagocytosis -- Apoptotic_cell -- Active
+1802,<nil>
+1803,<nil>
+1804,<nil>
+1805,<nil>
+1806,<nil>
+1807,<nil>
+1808,<nil>
+1809,<nil>
+1810,<nil>
+1811,<nil>
+1812,<nil>
+1813,<nil>
+1814,<nil>
+1815,<nil>
+1816,<nil>
+1817,<nil>
+1818,<nil>
+1819,<nil>
+1820,<nil>
+1821,Virus_inside -- Virus_replication
+1822,<nil>
+1823,<nil>
+1824,Virus_inside -- Virus_replication
+1825,Virus_inside -- Virus_replication -- Chemokin_secretion
+1826,Virus_inside -- Virus_replication -- Chemokin_secretion
+3782,Active
+3341,<nil>
+3284,<nil>
+1830,Virus_inside -- Virus_replication -- Chemokin_secretion
+1831,Virus_inside -- Virus_replication -- Chemokin_secretion
+1832,Virus_inside -- Virus_replication
+1833,Virus_inside -- Virus_replication -- Chemokin_secretion
+1834,Virus_inside -- Virus_replication
+3642,Phagocytosis -- Apoptotic_cell -- Active
+1836,<nil>
+3295,<nil>
+3465,Phagocytosis -- Apoptotic_cell
+3199,<nil>
+3497,Phagocytosis -- Apoptotic_cell
+3957,Active
+3613,Active
+3335,<nil>
+1844,<nil>
+1845,<nil>
+1846,<nil>
+1847,<nil>
+1848,<nil>
+3988,<nil>
+1850,<nil>
+1851,<nil>
+1852,<nil>
+1853,<nil>
+1854,<nil>
+1855,<nil>
+1856,<nil>
+1857,<nil>
+1858,<nil>
+1859,<nil>
+1860,<nil>
+1861,<nil>
+1862,<nil>
+1863,<nil>
+1864,<nil>
+1865,<nil>
+1866,<nil>
+1867,<nil>
+1868,<nil>
+1869,<nil>
+1870,<nil>
+3995,Active
+1872,<nil>
+1873,Virus_inside -- Virus_replication
+3875,Active
+3652,Active
+1876,Virus_inside -- Virus_replication -- Chemokin_secretion
+1877,Virus_inside -- Virus_replication -- Chemokin_secretion
+1878,Virus_inside -- Virus_replication -- Chemokin_secretion
+1879,Virus_inside -- Virus_replication -- Chemokin_secretion
+1880,Virus_inside -- Virus_replication -- Chemokin_secretion
+1881,Virus_inside -- Virus_replication
+1882,Virus_inside -- Virus_replication
+1883,Virus_inside -- Virus_replication -- Chemokin_secretion
+1884,Virus_inside -- Virus_replication -- Chemokin_secretion
+1885,Virus_inside -- Virus_replication
+3973,<nil>
+3425,Phagocytosis -- Apoptotic_cell -- Active
+3482,Phagocytosis -- Apoptotic_cell
+1889,Virus_inside -- Virus_replication -- Chemokin_secretion
+3773,Active
+3801,Active
+3740,Active
+1893,<nil>
+1894,<nil>
+1895,<nil>
+1896,<nil>
+3594,Active
+1898,Virus_inside
+1899,<nil>
+1900,<nil>
+3953,Active
+1902,<nil>
+1903,<nil>
+1904,<nil>
+1905,<nil>
+1906,<nil>
+1907,<nil>
+1908,<nil>
+1909,<nil>
+1910,<nil>
+1911,<nil>
+1912,<nil>
+1913,<nil>
+1914,<nil>
+1915,<nil>
+1916,<nil>
+1917,<nil>
+1918,<nil>
+1919,<nil>
+1920,Virus_inside -- Virus_replication -- Chemokin_secretion
+1921,Virus_inside
+1922,<nil>
+1923,Virus_inside
+1924,Virus_inside -- Virus_replication -- Chemokin_secretion
+1925,Virus_inside -- Virus_replication
+1926,Virus_inside -- Virus_replication -- Chemokin_secretion
+3985,Active
+3900,Phagocytosis -- Apoptotic_cell
+3149,<nil>
+3556,Active
+1931,Virus_inside -- Virus_replication -- Chemokin_secretion
+1932,Virus_inside -- Virus_replication
+1933,Virus_inside -- Virus_replication
+1934,Virus_inside -- Virus_replication -- Chemokin_secretion
+1935,Virus_inside
+3689,Active
+1937,Virus_inside -- Virus_replication -- Chemokin_secretion
+2978,Phagocytosis -- Apoptotic_cell
+3225,<nil>
+1940,Virus_inside -- Virus_replication -- Chemokin_secretion
+3537,Phagocytosis -- Apoptotic_cell -- Active
+1942,<nil>
+1943,<nil>
+1944,Virus_inside -- Virus_replication -- Chemokin_secretion
+1945,<nil>
+1946,<nil>
+1947,Virus_inside -- Virus_replication
+1948,<nil>
+1949,<nil>
+1950,<nil>
+1951,<nil>
+1952,<nil>
+1953,<nil>
+1954,<nil>
+1955,<nil>
+1956,<nil>
+1957,<nil>
+1958,<nil>
+1959,<nil>
+1960,<nil>
+1961,<nil>
+1962,<nil>
+1963,<nil>
+1964,<nil>
+1965,<nil>
+1966,<nil>
+1967,<nil>
+1968,<nil>
+1969,<nil>
+1970,<nil>
+1971,Virus_inside -- Virus_replication -- Chemokin_secretion
+1972,<nil>
+1973,<nil>
+1974,<nil>
+3211,<nil>
+3584,Active
+1977,<nil>
+1978,Virus_inside -- Virus_replication
+1979,Virus_inside -- Virus_replication -- Chemokin_secretion
+3019,Phagocytosis -- Apoptotic_cell
+3239,<nil>
+3975,<nil>
+3986,<nil>
+1984,Virus_inside -- Virus_replication -- Chemokin_secretion
+1985,Virus_inside -- Virus_replication
+1986,<nil>
+1987,Virus_inside -- Virus_replication -- Chemokin_secretion
+3420,Phagocytosis -- Apoptotic_cell -- Active
+3148,<nil>
+1990,<nil>
+1991,<nil>
+1992,<nil>
+1993,<nil>
+3848,Active
+3924,Active
+1996,Virus_inside -- Virus_replication -- Chemokin_secretion
+1997,Virus_inside -- Virus_replication -- Chemokin_secretion
+1998,Virus_inside -- Virus_replication -- Chemokin_secretion
+1999,<nil>
+2000,<nil>
+2001,<nil>
+2002,<nil>
+2003,<nil>
+2004,<nil>
+2005,<nil>
+2006,<nil>
+2007,<nil>
+2008,<nil>
+2009,<nil>
+2010,<nil>
+2011,<nil>
+2012,<nil>
+2013,<nil>
+2014,<nil>
+2015,<nil>
+2016,<nil>
+2017,<nil>
+2018,<nil>
+2019,<nil>
+2020,<nil>
+2021,Virus_inside -- Virus_replication -- Chemokin_secretion
+2022,<nil>
+2023,Virus_inside -- Virus_replication
+2024,<nil>
+3892,Active
+3243,<nil>
+2027,Virus_inside -- Virus_replication -- Chemokin_secretion
+3830,Active
+2029,Virus_inside -- Virus_replication -- Chemokin_secretion
+2960,Phagocytosis -- Apoptotic_cell
+3576,Active
+2032,<nil>
+2033,Virus_inside -- Virus_replication -- Chemokin_secretion
+2034,Virus_inside -- Virus_replication -- Chemokin_secretion
+3767,Active
+3820,Active
+2037,<nil>
+2038,<nil>
+2039,<nil>
+3862,Active
+3025,Active
+2042,Virus_inside -- Virus_replication -- Chemokin_secretion
+2043,Virus_inside -- Virus_replication -- Chemokin_secretion
+2044,Virus_inside -- Virus_replication -- Chemokin_secretion
+2045,Virus_inside -- Virus_replication -- Chemokin_secretion
+2046,Virus_inside
+2047,<nil>
+2048,<nil>
+2049,<nil>
+2050,<nil>
+2051,<nil>
+2052,<nil>
+2053,<nil>
+2054,<nil>
+2055,<nil>
+2056,<nil>
+2057,<nil>
+2058,<nil>
+2059,<nil>
+2060,<nil>
+2061,<nil>
+2062,<nil>
+2063,<nil>
+2064,<nil>
+2065,<nil>
+2066,<nil>
+2067,<nil>
+2068,<nil>
+2069,<nil>
+2070,<nil>
+2071,<nil>
+2072,<nil>
+2073,<nil>
+2074,<nil>
+2075,<nil>
+2076,<nil>
+2077,Virus_inside -- Virus_replication -- Chemokin_secretion
+3728,Phagocytosis -- Apoptotic_cell
+2079,Virus_inside -- Virus_replication -- Chemokin_secretion
+2080,Virus_inside -- Virus_replication -- Chemokin_secretion
+3385,Active
+2082,Virus_inside -- Virus_replication -- Chemokin_secretion
+2083,<nil>
+2084,<nil>
+2085,Virus_inside -- Virus_replication -- Chemokin_secretion
+2086,<nil>
+2087,<nil>
+2088,<nil>
+2089,<nil>
+2090,<nil>
+2091,<nil>
+2092,Virus_inside -- Virus_replication -- Chemokin_secretion
+2093,<nil>
+2094,Virus_inside -- Virus_replication
+2095,Virus_inside
+2096,Virus_inside -- Virus_replication
+2097,<nil>
+2098,<nil>
+2099,<nil>
+2100,<nil>
+2101,<nil>
+2102,<nil>
+2103,<nil>
+2104,<nil>
+2105,<nil>
+2106,<nil>
+2107,<nil>
+2108,<nil>
+2109,<nil>
+2110,<nil>
+2111,<nil>
+2112,<nil>
+2113,<nil>
+2114,<nil>
+2115,<nil>
+2116,<nil>
+2117,<nil>
+2118,<nil>
+2119,<nil>
+2120,<nil>
+2121,<nil>
+2122,<nil>
+2123,<nil>
+2124,Virus_inside -- Virus_replication -- Chemokin_secretion
+2125,<nil>
+2126,Virus_inside -- Virus_replication
+2127,Virus_inside -- Virus_replication -- Chemokin_secretion
+2128,Virus_inside -- Virus_replication -- Chemokin_secretion
+2129,Virus_inside -- Virus_replication -- Chemokin_secretion
+2130,<nil>
+2131,<nil>
+2132,<nil>
+2133,<nil>
+2134,<nil>
+2135,Virus_inside -- Virus_replication
+2136,<nil>
+2137,<nil>
+2138,<nil>
+2139,<nil>
+2140,<nil>
+2141,<nil>
+2142,<nil>
+2143,<nil>
+2144,<nil>
+2145,<nil>
+2146,<nil>
+2147,<nil>
+2148,<nil>
+2149,<nil>
+2150,<nil>
+2151,<nil>
+2152,<nil>
+2153,<nil>
+2154,<nil>
+2155,<nil>
+2156,<nil>
+2157,<nil>
+2158,<nil>
+2159,<nil>
+2160,<nil>
+2161,<nil>
+2162,<nil>
+2163,<nil>
+2164,<nil>
+2165,<nil>
+2166,<nil>
+2167,<nil>
+2168,<nil>
+2169,<nil>
+2170,<nil>
+2171,<nil>
+2172,<nil>
+2173,<nil>
+2174,<nil>
+2175,<nil>
+2176,Virus_inside -- Virus_replication -- Chemokin_secretion
+2177,Virus_inside -- Virus_replication -- Chemokin_secretion
+2178,Virus_inside -- Virus_replication -- Chemokin_secretion
+2179,Virus_inside -- Virus_replication -- Chemokin_secretion
+2180,Virus_inside -- Virus_replication
+2181,Virus_inside -- Virus_replication
+2182,<nil>
+2183,<nil>
+2184,<nil>
+2185,<nil>
+2186,<nil>
+2187,<nil>
+2188,<nil>
+2189,<nil>
+2190,<nil>
+2191,<nil>
+2192,<nil>
+2193,<nil>
+2194,<nil>
+2195,<nil>
+2196,<nil>
+2197,<nil>
+2198,<nil>
+2199,<nil>
+2200,<nil>
+2201,<nil>
+2202,<nil>
+2203,<nil>
+2204,<nil>
+2205,<nil>
+2206,<nil>
+2207,<nil>
+2208,<nil>
+2209,<nil>
+2210,<nil>
+2211,<nil>
+2212,<nil>
+2213,<nil>
+2214,<nil>
+2215,<nil>
+2216,<nil>
+2217,<nil>
+2218,<nil>
+2219,<nil>
+2220,<nil>
+2221,<nil>
+2222,Virus_inside
+3831,Phagocytosis -- Apoptotic_cell -- Active
+3997,Active
+2225,Virus_inside -- Virus_replication -- Chemokin_secretion
+2226,Virus_inside -- Virus_replication
+2227,Virus_inside -- Virus_replication -- Chemokin_secretion
+2228,<nil>
+2229,<nil>
+3739,Phagocytosis -- Apoptotic_cell -- Active
+2231,<nil>
+2232,<nil>
+2233,<nil>
+2234,<nil>
+2235,Virus_inside -- Virus_replication
+2236,<nil>
+2237,<nil>
+2238,<nil>
+2239,<nil>
+2240,<nil>
+2241,<nil>
+2242,<nil>
+2243,<nil>
+2244,<nil>
+2245,<nil>
+2246,<nil>
+2247,<nil>
+2248,<nil>
+2249,<nil>
+2250,<nil>
+2251,<nil>
+2252,<nil>
+2253,<nil>
+2254,<nil>
+2255,<nil>
+2256,<nil>
+2257,<nil>
+2258,<nil>
+2259,<nil>
+2260,<nil>
+2261,<nil>
+2262,<nil>
+2263,<nil>
+2264,<nil>
+2265,<nil>
+2266,<nil>
+2267,<nil>
+2268,<nil>
+2269,<nil>
+2270,<nil>
+2271,<nil>
+3943,Active
+3764,Active
+3356,Active
+2275,Virus_inside -- Virus_replication -- Chemokin_secretion
+2276,Virus_inside -- Virus_replication -- Chemokin_secretion
+2277,<nil>
+2278,Virus_inside -- Virus_replication -- Chemokin_secretion
+2279,<nil>
+2280,<nil>
+2281,<nil>
+2282,<nil>
+2283,<nil>
+2284,<nil>
+2285,<nil>
+2286,<nil>
+2287,<nil>
+2288,<nil>
+2289,<nil>
+2290,<nil>
+2291,<nil>
+2292,<nil>
+2293,<nil>
+2294,<nil>
+2295,<nil>
+2296,<nil>
+2297,<nil>
+2298,<nil>
+2299,<nil>
+2300,<nil>
+2301,<nil>
+2302,<nil>
+2303,<nil>
+2304,<nil>
+2305,<nil>
+2306,<nil>
+2307,<nil>
+2308,<nil>
+2309,<nil>
+2310,<nil>
+2311,<nil>
+2312,<nil>
+2313,<nil>
+2314,<nil>
+2315,<nil>
+2316,<nil>
+2317,<nil>
+2318,<nil>
+2319,<nil>
+3842,Phagocytosis -- Apoptotic_cell
+2321,Virus_inside -- Virus_replication -- Chemokin_secretion
+3666,Active
+2323,Virus_inside -- Virus_replication -- Chemokin_secretion
+2324,Virus_inside -- Virus_replication -- Chemokin_secretion
+2325,<nil>
+2326,<nil>
+2327,<nil>
+2328,<nil>
+2329,<nil>
+2330,<nil>
+2331,<nil>
+2332,<nil>
+2333,<nil>
+2334,<nil>
+2335,<nil>
+2336,<nil>
+2337,<nil>
+2338,<nil>
+2339,<nil>
+2340,<nil>
+2341,<nil>
+2342,<nil>
+2343,<nil>
+2344,<nil>
+2345,<nil>
+2346,<nil>
+2347,<nil>
+2348,<nil>
+2349,<nil>
+2350,<nil>
+2351,<nil>
+2352,<nil>
+2353,<nil>
+2354,<nil>
+2355,<nil>
+2356,<nil>
+2357,<nil>
+2358,<nil>
+2359,<nil>
+2360,<nil>
+2361,<nil>
+2362,<nil>
+2363,<nil>
+2364,<nil>
+2365,<nil>
+2366,<nil>
+2367,<nil>
+2368,<nil>
+2369,<nil>
+2370,<nil>
+2371,<nil>
+3835,Active
+3965,Active
+2374,<nil>
+2375,<nil>
+2376,<nil>
+2377,<nil>
+2378,<nil>
+2379,<nil>
+2380,<nil>
+2381,<nil>
+2382,<nil>
+2383,<nil>
+2384,<nil>
+2385,<nil>
+2386,<nil>
+2387,<nil>
+2388,<nil>
+2389,<nil>
+2390,<nil>
+2391,<nil>
+2392,<nil>
+2393,<nil>
+2394,<nil>
+2395,<nil>
+2396,<nil>
+2397,<nil>
+2398,<nil>
+2399,<nil>
+2400,<nil>
+2401,<nil>
+2402,<nil>
+2403,<nil>
+2404,<nil>
+2405,<nil>
+2406,<nil>
+2407,<nil>
+2408,<nil>
+2409,<nil>
+2410,<nil>
+2411,<nil>
+2412,<nil>
+2413,<nil>
+2414,<nil>
+2415,<nil>
+2416,<nil>
+2417,<nil>
+2418,<nil>
+2419,<nil>
+3876,Phagocytosis -- Apoptotic_cell -- Active
+2421,<nil>
+2422,<nil>
+2423,<nil>
+2424,<nil>
+2425,<nil>
+2426,<nil>
+2427,<nil>
+2428,<nil>
+2429,<nil>
+2430,<nil>
+2431,<nil>
+2432,<nil>
+2433,<nil>
+2434,<nil>
+2435,<nil>
+2436,<nil>
+2437,<nil>
+2438,<nil>
+2439,<nil>
+2440,<nil>
+2441,<nil>
+2442,<nil>
+2443,<nil>
+2444,<nil>
+2445,<nil>
+2446,<nil>
+2447,<nil>
+2448,<nil>
+2449,<nil>
+2450,<nil>
+2451,<nil>
+2452,<nil>
+2453,<nil>
+2454,<nil>
+2455,<nil>
+2456,<nil>
+2457,<nil>
+2458,<nil>
+2459,<nil>
+2460,<nil>
+2461,<nil>
+2462,<nil>
+2463,<nil>
+2464,<nil>
+2465,<nil>
+2466,<nil>
+2467,<nil>
+2468,<nil>
+2469,<nil>
+2470,Virus_inside
+2471,<nil>
+2472,<nil>
+2473,<nil>
+2474,<nil>
+2475,<nil>
+2476,<nil>
+2477,<nil>
+2478,<nil>
+2479,<nil>
+2480,<nil>
+2481,<nil>
+2482,<nil>
+2483,<nil>
+2484,<nil>
+2485,<nil>
+2486,<nil>
+2487,<nil>
+2488,<nil>
+2489,<nil>
+2490,<nil>
+2491,<nil>
+2492,<nil>
+2493,<nil>
+2494,<nil>
+2495,<nil>
+2496,<nil>
+2497,<nil>
+2498,<nil>
+2499,<nil>
+2500,<nil>
+2501,<nil>
+2502,<nil>
+2503,<nil>
+2504,<nil>
+2505,<nil>
+2506,<nil>
+2507,<nil>
+2508,<nil>
+2509,<nil>
+2510,<nil>
+2511,<nil>
+2512,<nil>
+2513,<nil>
+2514,<nil>
+2515,<nil>
+2516,<nil>
+2517,<nil>
+2518,<nil>
+2519,<nil>
+2520,<nil>
+2521,<nil>
+2522,<nil>
+2523,<nil>
+2524,<nil>
+2525,<nil>
+2526,<nil>
+2527,<nil>
+2528,<nil>
+2529,<nil>
+2530,<nil>
+2531,<nil>
+2532,<nil>
+2533,<nil>
+2534,<nil>
+2535,<nil>
+2536,<nil>
+2537,<nil>
+2538,<nil>
+2539,<nil>
+2540,<nil>
+2541,<nil>
+2542,<nil>
+2543,<nil>
+2544,<nil>
+2545,<nil>
+2546,<nil>
+2547,<nil>
+2548,<nil>
+2549,<nil>
+2550,<nil>
+2551,<nil>
+2552,<nil>
+2553,<nil>
+2554,<nil>
+2555,<nil>
+2556,<nil>
+2557,<nil>
+2558,<nil>
+2559,<nil>
+2560,<nil>
+2561,<nil>
+2562,<nil>
+2563,<nil>
+2564,<nil>
+2565,<nil>
+2566,<nil>
+2567,<nil>
+2568,<nil>
+2569,<nil>
+2570,<nil>
+2571,<nil>
+2572,<nil>
+2573,<nil>
+2574,<nil>
+2575,<nil>
+2576,<nil>
+2577,<nil>
+2578,<nil>
+2579,<nil>
+2580,<nil>
+2581,<nil>
+2582,<nil>
+2583,<nil>
+2584,<nil>
+2585,<nil>
+2586,<nil>
+2587,<nil>
+2588,<nil>
+2589,<nil>
+2590,<nil>
+2591,<nil>
+2592,<nil>
+2593,<nil>
+2594,<nil>
+2595,<nil>
+2596,<nil>
+2597,<nil>
+2598,<nil>
+2599,<nil>
+2600,<nil>
+2601,<nil>
+2602,<nil>
+2603,<nil>
+2604,<nil>
+2605,<nil>
+2606,<nil>
+2607,<nil>
+2608,<nil>
+2609,<nil>
+2610,<nil>
+2611,<nil>
+2612,<nil>
+2613,<nil>
+2614,<nil>
+2615,<nil>
+2616,<nil>
+2617,<nil>
+2618,<nil>
+2619,<nil>
+2620,<nil>
+2621,<nil>
+2622,<nil>
+2623,<nil>
+2624,<nil>
+2625,<nil>
+2626,<nil>
+2627,<nil>
+2628,<nil>
+2629,<nil>
+2630,<nil>
+2631,<nil>
+2632,<nil>
+2633,<nil>
+2634,<nil>
+2635,<nil>
+2636,<nil>
+2637,<nil>
+2638,<nil>
+2639,<nil>
+2640,<nil>
+2641,<nil>
+2642,<nil>
+2643,<nil>
+2644,<nil>
+2645,<nil>
+2646,<nil>
+2647,<nil>
+2648,<nil>
+2649,<nil>
+2650,<nil>
+2651,<nil>
+2652,<nil>
+2653,<nil>
+2654,<nil>
+2655,<nil>
+2656,<nil>
+2657,<nil>
+2658,<nil>
+2659,<nil>
+2660,<nil>
+2661,<nil>
+2662,<nil>
+2663,<nil>
+2664,<nil>
+2665,<nil>
+2666,<nil>
+2667,<nil>
+2668,<nil>
+2669,<nil>
+2670,<nil>
+2671,<nil>
+2672,<nil>
+2673,<nil>
+2674,<nil>
+2675,<nil>
+2676,<nil>
+2677,<nil>
+2678,<nil>
+2679,<nil>
+2680,<nil>
+2681,<nil>
+2682,<nil>
+2683,<nil>
+2684,<nil>
+2685,<nil>
+2686,<nil>
+2687,<nil>
+2688,<nil>
+2689,<nil>
+2690,<nil>
+2691,<nil>
+2692,<nil>
+2693,<nil>
+2694,<nil>
+2695,<nil>
+2696,<nil>
+2697,<nil>
+2698,<nil>
+2699,<nil>
+2700,<nil>
+2701,<nil>
+2702,<nil>
+2703,<nil>
+2704,<nil>
+2705,<nil>
+2706,<nil>
+2707,<nil>
+2708,<nil>
+2709,<nil>
+2710,<nil>
+2711,<nil>
+2712,<nil>
+2713,<nil>
+2714,<nil>
+2715,<nil>
+2716,<nil>
+2717,<nil>
+2718,<nil>
+2719,<nil>
+2720,<nil>
+2721,<nil>
+2722,<nil>
+2723,<nil>
+2724,<nil>
+2725,<nil>
+2726,<nil>
+2727,<nil>
+2728,<nil>
+2729,<nil>
+2730,<nil>
+2731,<nil>
+2732,<nil>
+2733,<nil>
+2734,<nil>
+2735,<nil>
+2736,<nil>
+2737,<nil>
+2738,<nil>
+2739,<nil>
+2740,<nil>
+2741,<nil>
+2742,<nil>
+2743,<nil>
+2744,<nil>
+2745,<nil>
+2746,<nil>
+2747,<nil>
+2748,<nil>
+2749,<nil>
+2750,<nil>
+2751,<nil>
+2752,<nil>
+2753,<nil>
+2754,<nil>
+2755,<nil>
+2756,<nil>
+2757,<nil>
+2758,<nil>
+2759,<nil>
+2760,<nil>
+2761,<nil>
+2762,<nil>
+2763,<nil>
+2764,<nil>
+2765,<nil>
+2766,<nil>
+2767,<nil>
+2768,<nil>
+2769,<nil>
+2770,<nil>
+2771,<nil>
+2772,<nil>
+2773,<nil>
+2774,<nil>
+2775,<nil>
+2776,<nil>
+2777,<nil>
+2778,<nil>
+2779,<nil>
+2780,<nil>
+2781,<nil>
+2782,<nil>
+2783,<nil>
+2784,<nil>
+2785,<nil>
+2786,<nil>
+2787,<nil>
+2788,<nil>
+2789,<nil>
+2790,<nil>
+2791,<nil>
+2792,<nil>
+3961,<nil>
+2992,Phagocytosis -- Apoptotic_cell
+3010,Phagocytosis -- Apoptotic_cell
+2796,Phagocytosis -- Apoptotic_cell
+2981,Phagocytosis -- Apoptotic_cell
+3730,Active
+3752,Phagocytosis -- Apoptotic_cell
+3353,Phagocytosis -- Apoptotic_cell
+2949,Phagocytosis -- Apoptotic_cell
+3851,Active
+3781,Phagocytosis -- Apoptotic_cell -- Active
+3213,<nil>
+3084,<nil>
+3679,Active
+2807,Phagocytosis -- Apoptotic_cell
+3079,<nil>
+3158,<nil>
+3065,Active
+3970,Active
+2946,Phagocytosis -- Apoptotic_cell
+2813,Phagocytosis -- Apoptotic_cell
+3723,Active
+2815,Phagocytosis -- Apoptotic_cell
+3989,<nil>
+2817,Phagocytosis -- Apoptotic_cell
+3968,Active
+3054,Phagocytosis -- Apoptotic_cell -- Active
+3910,Active
+3522,Active
+2878,Active
+2874,Active
+3571,Active
+3259,<nil>
+3967,Active
+2827,Phagocytosis -- Apoptotic_cell
+3913,Active
+3932,Active
+3274,<nil>
+3865,Active
+2939,Phagocytosis -- Apoptotic_cell
+2890,Active
+3749,Active
+2835,Phagocytosis -- Apoptotic_cell
+3825,Active
+3241,<nil>
+3125,<nil>
+2880,Active
+2840,Phagocytosis -- Apoptotic_cell
+2894,Active
+2871,Active
+2875,Active
+3305,<nil>
+2876,Active
+2877,Active
+2950,Phagocytosis -- Apoptotic_cell
+3298,<nil>
+2958,Phagocytosis -- Apoptotic_cell
+3208,<nil>
+4001,<nil>
+4002,<nil>

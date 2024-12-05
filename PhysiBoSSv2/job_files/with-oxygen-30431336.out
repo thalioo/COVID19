@@ -1,0 +1,2523 @@
+Using config file config/PhysiCell_settings_FADD_ko_o38.xml ... 
+1
+dc? 1
+User parameters in XML config file: 
+Bool parameters:: 
+use_single_infected_cell: 0 [none]
+use_uniform_dist: 0 [none]
+
+Int parameters:: 
+random_seed: 0 [dimensionless]
+ignore_smoothing_flag: 1 [dimensionless]
+number_of_CD8_Tcells: 0 [none]
+number_of_macrophages: 50 [none]
+number_of_neutrophils: 0 [none]
+number_of_fibroblast: 57 [none]
+number_of_DCs: 28 [none]
+number_of_CD4_Tcells: 0 [none]
+
+Double parameters:: 
+div_immune: 0 [dimensionless]
+immune_z_offset: 0 [micron]
+macrophage_max_recruitment_rate: 1e-08 [cells/min/micron^3]
+macrophage_recruitment_min_signal: 0.05 [substrate/micron^3]
+macrophage_recruitment_saturation_signal: 0.5 [substrate/micron^3]
+neutrophil_max_recruitment_rate: 1e-08 [cells/min/micron^3]
+neutrophil_recruitment_min_signal: 0.05 [substrate/micron^3]
+neutrophil_recruitment_saturation_signal: 0.5 [substrate/micron^3]
+DC_max_recruitment_rate: 2e-09 [cells/min/micron^3]
+DC_recruitment_min_signal: 0.1 [substrate/micron^3]
+DC_recruitment_saturation_signal: 0.5 [substrate/micron^3]
+Lymph_node_td: 0.5 [days]
+Lymph_node_Th: 0.25 [days]
+TC_death_rate: 1.4e-06 [cells/min]
+max_activation_TC: 0.0018 [cells/min]
+half_max_activation_TC: 5000 [cells]
+max_clearance_TC: 0.00018 [cells/min]
+half_max_clearance_TC: 1 [cells]
+TC_population_threshold: 1000 [cells]
+T_Cell_Recruitment: 0.005 [cells/min]
+transport_ratio: 0.05 [cells/min]
+DM_decay: 0.00035 [cells/min]
+Th1_max_activation: 1e-07 [cells/min]
+Th1_damping: 2e-05 [cells/min]
+Th1_decay: 7e-08 [cells/min]
+Th_base_decay: 0.000156 [cells/min]
+Th2_self_feeback: 4e-08 [cells/min]
+Th2_max_conversion: 1e-06 [cells/min]
+BCell_removal: 0.0006 [cells/min]
+BCell_activation: 0.0021 [cells/min]
+BCell_activation_half: 10000 [cells/min]
+BCell_DC_proliferation: 0.002 [cells/min]
+BCell_Th2_wieght_function: 1.25 [cells/min]
+BCell_damping: 20000 [cells/min]
+PCell_recuitment: 0.0002 [cells/min]
+PCell_degradation: 0.00014 [cells/min]
+Ig_recuitment: 1 [cells/min]
+Ig_degradation: 0.00139 [cells/min]
+DC_leave_prob: 3.3e-05 [cells/min]
+TC_activation: 0.001 [cells/min]
+TC_activation_half: 100 [cells/min]
+Th_half: 0.01 [cells/min]
+Ig_neutralization_rate: 3 [1/min]
+Death_rates_of_old_Tcells: 100 [cells/min]
+RNA_lower_bound: 125 [cells/min]
+fibroblast_max_recruitment_rate: 4e-09 [cells/min/micron^3]
+fibroblast_recruitment_min_signal: 7.1092 [substrate/micron^3]
+fibroblast_recruitment_saturation_signal: 22.928 [substrate/micron^3]
+div_initialization: 0 [dimensionless]
+mech_voxel_size: 30 [micron]
+multiplicity_of_infection: 0.1 [none]
+infection_std_dev: 100 [micron]
+DC_induced_CD8_proliferation: 0.00208 [cells/min/micron^3]
+DC_induced_CD8_attachment: 0.6 [cells/min/micron^3]
+virions_needed_for_DC_activation: 10 [virions]
+epsilon_distance: 1.75 [dimensionless]
+perecentage_tissue_vascularized: 8.8 [percentage]
+div_lymph: 0 [dimensionless]
+DM_init: 0 [cells]
+DL_init: 0 [cells]
+TC_init: 0 [cells]
+TH1_init: 0 [cells]
+TH2_init: 0 [cells]
+TCt_init: 0 [cells]
+Tht_init: 0 [cells]
+Bc_init: 0 [cells]
+Ps_init: 0 [cells]
+Ig_init: 0 [cells]
+TCN_init: 1000 [cells]
+THN_init: 1000 [cells]
+BN_init: 1000 [cells]
+div_Therapy: 0 [dimensionless]
+therapy_dt: 0 [min]
+Ig_dose: 0 [mol/micron^3]
+div_colors: 0 [dimensionless]
+epithelial_opacity: 0.65 [dimensionless]
+non_epithelial_opacity: 0.8 [dimensionless]
+ROS_secretion_rate: 0.01 [none]
+epsilon_ROS: 10 [none]
+Antibody_binding_rate: 0.1 [none]
+antibody_half_effect: 0.1 [none]
+virus_fraction_released_at_death: 0 [none]
+
+String parameters:: 
+color_variable: assembled_virion [dimensionless]
+apoptotic_epithelium_color: black [dimensionless]
+apoptotic_immune_color: rosybrown [dimensionless]
+pyroptotic_epithelium_color: darkorange [dimensionless]
+pyroptotic_bystander_epithelium_color: darkred [dimensionless]
+vi_apoptotic_epithelium_color: forestgreen [dimensionless]
+CD8_Tcell_color: red [dimensionless]
+CD4_Tcell_color: orange [dimensionless]
+Macrophage_color: rgb(35,139,69) [dimensionless]
+activated_macrophage_color: lime [dimensionless]
+exhausted_macrophage_color: rgb(116,196,118) [dimensionless]
+hyperactivated_macrophage_color: rgb(168,221,181) [dimensionless]
+Neutrophil_color: cyan [dimensionless]
+DC_color: rgb(129,15,124) [dimensionless]
+activated_DC_color: deeppink [dimensionless]
+fibroblast_color: blueviolet [dimensionless]
+
+
+which boundaries?
+1 1 1 1 1 1
+
+Microenvironment summary: microenvironment: 
+
+Mesh information: 
+type: uniform Cartesian
+Domain: [-400,400] micron x [-400,400] micron x [-10,10] micron
+   resolution: dx = 20 micron
+   voxels: 1600
+   voxel faces: 0
+   volume: 1.28e+07 cubic micron
+Densities: (11 total)
+   virion:
+     units: virion/micron^3
+     diffusion coefficient: 0.25 micron^2 / min
+     decay rate: 0.0001 min^-1
+     diffusion length scale: 50 micron
+     initial condition: 0 virion/micron^3
+     boundary condition: 0 virion/micron^3 (enabled: false)
+   interferon 1:
+     units: mol/micron^3
+     diffusion coefficient: 25 micron^2 / min
+     decay rate: 0.0102 min^-1
+     diffusion length scale: 49.5074 micron
+     initial condition: 0 mol/micron^3
+     boundary condition: 0 mol/micron^3 (enabled: false)
+   pro-inflammatory cytokine:
+     units: mol/micron^3
+     diffusion coefficient: 555.56 micron^2 / min
+     decay rate: 0.0102 min^-1
+     diffusion length scale: 233.381 micron
+     initial condition: 0 mol/micron^3
+     boundary condition: 0 mol/micron^3 (enabled: false)
+   chemokine:
+     units: mol/micron^3
+     diffusion coefficient: 555.56 micron^2 / min
+     decay rate: 0.0102 min^-1
+     diffusion length scale: 233.381 micron
+     initial condition: 0 mol/micron^3
+     boundary condition: 0 mol/micron^3 (enabled: false)
+   debris:
+     units: mol/micron^3
+     diffusion coefficient: 555.56 micron^2 / min
+     decay rate: 0.0102 min^-1
+     diffusion length scale: 233.381 micron
+     initial condition: 0 mol/micron^3
+     boundary condition: 0 mol/micron^3 (enabled: false)
+   pro-pyroptosis cytokine:
+     units: mol/micron^3
+     diffusion coefficient: 5.56 micron^2 / min
+     decay rate: 0.0102 min^-1
+     diffusion length scale: 23.3473 micron
+     initial condition: 0 mol/micron^3
+     boundary condition: 0 mol/micron^3 (enabled: false)
+   anti-inflammatory cytokine:
+     units: ng/micron^3
+     diffusion coefficient: 3000 micron^2 / min
+     decay rate: 0.0104 min^-1
+     diffusion length scale: 537.086 micron
+     initial condition: 0 ng/micron^3
+     boundary condition: 0 ng/micron^3 (enabled: false)
+   collagen:
+     units: ug/micron^3
+     diffusion coefficient: 0 micron^2 / min
+     decay rate: 0 min^-1
+     diffusion length scale: 0 micron
+     initial condition: 0 ug/micron^3
+     boundary condition: 0 ug/micron^3 (enabled: false)
+   Ig:
+     units: mol/micron^3
+     diffusion coefficient: 6 micron^2 / min
+     decay rate: 0.0001 min^-1
+     diffusion length scale: 244.949 micron
+     initial condition: 0 mol/micron^3
+     boundary condition: 0 mol/micron^3 (enabled: false)
+   ROS:
+     units: mol/micron^3
+     diffusion coefficient: 1e-06 micron^2 / min
+     decay rate: 60 min^-1
+     diffusion length scale: 0.000129099 micron
+     initial condition: 0 mol/micron^3
+     boundary condition: 0 mol/micron^3 (enabled: false)
+   oxygen:
+     units: mmHg
+     diffusion coefficient: 100000 micron^2 / min
+     decay rate: 0.1 min^-1
+     diffusion length scale: 1000 micron
+     initial condition: 38 mmHg
+     boundary condition: 38 mmHg (enabled: true)
+
+virtual_wall_at_domain_edge: enabled
+Pre-processing type 0 named default
+Pre-processing type 1 named lung epithelium
+Pre-processing type 2 named immune
+Pre-processing type 3 named CD8 Tcell
+Pre-processing type 4 named macrophage
+Pre-processing type 5 named neutrophil
+Pre-processing type 6 named DC
+Pre-processing type 7 named CD4 Tcell
+Pre-processing type 8 named fibroblast
+Pre-processing type 9 named residual
+Processing default ... 
+Note: setting cell definition to 2D based on microenvironment domain settings ... 
+Processing lung epithelium ... 
+	Copying from type default ... 
+Note: setting cell definition to 2D based on microenvironment domain settings ... 
+Processing immune ... 
+	Copying from type default ... 
+Note: setting cell definition to 2D based on microenvironment domain settings ... 
+Cells of type immune use standard chemotaxis: 
+	 d_bias (before normalization) = 1 * grad(chemokine)
+Processing CD8 Tcell ... 
+	Copying from type immune ... 
+Note: setting cell definition to 2D based on microenvironment domain settings ... 
+Cells of type CD8 Tcell use standard chemotaxis: 
+	 d_bias (before normalization) = 1 * grad(chemokine)
+Processing macrophage ... 
+	Copying from type immune ... 
+Note: setting cell definition to 2D based on microenvironment domain settings ... 
+Cells of type macrophage use standard chemotaxis: 
+	 d_bias (before normalization) = 1 * grad(debris)
+Processing neutrophil ... 
+	Copying from type immune ... 
+Note: setting cell definition to 2D based on microenvironment domain settings ... 
+Cells of type neutrophil use standard chemotaxis: 
+	 d_bias (before normalization) = 1 * grad(debris)
+Processing DC ... 
+	Copying from type immune ... 
+Note: setting cell definition to 2D based on microenvironment domain settings ... 
+Cells of type DC use standard chemotaxis: 
+	 d_bias (before normalization) = 1 * grad(chemokine)
+Processing CD4 Tcell ... 
+	Copying from type immune ... 
+Note: setting cell definition to 2D based on microenvironment domain settings ... 
+Cells of type CD4 Tcell use standard chemotaxis: 
+	 d_bias (before normalization) = 1 * grad(chemokine)
+Processing fibroblast ... 
+	Copying from type immune ... 
+Note: setting cell definition to 2D based on microenvironment domain settings ... 
+Cells of type fibroblast use standard chemotaxis: 
+	 d_bias (before normalization) = 1 * grad(anti-inflammatory cytokine)
+Processing residual ... 
+	Copying from type default ... 
+Note: setting cell definition to 2D based on microenvironment domain settings ... 
+The following submodels are registered: 
+=======================================
+Submodel: CD8 Tcell model (Version 0.6.0)
+	microenvironment variables: 
+		virion
+		interferon 1
+		pro-inflammatory cytokine
+		chemokine
+	cell variables: 
+	functions: 
+		main: NULL
+		phenotype: 5010496
+		mechanics: 5037200
+
+Submodel: macrophage model (Version 0.6.0)
+	microenvironment variables: 
+		virion
+		interferon 1
+		pro-inflammatory cytokine
+		chemokine
+	cell variables: 
+	functions: 
+		main: NULL
+		phenotype: 5030016
+		mechanics: 5039232
+
+Submodel: neutrophil model (Version 0.6.0)
+	microenvironment variables: 
+		virion
+		interferon 1
+		pro-inflammatory cytokine
+		chemokine
+	cell variables: 
+	functions: 
+		main: NULL
+		phenotype: 5003536
+		mechanics: 5039728
+
+Submodel: DC model (Version 0.6.0)
+	microenvironment variables: 
+		virion
+		interferon 1
+		pro-inflammatory cytokine
+		chemokine
+	cell variables: 
+	functions: 
+		main: NULL
+		phenotype: 5007792
+		mechanics: 5038240
+
+Submodel: CD4 Tcell model (Version 0.6.0)
+	microenvironment variables: 
+		virion
+		interferon 1
+		pro-inflammatory cytokine
+		chemokine
+		virion
+		interferon 1
+		pro-inflammatory cytokine
+		chemokine
+	cell variables: 
+	functions: 
+		main: NULL
+		phenotype: 5005648
+		mechanics: 5038736
+
+Submodel: residual model (Version 0.6.0)
+	microenvironment variables: 
+		virion
+		interferon 1
+		pro-inflammatory cytokine
+		chemokine
+	cell variables: 
+	functions: 
+		main: NULL
+		phenotype: 5003072
+		mechanics: 5038128
+
+Submodel: fibroblast model (Version 0.6.0)
+	microenvironment variables: 
+		virion
+		interferon 1
+		pro-inflammatory cytokine
+		chemokine
+	cell variables: 
+	functions: 
+		main: NULL
+		phenotype: 5006432
+		mechanics: 5038016
+
+Submodel: receptor dynamics (Version 0.6.0)
+	microenvironment variables: 
+		virion
+	cell variables: 
+		unbound_external_ACE2
+		bound_external_ACE2
+		unbound_internal_ACE2
+		bound_internal_ACE2
+		ACE2_binding_rate
+		ACE2_endocytosis_rate
+		ACE2_cargo_release_rate
+		ACE2_recycling_rate
+	functions: 
+		main: 4991440
+		phenotype: NULL
+		mechanics: NULL
+
+Submodel: internal viral replication dynamics (Version 0.6.0)
+	microenvironment variables: 
+	cell variables: 
+		virion
+		uncoated_virion
+		viral_RNA
+		viral_protein
+		assembled_virion
+		export_virion
+		virion_uncoating_rate
+		uncoated_to_RNA_rate
+		protein_synthesis_rate
+		virion_assembly_rate
+		virion_export_rate
+		max_RNA_replication_rate
+		RNA_replication_half
+		basal_RNA_degradation_rate
+	functions: 
+		main: NULL
+		phenotype: 4963968
+		mechanics: NULL
+
+Submodel: internal viral response (Version 0.6.0)
+	microenvironment variables: 
+	cell variables: 
+		max_infected_apoptosis_rate
+		max_apoptosis_half_max
+		apoptosis_hill_power
+	functions: 
+		main: NULL
+		phenotype: 4979936
+		mechanics: NULL
+
+Submodel: epithelium model (Version 0.6.0)
+	microenvironment variables: 
+		virion
+		interferon 1
+		pro-inflammatory cytokine
+		chemokine
+		anti-inflammatory cytokine
+		pro-pyroptosis cytokine
+	cell variables: 
+	functions: 
+		main: NULL
+		phenotype: 5046480
+		mechanics: 5045632
+
+
+0 :: type:0 name: default
+	 cycle model: Flow cytometry model (separated) (code=6)
+		Phase 0: G0/G1
+		Phase 1: S
+		Phase 2: G2
+		Phase 3: M
+		Cycle transitions: 
+		-----------------
+		G0/G1 --> S w mean duration inf min
+		S --> G2 w mean duration 480.001 min
+		G2 --> M w mean duration 240 min
+		M --> G0/G1 w mean duration 59.9999 min
+	 death models: 
+		0 : Apoptosis (code=100) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Apoptotic --> Debris w mean duration 516.001 min
+		1 : Necrosis (code=101) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Necrotic (swelling) --> Necrotic (lysed) w mean duration 1.11111e-10 min
+		Necrotic (lysed) --> Debris w mean duration 86399.8 min
+	 key functions: 
+		 migration bias rule: false
+		 custom rule: false
+		 phenotype rule: false
+		 volume update function: true
+		 mechanics function: true
+		 contact function: false
+	motility (enabled: false in 2D)
+		speed: 4 micron/min
+		bias: 0.7 
+		persistence time: 5 min
+		chemotaxis (enabled: false)
+			along 1 * grad(chemokine) 
+	custom data: 
+		virion: 0 virions
+		uncoated_virion: 0 virions
+		viral_RNA: 0 RNA
+		viral_protein: 0 protein
+		export_virion: 0 virions
+		assembled_virion: 0 virions
+		virion_uncoating_rate: 0.01 1/min
+		uncoated_to_RNA_rate: 0.01 1/min
+		max_RNA_replication_rate: 3 1/min
+		RNA_replication_half: 200 virions
+		basal_RNA_degradation_rate: 0.01 1/min
+		protein_synthesis_rate: 0.01 1/min
+		virion_assembly_rate: 0.01 1/min
+		virion_export_rate: 0.01 1/min
+		unbound_external_ACE2: 1000 receptors
+		bound_external_ACE2: 0 receptors
+		unbound_internal_ACE2: 0 receptors
+		bound_internal_ACE2: 0 receptors
+		ACE2_binding_rate: 0.002 micron^3/(# min)
+		ACE2_endocytosis_rate: 0.01 1/min
+		ACE2_cargo_release_rate: 0.01 1/min
+		ACE2_recycling_rate: 0.01 1/min
+		max_infected_apoptosis_rate: 0.002 1/min
+		max_apoptosis_half_max: 250 virion
+		apoptosis_hill_power: 1 none
+		infected_cell_chemokine_secretion_rate: 1 1/min
+		debris_secretion_rate: 1 1/min
+		infected_cell_chemokine_secretion_activated: 0 none
+		nuclear_NFkB: 0.25 a.u. of concentration
+		inactive_NLRP3: 0 a.u. of concentration
+		active_NLRP3: 0 a.u. of concentration
+		bound_NLRP3: 0 a.u. of concentration
+		bound_ASC: 0 a.u. of concentration
+		bound_caspase1: 0 a.u. of concentration
+		cleaved_gasderminD: 0 a.u. of concentration
+		pro_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_1b: 0 a.u. of concentration
+		external_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_18: 0 a.u. of concentration
+		external_IL_18: 0 a.u. of concentration
+		cytoplasmic_volume: 2494 a.u. of volume
+		cell_pyroptosis_time: 0 dimensionless
+		cell_apo_time: 0 dimensionless
+		cell_pyroptosis_flag: 0 dimensionless
+		cell_bystander_pyroptosis_flag: 0 dimensionless
+		cell_virus_induced_apoptosis_flag: 0 dimensionless
+		internalised_pro_pyroptosis_cytokine: 0 none
+		interferon_secretion_rate_via_infection: 0.01 1/min
+		max_interferon_secretion_rate_via_paracrine: 0.1 1/min
+		interferon_max_response_threshold: 1 dimensionless
+		interferon_activation: 0 dimensionless
+		interferon_max_virus_inhibition: 1 dimensionless
+		interferon_viral_RNA_threshold: 100 dimensionless
+		interferon_viral_RNA_detection: 1 dimensionless
+		TCell_detection: 1 protein
+		TCell_contact_time: 0 min
+		cell_attachment_rate: 0 1/min
+		cell_attachment_lifetime: 0 min
+		TCell_contact_death_threshold: 5 min
+		max_attachment_distance: 15 micron
+		elastic_attachment_coefficient: 0.01 1/min
+		time_to_next_phagocytosis: 0 min
+		material_internalisation_rate: 1 micron/min
+		threshold_macrophage_volume: 6500 micron
+		threshold_neutrophil_volume: 1581 micron
+		exhausted_macrophage_death_rate: 0.01 1/min
+		ability_to_phagocytose_infected_cell: 0 dimensionless
+		M2_phase: 0 dimensionless
+		phagocytosis_rate: 0.167 1/min
+		phagocytosis_relative_target_cutoff_size: 1.1 
+		sensitivity_to_debris_chemotaxis: 1 dimensionless
+		sensitivity_to_chemokine_chemotaxis: 10 dimensionless
+		activated_speed: 0.4 micron/min
+		activated_cytokine_secretion_rate: 1 1/min
+		activated_immune_cell: 0 dimensionless
+		antiinflammatory_cytokine_secretion_rate_by_damagedSite: 2e-09 1/min
+		antiinflammatory_cytokine_secretion_rate_by_macrophage: 2e-09 1/min
+		collagen_secretion_rate: 1 1/min
+		generation: 3 dimensionless
+	custom vector data: 
+			NOTE: custom vector data will eventually be merged with custom data
+1 :: type:1 name: lung epithelium
+	 cycle model: Flow cytometry model (separated) (code=6)
+		Phase 0: G0/G1
+		Phase 1: S
+		Phase 2: G2
+		Phase 3: M
+		Cycle transitions: 
+		-----------------
+		G0/G1 --> S w mean duration inf min
+		S --> G2 w mean duration 480.001 min
+		G2 --> M w mean duration 240 min
+		M --> G0/G1 w mean duration 59.9999 min
+	 death models: 
+		0 : Apoptosis (code=100) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Apoptotic --> Debris w mean duration 516.001 min
+		1 : Necrosis (code=101) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Necrotic (swelling) --> Necrotic (lysed) w mean duration 1.11111e-10 min
+		Necrotic (lysed) --> Debris w mean duration 86399.8 min
+	 key functions: 
+		 migration bias rule: false
+		 custom rule: true
+		 phenotype rule: true
+		 volume update function: true
+		 mechanics function: true
+		 contact function: true
+	motility (enabled: false in 2D)
+		speed: 4 micron/min
+		bias: 0.7 
+		persistence time: 5 min
+		chemotaxis (enabled: false)
+			along 1 * grad(chemokine) 
+	custom data: 
+		virion: 0 virions
+		uncoated_virion: 0 virions
+		viral_RNA: 0 RNA
+		viral_protein: 0 protein
+		export_virion: 0 virions
+		assembled_virion: 0 virions
+		virion_uncoating_rate: 0.01 1/min
+		uncoated_to_RNA_rate: 0.01 1/min
+		max_RNA_replication_rate: 3 1/min
+		RNA_replication_half: 200 virions
+		basal_RNA_degradation_rate: 0.01 1/min
+		protein_synthesis_rate: 0.01 1/min
+		virion_assembly_rate: 0.01 1/min
+		virion_export_rate: 0.01 1/min
+		unbound_external_ACE2: 1000 receptors
+		bound_external_ACE2: 0 receptors
+		unbound_internal_ACE2: 0 receptors
+		bound_internal_ACE2: 0 receptors
+		ACE2_binding_rate: 0.002 micron^3/(# min)
+		ACE2_endocytosis_rate: 0.01 1/min
+		ACE2_cargo_release_rate: 0.01 1/min
+		ACE2_recycling_rate: 0.01 1/min
+		max_infected_apoptosis_rate: 0.002 1/min
+		max_apoptosis_half_max: 250 virion
+		apoptosis_hill_power: 1 none
+		infected_cell_chemokine_secretion_rate: 1 1/min
+		debris_secretion_rate: 1 1/min
+		infected_cell_chemokine_secretion_activated: 0 none
+		nuclear_NFkB: 0.25 a.u. of concentration
+		inactive_NLRP3: 0 a.u. of concentration
+		active_NLRP3: 0 a.u. of concentration
+		bound_NLRP3: 0 a.u. of concentration
+		bound_ASC: 0 a.u. of concentration
+		bound_caspase1: 0 a.u. of concentration
+		cleaved_gasderminD: 0 a.u. of concentration
+		pro_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_1b: 0 a.u. of concentration
+		external_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_18: 0 a.u. of concentration
+		external_IL_18: 0 a.u. of concentration
+		cytoplasmic_volume: 2494 a.u. of volume
+		cell_pyroptosis_time: 0 dimensionless
+		cell_apo_time: 0 dimensionless
+		cell_pyroptosis_flag: 0 dimensionless
+		cell_bystander_pyroptosis_flag: 0 dimensionless
+		cell_virus_induced_apoptosis_flag: 0 dimensionless
+		internalised_pro_pyroptosis_cytokine: 0 none
+		interferon_secretion_rate_via_infection: 0.01 1/min
+		max_interferon_secretion_rate_via_paracrine: 0.1 1/min
+		interferon_max_response_threshold: 1 dimensionless
+		interferon_activation: 0 dimensionless
+		interferon_max_virus_inhibition: 1 dimensionless
+		interferon_viral_RNA_threshold: 100 dimensionless
+		interferon_viral_RNA_detection: 1 dimensionless
+		TCell_detection: 1 protein
+		TCell_contact_time: 0 min
+		cell_attachment_rate: 0 1/min
+		cell_attachment_lifetime: 0 min
+		TCell_contact_death_threshold: 5 min
+		max_attachment_distance: 15 micron
+		elastic_attachment_coefficient: 0.01 1/min
+		time_to_next_phagocytosis: 0 min
+		material_internalisation_rate: 1 micron/min
+		threshold_macrophage_volume: 6500 micron
+		threshold_neutrophil_volume: 1581 micron
+		exhausted_macrophage_death_rate: 0.01 1/min
+		ability_to_phagocytose_infected_cell: 0 dimensionless
+		M2_phase: 0 dimensionless
+		phagocytosis_rate: 0.167 1/min
+		phagocytosis_relative_target_cutoff_size: 1.1 
+		sensitivity_to_debris_chemotaxis: 1 dimensionless
+		sensitivity_to_chemokine_chemotaxis: 10 dimensionless
+		activated_speed: 0.4 micron/min
+		activated_cytokine_secretion_rate: 1 1/min
+		activated_immune_cell: 0 dimensionless
+		antiinflammatory_cytokine_secretion_rate_by_damagedSite: 2e-09 1/min
+		antiinflammatory_cytokine_secretion_rate_by_macrophage: 2e-09 1/min
+		collagen_secretion_rate: 1 1/min
+		generation: 3 dimensionless
+	custom vector data: 
+			NOTE: custom vector data will eventually be merged with custom data
+2 :: type:2 name: immune
+	 cycle model: Flow cytometry model (separated) (code=6)
+		Phase 0: G0/G1
+		Phase 1: S
+		Phase 2: G2
+		Phase 3: M
+		Cycle transitions: 
+		-----------------
+		G0/G1 --> S w mean duration inf min
+		S --> G2 w mean duration 480.001 min
+		G2 --> M w mean duration 240 min
+		M --> G0/G1 w mean duration 59.9999 min
+	 death models: 
+		0 : Apoptosis (code=100) with rate 0.0005 1/min
+		death phase transitions: 
+		------------------------
+		Apoptotic --> Debris w mean duration 516.001 min
+		1 : Necrosis (code=101) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Necrotic (swelling) --> Necrotic (lysed) w mean duration 1.11111e-10 min
+		Necrotic (lysed) --> Debris w mean duration 86399.8 min
+	 key functions: 
+		 migration bias rule: true
+		 custom rule: false
+		 phenotype rule: false
+		 volume update function: true
+		 mechanics function: true
+		 contact function: false
+	motility (enabled: true in 2D)
+		speed: 4 micron/min
+		bias: 0.7 
+		persistence time: 5 min
+		chemotaxis (enabled: true)
+			along 1 * grad(chemokine) 
+	custom data: 
+		virion: 0 virions
+		uncoated_virion: 0 virions
+		viral_RNA: 0 RNA
+		viral_protein: 0 protein
+		export_virion: 0 virions
+		assembled_virion: 0 virions
+		virion_uncoating_rate: 0.01 1/min
+		uncoated_to_RNA_rate: 0.01 1/min
+		max_RNA_replication_rate: 3 1/min
+		RNA_replication_half: 200 virions
+		basal_RNA_degradation_rate: 0.01 1/min
+		protein_synthesis_rate: 0.01 1/min
+		virion_assembly_rate: 0.01 1/min
+		virion_export_rate: 0.01 1/min
+		unbound_external_ACE2: 1000 receptors
+		bound_external_ACE2: 0 receptors
+		unbound_internal_ACE2: 0 receptors
+		bound_internal_ACE2: 0 receptors
+		ACE2_binding_rate: 0.002 micron^3/(# min)
+		ACE2_endocytosis_rate: 0.01 1/min
+		ACE2_cargo_release_rate: 0.01 1/min
+		ACE2_recycling_rate: 0.01 1/min
+		max_infected_apoptosis_rate: 0.002 1/min
+		max_apoptosis_half_max: 250 virion
+		apoptosis_hill_power: 1 none
+		infected_cell_chemokine_secretion_rate: 1 1/min
+		debris_secretion_rate: 1 1/min
+		infected_cell_chemokine_secretion_activated: 0 none
+		nuclear_NFkB: 0.25 a.u. of concentration
+		inactive_NLRP3: 0 a.u. of concentration
+		active_NLRP3: 0 a.u. of concentration
+		bound_NLRP3: 0 a.u. of concentration
+		bound_ASC: 0 a.u. of concentration
+		bound_caspase1: 0 a.u. of concentration
+		cleaved_gasderminD: 0 a.u. of concentration
+		pro_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_1b: 0 a.u. of concentration
+		external_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_18: 0 a.u. of concentration
+		external_IL_18: 0 a.u. of concentration
+		cytoplasmic_volume: 2494 a.u. of volume
+		cell_pyroptosis_time: 0 dimensionless
+		cell_apo_time: 0 dimensionless
+		cell_pyroptosis_flag: 0 dimensionless
+		cell_bystander_pyroptosis_flag: 0 dimensionless
+		cell_virus_induced_apoptosis_flag: 0 dimensionless
+		internalised_pro_pyroptosis_cytokine: 0 none
+		interferon_secretion_rate_via_infection: 0.01 1/min
+		max_interferon_secretion_rate_via_paracrine: 0.1 1/min
+		interferon_max_response_threshold: 1 dimensionless
+		interferon_activation: 0 dimensionless
+		interferon_max_virus_inhibition: 1 dimensionless
+		interferon_viral_RNA_threshold: 100 dimensionless
+		interferon_viral_RNA_detection: 1 dimensionless
+		TCell_detection: 1 protein
+		TCell_contact_time: 0 min
+		cell_attachment_rate: 0 1/min
+		cell_attachment_lifetime: 0 min
+		TCell_contact_death_threshold: 5 min
+		max_attachment_distance: 15 micron
+		elastic_attachment_coefficient: 0.01 1/min
+		time_to_next_phagocytosis: 0 min
+		material_internalisation_rate: 1 micron/min
+		threshold_macrophage_volume: 6500 micron
+		threshold_neutrophil_volume: 1581 micron
+		exhausted_macrophage_death_rate: 0.01 1/min
+		ability_to_phagocytose_infected_cell: 0 dimensionless
+		M2_phase: 0 dimensionless
+		phagocytosis_rate: 0.167 1/min
+		phagocytosis_relative_target_cutoff_size: 1.1 
+		sensitivity_to_debris_chemotaxis: 1 dimensionless
+		sensitivity_to_chemokine_chemotaxis: 10 dimensionless
+		activated_speed: 0.4 micron/min
+		activated_cytokine_secretion_rate: 1 1/min
+		activated_immune_cell: 0 dimensionless
+		antiinflammatory_cytokine_secretion_rate_by_damagedSite: 2e-09 1/min
+		antiinflammatory_cytokine_secretion_rate_by_macrophage: 2e-09 1/min
+		collagen_secretion_rate: 1 1/min
+		generation: 3 dimensionless
+	custom vector data: 
+			NOTE: custom vector data will eventually be merged with custom data
+3 :: type:3 name: CD8 Tcell
+	 cycle model: Flow cytometry model (separated) (code=6)
+		Phase 0: G0/G1
+		Phase 1: S
+		Phase 2: G2
+		Phase 3: M
+		Cycle transitions: 
+		-----------------
+		G0/G1 --> S w mean duration inf min
+		S --> G2 w mean duration 480.001 min
+		G2 --> M w mean duration 240 min
+		M --> G0/G1 w mean duration 59.9999 min
+	 death models: 
+		0 : Apoptosis (code=100) with rate 0.00028 1/min
+		death phase transitions: 
+		------------------------
+		Apoptotic --> Debris w mean duration 516.001 min
+		1 : Necrosis (code=101) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Necrotic (swelling) --> Necrotic (lysed) w mean duration 1.11111e-10 min
+		Necrotic (lysed) --> Debris w mean duration 86399.8 min
+	 key functions: 
+		 migration bias rule: true
+		 custom rule: true
+		 phenotype rule: true
+		 volume update function: true
+		 mechanics function: true
+		 contact function: true
+	motility (enabled: true in 2D)
+		speed: 4 micron/min
+		bias: 0.7 
+		persistence time: 5 min
+		chemotaxis (enabled: true)
+			along 1 * grad(chemokine) 
+	custom data: 
+		virion: 0 virions
+		uncoated_virion: 0 virions
+		viral_RNA: 0 RNA
+		viral_protein: 0 protein
+		export_virion: 0 virions
+		assembled_virion: 0 virions
+		virion_uncoating_rate: 0.01 1/min
+		uncoated_to_RNA_rate: 0.01 1/min
+		max_RNA_replication_rate: 3 1/min
+		RNA_replication_half: 200 virions
+		basal_RNA_degradation_rate: 0.01 1/min
+		protein_synthesis_rate: 0.01 1/min
+		virion_assembly_rate: 0.01 1/min
+		virion_export_rate: 0.01 1/min
+		unbound_external_ACE2: 1000 receptors
+		bound_external_ACE2: 0 receptors
+		unbound_internal_ACE2: 0 receptors
+		bound_internal_ACE2: 0 receptors
+		ACE2_binding_rate: 0.002 micron^3/(# min)
+		ACE2_endocytosis_rate: 0.01 1/min
+		ACE2_cargo_release_rate: 0.01 1/min
+		ACE2_recycling_rate: 0.01 1/min
+		max_infected_apoptosis_rate: 0.002 1/min
+		max_apoptosis_half_max: 250 virion
+		apoptosis_hill_power: 1 none
+		infected_cell_chemokine_secretion_rate: 1 1/min
+		debris_secretion_rate: 1 1/min
+		infected_cell_chemokine_secretion_activated: 0 none
+		nuclear_NFkB: 0.25 a.u. of concentration
+		inactive_NLRP3: 0 a.u. of concentration
+		active_NLRP3: 0 a.u. of concentration
+		bound_NLRP3: 0 a.u. of concentration
+		bound_ASC: 0 a.u. of concentration
+		bound_caspase1: 0 a.u. of concentration
+		cleaved_gasderminD: 0 a.u. of concentration
+		pro_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_1b: 0 a.u. of concentration
+		external_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_18: 0 a.u. of concentration
+		external_IL_18: 0 a.u. of concentration
+		cytoplasmic_volume: 2494 a.u. of volume
+		cell_pyroptosis_time: 0 dimensionless
+		cell_apo_time: 0 dimensionless
+		cell_pyroptosis_flag: 0 dimensionless
+		cell_bystander_pyroptosis_flag: 0 dimensionless
+		cell_virus_induced_apoptosis_flag: 0 dimensionless
+		internalised_pro_pyroptosis_cytokine: 0 none
+		interferon_secretion_rate_via_infection: 0.01 1/min
+		max_interferon_secretion_rate_via_paracrine: 0.1 1/min
+		interferon_max_response_threshold: 1 dimensionless
+		interferon_activation: 0 dimensionless
+		interferon_max_virus_inhibition: 1 dimensionless
+		interferon_viral_RNA_threshold: 100 dimensionless
+		interferon_viral_RNA_detection: 1 dimensionless
+		TCell_detection: 1 protein
+		TCell_contact_time: 0 min
+		cell_attachment_rate: 0.2 1/min
+		cell_attachment_lifetime: 8.5 min
+		TCell_contact_death_threshold: 5 min
+		max_attachment_distance: 15 micron
+		elastic_attachment_coefficient: 0.01 1/min
+		time_to_next_phagocytosis: 0 min
+		material_internalisation_rate: 1 micron/min
+		threshold_macrophage_volume: 6500 micron
+		threshold_neutrophil_volume: 1581 micron
+		exhausted_macrophage_death_rate: 0.01 1/min
+		ability_to_phagocytose_infected_cell: 0 dimensionless
+		M2_phase: 0 dimensionless
+		phagocytosis_rate: 0.167 1/min
+		phagocytosis_relative_target_cutoff_size: 1.1 
+		sensitivity_to_debris_chemotaxis: 1 dimensionless
+		sensitivity_to_chemokine_chemotaxis: 10 dimensionless
+		activated_speed: 0.4 micron/min
+		activated_cytokine_secretion_rate: 1 1/min
+		activated_immune_cell: 0 dimensionless
+		antiinflammatory_cytokine_secretion_rate_by_damagedSite: 2e-09 1/min
+		antiinflammatory_cytokine_secretion_rate_by_macrophage: 2e-09 1/min
+		collagen_secretion_rate: 1 1/min
+		generation: 3 dimensionless
+	custom vector data: 
+			NOTE: custom vector data will eventually be merged with custom data
+4 :: type:4 name: macrophage
+	 cycle model: Flow cytometry model (separated) (code=6)
+		Phase 0: G0/G1
+		Phase 1: S
+		Phase 2: G2
+		Phase 3: M
+		Cycle transitions: 
+		-----------------
+		G0/G1 --> S w mean duration inf min
+		S --> G2 w mean duration 480.001 min
+		G2 --> M w mean duration 240 min
+		M --> G0/G1 w mean duration 59.9999 min
+	 death models: 
+		0 : Apoptosis (code=100) with rate 0.00021 1/min
+		death phase transitions: 
+		------------------------
+		Apoptotic --> Debris w mean duration 516.001 min
+		1 : Necrosis (code=101) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Necrotic (swelling) --> Necrotic (lysed) w mean duration 1.11111e-10 min
+		Necrotic (lysed) --> Debris w mean duration 86399.8 min
+	 key functions: 
+		 migration bias rule: true
+		 custom rule: true
+		 phenotype rule: true
+		 volume update function: true
+		 mechanics function: true
+		 contact function: false
+	motility (enabled: true in 2D)
+		speed: 4 micron/min
+		bias: 0.7 
+		persistence time: 5 min
+		chemotaxis (enabled: false)
+			along 1 * grad(debris) 
+	custom data: 
+		virion: 0 virions
+		uncoated_virion: 0 virions
+		viral_RNA: 0 RNA
+		viral_protein: 0 protein
+		export_virion: 0 virions
+		assembled_virion: 0 virions
+		virion_uncoating_rate: 0.01 1/min
+		uncoated_to_RNA_rate: 0.01 1/min
+		max_RNA_replication_rate: 3 1/min
+		RNA_replication_half: 200 virions
+		basal_RNA_degradation_rate: 0.01 1/min
+		protein_synthesis_rate: 0.01 1/min
+		virion_assembly_rate: 0.01 1/min
+		virion_export_rate: 0.01 1/min
+		unbound_external_ACE2: 1000 receptors
+		bound_external_ACE2: 0 receptors
+		unbound_internal_ACE2: 0 receptors
+		bound_internal_ACE2: 0 receptors
+		ACE2_binding_rate: 0.002 micron^3/(# min)
+		ACE2_endocytosis_rate: 0.01 1/min
+		ACE2_cargo_release_rate: 0.01 1/min
+		ACE2_recycling_rate: 0.01 1/min
+		max_infected_apoptosis_rate: 0.002 1/min
+		max_apoptosis_half_max: 250 virion
+		apoptosis_hill_power: 1 none
+		infected_cell_chemokine_secretion_rate: 1 1/min
+		debris_secretion_rate: 1 1/min
+		infected_cell_chemokine_secretion_activated: 0 none
+		nuclear_NFkB: 0.25 a.u. of concentration
+		inactive_NLRP3: 0 a.u. of concentration
+		active_NLRP3: 0 a.u. of concentration
+		bound_NLRP3: 0 a.u. of concentration
+		bound_ASC: 0 a.u. of concentration
+		bound_caspase1: 0 a.u. of concentration
+		cleaved_gasderminD: 0 a.u. of concentration
+		pro_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_1b: 0 a.u. of concentration
+		external_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_18: 0 a.u. of concentration
+		external_IL_18: 0 a.u. of concentration
+		cytoplasmic_volume: 2494 a.u. of volume
+		cell_pyroptosis_time: 0 dimensionless
+		cell_apo_time: 0 dimensionless
+		cell_pyroptosis_flag: 0 dimensionless
+		cell_bystander_pyroptosis_flag: 0 dimensionless
+		cell_virus_induced_apoptosis_flag: 0 dimensionless
+		internalised_pro_pyroptosis_cytokine: 0 none
+		interferon_secretion_rate_via_infection: 0.01 1/min
+		max_interferon_secretion_rate_via_paracrine: 0.1 1/min
+		interferon_max_response_threshold: 1 dimensionless
+		interferon_activation: 0 dimensionless
+		interferon_max_virus_inhibition: 1 dimensionless
+		interferon_viral_RNA_threshold: 100 dimensionless
+		interferon_viral_RNA_detection: 1 dimensionless
+		TCell_detection: 1 protein
+		TCell_contact_time: 0 min
+		cell_attachment_rate: 0 1/min
+		cell_attachment_lifetime: 0 min
+		TCell_contact_death_threshold: 5 min
+		max_attachment_distance: 15 micron
+		elastic_attachment_coefficient: 0.01 1/min
+		time_to_next_phagocytosis: 0 min
+		material_internalisation_rate: 1 micron/min
+		threshold_macrophage_volume: 6500 micron
+		threshold_neutrophil_volume: 1581 micron
+		exhausted_macrophage_death_rate: 0.01 1/min
+		ability_to_phagocytose_infected_cell: 0 dimensionless
+		M2_phase: 0 dimensionless
+		phagocytosis_rate: 0.167 1/min
+		phagocytosis_relative_target_cutoff_size: 1.1 
+		sensitivity_to_debris_chemotaxis: 1 dimensionless
+		sensitivity_to_chemokine_chemotaxis: 10 dimensionless
+		activated_speed: 0.4 micron/min
+		activated_cytokine_secretion_rate: 10 1/min
+		activated_immune_cell: 0 dimensionless
+		antiinflammatory_cytokine_secretion_rate_by_damagedSite: 2e-09 1/min
+		antiinflammatory_cytokine_secretion_rate_by_macrophage: 2e-09 1/min
+		collagen_secretion_rate: 1 1/min
+		generation: 3 dimensionless
+	custom vector data: 
+			NOTE: custom vector data will eventually be merged with custom data
+5 :: type:5 name: neutrophil
+	 cycle model: Flow cytometry model (separated) (code=6)
+		Phase 0: G0/G1
+		Phase 1: S
+		Phase 2: G2
+		Phase 3: M
+		Cycle transitions: 
+		-----------------
+		G0/G1 --> S w mean duration inf min
+		S --> G2 w mean duration 480.001 min
+		G2 --> M w mean duration 240 min
+		M --> G0/G1 w mean duration 59.9999 min
+	 death models: 
+		0 : Apoptosis (code=100) with rate 0.00089 1/min
+		death phase transitions: 
+		------------------------
+		Apoptotic --> Debris w mean duration 516.001 min
+		1 : Necrosis (code=101) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Necrotic (swelling) --> Necrotic (lysed) w mean duration 1.11111e-10 min
+		Necrotic (lysed) --> Debris w mean duration 86399.8 min
+	 key functions: 
+		 migration bias rule: true
+		 custom rule: true
+		 phenotype rule: true
+		 volume update function: true
+		 mechanics function: true
+		 contact function: false
+	motility (enabled: true in 2D)
+		speed: 19 micron/min
+		bias: 0.91 
+		persistence time: 5 min
+		chemotaxis (enabled: false)
+			along 1 * grad(debris) 
+	custom data: 
+		virion: 0 virions
+		uncoated_virion: 0 virions
+		viral_RNA: 0 RNA
+		viral_protein: 0 protein
+		export_virion: 0 virions
+		assembled_virion: 0 virions
+		virion_uncoating_rate: 0.01 1/min
+		uncoated_to_RNA_rate: 0.01 1/min
+		max_RNA_replication_rate: 3 1/min
+		RNA_replication_half: 200 virions
+		basal_RNA_degradation_rate: 0.01 1/min
+		protein_synthesis_rate: 0.01 1/min
+		virion_assembly_rate: 0.01 1/min
+		virion_export_rate: 0.01 1/min
+		unbound_external_ACE2: 1000 receptors
+		bound_external_ACE2: 0 receptors
+		unbound_internal_ACE2: 0 receptors
+		bound_internal_ACE2: 0 receptors
+		ACE2_binding_rate: 0.002 micron^3/(# min)
+		ACE2_endocytosis_rate: 0.01 1/min
+		ACE2_cargo_release_rate: 0.01 1/min
+		ACE2_recycling_rate: 0.01 1/min
+		max_infected_apoptosis_rate: 0.002 1/min
+		max_apoptosis_half_max: 250 virion
+		apoptosis_hill_power: 1 none
+		infected_cell_chemokine_secretion_rate: 1 1/min
+		debris_secretion_rate: 1 1/min
+		infected_cell_chemokine_secretion_activated: 0 none
+		nuclear_NFkB: 0.25 a.u. of concentration
+		inactive_NLRP3: 0 a.u. of concentration
+		active_NLRP3: 0 a.u. of concentration
+		bound_NLRP3: 0 a.u. of concentration
+		bound_ASC: 0 a.u. of concentration
+		bound_caspase1: 0 a.u. of concentration
+		cleaved_gasderminD: 0 a.u. of concentration
+		pro_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_1b: 0 a.u. of concentration
+		external_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_18: 0 a.u. of concentration
+		external_IL_18: 0 a.u. of concentration
+		cytoplasmic_volume: 2494 a.u. of volume
+		cell_pyroptosis_time: 0 dimensionless
+		cell_apo_time: 0 dimensionless
+		cell_pyroptosis_flag: 0 dimensionless
+		cell_bystander_pyroptosis_flag: 0 dimensionless
+		cell_virus_induced_apoptosis_flag: 0 dimensionless
+		internalised_pro_pyroptosis_cytokine: 0 none
+		interferon_secretion_rate_via_infection: 0.01 1/min
+		max_interferon_secretion_rate_via_paracrine: 0.1 1/min
+		interferon_max_response_threshold: 1 dimensionless
+		interferon_activation: 0 dimensionless
+		interferon_max_virus_inhibition: 1 dimensionless
+		interferon_viral_RNA_threshold: 100 dimensionless
+		interferon_viral_RNA_detection: 1 dimensionless
+		TCell_detection: 1 protein
+		TCell_contact_time: 0 min
+		cell_attachment_rate: 0 1/min
+		cell_attachment_lifetime: 0 min
+		TCell_contact_death_threshold: 5 min
+		max_attachment_distance: 15 micron
+		elastic_attachment_coefficient: 0.01 1/min
+		time_to_next_phagocytosis: 0 min
+		material_internalisation_rate: 1 micron/min
+		threshold_macrophage_volume: 6500 micron
+		threshold_neutrophil_volume: 1581 micron
+		exhausted_macrophage_death_rate: 0.01 1/min
+		ability_to_phagocytose_infected_cell: 0 dimensionless
+		M2_phase: 0 dimensionless
+		phagocytosis_rate: 0.117 1/min
+		phagocytosis_relative_target_cutoff_size: 1.1 
+		sensitivity_to_debris_chemotaxis: 1 dimensionless
+		sensitivity_to_chemokine_chemotaxis: 10 dimensionless
+		activated_speed: 0.4 micron/min
+		activated_cytokine_secretion_rate: 0 1/min
+		activated_immune_cell: 0 dimensionless
+		antiinflammatory_cytokine_secretion_rate_by_damagedSite: 2e-09 1/min
+		antiinflammatory_cytokine_secretion_rate_by_macrophage: 2e-09 1/min
+		collagen_secretion_rate: 1 1/min
+		generation: 3 dimensionless
+	custom vector data: 
+			NOTE: custom vector data will eventually be merged with custom data
+6 :: type:6 name: DC
+	 cycle model: Flow cytometry model (separated) (code=6)
+		Phase 0: G0/G1
+		Phase 1: S
+		Phase 2: G2
+		Phase 3: M
+		Cycle transitions: 
+		-----------------
+		G0/G1 --> S w mean duration inf min
+		S --> G2 w mean duration 480.001 min
+		G2 --> M w mean duration 240 min
+		M --> G0/G1 w mean duration 59.9999 min
+	 death models: 
+		0 : Apoptosis (code=100) with rate 0.00089 1/min
+		death phase transitions: 
+		------------------------
+		Apoptotic --> Debris w mean duration 516.001 min
+		1 : Necrosis (code=101) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Necrotic (swelling) --> Necrotic (lysed) w mean duration 1.11111e-10 min
+		Necrotic (lysed) --> Debris w mean duration 86399.8 min
+	 key functions: 
+		 migration bias rule: true
+		 custom rule: true
+		 phenotype rule: true
+		 volume update function: true
+		 mechanics function: true
+		 contact function: false
+	motility (enabled: true in 2D)
+		speed: 2 micron/min
+		bias: 0.7 
+		persistence time: 5 min
+		chemotaxis (enabled: false)
+			along 1 * grad(chemokine) 
+	custom data: 
+		virion: 0 virions
+		uncoated_virion: 0 virions
+		viral_RNA: 0 RNA
+		viral_protein: 0 protein
+		export_virion: 0 virions
+		assembled_virion: 0 virions
+		virion_uncoating_rate: 0.01 1/min
+		uncoated_to_RNA_rate: 0.01 1/min
+		max_RNA_replication_rate: 3 1/min
+		RNA_replication_half: 200 virions
+		basal_RNA_degradation_rate: 0.01 1/min
+		protein_synthesis_rate: 0.01 1/min
+		virion_assembly_rate: 0.01 1/min
+		virion_export_rate: 0.01 1/min
+		unbound_external_ACE2: 1000 receptors
+		bound_external_ACE2: 0 receptors
+		unbound_internal_ACE2: 0 receptors
+		bound_internal_ACE2: 0 receptors
+		ACE2_binding_rate: 0.002 micron^3/(# min)
+		ACE2_endocytosis_rate: 0.01 1/min
+		ACE2_cargo_release_rate: 0.01 1/min
+		ACE2_recycling_rate: 0.01 1/min
+		max_infected_apoptosis_rate: 0.002 1/min
+		max_apoptosis_half_max: 250 virion
+		apoptosis_hill_power: 1 none
+		infected_cell_chemokine_secretion_rate: 1 1/min
+		debris_secretion_rate: 1 1/min
+		infected_cell_chemokine_secretion_activated: 0 none
+		nuclear_NFkB: 0.25 a.u. of concentration
+		inactive_NLRP3: 0 a.u. of concentration
+		active_NLRP3: 0 a.u. of concentration
+		bound_NLRP3: 0 a.u. of concentration
+		bound_ASC: 0 a.u. of concentration
+		bound_caspase1: 0 a.u. of concentration
+		cleaved_gasderminD: 0 a.u. of concentration
+		pro_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_1b: 0 a.u. of concentration
+		external_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_18: 0 a.u. of concentration
+		external_IL_18: 0 a.u. of concentration
+		cytoplasmic_volume: 2494 a.u. of volume
+		cell_pyroptosis_time: 0 dimensionless
+		cell_apo_time: 0 dimensionless
+		cell_pyroptosis_flag: 0 dimensionless
+		cell_bystander_pyroptosis_flag: 0 dimensionless
+		cell_virus_induced_apoptosis_flag: 0 dimensionless
+		internalised_pro_pyroptosis_cytokine: 0 none
+		interferon_secretion_rate_via_infection: 0.01 1/min
+		max_interferon_secretion_rate_via_paracrine: 0.1 1/min
+		interferon_max_response_threshold: 1 dimensionless
+		interferon_activation: 0 dimensionless
+		interferon_max_virus_inhibition: 1 dimensionless
+		interferon_viral_RNA_threshold: 100 dimensionless
+		interferon_viral_RNA_detection: 1 dimensionless
+		TCell_detection: 1 protein
+		TCell_contact_time: 0 min
+		cell_attachment_rate: 0 1/min
+		cell_attachment_lifetime: 0 min
+		TCell_contact_death_threshold: 5 min
+		max_attachment_distance: 15 micron
+		elastic_attachment_coefficient: 0.01 1/min
+		time_to_next_phagocytosis: 0 min
+		material_internalisation_rate: 1 micron/min
+		threshold_macrophage_volume: 6500 micron
+		threshold_neutrophil_volume: 1581 micron
+		exhausted_macrophage_death_rate: 0.01 1/min
+		ability_to_phagocytose_infected_cell: 0 dimensionless
+		M2_phase: 0 dimensionless
+		phagocytosis_rate: 0.167 1/min
+		phagocytosis_relative_target_cutoff_size: 1.1 
+		sensitivity_to_debris_chemotaxis: 1 dimensionless
+		sensitivity_to_chemokine_chemotaxis: 10 dimensionless
+		activated_speed: 0.4 micron/min
+		activated_cytokine_secretion_rate: 1 1/min
+		activated_immune_cell: 0 dimensionless
+		antiinflammatory_cytokine_secretion_rate_by_damagedSite: 2e-09 1/min
+		antiinflammatory_cytokine_secretion_rate_by_macrophage: 2e-09 1/min
+		collagen_secretion_rate: 1 1/min
+		generation: 3 dimensionless
+	custom vector data: 
+			NOTE: custom vector data will eventually be merged with custom data
+7 :: type:7 name: CD4 Tcell
+	 cycle model: Flow cytometry model (separated) (code=6)
+		Phase 0: G0/G1
+		Phase 1: S
+		Phase 2: G2
+		Phase 3: M
+		Cycle transitions: 
+		-----------------
+		G0/G1 --> S w mean duration inf min
+		S --> G2 w mean duration 480.001 min
+		G2 --> M w mean duration 240 min
+		M --> G0/G1 w mean duration 59.9999 min
+	 death models: 
+		0 : Apoptosis (code=100) with rate 0.00028 1/min
+		death phase transitions: 
+		------------------------
+		Apoptotic --> Debris w mean duration 516.001 min
+		1 : Necrosis (code=101) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Necrotic (swelling) --> Necrotic (lysed) w mean duration 1.11111e-10 min
+		Necrotic (lysed) --> Debris w mean duration 86399.8 min
+	 key functions: 
+		 migration bias rule: true
+		 custom rule: true
+		 phenotype rule: true
+		 volume update function: true
+		 mechanics function: true
+		 contact function: false
+	motility (enabled: true in 2D)
+		speed: 4 micron/min
+		bias: 0.7 
+		persistence time: 5 min
+		chemotaxis (enabled: true)
+			along 1 * grad(chemokine) 
+	custom data: 
+		virion: 0 virions
+		uncoated_virion: 0 virions
+		viral_RNA: 0 RNA
+		viral_protein: 0 protein
+		export_virion: 0 virions
+		assembled_virion: 0 virions
+		virion_uncoating_rate: 0.01 1/min
+		uncoated_to_RNA_rate: 0.01 1/min
+		max_RNA_replication_rate: 3 1/min
+		RNA_replication_half: 200 virions
+		basal_RNA_degradation_rate: 0.01 1/min
+		protein_synthesis_rate: 0.01 1/min
+		virion_assembly_rate: 0.01 1/min
+		virion_export_rate: 0.01 1/min
+		unbound_external_ACE2: 1000 receptors
+		bound_external_ACE2: 0 receptors
+		unbound_internal_ACE2: 0 receptors
+		bound_internal_ACE2: 0 receptors
+		ACE2_binding_rate: 0.002 micron^3/(# min)
+		ACE2_endocytosis_rate: 0.01 1/min
+		ACE2_cargo_release_rate: 0.01 1/min
+		ACE2_recycling_rate: 0.01 1/min
+		max_infected_apoptosis_rate: 0.002 1/min
+		max_apoptosis_half_max: 250 virion
+		apoptosis_hill_power: 1 none
+		infected_cell_chemokine_secretion_rate: 1 1/min
+		debris_secretion_rate: 1 1/min
+		infected_cell_chemokine_secretion_activated: 0 none
+		nuclear_NFkB: 0.25 a.u. of concentration
+		inactive_NLRP3: 0 a.u. of concentration
+		active_NLRP3: 0 a.u. of concentration
+		bound_NLRP3: 0 a.u. of concentration
+		bound_ASC: 0 a.u. of concentration
+		bound_caspase1: 0 a.u. of concentration
+		cleaved_gasderminD: 0 a.u. of concentration
+		pro_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_1b: 0 a.u. of concentration
+		external_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_18: 0 a.u. of concentration
+		external_IL_18: 0 a.u. of concentration
+		cytoplasmic_volume: 2494 a.u. of volume
+		cell_pyroptosis_time: 0 dimensionless
+		cell_apo_time: 0 dimensionless
+		cell_pyroptosis_flag: 0 dimensionless
+		cell_bystander_pyroptosis_flag: 0 dimensionless
+		cell_virus_induced_apoptosis_flag: 0 dimensionless
+		internalised_pro_pyroptosis_cytokine: 0 none
+		interferon_secretion_rate_via_infection: 0.01 1/min
+		max_interferon_secretion_rate_via_paracrine: 0.1 1/min
+		interferon_max_response_threshold: 1 dimensionless
+		interferon_activation: 0 dimensionless
+		interferon_max_virus_inhibition: 1 dimensionless
+		interferon_viral_RNA_threshold: 100 dimensionless
+		interferon_viral_RNA_detection: 1 dimensionless
+		TCell_detection: 1 protein
+		TCell_contact_time: 0 min
+		cell_attachment_rate: 0 1/min
+		cell_attachment_lifetime: 0 min
+		TCell_contact_death_threshold: 5 min
+		max_attachment_distance: 15 micron
+		elastic_attachment_coefficient: 0.01 1/min
+		time_to_next_phagocytosis: 0 min
+		material_internalisation_rate: 1 micron/min
+		threshold_macrophage_volume: 6500 micron
+		threshold_neutrophil_volume: 1581 micron
+		exhausted_macrophage_death_rate: 0.01 1/min
+		ability_to_phagocytose_infected_cell: 0 dimensionless
+		M2_phase: 0 dimensionless
+		phagocytosis_rate: 0.167 1/min
+		phagocytosis_relative_target_cutoff_size: 1.1 
+		sensitivity_to_debris_chemotaxis: 1 dimensionless
+		sensitivity_to_chemokine_chemotaxis: 10 dimensionless
+		activated_speed: 0.4 micron/min
+		activated_cytokine_secretion_rate: 1 1/min
+		activated_immune_cell: 0 dimensionless
+		antiinflammatory_cytokine_secretion_rate_by_damagedSite: 2e-09 1/min
+		antiinflammatory_cytokine_secretion_rate_by_macrophage: 2e-09 1/min
+		collagen_secretion_rate: 1 1/min
+		generation: 3 dimensionless
+	custom vector data: 
+			NOTE: custom vector data will eventually be merged with custom data
+8 :: type:8 name: fibroblast
+	 cycle model: Flow cytometry model (separated) (code=6)
+		Phase 0: G0/G1
+		Phase 1: S
+		Phase 2: G2
+		Phase 3: M
+		Cycle transitions: 
+		-----------------
+		G0/G1 --> S w mean duration inf min
+		S --> G2 w mean duration 480.001 min
+		G2 --> M w mean duration 240 min
+		M --> G0/G1 w mean duration 59.9999 min
+	 death models: 
+		0 : Apoptosis (code=100) with rate 8.3e-05 1/min
+		death phase transitions: 
+		------------------------
+		Apoptotic --> Debris w mean duration 516.001 min
+		1 : Necrosis (code=101) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Necrotic (swelling) --> Necrotic (lysed) w mean duration 1.11111e-10 min
+		Necrotic (lysed) --> Debris w mean duration 86399.8 min
+	 key functions: 
+		 migration bias rule: true
+		 custom rule: true
+		 phenotype rule: true
+		 volume update function: true
+		 mechanics function: true
+		 contact function: false
+	motility (enabled: true in 2D)
+		speed: 1 micron/min
+		bias: 0.7 
+		persistence time: 5 min
+		chemotaxis (enabled: false)
+			along 1 * grad(anti-inflammatory cytokine) 
+	custom data: 
+		virion: 0 virions
+		uncoated_virion: 0 virions
+		viral_RNA: 0 RNA
+		viral_protein: 0 protein
+		export_virion: 0 virions
+		assembled_virion: 0 virions
+		virion_uncoating_rate: 0.01 1/min
+		uncoated_to_RNA_rate: 0.01 1/min
+		max_RNA_replication_rate: 3 1/min
+		RNA_replication_half: 200 virions
+		basal_RNA_degradation_rate: 0.01 1/min
+		protein_synthesis_rate: 0.01 1/min
+		virion_assembly_rate: 0.01 1/min
+		virion_export_rate: 0.01 1/min
+		unbound_external_ACE2: 1000 receptors
+		bound_external_ACE2: 0 receptors
+		unbound_internal_ACE2: 0 receptors
+		bound_internal_ACE2: 0 receptors
+		ACE2_binding_rate: 0.002 micron^3/(# min)
+		ACE2_endocytosis_rate: 0.01 1/min
+		ACE2_cargo_release_rate: 0.01 1/min
+		ACE2_recycling_rate: 0.01 1/min
+		max_infected_apoptosis_rate: 0.002 1/min
+		max_apoptosis_half_max: 250 virion
+		apoptosis_hill_power: 1 none
+		infected_cell_chemokine_secretion_rate: 1 1/min
+		debris_secretion_rate: 1 1/min
+		infected_cell_chemokine_secretion_activated: 0 none
+		nuclear_NFkB: 0.25 a.u. of concentration
+		inactive_NLRP3: 0 a.u. of concentration
+		active_NLRP3: 0 a.u. of concentration
+		bound_NLRP3: 0 a.u. of concentration
+		bound_ASC: 0 a.u. of concentration
+		bound_caspase1: 0 a.u. of concentration
+		cleaved_gasderminD: 0 a.u. of concentration
+		pro_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_1b: 0 a.u. of concentration
+		external_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_18: 0 a.u. of concentration
+		external_IL_18: 0 a.u. of concentration
+		cytoplasmic_volume: 2494 a.u. of volume
+		cell_pyroptosis_time: 0 dimensionless
+		cell_apo_time: 0 dimensionless
+		cell_pyroptosis_flag: 0 dimensionless
+		cell_bystander_pyroptosis_flag: 0 dimensionless
+		cell_virus_induced_apoptosis_flag: 0 dimensionless
+		internalised_pro_pyroptosis_cytokine: 0 none
+		interferon_secretion_rate_via_infection: 0.01 1/min
+		max_interferon_secretion_rate_via_paracrine: 0.1 1/min
+		interferon_max_response_threshold: 1 dimensionless
+		interferon_activation: 0 dimensionless
+		interferon_max_virus_inhibition: 1 dimensionless
+		interferon_viral_RNA_threshold: 100 dimensionless
+		interferon_viral_RNA_detection: 1 dimensionless
+		TCell_detection: 1 protein
+		TCell_contact_time: 0 min
+		cell_attachment_rate: 0 1/min
+		cell_attachment_lifetime: 0 min
+		TCell_contact_death_threshold: 5 min
+		max_attachment_distance: 15 micron
+		elastic_attachment_coefficient: 0.01 1/min
+		time_to_next_phagocytosis: 0 min
+		material_internalisation_rate: 1 micron/min
+		threshold_macrophage_volume: 6500 micron
+		threshold_neutrophil_volume: 1581 micron
+		exhausted_macrophage_death_rate: 0.01 1/min
+		ability_to_phagocytose_infected_cell: 0 dimensionless
+		M2_phase: 0 dimensionless
+		phagocytosis_rate: 0.167 1/min
+		phagocytosis_relative_target_cutoff_size: 1.1 
+		sensitivity_to_debris_chemotaxis: 1 dimensionless
+		sensitivity_to_chemokine_chemotaxis: 10 dimensionless
+		activated_speed: 0.4 micron/min
+		activated_cytokine_secretion_rate: 1 1/min
+		activated_immune_cell: 0 dimensionless
+		antiinflammatory_cytokine_secretion_rate_by_damagedSite: 2e-09 1/min
+		antiinflammatory_cytokine_secretion_rate_by_macrophage: 2e-09 1/min
+		collagen_secretion_rate: 1 1/min
+		generation: 3 dimensionless
+	custom vector data: 
+			NOTE: custom vector data will eventually be merged with custom data
+9 :: type:9 name: residual
+	 cycle model: Flow cytometry model (separated) (code=6)
+		Phase 0: G0/G1
+		Phase 1: S
+		Phase 2: G2
+		Phase 3: M
+		Cycle transitions: 
+		-----------------
+		G0/G1 --> S w mean duration inf min
+		S --> G2 w mean duration 480.001 min
+		G2 --> M w mean duration 240 min
+		M --> G0/G1 w mean duration 59.9999 min
+	 death models: 
+		0 : Apoptosis (code=100) with rate 0.001 1/min
+		death phase transitions: 
+		------------------------
+		Apoptotic --> Debris w mean duration 516.001 min
+		1 : Necrosis (code=101) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Necrotic (swelling) --> Necrotic (lysed) w mean duration 1.11111e-10 min
+		Necrotic (lysed) --> Debris w mean duration 86399.8 min
+	 key functions: 
+		 migration bias rule: false
+		 custom rule: true
+		 phenotype rule: true
+		 volume update function: true
+		 mechanics function: true
+		 contact function: false
+	motility (enabled: false in 2D)
+		speed: 0 micron/min
+		bias: 0 
+		persistence time: 5 min
+		chemotaxis (enabled: false)
+			along 1 * grad(chemokine) 
+	custom data: 
+		virion: 0 virions
+		uncoated_virion: 0 virions
+		viral_RNA: 0 RNA
+		viral_protein: 0 protein
+		export_virion: 0 virions
+		assembled_virion: 0 virions
+		virion_uncoating_rate: 0.01 1/min
+		uncoated_to_RNA_rate: 0.01 1/min
+		max_RNA_replication_rate: 3 1/min
+		RNA_replication_half: 200 virions
+		basal_RNA_degradation_rate: 0.01 1/min
+		protein_synthesis_rate: 0.01 1/min
+		virion_assembly_rate: 0.01 1/min
+		virion_export_rate: 0.01 1/min
+		unbound_external_ACE2: 1000 receptors
+		bound_external_ACE2: 0 receptors
+		unbound_internal_ACE2: 0 receptors
+		bound_internal_ACE2: 0 receptors
+		ACE2_binding_rate: 0.002 micron^3/(# min)
+		ACE2_endocytosis_rate: 0.01 1/min
+		ACE2_cargo_release_rate: 0.01 1/min
+		ACE2_recycling_rate: 0.01 1/min
+		max_infected_apoptosis_rate: 0.002 1/min
+		max_apoptosis_half_max: 250 virion
+		apoptosis_hill_power: 1 none
+		infected_cell_chemokine_secretion_rate: 1 1/min
+		debris_secretion_rate: 1 1/min
+		infected_cell_chemokine_secretion_activated: 0 none
+		nuclear_NFkB: 0.25 a.u. of concentration
+		inactive_NLRP3: 0 a.u. of concentration
+		active_NLRP3: 0 a.u. of concentration
+		bound_NLRP3: 0 a.u. of concentration
+		bound_ASC: 0 a.u. of concentration
+		bound_caspase1: 0 a.u. of concentration
+		cleaved_gasderminD: 0 a.u. of concentration
+		pro_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_1b: 0 a.u. of concentration
+		external_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_18: 0 a.u. of concentration
+		external_IL_18: 0 a.u. of concentration
+		cytoplasmic_volume: 2494 a.u. of volume
+		cell_pyroptosis_time: 0 dimensionless
+		cell_apo_time: 0 dimensionless
+		cell_pyroptosis_flag: 0 dimensionless
+		cell_bystander_pyroptosis_flag: 0 dimensionless
+		cell_virus_induced_apoptosis_flag: 0 dimensionless
+		internalised_pro_pyroptosis_cytokine: 0 none
+		interferon_secretion_rate_via_infection: 0.01 1/min
+		max_interferon_secretion_rate_via_paracrine: 0.1 1/min
+		interferon_max_response_threshold: 1 dimensionless
+		interferon_activation: 0 dimensionless
+		interferon_max_virus_inhibition: 1 dimensionless
+		interferon_viral_RNA_threshold: 100 dimensionless
+		interferon_viral_RNA_detection: 1 dimensionless
+		TCell_detection: 1 protein
+		TCell_contact_time: 0 min
+		cell_attachment_rate: 0 1/min
+		cell_attachment_lifetime: 0 min
+		TCell_contact_death_threshold: 5 min
+		max_attachment_distance: 15 micron
+		elastic_attachment_coefficient: 0.01 1/min
+		time_to_next_phagocytosis: 0 min
+		material_internalisation_rate: 1 micron/min
+		threshold_macrophage_volume: 6500 micron
+		threshold_neutrophil_volume: 1581 micron
+		exhausted_macrophage_death_rate: 0.01 1/min
+		ability_to_phagocytose_infected_cell: 0 dimensionless
+		M2_phase: 0 dimensionless
+		phagocytosis_rate: 0.167 1/min
+		phagocytosis_relative_target_cutoff_size: 1.1 
+		sensitivity_to_debris_chemotaxis: 1 dimensionless
+		sensitivity_to_chemokine_chemotaxis: 10 dimensionless
+		activated_speed: 0.4 micron/min
+		activated_cytokine_secretion_rate: 1 1/min
+		activated_immune_cell: 0 dimensionless
+		antiinflammatory_cytokine_secretion_rate_by_damagedSite: 2e-09 1/min
+		antiinflammatory_cytokine_secretion_rate_by_macrophage: 2e-09 1/min
+		collagen_secretion_rate: 1 1/min
+		generation: 3 dimensionless
+	custom vector data: 
+			NOTE: custom vector data will eventually be merged with custom data
+Placing 279 virions ... 
+Using PhysiCell version 1.10.2
+	Please cite DOI: 10.1371/journal.pcbi.1005991
+	Project website: http://PhysiCell.MathCancer.org
+
+See ALL_CITATIONS.txt for this list.
+
+
+***** This is COVID19 integrated version 0.6.0. *****
+
+current simulated time: 0 min (max: 21600 min)
+total agents: 2928
+interval wall time: 0 days, 0 hours, 0 minutes, and 0.000737656 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 0.000745668 seconds 
+
+
+Using method diffusion_decay_solver__constant_coefficients_LOD_2D (2D LOD with Thomas Algorithm) ... 
+
+Warning and FYI: Very small vectors are normalized to 0 vector
+
+current simulated time: 120 min (max: 21600 min)
+total agents: 2874
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.67681 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 5.67756 seconds 
+
+current simulated time: 240 min (max: 21600 min)
+total agents: 2867
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.05545 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 10.733 seconds 
+
+current simulated time: 360 min (max: 21600 min)
+total agents: 2861
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.99665 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 15.7297 seconds 
+
+current simulated time: 480 min (max: 21600 min)
+total agents: 2858
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.99385 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 20.7235 seconds 
+
+current simulated time: 600 min (max: 21600 min)
+total agents: 2850
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.09453 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 25.8181 seconds 
+
+current simulated time: 720 min (max: 21600 min)
+total agents: 2842
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.98891 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 30.807 seconds 
+
+current simulated time: 840 min (max: 21600 min)
+total agents: 2846
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.01828 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 35.8253 seconds 
+
+Warning and FYI: Very small vector are normalized to 0 vector
+
+current simulated time: 960 min (max: 21600 min)
+total agents: 2856
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.04911 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 40.8744 seconds 
+
+current simulated time: 1080 min (max: 21600 min)
+total agents: 2860
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.06419 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 45.9386 seconds 
+
+current simulated time: 1200 min (max: 21600 min)
+total agents: 2866
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.25516 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 51.1937 seconds 
+
+current simulated time: 1320 min (max: 21600 min)
+total agents: 2922
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.45559 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 56.6494 seconds 
+
+current simulated time: 1440 min (max: 21600 min)
+total agents: 2988
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.01381 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 2.66316 seconds 
+
+current simulated time: 1560 min (max: 21600 min)
+total agents: 3045
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.56664 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 9.22981 seconds 
+
+current simulated time: 1680 min (max: 21600 min)
+total agents: 3063
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.88484 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 16.1147 seconds 
+
+current simulated time: 1800 min (max: 21600 min)
+total agents: 3068
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.94454 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 23.0592 seconds 
+
+current simulated time: 1920 min (max: 21600 min)
+total agents: 3062
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.99086 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 30.0501 seconds 
+
+current simulated time: 2040 min (max: 21600 min)
+total agents: 3047
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.77337 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 36.8234 seconds 
+
+current simulated time: 2160 min (max: 21600 min)
+total agents: 3045
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.85139 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 43.6748 seconds 
+
+current simulated time: 2280 min (max: 21600 min)
+total agents: 3032
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.86526 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 50.5401 seconds 
+
+current simulated time: 2400 min (max: 21600 min)
+total agents: 3026
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.65444 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 57.1946 seconds 
+
+current simulated time: 2520 min (max: 21600 min)
+total agents: 3005
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.56077 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 3.75534 seconds 
+
+current simulated time: 2640 min (max: 21600 min)
+total agents: 3000
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.45722 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 10.2126 seconds 
+
+current simulated time: 2760 min (max: 21600 min)
+total agents: 2985
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.42483 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 16.6374 seconds 
+
+current simulated time: 2880 min (max: 21600 min)
+total agents: 2969
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.30089 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 22.9383 seconds 
+
+current simulated time: 3000 min (max: 21600 min)
+total agents: 2968
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.38698 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 29.3253 seconds 
+
+current simulated time: 3120 min (max: 21600 min)
+total agents: 2949
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.21214 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 35.5374 seconds 
+
+current simulated time: 3240 min (max: 21600 min)
+total agents: 2936
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.05027 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 41.5877 seconds 
+
+current simulated time: 3360 min (max: 21600 min)
+total agents: 2920
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.03971 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 47.6274 seconds 
+
+current simulated time: 3480 min (max: 21600 min)
+total agents: 2916
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.90567 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 53.5331 seconds 
+
+current simulated time: 3600 min (max: 21600 min)
+total agents: 2900
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.75595 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 59.2891 seconds 
+
+current simulated time: 3720 min (max: 21600 min)
+total agents: 2870
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.8855 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 5.17458 seconds 
+
+current simulated time: 3840 min (max: 21600 min)
+total agents: 2850
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.77636 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 10.9509 seconds 
+
+current simulated time: 3960 min (max: 21600 min)
+total agents: 2829
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.80305 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 16.754 seconds 
+
+current simulated time: 4080 min (max: 21600 min)
+total agents: 2813
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.94673 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 22.7007 seconds 
+
+current simulated time: 4200 min (max: 21600 min)
+total agents: 2799
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.86755 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 28.5683 seconds 
+
+current simulated time: 4320 min (max: 21600 min)
+total agents: 2781
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.8869 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 34.4552 seconds 
+
+current simulated time: 4440 min (max: 21600 min)
+total agents: 2774
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.97609 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 40.4313 seconds 
+
+current simulated time: 4560 min (max: 21600 min)
+total agents: 2757
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.86328 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 46.2946 seconds 
+
+current simulated time: 4680 min (max: 21600 min)
+total agents: 2737
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.87356 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 52.1682 seconds 
+
+current simulated time: 4800 min (max: 21600 min)
+total agents: 2712
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.85412 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 58.0223 seconds 
+
+current simulated time: 4920 min (max: 21600 min)
+total agents: 2703
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.80449 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 3.82679 seconds 
+
+current simulated time: 5040 min (max: 21600 min)
+total agents: 2685
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.73811 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 9.5649 seconds 
+
+current simulated time: 5160 min (max: 21600 min)
+total agents: 2667
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.8353 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 15.4002 seconds 
+
+current simulated time: 5280 min (max: 21600 min)
+total agents: 2654
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.76845 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 21.1687 seconds 
+
+current simulated time: 5400 min (max: 21600 min)
+total agents: 2637
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.73344 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 26.9021 seconds 
+
+current simulated time: 5520 min (max: 21600 min)
+total agents: 2612
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.66302 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 32.5651 seconds 
+
+current simulated time: 5640 min (max: 21600 min)
+total agents: 2587
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.60504 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 38.1702 seconds 
+
+current simulated time: 5760 min (max: 21600 min)
+total agents: 2569
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.608 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 43.7782 seconds 
+
+current simulated time: 5880 min (max: 21600 min)
+total agents: 2556
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.59537 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 49.3736 seconds 
+
+current simulated time: 6000 min (max: 21600 min)
+total agents: 2538
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.45732 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 54.8309 seconds 
+
+current simulated time: 6120 min (max: 21600 min)
+total agents: 2508
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.331 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 0.161909 seconds 
+
+current simulated time: 6240 min (max: 21600 min)
+total agents: 2478
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.3579 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 5.51982 seconds 
+
+current simulated time: 6360 min (max: 21600 min)
+total agents: 2472
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.31741 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 10.8372 seconds 
+
+current simulated time: 6480 min (max: 21600 min)
+total agents: 2452
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.33616 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 16.1734 seconds 
+
+current simulated time: 6600 min (max: 21600 min)
+total agents: 2426
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.37396 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 21.5474 seconds 
+
+current simulated time: 6720 min (max: 21600 min)
+total agents: 2408
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.32268 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 26.8701 seconds 
+
+current simulated time: 6840 min (max: 21600 min)
+total agents: 2393
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.25564 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 32.1257 seconds 
+
+current simulated time: 6960 min (max: 21600 min)
+total agents: 2365
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.24473 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 37.3705 seconds 
+
+current simulated time: 7080 min (max: 21600 min)
+total agents: 2332
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.17169 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 42.5422 seconds 
+
+current simulated time: 7200 min (max: 21600 min)
+total agents: 2313
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.1169 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 47.6591 seconds 
+
+current simulated time: 7320 min (max: 21600 min)
+total agents: 2296
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.20519 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 52.8643 seconds 
+
+current simulated time: 7440 min (max: 21600 min)
+total agents: 2274
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.18975 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 58.054 seconds 
+
+current simulated time: 7560 min (max: 21600 min)
+total agents: 2252
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.15001 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 3.20404 seconds 
+
+current simulated time: 7680 min (max: 21600 min)
+total agents: 2231
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.14323 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 8.34728 seconds 
+
+current simulated time: 7800 min (max: 21600 min)
+total agents: 2224
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.03921 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 13.3865 seconds 
+
+current simulated time: 7920 min (max: 21600 min)
+total agents: 2207
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.02995 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 18.4165 seconds 
+
+current simulated time: 8040 min (max: 21600 min)
+total agents: 2191
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.08254 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 23.499 seconds 
+
+current simulated time: 8160 min (max: 21600 min)
+total agents: 2159
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.01193 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 28.5109 seconds 
+
+current simulated time: 8280 min (max: 21600 min)
+total agents: 2137
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.92364 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 33.4346 seconds 
+
+current simulated time: 8400 min (max: 21600 min)
+total agents: 2121
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.92562 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 38.3602 seconds 
+
+current simulated time: 8520 min (max: 21600 min)
+total agents: 2109
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.87852 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 43.2387 seconds 
+
+current simulated time: 8640 min (max: 21600 min)
+total agents: 2104
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.92613 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 48.1649 seconds 
+
+current simulated time: 8760 min (max: 21600 min)
+total agents: 2070
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.98373 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 53.1486 seconds 
+
+current simulated time: 8880 min (max: 21600 min)
+total agents: 2063
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.90826 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 58.0569 seconds 
+
+current simulated time: 9000 min (max: 21600 min)
+total agents: 2047
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.91614 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 2.97304 seconds 
+
+current simulated time: 9120 min (max: 21600 min)
+total agents: 2019
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.90315 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 7.8762 seconds 
+
+current simulated time: 9240 min (max: 21600 min)
+total agents: 2012
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.97618 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 12.8524 seconds 
+
+current simulated time: 9360 min (max: 21600 min)
+total agents: 1992
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.00127 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 17.8537 seconds 
+
+current simulated time: 9480 min (max: 21600 min)
+total agents: 1976
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.95707 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 22.8107 seconds 
+
+current simulated time: 9600 min (max: 21600 min)
+total agents: 1969
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.89374 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 27.7045 seconds 
+
+current simulated time: 9720 min (max: 21600 min)
+total agents: 1963
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.9362 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 32.6407 seconds 
+
+current simulated time: 9840 min (max: 21600 min)
+total agents: 1965
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.95829 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 37.599 seconds 
+
+current simulated time: 9960 min (max: 21600 min)
+total agents: 1952
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.88988 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 42.4889 seconds 
+
+current simulated time: 10080 min (max: 21600 min)
+total agents: 1957
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.89915 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 47.3881 seconds 
+
+current simulated time: 10200 min (max: 21600 min)
+total agents: 1956
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.9838 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 52.3719 seconds 
+
+current simulated time: 10320 min (max: 21600 min)
+total agents: 1965
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.00811 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 57.38 seconds 
+
+current simulated time: 10440 min (max: 21600 min)
+total agents: 1963
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.03468 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 2.41467 seconds 
+
+current simulated time: 10560 min (max: 21600 min)
+total agents: 1975
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.05573 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 7.47041 seconds 
+
+current simulated time: 10680 min (max: 21600 min)
+total agents: 1978
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.07475 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 12.5452 seconds 
+
+current simulated time: 10800 min (max: 21600 min)
+total agents: 1979
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.13989 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 17.6851 seconds 
+
+current simulated time: 10920 min (max: 21600 min)
+total agents: 1982
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.26671 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 22.9518 seconds 
+
+current simulated time: 11040 min (max: 21600 min)
+total agents: 1984
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.25231 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 28.2041 seconds 
+
+current simulated time: 11160 min (max: 21600 min)
+total agents: 1998
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.28722 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 33.4913 seconds 
+
+current simulated time: 11280 min (max: 21600 min)
+total agents: 2003
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.42673 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 38.9181 seconds 
+
+current simulated time: 11400 min (max: 21600 min)
+total agents: 2010
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.49587 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 44.4139 seconds 
+
+current simulated time: 11520 min (max: 21600 min)
+total agents: 2005
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.53717 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 49.9511 seconds 
+
+current simulated time: 11640 min (max: 21600 min)
+total agents: 2015
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.59576 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 55.5469 seconds 
+
+current simulated time: 11760 min (max: 21600 min)
+total agents: 2026
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.59565 seconds 
+total wall time: 0 days, 0 hours, 9 minutes, and 1.14253 seconds 
+
+current simulated time: 11880 min (max: 21600 min)
+total agents: 2035
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.69003 seconds 
+total wall time: 0 days, 0 hours, 9 minutes, and 6.83257 seconds 
+
+current simulated time: 12000 min (max: 21600 min)
+total agents: 2039
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.8027 seconds 
+total wall time: 0 days, 0 hours, 9 minutes, and 12.6353 seconds 
+
+current simulated time: 12120 min (max: 21600 min)
+total agents: 2065
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.83159 seconds 
+total wall time: 0 days, 0 hours, 9 minutes, and 18.4669 seconds 
+
+current simulated time: 12240 min (max: 21600 min)
+total agents: 2071
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.93033 seconds 
+total wall time: 0 days, 0 hours, 9 minutes, and 24.3972 seconds 
+
+current simulated time: 12360 min (max: 21600 min)
+total agents: 2079
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.04762 seconds 
+total wall time: 0 days, 0 hours, 9 minutes, and 30.4448 seconds 
+
+current simulated time: 12480 min (max: 21600 min)
+total agents: 2090
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.94414 seconds 
+total wall time: 0 days, 0 hours, 9 minutes, and 36.389 seconds 
+
+current simulated time: 12600 min (max: 21600 min)
+total agents: 2083
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.99615 seconds 
+total wall time: 0 days, 0 hours, 9 minutes, and 42.3851 seconds 
+
+current simulated time: 12720 min (max: 21600 min)
+total agents: 2091
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.06693 seconds 
+total wall time: 0 days, 0 hours, 9 minutes, and 48.4521 seconds 
+
+current simulated time: 12840 min (max: 21600 min)
+total agents: 2107
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.07796 seconds 
+total wall time: 0 days, 0 hours, 9 minutes, and 54.5301 seconds 
+
+current simulated time: 12960 min (max: 21600 min)
+total agents: 2108
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.11674 seconds 
+total wall time: 0 days, 0 hours, 10 minutes, and 0.646803 seconds 
+
+current simulated time: 13080 min (max: 21600 min)
+total agents: 2115
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.17314 seconds 
+total wall time: 0 days, 0 hours, 10 minutes, and 6.81995 seconds 
+
+current simulated time: 13200 min (max: 21600 min)
+total agents: 2118
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.16116 seconds 
+total wall time: 0 days, 0 hours, 10 minutes, and 12.9811 seconds 
+
+current simulated time: 13320 min (max: 21600 min)
+total agents: 2117
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.1966 seconds 
+total wall time: 0 days, 0 hours, 10 minutes, and 19.1777 seconds 
+
+current simulated time: 13440 min (max: 21600 min)
+total agents: 2112
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.30951 seconds 
+total wall time: 0 days, 0 hours, 10 minutes, and 25.4872 seconds 
+
+current simulated time: 13560 min (max: 21600 min)
+total agents: 2123
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.25084 seconds 
+total wall time: 0 days, 0 hours, 10 minutes, and 31.7381 seconds 
+
+current simulated time: 13680 min (max: 21600 min)
+total agents: 2131
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.27812 seconds 
+total wall time: 0 days, 0 hours, 10 minutes, and 38.0162 seconds 
+
+current simulated time: 13800 min (max: 21600 min)
+total agents: 2131
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.41003 seconds 
+total wall time: 0 days, 0 hours, 10 minutes, and 44.4263 seconds 
+
+current simulated time: 13920 min (max: 21600 min)
+total agents: 2116
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.40441 seconds 
+total wall time: 0 days, 0 hours, 10 minutes, and 50.8307 seconds 
+
+current simulated time: 14040 min (max: 21600 min)
+total agents: 2090
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.32551 seconds 
+total wall time: 0 days, 0 hours, 10 minutes, and 57.1562 seconds 
+
+current simulated time: 14160 min (max: 21600 min)
+total agents: 2087
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.35132 seconds 
+total wall time: 0 days, 0 hours, 11 minutes, and 3.50751 seconds 
+
+current simulated time: 14280 min (max: 21600 min)
+total agents: 2085
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.27567 seconds 
+total wall time: 0 days, 0 hours, 11 minutes, and 9.78319 seconds 
+
+current simulated time: 14400 min (max: 21600 min)
+total agents: 2086
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.29569 seconds 
+total wall time: 0 days, 0 hours, 11 minutes, and 16.0789 seconds 
+
+current simulated time: 14520 min (max: 21600 min)
+total agents: 2081
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.35734 seconds 
+total wall time: 0 days, 0 hours, 11 minutes, and 22.4362 seconds 
+
+current simulated time: 14640 min (max: 21600 min)
+total agents: 2074
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.31725 seconds 
+total wall time: 0 days, 0 hours, 11 minutes, and 28.7535 seconds 
+
+current simulated time: 14760 min (max: 21600 min)
+total agents: 2079
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.33054 seconds 
+total wall time: 0 days, 0 hours, 11 minutes, and 35.084 seconds 
+
+current simulated time: 14880 min (max: 21600 min)
+total agents: 2073
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.46395 seconds 
+total wall time: 0 days, 0 hours, 11 minutes, and 41.548 seconds 
+
+current simulated time: 15000 min (max: 21600 min)
+total agents: 2067
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.42765 seconds 
+total wall time: 0 days, 0 hours, 11 minutes, and 47.9757 seconds 
+
+current simulated time: 15120 min (max: 21600 min)
+total agents: 2073
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.45071 seconds 
+total wall time: 0 days, 0 hours, 11 minutes, and 54.4264 seconds 
+
+current simulated time: 15240 min (max: 21600 min)
+total agents: 2074
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.57263 seconds 
+total wall time: 0 days, 0 hours, 12 minutes, and 0.999028 seconds 
+
+current simulated time: 15360 min (max: 21600 min)
+total agents: 2082
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.50336 seconds 
+total wall time: 0 days, 0 hours, 12 minutes, and 7.5024 seconds 
+
+current simulated time: 15480 min (max: 21600 min)
+total agents: 2085
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.53749 seconds 
+total wall time: 0 days, 0 hours, 12 minutes, and 14.0399 seconds 
+
+current simulated time: 15600 min (max: 21600 min)
+total agents: 2089
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.46211 seconds 
+total wall time: 0 days, 0 hours, 12 minutes, and 20.502 seconds 
+
+current simulated time: 15720 min (max: 21600 min)
+total agents: 2095
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.48538 seconds 
+total wall time: 0 days, 0 hours, 12 minutes, and 26.9874 seconds 
+
+current simulated time: 15840 min (max: 21600 min)
+total agents: 2099
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.56364 seconds 
+total wall time: 0 days, 0 hours, 12 minutes, and 33.551 seconds 
+
+current simulated time: 15960 min (max: 21600 min)
+total agents: 2105
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.70373 seconds 
+total wall time: 0 days, 0 hours, 12 minutes, and 40.2548 seconds 
+
+current simulated time: 16080 min (max: 21600 min)
+total agents: 2106
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.65501 seconds 
+total wall time: 0 days, 0 hours, 12 minutes, and 46.9098 seconds 
+
+current simulated time: 16200 min (max: 21600 min)
+total agents: 2104
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.64476 seconds 
+total wall time: 0 days, 0 hours, 12 minutes, and 53.5546 seconds 
+
+current simulated time: 16320 min (max: 21600 min)
+total agents: 2087
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.67376 seconds 
+total wall time: 0 days, 0 hours, 13 minutes, and 0.228332 seconds 
+
+current simulated time: 16440 min (max: 21600 min)
+total agents: 2093
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.65163 seconds 
+total wall time: 0 days, 0 hours, 13 minutes, and 6.87997 seconds 
+
+current simulated time: 16560 min (max: 21600 min)
+total agents: 2077
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.6556 seconds 
+total wall time: 0 days, 0 hours, 13 minutes, and 13.5356 seconds 
+
+current simulated time: 16680 min (max: 21600 min)
+total agents: 2062
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.63694 seconds 
+total wall time: 0 days, 0 hours, 13 minutes, and 20.1725 seconds 
+
+current simulated time: 16800 min (max: 21600 min)
+total agents: 2060
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.63411 seconds 
+total wall time: 0 days, 0 hours, 13 minutes, and 26.8066 seconds 
+
+current simulated time: 16920 min (max: 21600 min)
+total agents: 2051
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.6553 seconds 
+total wall time: 0 days, 0 hours, 13 minutes, and 33.4619 seconds 
+
+current simulated time: 17040 min (max: 21600 min)
+total agents: 2049
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.52305 seconds 
+total wall time: 0 days, 0 hours, 13 minutes, and 39.985 seconds 
+
+current simulated time: 17160 min (max: 21600 min)
+total agents: 2040
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.61458 seconds 
+total wall time: 0 days, 0 hours, 13 minutes, and 46.5996 seconds 
+
+current simulated time: 17280 min (max: 21600 min)
+total agents: 2019
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.52288 seconds 
+total wall time: 0 days, 0 hours, 13 minutes, and 53.1225 seconds 
+
+current simulated time: 17400 min (max: 21600 min)
+total agents: 1988
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.51759 seconds 
+total wall time: 0 days, 0 hours, 13 minutes, and 59.6401 seconds 
+
+current simulated time: 17520 min (max: 21600 min)
+total agents: 1967
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.41563 seconds 
+total wall time: 0 days, 0 hours, 14 minutes, and 6.05571 seconds 
+
+current simulated time: 17640 min (max: 21600 min)
+total agents: 1952
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.34768 seconds 
+total wall time: 0 days, 0 hours, 14 minutes, and 12.4034 seconds 
+
+current simulated time: 17760 min (max: 21600 min)
+total agents: 1943
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.3489 seconds 
+total wall time: 0 days, 0 hours, 14 minutes, and 18.7523 seconds 
+
+current simulated time: 17880 min (max: 21600 min)
+total agents: 1923
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.24091 seconds 
+total wall time: 0 days, 0 hours, 14 minutes, and 24.9932 seconds 
+
+current simulated time: 18000 min (max: 21600 min)
+total agents: 1920
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.27759 seconds 
+total wall time: 0 days, 0 hours, 14 minutes, and 31.2708 seconds 
+
+current simulated time: 18120 min (max: 21600 min)
+total agents: 1911
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.22661 seconds 
+total wall time: 0 days, 0 hours, 14 minutes, and 37.4975 seconds 
+
+current simulated time: 18240 min (max: 21600 min)
+total agents: 1905
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.17519 seconds 
+total wall time: 0 days, 0 hours, 14 minutes, and 43.6727 seconds 
+
+current simulated time: 18360 min (max: 21600 min)
+total agents: 1910
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.20642 seconds 
+total wall time: 0 days, 0 hours, 14 minutes, and 49.8791 seconds 
+
+current simulated time: 18480 min (max: 21600 min)
+total agents: 1910
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.25053 seconds 
+total wall time: 0 days, 0 hours, 14 minutes, and 56.1296 seconds 
+
+current simulated time: 18600 min (max: 21600 min)
+total agents: 1907
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.2105 seconds 
+total wall time: 0 days, 0 hours, 15 minutes, and 2.34013 seconds 
+
+current simulated time: 18720 min (max: 21600 min)
+total agents: 1909
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.19483 seconds 
+total wall time: 0 days, 0 hours, 15 minutes, and 8.53497 seconds 
+
+current simulated time: 18840 min (max: 21600 min)
+total agents: 1889
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.20917 seconds 
+total wall time: 0 days, 0 hours, 15 minutes, and 14.7442 seconds 
+
+current simulated time: 18960 min (max: 21600 min)
+total agents: 1867
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.09426 seconds 
+total wall time: 0 days, 0 hours, 15 minutes, and 20.8384 seconds 
+
+current simulated time: 19080 min (max: 21600 min)
+total agents: 1855
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.09756 seconds 
+total wall time: 0 days, 0 hours, 15 minutes, and 26.936 seconds 
+
+current simulated time: 19200 min (max: 21600 min)
+total agents: 1849
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.13943 seconds 
+total wall time: 0 days, 0 hours, 15 minutes, and 33.0754 seconds 
+
+current simulated time: 19320 min (max: 21600 min)
+total agents: 1840
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.10132 seconds 
+total wall time: 0 days, 0 hours, 15 minutes, and 39.1768 seconds 
+
+current simulated time: 19440 min (max: 21600 min)
+total agents: 1842
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.0379 seconds 
+total wall time: 0 days, 0 hours, 15 minutes, and 45.2147 seconds 
+
+current simulated time: 19560 min (max: 21600 min)
+total agents: 1838
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.01797 seconds 
+total wall time: 0 days, 0 hours, 15 minutes, and 51.2326 seconds 
+
+current simulated time: 19680 min (max: 21600 min)
+total agents: 1836
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.97195 seconds 
+total wall time: 0 days, 0 hours, 15 minutes, and 57.2046 seconds 
+
+current simulated time: 19800 min (max: 21600 min)
+total agents: 1828
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.9076 seconds 
+total wall time: 0 days, 0 hours, 16 minutes, and 3.1122 seconds 
+
+current simulated time: 19920 min (max: 21600 min)
+total agents: 1819
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.96361 seconds 
+total wall time: 0 days, 0 hours, 16 minutes, and 9.07582 seconds 
+
+current simulated time: 20040 min (max: 21600 min)
+total agents: 1809
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.89031 seconds 
+total wall time: 0 days, 0 hours, 16 minutes, and 14.9661 seconds 
+
+current simulated time: 20160 min (max: 21600 min)
+total agents: 1794
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.88157 seconds 
+total wall time: 0 days, 0 hours, 16 minutes, and 20.8477 seconds 
+
+current simulated time: 20280 min (max: 21600 min)
+total agents: 1785
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.95301 seconds 
+total wall time: 0 days, 0 hours, 16 minutes, and 26.8007 seconds 
+
+current simulated time: 20400 min (max: 21600 min)
+total agents: 1783
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.88352 seconds 
+total wall time: 0 days, 0 hours, 16 minutes, and 32.6843 seconds 
+
+current simulated time: 20520 min (max: 21600 min)
+total agents: 1785
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.87465 seconds 
+total wall time: 0 days, 0 hours, 16 minutes, and 38.5589 seconds 
+
+current simulated time: 20640 min (max: 21600 min)
+total agents: 1775
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.96001 seconds 
+total wall time: 0 days, 0 hours, 16 minutes, and 44.5189 seconds 
+
+current simulated time: 20760 min (max: 21600 min)
+total agents: 1776
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.87543 seconds 
+total wall time: 0 days, 0 hours, 16 minutes, and 50.3944 seconds 
+
+current simulated time: 20880 min (max: 21600 min)
+total agents: 1763
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.87155 seconds 
+total wall time: 0 days, 0 hours, 16 minutes, and 56.2659 seconds 
+
+current simulated time: 21000 min (max: 21600 min)
+total agents: 1763
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.98317 seconds 
+total wall time: 0 days, 0 hours, 17 minutes, and 2.24911 seconds 
+
+current simulated time: 21120 min (max: 21600 min)
+total agents: 1758
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.94421 seconds 
+total wall time: 0 days, 0 hours, 17 minutes, and 8.19333 seconds 
+
+current simulated time: 21240 min (max: 21600 min)
+total agents: 1745
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.14307 seconds 
+total wall time: 0 days, 0 hours, 17 minutes, and 14.3364 seconds 
+
+current simulated time: 21360 min (max: 21600 min)
+total agents: 1741
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.05022 seconds 
+total wall time: 0 days, 0 hours, 17 minutes, and 20.3866 seconds 
+
+current simulated time: 21480 min (max: 21600 min)
+total agents: 1732
+interval wall time: 0 days, 0 hours, 0 minutes, and 5.98117 seconds 
+total wall time: 0 days, 0 hours, 17 minutes, and 26.3678 seconds 
+
+current simulated time: 21600 min (max: 21600 min)
+total agents: 1717
+interval wall time: 0 days, 0 hours, 0 minutes, and 6.06318 seconds 
+total wall time: 0 days, 0 hours, 17 minutes, and 32.431 seconds 
+
+
+Total simulation runtime: 
+0 days, 0 hours, 17 minutes, and 32.556 seconds 
+recruited macrophages: 2152 starting at time 504
+recruited neutrophils: 2151 starting at time 492
+recruited T cells: 3474 starting at time 1470
+
+remaining macrophages: 113
+remaining neutrophils: 12
+remaining T cells: 954

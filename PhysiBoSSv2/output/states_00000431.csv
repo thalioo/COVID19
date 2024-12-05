@@ -1,0 +1,1939 @@
+ID,state
+0,<nil>
+1,<nil>
+2,<nil>
+3,<nil>
+4,<nil>
+5,<nil>
+6,<nil>
+7,<nil>
+8,<nil>
+9,<nil>
+10,<nil>
+11,<nil>
+12,Virus_inside -- Virus_replication
+13,<nil>
+7224,<nil>
+15,Virus_inside -- Virus_replication -- Chemokin_secretion
+16,Virus_inside -- Virus_replication -- Chemokin_secretion
+7366,<nil>
+18,Virus_inside -- Virus_replication -- Chemokin_secretion
+7482,Active
+20,Virus_inside -- Virus_replication -- Chemokin_secretion
+6231,<nil>
+6273,<nil>
+1862,Virus_inside
+7299,<nil>
+7096,Active
+7073,<nil>
+6721,Active
+6966,<nil>
+4980,Active
+6017,Active
+5866,Apoptotic_cell -- M2_Phenotype -- Active
+7356,<nil>
+7355,<nil>
+6599,<nil>
+35,Virus_inside -- Virus_replication -- Chemokin_secretion
+6500,<nil>
+6704,<nil>
+6828,<nil>
+7235,Active
+7090,<nil>
+41,Virus_inside -- Virus_replication -- Chemokin_secretion
+7265,<nil>
+43,Virus_inside -- Virus_replication -- Chemokin_secretion
+6926,Apoptotic_cell -- M2_Phenotype -- Active
+45,Virus_inside -- Virus_replication -- Chemokin_secretion
+46,<nil>
+47,Virus_inside -- Virus_replication -- Chemokin_secretion
+48,<nil>
+49,<nil>
+50,<nil>
+51,<nil>
+52,<nil>
+53,<nil>
+54,<nil>
+55,<nil>
+56,<nil>
+57,<nil>
+58,<nil>
+59,<nil>
+60,<nil>
+61,<nil>
+62,Virus_inside -- Virus_replication -- Chemokin_secretion
+63,Virus_inside -- Virus_replication -- Chemokin_secretion
+64,Virus_inside -- Virus_replication -- Chemokin_secretion
+65,Virus_inside -- Virus_replication -- Chemokin_secretion
+66,Virus_inside -- Virus_replication -- Chemokin_secretion
+67,Virus_inside -- Virus_replication -- Chemokin_secretion
+7160,<nil>
+6210,<nil>
+6999,<nil>
+71,Virus_inside -- Virus_replication -- Chemokin_secretion
+6072,<nil>
+7341,<nil>
+6491,Active
+7095,<nil>
+6495,<nil>
+5381,Apoptotic_cell -- M2_Phenotype -- Active
+7171,<nil>
+7115,Apoptotic_cell -- M2_Phenotype -- Active
+80,Virus_inside -- Virus_replication -- Chemokin_secretion
+7374,<nil>
+7443,<nil>
+83,Virus_inside -- Virus_replication -- Chemokin_secretion
+7456,<nil>
+5637,Active
+5115,<nil>
+5625,Apoptotic_cell -- M2_Phenotype -- Active
+7444,<nil>
+5678,<nil>
+5855,<nil>
+91,Virus_inside -- Virus_replication -- Chemokin_secretion
+7393,<nil>
+7301,Active
+94,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+7166,Active
+96,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+97,Virus_inside -- Virus_replication
+98,<nil>
+99,<nil>
+100,<nil>
+101,<nil>
+102,<nil>
+103,<nil>
+104,<nil>
+105,<nil>
+106,<nil>
+107,<nil>
+108,<nil>
+109,<nil>
+110,<nil>
+7452,Active
+112,<nil>
+7288,<nil>
+7349,<nil>
+6843,<nil>
+7165,<nil>
+6587,<nil>
+7220,Active
+6735,<nil>
+7050,<nil>
+6507,<nil>
+6555,<nil>
+6803,<nil>
+6627,<nil>
+7384,Active
+6590,<nil>
+2644,<nil>
+6460,Apoptotic_cell -- M2_Phenotype -- Active
+6151,Apoptotic_cell -- M2_Phenotype -- Active
+2490,Virus_inside -- Virus_replication -- Chemokin_secretion
+5749,<nil>
+6429,<nil>
+7457,<nil>
+7281,<nil>
+7130,<nil>
+1957,<nil>
+6424,<nil>
+7043,<nil>
+5996,<nil>
+7296,<nil>
+5791,Apoptotic_cell -- M2_Phenotype -- Active
+7571,Phagocytosis -- Apoptotic_cell -- M2_Phenotype -- Active
+7169,Active
+144,Virus_inside -- Virus_replication
+7419,<nil>
+146,Virus_inside
+147,<nil>
+148,<nil>
+149,<nil>
+150,<nil>
+151,<nil>
+152,<nil>
+153,<nil>
+154,<nil>
+155,<nil>
+156,Virus_inside -- Virus_replication
+157,<nil>
+158,<nil>
+159,<nil>
+160,Virus_inside -- Virus_replication
+7352,Phagocytosis -- Apoptotic_cell
+7446,Phagocytosis -- Apoptotic_cell
+7242,Active
+164,Virus_inside -- Virus_replication -- Chemokin_secretion
+7046,<nil>
+2154,<nil>
+6337,<nil>
+6678,Apoptotic_cell -- M2_Phenotype -- Active
+6237,<nil>
+6114,<nil>
+6646,<nil>
+2254,<nil>
+6810,<nil>
+5409,Apoptotic_cell -- M2_Phenotype -- Active
+6890,Active
+2060,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+2204,<nil>
+6033,<nil>
+7533,<nil>
+7152,<nil>
+7372,Phagocytosis -- Apoptotic_cell
+2598,<nil>
+6584,Active
+2107,Virus_inside -- Virus_replication
+6200,<nil>
+6304,Active
+7114,<nil>
+6619,<nil>
+6878,Active
+6983,Active
+6917,Active
+192,<nil>
+193,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+194,Virus_inside -- Virus_replication -- Chemokin_secretion
+195,<nil>
+196,<nil>
+197,<nil>
+198,<nil>
+199,<nil>
+200,Virus_inside
+201,<nil>
+202,<nil>
+203,<nil>
+204,<nil>
+205,<nil>
+206,<nil>
+207,Virus_inside
+208,Virus_inside -- Virus_replication -- Chemokin_secretion
+7561,Phagocytosis -- Apoptotic_cell -- M2_Phenotype -- Active
+210,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+7108,<nil>
+7501,<nil>
+7335,<nil>
+6919,<nil>
+1910,<nil>
+2057,<nil>
+2773,<nil>
+7181,Phagocytosis -- Apoptotic_cell -- Active
+7295,Active
+2653,<nil>
+7416,<nil>
+7339,Active
+7306,<nil>
+6313,<nil>
+5747,Apoptotic_cell -- M2_Phenotype -- Active
+2399,<nil>
+6023,<nil>
+6563,<nil>
+5123,Phagocytosis -- Apoptotic_cell -- Active
+6564,<nil>
+2602,<nil>
+7405,Apoptotic_cell -- M2_Phenotype -- Active
+2401,<nil>
+2537,Virus_inside -- Virus_replication -- Chemokin_secretion
+5991,Apoptotic_cell -- M2_Phenotype -- Active
+5719,<nil>
+7238,Active
+7312,<nil>
+6642,<nil>
+7135,<nil>
+7595,<nil>
+242,<nil>
+243,Virus_inside -- Virus_replication -- Chemokin_secretion
+244,<nil>
+245,<nil>
+246,<nil>
+247,<nil>
+248,<nil>
+249,<nil>
+250,<nil>
+251,<nil>
+252,<nil>
+253,<nil>
+254,<nil>
+255,Virus_inside -- Virus_replication
+256,<nil>
+257,Virus_inside -- Virus_replication -- Chemokin_secretion
+7315,Active
+7508,Apoptotic_cell -- M2_Phenotype -- Active
+7488,<nil>
+7556,Phagocytosis -- Apoptotic_cell
+7004,<nil>
+5966,<nil>
+6095,<nil>
+7481,Phagocytosis -- Apoptotic_cell
+2788,<nil>
+5879,<nil>
+2447,<nil>
+7590,<nil>
+2507,<nil>
+6949,<nil>
+6060,Active
+2775,<nil>
+5709,Apoptotic_cell -- M2_Phenotype -- Active
+6826,Active
+5998,<nil>
+6748,<nil>
+5310,Apoptotic_cell -- M2_Phenotype -- Active
+6149,<nil>
+5542,<nil>
+6922,<nil>
+5179,<nil>
+2307,Virus_inside -- Virus_replication -- Chemokin_secretion
+7458,Phagocytosis -- Apoptotic_cell
+7568,<nil>
+7313,<nil>
+7428,<nil>
+7527,Active
+6747,Active
+7285,<nil>
+291,<nil>
+292,<nil>
+293,<nil>
+294,<nil>
+295,<nil>
+296,<nil>
+297,<nil>
+298,<nil>
+299,<nil>
+300,<nil>
+301,Virus_inside -- Virus_replication
+302,Virus_inside
+7602,<nil>
+304,Virus_inside -- Virus_replication -- Chemokin_secretion
+305,Virus_inside -- Virus_replication
+306,Virus_inside -- Virus_replication
+7535,Active
+308,Virus_inside -- Virus_replication -- Chemokin_secretion
+7219,<nil>
+7459,Active
+6852,<nil>
+7435,<nil>
+7460,<nil>
+7367,<nil>
+5326,Active
+6987,Active
+5986,Active
+5245,<nil>
+7298,<nil>
+7503,Active
+5831,<nil>
+5222,Active
+5726,Apoptotic_cell -- M2_Phenotype -- Active
+6180,<nil>
+5917,Active
+2605,Virus_inside -- Virus_replication
+7487,Active
+6643,<nil>
+6059,<nil>
+7440,Active
+6372,<nil>
+2454,<nil>
+2545,<nil>
+6781,<nil>
+335,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+7499,<nil>
+337,Virus_inside -- Virus_replication -- Chemokin_secretion
+338,Virus_inside -- Virus_replication
+339,<nil>
+340,<nil>
+341,<nil>
+342,<nil>
+343,<nil>
+344,<nil>
+345,<nil>
+346,<nil>
+347,<nil>
+7540,<nil>
+349,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+350,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+6162,Active
+352,Virus_inside -- Virus_replication -- Chemokin_secretion
+353,Virus_inside -- Virus_replication -- Chemokin_secretion
+354,Virus_inside -- Virus_replication -- Chemokin_secretion
+6996,<nil>
+356,Virus_inside -- Virus_replication -- Chemokin_secretion
+7434,<nil>
+358,Virus_inside -- Virus_replication -- Chemokin_secretion
+7441,Phagocytosis -- Apoptotic_cell -- Active
+7562,Active
+6516,Active
+6736,Apoptotic_cell -- M2_Phenotype -- Active
+7045,Phagocytosis -- Apoptotic_cell
+2553,<nil>
+7583,<nil>
+5693,Active
+2354,<nil>
+5308,<nil>
+2355,<nil>
+6376,<nil>
+5694,Apoptotic_cell -- M2_Phenotype -- Active
+6161,Apoptotic_cell -- M2_Phenotype -- Active
+2699,<nil>
+6529,<nil>
+3848,CD8_Tcell_activation -- Apoptotic_cell -- M2_Phenotype -- Active
+2056,<nil>
+6367,<nil>
+6872,Active
+6809,<nil>
+7241,Phagocytosis -- Apoptotic_cell
+2542,Virus_inside
+1859,<nil>
+383,Virus_inside -- Virus_replication -- Chemokin_secretion
+7558,<nil>
+385,<nil>
+386,Virus_inside -- Virus_replication
+387,<nil>
+388,<nil>
+389,<nil>
+390,<nil>
+391,<nil>
+392,<nil>
+393,<nil>
+394,<nil>
+395,<nil>
+396,<nil>
+397,<nil>
+6865,<nil>
+7266,<nil>
+6070,Active
+401,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+402,Virus_inside -- Virus_replication -- Chemokin_secretion
+403,Virus_inside -- Virus_replication -- Chemokin_secretion
+404,Virus_inside -- Virus_replication -- Chemokin_secretion
+405,Virus_inside -- Virus_replication -- Chemokin_secretion
+406,Virus_inside -- Virus_replication -- Chemokin_secretion
+7574,<nil>
+7261,Active
+7361,<nil>
+7531,Active
+1907,<nil>
+5172,Apoptotic_cell -- M2_Phenotype -- Active
+7308,<nil>
+7552,Phagocytosis -- Apoptotic_cell
+7283,<nil>
+2158,Virus_inside -- Virus_replication -- Chemokin_secretion
+6790,<nil>
+7376,Phagocytosis -- Apoptotic_cell
+2544,<nil>
+7048,Active
+2201,<nil>
+7000,<nil>
+1911,Virus_inside -- Virus_replication
+5188,Active
+6091,<nil>
+2753,<nil>
+2541,Virus_inside -- Virus_replication -- Chemokin_secretion
+7075,Active
+2633,Virus_inside -- Virus_replication
+5406,CD8_Tcell_activation -- Apoptotic_cell -- M2_Phenotype -- Active
+7369,<nil>
+432,<nil>
+433,<nil>
+6184,Apoptotic_cell -- M2_Phenotype -- Active
+435,Virus_inside -- Virus_replication
+436,<nil>
+437,<nil>
+438,<nil>
+439,<nil>
+440,<nil>
+441,<nil>
+442,<nil>
+7573,<nil>
+444,<nil>
+445,Virus_inside -- Virus_replication
+7154,<nil>
+7479,Active
+7102,Apoptotic_cell -- M2_Phenotype -- Active
+7509,Active
+7276,Active
+7436,<nil>
+7257,Active
+453,Virus_inside -- Virus_replication -- Chemokin_secretion -- Apoptosis_type_II
+7502,<nil>
+7226,Apoptotic_cell -- M2_Phenotype -- Active
+456,Virus_inside -- Virus_replication -- Chemokin_secretion
+5951,<nil>
+5961,<nil>
+6286,<nil>
+6136,<nil>
+7522,<nil>
+4947,<nil>
+6964,Active
+5411,<nil>
+7038,<nil>
+7060,<nil>
+2305,<nil>
+2008,<nil>
+2710,Virus_inside -- Virus_replication -- Chemokin_secretion -- Apoptosis_type_II
+6010,<nil>
+2676,<nil>
+6186,<nil>
+7581,<nil>
+5502,Apoptotic_cell -- M2_Phenotype -- Active
+5700,<nil>
+2625,Virus_inside
+6247,Apoptotic_cell -- M2_Phenotype -- Active
+6523,Apoptotic_cell -- M2_Phenotype -- Active
+7371,Active
+6931,<nil>
+7472,<nil>
+482,<nil>
+483,<nil>
+484,<nil>
+485,<nil>
+486,<nil>
+487,<nil>
+488,<nil>
+489,<nil>
+490,<nil>
+491,<nil>
+6737,Active
+493,<nil>
+6968,Active
+6947,<nil>
+496,Virus_inside -- Virus_replication -- Chemokin_secretion
+7322,Active
+6921,Active
+6913,<nil>
+500,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached -- Apoptosis_type_II
+7196,<nil>
+502,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached -- Apoptosis_type_I
+7543,<nil>
+7307,<nil>
+7566,<nil>
+506,Virus_inside -- Virus_replication -- Chemokin_secretion
+2563,Virus_inside -- Virus_replication -- Chemokin_secretion
+6687,<nil>
+5757,<nil>
+6985,<nil>
+5782,Apoptotic_cell -- M2_Phenotype -- Active
+6952,<nil>
+7511,<nil>
+6973,<nil>
+6916,<nil>
+6111,Active
+6630,Active
+7180,<nil>
+7517,<nil>
+2690,<nil>
+2600,<nil>
+2700,<nil>
+6300,Apoptotic_cell -- M2_Phenotype -- Active
+5994,Apoptotic_cell -- M2_Phenotype -- Active
+6383,<nil>
+5163,Apoptotic_cell -- M2_Phenotype -- Active
+6496,<nil>
+6538,Apoptotic_cell -- M2_Phenotype -- Active
+6617,<nil>
+6409,<nil>
+531,Virus_inside
+532,Virus_inside
+533,<nil>
+534,<nil>
+535,<nil>
+536,<nil>
+537,<nil>
+538,<nil>
+539,Virus_inside -- Virus_replication
+540,<nil>
+541,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached -- Apoptosis_type_I
+6649,<nil>
+7042,<nil>
+6758,<nil>
+2005,<nil>
+6158,<nil>
+7161,<nil>
+6883,<nil>
+6307,<nil>
+5977,Active
+6418,<nil>
+6415,<nil>
+6335,Phagocytosis -- Apoptotic_cell
+7382,<nil>
+7264,<nil>
+6544,<nil>
+5919,<nil>
+2059,Virus_inside -- Virus_replication -- Chemokin_secretion
+2731,<nil>
+6425,<nil>
+2208,Virus_inside -- Virus_replication -- Chemokin_secretion
+2451,<nil>
+4388,Phagocytosis -- Apoptotic_cell
+7334,Active
+7317,Active
+6850,<nil>
+3104,<nil>
+7184,<nil>
+6432,<nil>
+6801,Active
+7378,<nil>
+2258,Virus_inside -- Virus_replication -- Chemokin_secretion -- Apoptosis_type_II
+7402,Active
+7316,<nil>
+6567,<nil>
+7140,<nil>
+6510,<nil>
+7528,<nil>
+7516,Phagocytosis -- Apoptotic_cell
+580,Virus_inside -- Virus_replication -- Chemokin_secretion
+581,<nil>
+582,<nil>
+583,<nil>
+584,<nil>
+585,<nil>
+586,<nil>
+587,<nil>
+588,Virus_inside -- Virus_replication -- Chemokin_secretion
+589,<nil>
+6575,Apoptotic_cell -- M2_Phenotype -- Active
+6763,<nil>
+7011,Active
+6427,<nil>
+6884,<nil>
+6296,Active
+6118,Apoptotic_cell -- M2_Phenotype -- Active
+2638,Virus_inside
+7407,<nil>
+6989,<nil>
+6277,<nil>
+2503,<nil>
+6459,Active
+6954,<nil>
+6202,Apoptotic_cell -- M2_Phenotype -- Active
+5745,Active
+2579,Virus_inside
+5656,Active
+6248,<nil>
+5354,Apoptotic_cell -- M2_Phenotype -- Active
+7200,<nil>
+2771,Virus_inside -- Virus_replication -- Chemokin_secretion
+7401,<nil>
+6119,Active
+2766,Virus_inside -- Virus_replication -- Chemokin_secretion
+6795,<nil>
+2255,Virus_inside -- Virus_replication -- Chemokin_secretion
+6268,Active
+6787,<nil>
+5905,<nil>
+6915,Active
+6536,<nil>
+6717,<nil>
+5718,Phagocytosis -- Apoptotic_cell -- Active
+6753,<nil>
+6713,Active
+6628,<nil>
+7314,Phagocytosis -- Apoptotic_cell
+6546,<nil>
+6774,<nil>
+630,Virus_inside -- Virus_replication -- Chemokin_secretion
+631,Virus_inside
+632,<nil>
+633,<nil>
+634,<nil>
+635,<nil>
+636,<nil>
+637,Virus_inside -- Virus_replication -- Chemokin_secretion
+6456,Active
+7524,<nil>
+7187,<nil>
+7336,<nil>
+6201,Active
+7360,Active
+7007,<nil>
+7551,Active
+6220,Active
+7109,<nil>
+5657,Apoptotic_cell -- M2_Phenotype -- Active
+7570,<nil>
+6888,<nil>
+2632,Virus_inside -- Virus_replication -- Chemokin_secretion
+7480,<nil>
+7062,<nil>
+5446,<nil>
+6360,Active
+7289,<nil>
+2657,<nil>
+5997,CD8_Tcell_activation -- Apoptotic_cell -- M2_Phenotype -- Active
+7534,<nil>
+2757,<nil>
+2689,<nil>
+7197,Apoptotic_cell -- M2_Phenotype -- Active
+7448,<nil>
+7513,Active
+7388,Active
+5062,Apoptotic_cell -- M2_Phenotype -- Active
+5151,Phagocytosis -- Apoptotic_cell
+7279,Phagocytosis -- Apoptotic_cell
+5631,<nil>
+6835,<nil>
+5375,Active
+6632,<nil>
+6685,Active
+5687,Apoptotic_cell -- M2_Phenotype -- Active
+675,Virus_inside -- Virus_replication -- Chemokin_secretion
+7269,Phagocytosis -- Apoptotic_cell
+1912,Virus_inside -- Virus_replication -- Chemokin_secretion
+678,Virus_inside -- Virus_replication
+679,<nil>
+680,<nil>
+681,Virus_inside -- Virus_replication -- Chemokin_secretion
+682,<nil>
+683,<nil>
+684,<nil>
+685,<nil>
+686,Virus_inside -- Virus_replication -- Chemokin_secretion
+6752,<nil>
+6464,<nil>
+6552,Active
+7294,Phagocytosis -- Apoptotic_cell
+2779,<nil>
+7485,<nil>
+6918,<nil>
+2687,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached -- Apoptosis_type_I
+2353,<nil>
+7396,<nil>
+6348,<nil>
+2730,<nil>
+6342,Active
+6032,<nil>
+2302,<nil>
+6240,<nil>
+2551,<nil>
+5834,<nil>
+6124,<nil>
+2614,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+2456,Virus_inside
+7323,<nil>
+5767,<nil>
+6533,Active
+2672,Virus_inside -- Virus_replication -- Chemokin_secretion
+2736,<nil>
+6887,Active
+7071,<nil>
+7072,<nil>
+6740,<nil>
+6734,<nil>
+6876,Active
+6315,Phagocytosis -- Apoptotic_cell
+6054,<nil>
+1961,Virus_inside -- Virus_replication -- Chemokin_secretion
+7537,<nil>
+5778,<nil>
+5616,<nil>
+6812,<nil>
+6444,Active
+727,Virus_inside -- Virus_replication -- Chemokin_secretion
+728,Virus_inside -- Virus_replication -- Chemokin_secretion
+729,Virus_inside -- Virus_replication -- Chemokin_secretion
+730,Virus_inside -- Virus_replication -- Chemokin_secretion
+731,<nil>
+732,<nil>
+733,<nil>
+734,<nil>
+7453,<nil>
+7383,Phagocytosis -- Apoptotic_cell
+6945,<nil>
+6051,<nil>
+7103,Active
+7404,<nil>
+7507,<nil>
+7476,<nil>
+2577,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached -- Apoptosis_type_II
+7549,<nil>
+5101,Apoptotic_cell -- M2_Phenotype -- Active
+5531,Active
+6447,<nil>
+6177,<nil>
+7572,<nil>
+2063,Virus_inside -- Virus_replication -- Chemokin_secretion
+5141,<nil>
+6997,<nil>
+2607,<nil>
+2205,Virus_inside -- Virus_replication
+6556,Active
+6718,<nil>
+5796,Apoptotic_cell -- M2_Phenotype -- Active
+6895,<nil>
+2643,<nil>
+7162,Phagocytosis -- Apoptotic_cell
+7175,<nil>
+2738,<nil>
+2106,<nil>
+2751,<nil>
+2734,<nil>
+6720,<nil>
+6282,Active
+6029,<nil>
+2153,<nil>
+7398,Apoptotic_cell -- M2_Phenotype -- Active
+5436,Active
+6048,Active
+7400,<nil>
+774,Virus_inside -- Virus_replication -- Chemokin_secretion
+775,Virus_inside -- Virus_replication -- Chemokin_secretion
+776,Virus_inside -- Virus_replication -- Chemokin_secretion
+777,Virus_inside -- Virus_replication -- Chemokin_secretion
+778,Virus_inside -- Virus_replication
+779,Virus_inside -- Virus_replication -- Chemokin_secretion
+780,<nil>
+781,<nil>
+782,<nil>
+783,<nil>
+7473,Active
+6147,Apoptotic_cell -- M2_Phenotype -- Active
+6019,Apoptotic_cell -- M2_Phenotype -- Active
+6466,Active
+7178,<nil>
+7471,<nil>
+7326,<nil>
+6785,<nil>
+6159,Active
+2304,<nil>
+5725,<nil>
+6666,<nil>
+7193,<nil>
+7399,Active
+2403,<nil>
+5238,Apoptotic_cell -- M2_Phenotype -- Active
+7077,<nil>
+6399,<nil>
+2767,Virus_inside -- Virus_replication -- Chemokin_secretion
+6148,<nil>
+7044,Active
+7256,Apoptotic_cell -- M2_Phenotype -- Active
+2578,Virus_inside -- Virus_replication -- Chemokin_secretion
+2725,<nil>
+5360,<nil>
+6528,Active
+7550,<nil>
+2744,<nil>
+7278,<nil>
+7221,<nil>
+7587,<nil>
+2062,Virus_inside -- Virus_replication -- Chemokin_secretion
+2594,<nil>
+5632,CD8_Tcell_activation -- Apoptotic_cell -- M2_Phenotype -- Active
+7206,Active
+6461,Active
+2104,<nil>
+7076,<nil>
+6750,Active
+6603,Active
+824,Virus_inside -- Virus_replication -- Chemokin_secretion
+825,Virus_inside -- Virus_replication -- Chemokin_secretion
+826,Virus_inside -- Virus_replication -- Chemokin_secretion
+827,Virus_inside -- Virus_replication -- Chemokin_secretion
+828,Virus_inside -- Virus_replication
+829,Virus_inside -- Virus_replication
+830,<nil>
+831,<nil>
+832,<nil>
+7100,<nil>
+6106,<nil>
+6929,<nil>
+7478,<nil>
+6965,<nil>
+5442,Active
+6022,Active
+2748,<nil>
+6475,<nil>
+2400,<nil>
+7449,<nil>
+2772,Virus_inside -- Virus_replication -- Chemokin_secretion
+6969,<nil>
+6739,<nil>
+6001,<nil>
+7536,<nil>
+2683,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+7167,<nil>
+7066,<nil>
+6117,<nil>
+2352,<nil>
+2534,Virus_inside -- Virus_replication -- Chemokin_secretion
+6350,<nil>
+6362,Active
+6904,Active
+2649,<nil>
+2058,<nil>
+7297,<nil>
+5587,<nil>
+5655,Apoptotic_cell -- M2_Phenotype -- Active
+2635,<nil>
+2536,Virus_inside -- Virus_replication -- Chemokin_secretion
+1863,Virus_inside -- Virus_replication -- Chemokin_secretion
+6770,<nil>
+7074,Phagocytosis -- Apoptotic_cell
+6259,<nil>
+2108,Virus_inside -- Virus_replication
+6139,<nil>
+6057,<nil>
+872,Virus_inside -- Virus_replication -- Chemokin_secretion
+873,Virus_inside -- Virus_replication -- Chemokin_secretion
+7208,<nil>
+875,Virus_inside -- Virus_replication -- Chemokin_secretion
+876,Virus_inside -- Virus_replication -- Chemokin_secretion
+877,Virus_inside -- Virus_replication -- Chemokin_secretion
+878,<nil>
+879,<nil>
+880,<nil>
+881,<nil>
+6511,<nil>
+6994,Apoptotic_cell -- M2_Phenotype -- Active
+6512,Active
+7118,Active
+6013,Apoptotic_cell -- M2_Phenotype -- Active
+5549,Apoptotic_cell -- M2_Phenotype -- Active
+5592,Apoptotic_cell -- M2_Phenotype -- Active
+2548,<nil>
+7505,<nil>
+2538,Virus_inside -- Virus_replication -- Chemokin_secretion
+6420,Apoptotic_cell -- M2_Phenotype -- Active
+6663,Phagocytosis -- Apoptotic_cell
+7576,Active
+2410,Virus_inside -- Virus_replication
+6714,<nil>
+2708,Virus_inside -- Virus_replication -- Chemokin_secretion
+5573,<nil>
+2679,<nil>
+6308,Apoptotic_cell -- M2_Phenotype -- Active
+2680,<nil>
+6467,Active
+7106,Phagocytosis -- Apoptotic_cell
+3073,<nil>
+5846,<nil>
+7389,<nil>
+5955,CD8_Tcell_activation -- Apoptotic_cell -- M2_Phenotype -- Active
+7331,<nil>
+6622,<nil>
+7183,<nil>
+7207,Active
+6700,<nil>
+5686,Active
+2256,<nil>
+6514,Active
+2459,<nil>
+5017,<nil>
+7474,Apoptotic_cell -- M2_Phenotype -- Active
+6755,Active
+6898,Active
+921,Virus_inside -- Virus_replication -- Chemokin_secretion
+922,Virus_inside -- Virus_replication -- Chemokin_secretion
+923,Virus_inside -- Virus_replication -- Chemokin_secretion
+6559,Apoptotic_cell -- M2_Phenotype -- Active
+6799,<nil>
+926,Virus_inside -- Virus_replication -- Chemokin_secretion
+927,<nil>
+928,<nil>
+929,<nil>
+930,<nil>
+7282,<nil>
+7579,<nil>
+6551,<nil>
+2462,Virus_inside -- Virus_replication -- Chemokin_secretion
+6928,<nil>
+2783,<nil>
+6934,<nil>
+2780,<nil>
+6995,Active
+6356,Apoptotic_cell -- M2_Phenotype -- Active
+6165,Apoptotic_cell -- M2_Phenotype -- Active
+2627,<nil>
+5983,<nil>
+2876,Active
+6515,<nil>
+2505,Virus_inside -- Virus_replication -- Chemokin_secretion
+2206,Virus_inside -- Virus_replication -- Chemokin_secretion
+2509,<nil>
+7397,<nil>
+7348,Phagocytosis -- Apoptotic_cell
+2735,<nil>
+3510,Apoptotic_cell -- M2_Phenotype -- Active
+6321,<nil>
+7061,<nil>
+7512,Phagocytosis -- Apoptotic_cell
+6338,<nil>
+2608,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+6960,Active
+7438,<nil>
+6656,<nil>
+3275,<nil>
+6788,<nil>
+6767,<nil>
+7519,<nil>
+5174,Apoptotic_cell -- M2_Phenotype -- Active
+2702,<nil>
+7455,<nil>
+7068,Active
+6469,<nil>
+6361,<nil>
+971,Virus_inside -- Virus_replication -- Chemokin_secretion
+7274,<nil>
+973,Virus_inside -- Virus_replication -- Chemokin_secretion
+974,<nil>
+975,Virus_inside -- Virus_replication
+976,<nil>
+977,<nil>
+978,<nil>
+979,<nil>
+980,Virus_inside -- Virus_replication -- Chemokin_secretion
+981,Virus_inside -- Virus_replication -- Chemokin_secretion
+7065,<nil>
+7173,Phagocytosis -- Apoptotic_cell
+7415,Active
+7174,Active
+2656,<nil>
+7275,Apoptotic_cell -- M2_Phenotype -- Active
+7083,<nil>
+7580,<nil>
+4381,Phagocytosis -- Apoptotic_cell -- Active
+7577,<nil>
+1861,<nil>
+7563,<nil>
+6211,Active
+7430,Active
+2510,Virus_inside -- Virus_replication
+2723,<nil>
+2207,Virus_inside -- Virus_replication -- Chemokin_secretion
+7490,Active
+7353,Active
+6038,<nil>
+6479,Phagocytosis -- Apoptotic_cell
+7035,Active
+6066,<nil>
+7477,<nil>
+4614,Apoptotic_cell -- M2_Phenotype -- Active
+3990,Apoptotic_cell -- M2_Phenotype -- Active
+6224,Apoptotic_cell -- M2_Phenotype -- Active
+7342,<nil>
+5333,Apoptotic_cell -- M2_Phenotype -- Active
+2636,Virus_inside -- Virus_replication -- Chemokin_secretion
+2707,Virus_inside -- Virus_replication -- Chemokin_secretion
+2691,<nil>
+7098,Phagocytosis -- Apoptotic_cell -- Active
+5668,<nil>
+7244,<nil>
+7216,<nil>
+6318,<nil>
+1019,Virus_inside -- Virus_replication -- Chemokin_secretion
+1020,Virus_inside -- Virus_replication -- Chemokin_secretion
+1021,Virus_inside -- Virus_replication -- Chemokin_secretion
+1022,Virus_inside -- Virus_replication -- Chemokin_secretion
+1023,Virus_inside -- Virus_replication -- Chemokin_secretion
+1024,<nil>
+1025,<nil>
+1026,<nil>
+1027,<nil>
+1028,<nil>
+6990,Phagocytosis -- Apoptotic_cell
+7271,<nil>
+5860,Apoptotic_cell -- M2_Phenotype -- Active
+7006,<nil>
+1033,Virus_inside -- Virus_replication -- Chemokin_secretion
+6289,<nil>
+5837,<nil>
+2790,<nil>
+7539,<nil>
+7518,<nil>
+7321,Phagocytosis -- Apoptotic_cell
+6146,<nil>
+7426,<nil>
+2786,<nil>
+7554,<nil>
+5388,<nil>
+2455,<nil>
+7229,<nil>
+6626,CD8_Tcell_activation -- Apoptotic_cell -- M2_Phenotype -- Active
+7040,Active
+2704,<nil>
+6709,Apoptotic_cell -- M2_Phenotype -- Active
+2624,Virus_inside -- Virus_replication
+6793,<nil>
+2511,Virus_inside -- Virus_replication -- Chemokin_secretion
+2754,<nil>
+2648,<nil>
+2747,<nil>
+5812,<nil>
+2404,<nil>
+2591,Virus_inside -- Virus_replication -- Chemokin_secretion
+2651,<nil>
+3153,<nil>
+7047,Active
+3622,Apoptotic_cell -- M2_Phenotype -- Active
+7113,<nil>
+6440,<nil>
+5813,<nil>
+5622,<nil>
+1068,Virus_inside -- Virus_replication -- Chemokin_secretion
+1069,Virus_inside -- Virus_replication -- Chemokin_secretion
+1070,Virus_inside -- Virus_replication
+1071,Virus_inside -- Virus_replication -- Chemokin_secretion
+1072,Virus_inside -- Virus_replication
+1073,Virus_inside
+1074,<nil>
+1075,<nil>
+1076,<nil>
+1077,<nil>
+1078,Virus_inside -- Virus_replication -- Chemokin_secretion
+1079,Virus_inside -- Virus_replication -- Chemokin_secretion
+6957,<nil>
+6806,<nil>
+6465,<nil>
+6012,<nil>
+7532,<nil>
+2749,<nil>
+2156,<nil>
+7330,Active
+7192,Active
+6055,Apoptotic_cell -- M2_Phenotype -- Active
+6373,<nil>
+2770,Virus_inside -- Virus_replication -- Chemokin_secretion
+2787,<nil>
+7344,Phagocytosis -- Apoptotic_cell
+5590,Active
+5370,Apoptotic_cell -- M2_Phenotype -- Active
+7069,<nil>
+2460,<nil>
+4552,<nil>
+6585,Phagocytosis -- Apoptotic_cell -- Active
+2303,<nil>
+6216,Active
+2257,Virus_inside -- Virus_replication
+6145,<nil>
+6891,<nil>
+7380,Active
+2599,<nil>
+2678,Virus_inside -- Virus_replication -- Chemokin_secretion
+2634,Virus_inside -- Virus_replication -- Chemokin_secretion
+6754,Phagocytosis -- Apoptotic_cell
+5844,Apoptotic_cell -- M2_Phenotype -- Active
+7194,CD8_Tcell_activation -- Apoptotic_cell -- M2_Phenotype -- Active
+2641,<nil>
+6707,<nil>
+7467,Active
+7290,Active
+6594,<nil>
+7442,<nil>
+7491,Phagocytosis -- Apoptotic_cell -- Active
+1119,Virus_inside -- Virus_replication
+1120,<nil>
+1121,<nil>
+1122,<nil>
+1123,<nil>
+1124,<nil>
+1125,<nil>
+1126,<nil>
+7324,<nil>
+1128,Virus_inside -- Virus_replication -- Chemokin_secretion
+7147,CD8_Tcell_activation -- Apoptotic_cell -- M2_Phenotype -- Active
+5538,Apoptotic_cell -- M2_Phenotype -- Active
+7112,<nil>
+6848,<nil>
+6279,<nil>
+6794,Apoptotic_cell -- M2_Phenotype -- Active
+2499,<nil>
+2650,<nil>
+2655,<nil>
+6792,<nil>
+7258,<nil>
+2253,<nil>
+4531,Apoptotic_cell -- M2_Phenotype -- Active
+5021,<nil>
+5910,<nil>
+6283,<nil>
+7024,<nil>
+2726,<nil>
+7329,Apoptotic_cell -- M2_Phenotype -- Active
+2597,<nil>
+2926,Active
+7422,Active
+2908,Active
+2397,<nil>
+6896,Active
+2721,Virus_inside -- Virus_replication -- Chemokin_secretion
+2449,<nil>
+6255,<nil>
+7591,<nil>
+7049,<nil>
+2588,Virus_inside -- Virus_replication -- Chemokin_secretion
+6525,<nil>
+5862,<nil>
+5972,<nil>
+5936,CD8_Tcell_activation -- Apoptotic_cell -- M2_Phenotype -- Active
+7555,<nil>
+1165,Virus_inside -- Virus_replication -- Chemokin_secretion
+7332,<nil>
+1167,Virus_inside -- Virus_replication -- Chemokin_secretion
+1168,<nil>
+1169,<nil>
+1170,<nil>
+1171,<nil>
+1172,<nil>
+1173,<nil>
+1174,<nil>
+1175,<nil>
+7198,Active
+7204,<nil>
+6715,<nil>
+5230,<nil>
+5691,CD8_Tcell_activation -- Apoptotic_cell -- M2_Phenotype -- Active
+2791,<nil>
+6291,Active
+7097,<nil>
+7515,<nil>
+2547,<nil>
+6950,<nil>
+7451,Apoptotic_cell -- M2_Phenotype -- Active
+1960,<nil>
+7002,<nil>
+7277,<nil>
+7023,<nil>
+7105,<nil>
+2774,<nil>
+6480,<nil>
+6222,Active
+7605,<nil>
+2906,Active
+6638,Apoptotic_cell -- M2_Phenotype -- Active
+2919,Active
+6879,<nil>
+7392,Active
+2913,Active
+5985,Active
+2917,Active
+6358,<nil>
+2252,<nil>
+2737,<nil>
+6669,<nil>
+2645,<nil>
+6885,<nil>
+2013,Virus_inside -- Virus_replication -- Chemokin_secretion -- Apoptosis_type_II
+7546,<nil>
+2729,<nil>
+7116,<nil>
+7411,<nil>
+1216,<nil>
+1217,<nil>
+1218,<nil>
+1219,<nil>
+1220,<nil>
+1221,<nil>
+1222,<nil>
+1223,<nil>
+1224,<nil>
+7228,<nil>
+6554,<nil>
+6694,<nil>
+6028,Active
+2604,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+2686,Virus_inside -- Virus_replication
+2677,<nil>
+2559,Virus_inside -- Virus_replication
+2755,<nil>
+6073,<nil>
+6310,<nil>
+7373,Active
+6167,<nil>
+5750,Apoptotic_cell -- M2_Phenotype -- Active
+5859,<nil>
+4573,CD8_Tcell_activation -- Apoptotic_cell -- M2_Phenotype -- Active
+7337,<nil>
+2697,<nil>
+7547,<nil>
+3178,<nil>
+5369,<nil>
+2888,Active
+6492,Apoptotic_cell -- M2_Phenotype -- Active
+7553,Active
+7016,<nil>
+2910,Active
+2159,Virus_inside -- Virus_replication -- Chemokin_secretion
+7080,<nil>
+2259,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+7263,<nil>
+7592,<nil>
+7390,<nil>
+2741,<nil>
+5707,<nil>
+5843,<nil>
+5073,<nil>
+1261,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+3263,<nil>
+2652,<nil>
+1264,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+1265,Virus_inside
+1266,<nil>
+1267,<nil>
+1268,<nil>
+1269,<nil>
+1270,<nil>
+1271,<nil>
+1272,<nil>
+1273,<nil>
+6976,<nil>
+7542,Active
+7575,Active
+6991,<nil>
+7582,<nil>
+6245,<nil>
+7544,Phagocytosis -- Apoptotic_cell
+7343,Active
+2596,<nil>
+6927,Active
+5804,Apoptotic_cell -- M2_Phenotype -- Active
+4558,Active
+2508,Virus_inside -- Virus_replication -- Chemokin_secretion
+6977,<nil>
+6900,<nil>
+6609,<nil>
+6522,Active
+7514,<nil>
+2550,<nil>
+7222,<nil>
+7081,<nil>
+2912,Active
+7469,<nil>
+7005,<nil>
+2500,<nil>
+3163,<nil>
+2923,Active
+7375,<nil>
+2918,Active
+3305,<nil>
+7394,<nil>
+5903,Apoptotic_cell -- M2_Phenotype -- Active
+6102,<nil>
+2629,<nil>
+7362,Phagocytosis -- Apoptotic_cell -- M2_Phenotype -- Active
+4837,Apoptotic_cell -- M2_Phenotype -- Active
+7385,<nil>
+4690,<nil>
+2450,<nil>
+6270,<nil>
+1314,Virus_inside -- Virus_replication
+1315,Virus_inside -- Virus_replication
+1316,<nil>
+2646,<nil>
+1318,<nil>
+1319,<nil>
+1320,<nil>
+1321,<nil>
+1322,<nil>
+7584,<nil>
+7253,<nil>
+7249,<nil>
+7032,Active
+6396,<nil>
+2251,<nil>
+7403,<nil>
+6677,<nil>
+2006,<nil>
+7564,<nil>
+6808,Active
+7001,<nil>
+2009,Virus_inside -- Virus_replication -- Chemokin_secretion
+7494,<nil>
+6655,<nil>
+6319,Apoptotic_cell -- M2_Phenotype -- Active
+2785,<nil>
+2688,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached -- Apoptosis_type_I
+5877,Apoptotic_cell -- M2_Phenotype -- Active
+7149,<nil>
+7155,<nil>
+2899,Active
+5935,<nil>
+5758,<nil>
+6772,Active
+6484,Active
+2709,Virus_inside -- Virus_replication -- Chemokin_secretion -- Apoptosis_type_II
+6680,<nil>
+7268,Active
+2879,Active
+5152,Active
+7545,<nil>
+6288,<nil>
+7346,<nil>
+2113,Virus_inside -- Virus_replication -- Chemokin_secretion
+2727,<nil>
+7386,<nil>
+6992,<nil>
+7094,Active
+7492,Active
+7177,<nil>
+1364,Virus_inside -- Virus_replication
+7156,Active
+1366,<nil>
+1367,<nil>
+1368,<nil>
+1369,<nil>
+1370,<nil>
+1371,<nil>
+6935,<nil>
+6745,<nil>
+6301,<nil>
+6662,Active
+6540,<nil>
+7056,Apoptotic_cell -- M2_Phenotype -- Active
+6252,<nil>
+5992,Apoptotic_cell -- M2_Phenotype -- Active
+6899,<nil>
+2486,Virus_inside -- Virus_replication -- Chemokin_secretion
+6030,CD8_Tcell_activation -- Apoptotic_cell -- M2_Phenotype -- Active
+5434,Phagocytosis -- Apoptotic_cell
+6110,<nil>
+2592,<nil>
+6455,<nil>
+7153,Phagocytosis -- Apoptotic_cell
+7510,<nil>
+2685,Virus_inside -- Virus_replication -- Chemokin_secretion
+6634,Apoptotic_cell -- M2_Phenotype -- Active
+6416,Active
+2882,Active
+7497,Active
+6411,Active
+7144,<nil>
+2441,Virus_inside -- Virus_replication -- Chemokin_secretion
+2760,Virus_inside -- Virus_replication -- Chemokin_secretion
+2781,<nil>
+2351,<nil>
+2901,Active
+7325,Active
+2745,<nil>
+6592,Active
+7354,<nil>
+6901,<nil>
+1959,<nil>
+5286,<nil>
+2105,<nil>
+5827,<nil>
+6365,Active
+7291,<nil>
+7395,Active
+7215,Active
+7309,<nil>
+1415,<nil>
+1416,Virus_inside -- Virus_replication
+1417,<nil>
+1418,<nil>
+1419,<nil>
+1420,<nil>
+7163,Active
+7020,<nil>
+6903,<nil>
+6445,Phagocytosis -- Apoptotic_cell -- Active
+6665,<nil>
+6254,Active
+6588,<nil>
+6049,<nil>
+7495,Active
+5415,Apoptotic_cell -- M2_Phenotype -- Active
+6250,Apoptotic_cell -- M2_Phenotype -- Active
+7259,<nil>
+6082,<nil>
+5209,CD8_Tcell_activation -- Apoptotic_cell -- M2_Phenotype -- Active
+6044,Active
+2492,Virus_inside -- Virus_replication -- Chemokin_secretion
+5921,<nil>
+2402,<nil>
+5337,<nil>
+3235,<nil>
+2758,Virus_inside -- Virus_replication -- Chemokin_secretion
+6215,<nil>
+7596,<nil>
+4001,Apoptotic_cell -- M2_Phenotype -- Active
+7391,Phagocytosis -- Apoptotic_cell
+2761,Virus_inside -- Virus_replication -- Chemokin_secretion
+3620,Apoptotic_cell -- M2_Phenotype -- Active
+7370,<nil>
+6768,Apoptotic_cell -- M2_Phenotype -- Active
+2893,Active
+6953,<nil>
+7034,<nil>
+3777,Apoptotic_cell -- M2_Phenotype -- Active
+7230,Active
+7209,<nil>
+6873,Apoptotic_cell -- M2_Phenotype -- Active
+7240,<nil>
+7311,Active
+2778,<nil>
+6854,<nil>
+7255,<nil>
+7557,<nil>
+7379,<nil>
+1464,<nil>
+7239,<nil>
+1466,<nil>
+1467,<nil>
+1468,<nil>
+1469,<nil>
+6962,<nil>
+7578,<nil>
+7347,<nil>
+6275,<nil>
+5480,<nil>
+6923,<nil>
+7417,<nil>
+6253,CD8_Tcell_activation -- Apoptotic_cell -- M2_Phenotype -- Active
+6541,<nil>
+6644,Apoptotic_cell -- M2_Phenotype -- Active
+5793,<nil>
+6606,Active
+2717,Virus_inside -- Virus_replication -- Chemokin_secretion
+7364,<nil>
+6197,<nil>
+7500,<nil>
+2557,<nil>
+6712,Phagocytosis -- Apoptotic_cell
+4854,Apoptotic_cell -- M2_Phenotype -- Active
+3132,<nil>
+6673,<nil>
+2896,Active
+6314,<nil>
+6636,<nil>
+2306,Virus_inside -- Virus_replication -- Chemokin_secretion
+2637,Virus_inside -- Virus_replication -- Chemokin_secretion
+6623,<nil>
+2998,Phagocytosis -- Apoptotic_cell
+2897,Active
+2895,Active
+6732,<nil>
+6702,<nil>
+2701,<nil>
+2658,Virus_inside -- Virus_replication -- Chemokin_secretion
+2601,<nil>
+2765,Virus_inside -- Virus_replication -- Chemokin_secretion
+6018,<nil>
+6234,<nil>
+6355,<nil>
+6080,Apoptotic_cell -- M2_Phenotype -- Active
+2590,Virus_inside -- Virus_replication -- Chemokin_secretion
+7420,<nil>
+6580,<nil>
+6550,Active
+7432,<nil>
+1515,<nil>
+1516,<nil>
+1517,<nil>
+1518,<nil>
+1519,Virus_inside -- Virus_replication -- Chemokin_secretion
+6659,<nil>
+6326,<nil>
+6407,Active
+6488,Apoptotic_cell -- M2_Phenotype -- Active
+6392,<nil>
+5487,Active
+6497,<nil>
+7359,<nil>
+5885,<nil>
+5040,Apoptotic_cell -- M2_Phenotype -- Active
+6880,<nil>
+7526,Phagocytosis -- Apoptotic_cell
+7270,<nil>
+6506,Active
+6597,<nil>
+6545,Active
+6910,Apoptotic_cell -- M2_Phenotype -- Active
+2746,<nil>
+3240,<nil>
+6108,Active
+7565,<nil>
+7350,<nil>
+7588,<nil>
+7363,Active
+6476,<nil>
+7143,Active
+3190,<nil>
+3189,<nil>
+2560,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+6195,Active
+6813,Active
+2487,Virus_inside -- Virus_replication -- Chemokin_secretion
+2742,<nil>
+2448,<nil>
+2759,Virus_inside -- Virus_replication -- Chemokin_secretion
+5752,Active
+7529,<nil>
+7123,<nil>
+6744,<nil>
+6660,<nil>
+6640,<nil>
+6690,<nil>
+7201,<nil>
+1563,<nil>
+1564,<nil>
+1565,<nil>
+1566,<nil>
+1567,<nil>
+6494,<nil>
+6908,<nil>
+1570,Virus_inside -- Virus_replication -- Chemokin_secretion
+1571,Virus_inside -- Virus_replication -- Chemokin_secretion
+7470,Active
+7475,Active
+6532,<nil>
+1958,<nil>
+5876,<nil>
+5499,<nil>
+6696,<nil>
+6833,Active
+5810,<nil>
+2405,Virus_inside -- Virus_replication -- Chemokin_secretion
+6978,<nil>
+5347,Active
+2718,Virus_inside -- Virus_replication -- Chemokin_secretion
+3797,Apoptotic_cell -- M2_Phenotype -- Active
+2782,<nil>
+2300,<nil>
+7523,<nil>
+2889,Active
+2885,Active
+2202,<nil>
+2914,Active
+6836,Active
+2916,Active
+2883,Active
+2762,Virus_inside -- Virus_replication -- Chemokin_secretion
+6225,<nil>
+7498,Active
+2640,<nil>
+7559,<nil>
+5756,<nil>
+7151,Active
+2647,<nil>
+2603,<nil>
+2750,<nil>
+7445,<nil>
+5604,<nil>
+2739,<nil>
+7483,<nil>
+7150,<nil>
+6823,<nil>
+1612,<nil>
+1613,<nil>
+1614,<nil>
+1615,<nil>
+1616,<nil>
+1617,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+1618,Virus_inside -- Virus_replication -- Chemokin_secretion
+1619,Virus_inside -- Virus_replication -- Chemokin_secretion
+7055,<nil>
+6881,Active
+6263,<nil>
+7104,<nil>
+2350,<nil>
+1860,<nil>
+5914,<nil>
+2743,<nil>
+2769,Virus_inside -- Virus_replication -- Chemokin_secretion
+5559,<nil>
+7340,<nil>
+2496,<nil>
+6156,<nil>
+7496,<nil>
+4371,CD8_Tcell_activation -- Apoptotic_cell -- M2_Phenotype -- Active
+2706,Virus_inside -- Virus_replication
+2546,<nil>
+2927,Active
+7439,Active
+6951,Active
+1909,<nil>
+4846,<nil>
+2452,<nil>
+6499,Active
+2606,<nil>
+2703,<nil>
+2504,<nil>
+2593,<nil>
+7368,Apoptotic_cell -- M2_Phenotype -- Active
+7254,<nil>
+7262,<nil>
+5734,<nil>
+5971,<nil>
+7190,<nil>
+7333,Phagocytosis -- Apoptotic_cell
+6981,<nil>
+6196,<nil>
+7319,<nil>
+7243,<nil>
+2662,Virus_inside -- Virus_replication -- Chemokin_secretion
+7134,Apoptotic_cell -- M2_Phenotype -- Active
+6729,<nil>
+1662,<nil>
+1663,<nil>
+1664,<nil>
+1665,<nil>
+1666,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+1667,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+1668,Virus_inside -- Virus_replication -- Chemokin_secretion
+1669,Virus_inside -- Virus_replication -- Chemokin_secretion
+1670,Virus_inside -- Virus_replication -- Chemokin_secretion
+7172,<nil>
+6730,Active
+4121,Apoptotic_cell -- M2_Phenotype -- Active
+7447,Active
+2728,<nil>
+7136,<nil>
+6827,<nil>
+6651,<nil>
+2784,<nil>
+6822,<nil>
+6984,<nil>
+5787,Apoptotic_cell -- M2_Phenotype -- Active
+7019,<nil>
+2540,Virus_inside -- Virus_replication -- Chemokin_secretion
+2692,<nil>
+6451,<nil>
+2674,Virus_inside -- Virus_replication -- Chemokin_secretion
+7567,Apoptotic_cell -- M2_Phenotype -- Active
+2498,<nil>
+2357,Virus_inside -- Virus_replication -- Chemokin_secretion
+2904,Active
+7406,Active
+6988,<nil>
+2776,<nil>
+7345,Active
+2609,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached -- Apoptosis_type_I
+6370,<nil>
+2752,<nil>
+2613,Virus_inside -- Virus_replication -- Chemokin_secretion
+2642,<nil>
+6933,Active
+6251,<nil>
+7146,Active
+5781,Active
+5231,Apoptotic_cell -- M2_Phenotype -- Active
+6501,Active
+6771,<nil>
+6742,<nil>
+1709,<nil>
+1710,<nil>
+1711,<nil>
+1712,<nil>
+1713,<nil>
+1714,<nil>
+1715,<nil>
+7250,Active
+6352,Apoptotic_cell -- M2_Phenotype -- Active
+7328,<nil>
+6679,<nil>
+5654,<nil>
+6226,<nil>
+5874,Active
+6071,Active
+2501,<nil>
+5465,Apoptotic_cell -- M2_Phenotype -- Active
+2789,<nil>
+7486,Phagocytosis -- Apoptotic_cell
+7159,Active
+6400,Apoptotic_cell -- M2_Phenotype -- Active
+2521,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached -- Apoptosis_type_I
+7351,<nil>
+7302,<nil>
+7054,<nil>
+2549,<nil>
+2684,Virus_inside -- Virus_replication
+7225,<nil>
+2453,<nil>
+3013,Apoptotic_cell -- M2_Phenotype -- Active
+2698,<nil>
+2878,Active
+2696,<nil>
+7525,Active
+6708,<nil>
+7413,<nil>
+5888,Apoptotic_cell -- M2_Phenotype -- Active
+6462,<nil>
+2595,<nil>
+2055,<nil>
+2724,Virus_inside
+2894,Active
+5806,<nil>
+6577,<nil>
+6802,<nil>
+7450,Active
+2694,<nil>
+1908,<nil>
+2155,<nil>
+1758,<nil>
+6688,Phagocytosis -- Apoptotic_cell
+7293,Active
+1761,<nil>
+1762,<nil>
+7530,<nil>
+1764,<nil>
+1765,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+7454,<nil>
+6129,Apoptotic_cell -- M2_Phenotype -- Active
+6661,<nil>
+6724,<nil>
+6814,<nil>
+5930,<nil>
+6791,Active
+5760,Apoptotic_cell -- M2_Phenotype -- Active
+5795,<nil>
+7484,<nil>
+7158,<nil>
+7468,<nil>
+3836,Apoptotic_cell -- M2_Phenotype -- Active
+2495,<nil>
+7548,Active
+6574,<nil>
+2502,<nil>
+7504,<nil>
+7381,<nil>
+2756,Virus_inside -- Virus_replication -- Chemokin_secretion
+5819,Active
+2203,<nil>
+2558,<nil>
+2157,<nil>
+2659,Virus_inside -- Virus_replication -- Chemokin_secretion
+2777,<nil>
+6766,<nil>
+2552,Virus_inside -- Virus_replication
+2740,<nil>
+2561,Virus_inside -- Virus_replication -- Chemokin_secretion -- TCell_attached
+2639,<nil>
+6471,<nil>
+7252,Active
+2792,<nil>
+2497,<nil>
+6582,Phagocytosis -- Apoptotic_cell
+6088,<nil>
+6518,Active
+6061,Apoptotic_cell -- M2_Phenotype -- Active
+6633,<nil>
+6336,Active
+6648,<nil>
+1808,<nil>
+6520,<nil>
+1810,<nil>
+1811,Virus_inside -- Virus_replication
+1812,<nil>
+7142,Phagocytosis -- Apoptotic_cell
+6573,<nil>
+7310,CD8_Tcell_activation -- Phagocytosis -- Apoptotic_cell
+7164,<nil>
+7273,<nil>
+2693,<nil>
+5785,Apoptotic_cell -- M2_Phenotype -- Active
+7191,<nil>
+6153,<nil>
+6641,Apoptotic_cell -- M2_Phenotype -- Active
+6579,<nil>
+6925,Active
+6705,Apoptotic_cell -- M2_Phenotype -- Active
+2695,<nil>
+2705,<nil>
+7412,Active
+6244,Apoptotic_cell -- M2_Phenotype -- Active
+7272,Active
+2628,Virus_inside
+6344,<nil>
+5792,Active
+5979,<nil>
+5755,Active
+7493,<nil>
+6798,<nil>
+7218,Active
+6944,<nil>
+7213,<nil>
+5526,<nil>
+6616,<nil>
+6970,<nil>
+7176,<nil>
+6379,<nil>
+6681,<nil>
+6980,Active
+7437,Active
+6435,<nil>
+6441,Apoptotic_cell -- M2_Phenotype -- Active
+6442,<nil>
+6448,Apoptotic_cell -- M2_Phenotype -- Active
+6449,Active
+6637,<nil>
+7053,Active
+6760,Apoptotic_cell -- M2_Phenotype -- Active
+7015,<nil>
+7120,<nil>
+6972,<nil>
+6819,<nil>
+7414,Phagocytosis -- Apoptotic_cell
+6907,<nil>
+6940,<nil>
+7423,<nil>
+6829,Apoptotic_cell -- M2_Phenotype -- Active
+6832,Apoptotic_cell -- M2_Phenotype -- Active
+6840,Active
+6841,<nil>
+6842,<nil>
+6845,Phagocytosis -- Apoptotic_cell
+7246,<nil>
+6856,<nil>
+7111,Active
+7429,Phagocytosis -- Apoptotic_cell
+7320,<nil>
+7085,Active
+7014,Active
+7205,<nil>
+6864,<nil>
+7489,<nil>
+6868,Active
+6869,<nil>
+6870,<nil>
+7427,Active
+6897,Apoptotic_cell -- M2_Phenotype -- Active
+7541,<nil>
+6905,Apoptotic_cell -- M2_Phenotype -- Active
+6942,Apoptotic_cell -- M2_Phenotype -- Active
+6943,Active
+6948,<nil>
+6955,Phagocytosis -- Apoptotic_cell -- Active
+6956,Active
+7365,Active
+7410,<nil>
+7597,<nil>
+7010,<nil>
+7129,Active
+7021,Apoptotic_cell -- M2_Phenotype -- Active
+7569,<nil>
+7026,Phagocytosis -- Apoptotic_cell
+7408,Active
+7028,<nil>
+7029,<nil>
+7117,<nil>
+7260,Phagocytosis -- Apoptotic_cell
+7126,<nil>
+7127,<nil>
+7284,Active
+7132,<nil>
+7133,<nil>
+7188,CD8_Tcell_activation -- Phagocytosis -- Apoptotic_cell -- Active
+7377,Active
+7358,<nil>
+7211,Active
+7212,<nil>
+7231,Phagocytosis -- Apoptotic_cell
+7232,<nil>
+7233,<nil>
+7234,<nil>
+7247,Phagocytosis -- Apoptotic_cell
+7521,<nil>
+7251,Phagocytosis -- Apoptotic_cell
+7463,CD8_Tcell_activation -- Phagocytosis -- Apoptotic_cell -- Active
+7464,Active
+7465,<nil>
+7466,<nil>
+7585,<nil>
+7586,<nil>
+7589,<nil>
+7593,<nil>
+7594,Active
+7598,<nil>
+7599,<nil>
+7600,<nil>
+7601,<nil>
+7603,<nil>
+7604,<nil>

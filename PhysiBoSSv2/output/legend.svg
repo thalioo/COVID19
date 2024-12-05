@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with PhysiCell (http://PhysiCell.MathCancer.org/) -->
+<svg 
+ xmlns:dc="http://purl.org/dc/elements/1.1/" 
+ xmlns:cc="http://creativecommons.org/ns#" 
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+ xmlns:svg="http://www.w3.org/2000/svg" 
+ xmlns="http://www.w3.org/2000/svg" 
+ version="1.1" 
+ width="1440" 
+ height="650" 
+ id="svg2">
+  <circle cx="32.5" cy="32.5" r="25" stroke-width="1" stroke="black" fill="white"/>
+  <circle cx="32.5" cy="32.5" r="12.5" stroke-width="1" stroke="white" fill="white"/>
+  <text x="72.5" y="45.25"
+   font-family="Arial" font-size="42.5" fill="black" >
+   default
+  </text>
+  <circle cx="32.5" cy="97.5" r="25" stroke-width="1" stroke="black" fill="rgb(0,0,255)"/>
+  <circle cx="32.5" cy="97.5" r="12.5" stroke-width="1" stroke="rgb(0,0,255)" fill="rgb(0,0,255)"/>
+  <text x="72.5" y="110.25"
+   font-family="Arial" font-size="42.5" fill="black" >
+   lung epithelium
+  </text>
+  <circle cx="32.5" cy="162.5" r="25" stroke-width="1" stroke="black" fill="white"/>
+  <circle cx="32.5" cy="162.5" r="12.5" stroke-width="1" stroke="white" fill="white"/>
+  <text x="72.5" y="175.25"
+   font-family="Arial" font-size="42.5" fill="black" >
+   immune
+  </text>
+  <circle cx="32.5" cy="227.5" r="25" stroke-width="1" stroke="black" fill="red"/>
+  <circle cx="32.5" cy="227.5" r="12.5" stroke-width="1" stroke="red" fill="red"/>
+  <text x="72.5" y="240.25"
+   font-family="Arial" font-size="42.5" fill="black" >
+   CD8 Tcell
+  </text>
+  <circle cx="32.5" cy="292.5" r="25" stroke-width="1" stroke="black" fill="rgb(35,139,69)"/>
+  <circle cx="32.5" cy="292.5" r="12.5" stroke-width="1" stroke="rgb(35,139,69)" fill="rgb(35,139,69)"/>
+  <text x="72.5" y="305.25"
+   font-family="Arial" font-size="42.5" fill="black" >
+   macrophage
+  </text>
+  <circle cx="32.5" cy="357.5" r="25" stroke-width="1" stroke="black" fill="cyan"/>
+  <circle cx="32.5" cy="357.5" r="12.5" stroke-width="1" stroke="cyan" fill="cyan"/>
+  <text x="72.5" y="370.25"
+   font-family="Arial" font-size="42.5" fill="black" >
+   neutrophil
+  </text>
+  <circle cx="32.5" cy="422.5" r="25" stroke-width="1" stroke="black" fill="rgb(129,15,124)"/>
+  <circle cx="32.5" cy="422.5" r="12.5" stroke-width="1" stroke="rgb(129,15,124)" fill="rgb(129,15,124)"/>
+  <text x="72.5" y="435.25"
+   font-family="Arial" font-size="42.5" fill="black" >
+   DC
+  </text>
+  <circle cx="32.5" cy="487.5" r="25" stroke-width="1" stroke="black" fill="orange"/>
+  <circle cx="32.5" cy="487.5" r="12.5" stroke-width="1" stroke="orange" fill="orange"/>
+  <text x="72.5" y="500.25"
+   font-family="Arial" font-size="42.5" fill="black" >
+   CD4 Tcell
+  </text>
+  <circle cx="32.5" cy="552.5" r="25" stroke-width="1" stroke="black" fill="blueviolet"/>
+  <circle cx="32.5" cy="552.5" r="12.5" stroke-width="1" stroke="blueviolet" fill="blueviolet"/>
+  <text x="72.5" y="565.25"
+   font-family="Arial" font-size="42.5" fill="black" >
+   fibroblast
+  </text>
+  <circle cx="32.5" cy="617.5" r="25" stroke-width="1" stroke="black" fill="black"/>
+  <circle cx="32.5" cy="617.5" r="12.5" stroke-width="1" stroke="black" fill="black"/>
+  <text x="72.5" y="630.25"
+   font-family="Arial" font-size="42.5" fill="black" >
+   residual
+  </text>
+</svg>
