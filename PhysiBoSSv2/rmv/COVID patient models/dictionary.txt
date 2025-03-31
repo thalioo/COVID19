@@ -1,0 +1,2 @@
+C141	Mild patient
+C143	Severe patient
