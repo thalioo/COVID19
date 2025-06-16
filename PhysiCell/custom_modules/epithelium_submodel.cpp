@@ -171,7 +171,7 @@ void epithelium_submodel_setup( void )
 		// register the submodel  
 	epithelium_submodel_info.register_model();	
 		// set functions for the corresponding cell definition 
-	pCD = find_cell_definition( "lung epithelium" ); 
+	pCD = find_cell_definition( "EPITHELIAL" ); 
 	pCD->functions.update_phenotype = epithelium_submodel_info.phenotype_function;
 	pCD->functions.custom_cell_rule = epithelium_submodel_info.mechanics_function;
 	pCD->functions.contact_function = epithelium_contact_function; 

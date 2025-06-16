@@ -104,6 +104,19 @@ std::vector<double> set_nudge_from_edge( Cell* pC , double tolerance )
 	return nudge;
 }
 
+
+// AÑADIDA 
+void initialize_secretion_vectors(Cell* pC)
+{
+	int n = microenvironment.number_of_densities();
+	pC->phenotype.secretion.secretion_rates.resize(n, 0.0);
+	pC->phenotype.secretion.uptake_rates.resize(n, 0.0);
+	pC->phenotype.secretion.saturation_densities.resize(n, 0.0);
+}
+
+
+
+
 void nudge_out_of_bounds_cell( Cell* pC , double tolerance )
 {
 	std::vector<double> nudge = set_nudge_from_edge(pC,tolerance); 
@@ -267,6 +280,8 @@ void choose_initialized_voxels( void )
 	return;
 }
 
+// COMENTADAS:
+/*
 void create_infiltrating_immune_cell( Cell_Definition* pCD )
 {
 	Cell* pC = create_cell( *pCD ); 
@@ -322,7 +337,70 @@ void create_infiltrating_immune_cell_initial( Cell_Definition* pCD )
 	
 	return; 
 }
+*/
 
+// AÑADIDAS:
+
+void create_infiltrating_immune_cell(Cell_Definition* pCD)
+{
+	Cell* pC = create_cell(*pCD); 
+	
+	initialize_secretion_vectors(pC); // ← AÑADIDO
+
+	std::vector<double> position = choose_vascularized_position();
+	pC->assign_position(position);
+	
+	return; 
+}
+
+
+
+void create_infiltrating_immune_cell_initial(Cell_Definition* pCD)
+{
+	Cell* pC = create_cell(*pCD); 
+	
+	initialize_secretion_vectors(pC); // ← AÑADIDO
+
+	// randomly place cell initially
+	double Xmin = microenvironment.mesh.bounding_box[0]; 
+	double Ymin = microenvironment.mesh.bounding_box[1]; 
+	double Zmin = microenvironment.mesh.bounding_box[2]; 
+
+	double Xmax = microenvironment.mesh.bounding_box[3]; 
+	double Ymax = microenvironment.mesh.bounding_box[4]; 
+	double Zmax = microenvironment.mesh.bounding_box[5]; 
+	
+	if (default_microenvironment_options.simulate_2D == true)
+	{
+		Zmin = 0.0; 
+		Zmax = 0.0; 
+	}
+	
+	double Xrange = (Xmax - Xmin); 
+	double Yrange = (Ymax - Ymin); 
+	double Zrange = (Zmax - Zmin); 
+	
+	// keep cells away from the outer edge 
+	Xmin += 0.1 * Xrange; 
+	Ymin += 0.1 * Yrange; 
+	Zmin = 0;
+	
+	Xrange *= 0.8;
+	Yrange *= 0.8;
+	Zrange = 0.0; 
+	
+	std::vector<double> position = {0, 0, 0}; 
+	position[0] = Xmin + UniformRandom() * Xrange; 
+	position[1] = Ymin + UniformRandom() * Yrange; 
+
+	pC->assign_position(position);
+	
+	return; 
+}
+
+
+
+/*
 std::vector<double> choose_vascularized_position( void )
 {
 	//extern std::vector<int> vascularized_voxel_indices;
@@ -338,6 +416,28 @@ void create_infiltrating_immune_cell( std::string cell_name )
 	
 	return;
 }
+*/
+
+std::vector<double> choose_vascularized_position(void)
+{
+    if (vascularized_voxel_indices.empty())
+    {
+        std::cout << "ERROR: No vascularized voxels available!" << std::endl;
+        return {0.0, 0.0, 0.0}; // posición por defecto o lanza excepción
+    }
+
+    int my_voxel_index = (int)(UniformRandom() * vascularized_voxel_indices.size());
+    int n = vascularized_voxel_indices[my_voxel_index];
+
+    if (n < 0 || n >= microenvironment.mesh.voxels.size())
+    {
+        std::cout << "ERROR: Index n out of bounds: " << n << std::endl;
+        return {0.0, 0.0, 0.0};
+    }
+
+    return microenvironment.mesh.voxels[n].center;
+}
+
 
 void create_infiltrating_neutrophil(void)
 {
@@ -1909,7 +2009,7 @@ void keep_immune_cells_off_edge( void )
 		setup_done = true; 
 	}
 	
-	static int epithelial_type = get_cell_definition( "lung epithelium" ).type; 
+	static int epithelial_type = get_cell_definition( "EPITHELIAL" ).type; 
 
 	for( int n=0 ; n < (*all_cells).size() ; n++ )
 	{

@@ -78,12 +78,12 @@
 		<x_max>400</x_max>
 		<y_min>-400</y_min>
 		<y_max>400</y_max>
-		<z_min>-10</z_min>
-		<z_max>10</z_max>
+		<z_min>-20</z_min>
+		<z_max>40</z_max>
 		<dx>20</dx>
 		<dy>20</dy>
 		<dz>20</dz>
-		<use_2D>true</use_2D>
+		<use_2D>false</use_2D>
 	</domain>
 	
 	<overall>
@@ -91,7 +91,7 @@
 		<time_units>min</time_units>
 		<space_units>micron</space_units>
 	
-		<dt_diffusion units="min">0.01</dt_diffusion>
+		<dt_diffusion units="min">0.1</dt_diffusion>
 		<dt_mechanics units="min">0.1</dt_mechanics>
 		<dt_phenotype units="min">6</dt_phenotype>	
 	</overall>
@@ -105,7 +105,7 @@
 	</options>	
 	
 	<save>
-		<folder>output_C143</folder> <!-- use . for root --> 
+		<folder>output_C143_05</folder> <!-- use . for root --> 
 
 		<full_data>
 			<interval units="min">60</interval>
@@ -307,7 +307,7 @@
 					
 					<options>
 						<enabled>false</enabled>
-						<use_2D>true</use_2D>
+						<use_2D>false</use_2D>
 						<chemotaxis>
 							<enabled>false</enabled>
 							<substrate>chemokine</substrate>
@@ -558,7 +558,7 @@
 			</custom_data>
 		</cell_definition>
 		
-		<cell_definition name="lung epithelium" parent_type="default" ID="1">
+		<cell_definition name="EPITHELIAL" parent_type="default" ID="1">
 			<phenotype>
 				<death>
 					<model code="100" name="apoptosis"> 
@@ -605,7 +605,7 @@
 					<migration_bias units="dimensionless">0.70</migration_bias>
 					<options>
 						<enabled>true</enabled>
-						<use_2D>true</use_2D>
+						<use_2D>false</use_2D>
 						<chemotaxis>
 							<enabled>true</enabled>
 							<substrate>chemokine</substrate>
@@ -643,7 +643,7 @@
 					<migration_bias units="dimensionless">0.70</migration_bias>
 					<options>
 						<enabled>true</enabled>
-						<use_2D>true</use_2D>
+						<use_2D>false</use_2D>
 						<chemotaxis>
 							<enabled>true</enabled>
 							<substrate>chemokine</substrate>
@@ -685,7 +685,7 @@
 					<persistence_time>5</persistence_time>
 					<options>
 						<enabled>true</enabled>
-						<use_2D>true</use_2D>					
+						<use_2D>false</use_2D>					
 						<chemotaxis>
 							<enabled>true</enabled>
 							<substrate>debris</substrate> 
@@ -738,7 +738,7 @@
 					<persistence_time>5</persistence_time>
 					<options>
 						<enabled>true</enabled>
-						<use_2D>true</use_2D>					
+						<use_2D>false</use_2D>					
 						<chemotaxis>
 							<enabled>true</enabled>
 							<substrate>debris</substrate>  
@@ -796,7 +796,7 @@
 					<persistence_time>5</persistence_time>
 					<options>
 						<enabled>true</enabled>
-						<use_2D>true</use_2D>					
+						<use_2D>false</use_2D>					
 						<chemotaxis>
 							<enabled>true</enabled>
 							<substrate>chemokine</substrate>  
@@ -841,7 +841,7 @@
 					<migration_bias units="dimensionless">0.70</migration_bias>
 					<options>
 						<enabled>true</enabled>
-						<use_2D>true</use_2D>
+						<use_2D>false</use_2D>
 						<chemotaxis>
 							<enabled>true</enabled>
 							<substrate>chemokine</substrate>
@@ -882,7 +882,7 @@
 					<migration_bias units="dimensionless">0.70</migration_bias>
 					<options>
 						<enabled>true</enabled>
-						<use_2D>true</use_2D>
+						<use_2D>false</use_2D>
 						<chemotaxis>
 							<enabled>true</enabled>
 							<substrate>anti-inflammatory cytokine</substrate>
@@ -911,6 +911,13 @@
 		
 	</cell_definitions>
 	
+
+	<initial_conditions>
+        <cell_positions enabled="false" type="csv">
+            <folder>./config</folder>
+            <filename>esferas_3d.csv</filename>
+        </cell_positions>
+    </initial_conditions>
 	
 	
 	<user_parameters>
@@ -965,7 +972,7 @@
 		
 		<div_initialization type="divider" description="---Initialization Options--"/>
 			<multiplicity_of_infection type="double" units="none" 
-				description="multiplicity of infection: virions/cells at t=0">0.1</multiplicity_of_infection> <!-- 0.01 debug -->
+				description="multiplicity of infection: virions/cells at t=0">0.5</multiplicity_of_infection> <!-- 0.01 debug -->
 			<use_single_infected_cell type="bool" units="none" 
 				description="Infect center cell with one virion (overrides MOI)">false</use_single_infected_cell>
 			

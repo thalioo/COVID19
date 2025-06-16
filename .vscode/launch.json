@@ -1,0 +1,175 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) COVID",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/COVID19",
+            "args": [
+                "config/PhysiCell_settings_.xml"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "args": [
+                "--project", "gastric",
+                // "--drugs", "AKT_inhibitor_VIII, BIRB0796, CT99021, Oxozeaenol, PKF118, PI103, PD0325901",
+                "--drugs", "AKT_inhibitor_VIII, BIRB0796",
+                "--mode", "both",
+                "--levels", "0",
+                "--cell_line", "AGS",
+                "--cluster", "True",
+                // "-s","../../sample_projects/gastric/config/gastric_drug_sensitivity2.csv"
+                "-s","./sample_projects/gastric/config/gastric_drug_sensitivity2.csv"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "(gdb) AGS AKT",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/physiboss_drugsim_gastric_AGS",
+            "args": [
+                "config/settings_AGS_AKT.xml"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "(gdb) AGS doble",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/physiboss_drugsim_gastric_AGS",
+            "args": [
+                "config/settings_AGS_PI103_PD0325901.xml"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "(gdb) AGS PIzero",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/physiboss_drugsim_gastric_AGS",
+            "args": [
+                "config/settings_AGS_PI103_zero.xml"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "(gdb) AGS WT",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/physiboss_drugsim_gastric_AGS",
+            "args": [
+                "config/settings_AGS_WT.xml"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "(gdb) LNCaP",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/physiboss_drugsim_gastric_AGS",
+            "args": [
+                "config/PhysiCell_settings_LNCaP.xml"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "(gdb) AGS config",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/physiboss_drugsim_gastric_AGS",
+            "args": [
+                "config/settings_AGS_PI103.xml"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,2814 @@
+Using config file ./config/PhysiCell_settings.xml ... 
+0
+dc? 0
+User parameters in XML config file: 
+Bool parameters:: 
+use_single_infected_cell: 0 [none]
+
+Int parameters:: 
+random_seed: 0 [dimensionless]
+number_of_CD8_Tcells: 0 [none]
+number_of_macrophages: 50 [none]
+number_of_neutrophils: 0 [none]
+number_of_fibroblast: 0 [none]
+number_of_DCs: 28 [none]
+number_of_CD4_Tcells: 0 [none]
+virions_needed_for_DC_activation: 10 [virions]
+
+Double parameters:: 
+div_immune: 0 [dimensionless]
+immune_dt: 10 [min]
+immune_z_offset: 0 [micron]
+macrophage_max_recruitment_rate: 4e-09 [cells/min/micron^3]
+macrophage_recruitment_min_signal: 0.1 [substrate/micron^3]
+macrophage_recruitment_saturation_signal: 0.3 [substrate/micron^3]
+neutrophil_max_recruitment_rate: 4e-09 [cells/min/micron^3]
+neutrophil_recruitment_min_signal: 0.1 [substrate/micron^3]
+neutrophil_recruitment_saturation_signal: 0.3 [substrate/micron^3]
+CD8_Tcell_max_recruitment_rate: 4e-09 [cells/min/micron^3]
+CD8_Tcell_recruitment_min_signal: 0.4 [substrate/micron^3]
+CD8_Tcell_recruitment_saturation_signal: 0.7 [substrate/micron^3]
+TC_death_rate: 1.4e-06 [cells/min]
+max_activation_TC: 0.003 [cells/min]
+half_max_activation_TC: 2000 [cells]
+max_clearance_TC: 0.0007 [cells/min]
+half_max_clearance_TC: 200 [cells]
+TC_population_threshold: 10 [cells]
+T_Cell_Recruitment: 0.00011 [cells/min]
+DM_decay: 0.00035 [cells/min]
+fibroblast_max_recruitment_rate: 4e-09 [cells/min/micron^3]
+fibroblast_recruitment_min_signal: 0.1 [substrate/micron^3]
+fibroblast_recruitment_saturation_signal: 0.4 [substrate/micron^3]
+div_initialization: 0 [dimensionless]
+multiplicity_of_infection: 0.1 [none]
+DC_induced_CD8_proliferation: 0.00208 [cells/min/micron^3]
+DC_induced_CD8_attachment: 0.6 [cells/min/micron^3]
+departure_rate_of_DCs: 0.001 [cells/min/micron^3]
+epsilon_distance: 1.75 [dimensionless]
+perecentage_tissue_vascularized: 8.8 [percentage]
+m_inhibition_percentage: 0 [dimensionless]
+fadd_inhibition_percentage: 0 [dimensionless]
+div_colors: 0 [dimensionless]
+epithelial_opacity: 0.65 [dimensionless]
+non_epithelial_opacity: 0.8 [dimensionless]
+
+String parameters:: 
+color_variable: assembled_virion [dimensionless]
+apoptotic_epithelium_color: black [dimensionless]
+apoptotic_immune_color: rosybrown [dimensionless]
+pyroptotic_epithelium_color: darkorange [dimensionless]
+pyroptotic_bystander_epithelium_color: darkred [dimensionless]
+vi_apoptotic_epithelium_color: forestgreen [dimensionless]
+CD8_Tcell_color: red [dimensionless]
+CD4_Tcell_color: orange [dimensionless]
+Macrophage_color: rgb(35,139,69) [dimensionless]
+activated_macrophage_color: lime [dimensionless]
+exhausted_macrophage_color: rgb(116,196,118) [dimensionless]
+hyperactivated_macrophage_color: rgb(168,221,181) [dimensionless]
+Neutrophil_color: cyan [dimensionless]
+DC_color: rgb(129,15,124) [dimensionless]
+activated_DC_color: deeppink [dimensionless]
+fibroblast_color: blueviolet [dimensionless]
+
+
+which boundaries?
+0 0 0 0 0 0
+
+Microenvironment summary: microenvironment: 
+
+Mesh information: 
+type: uniform Cartesian
+Domain: [-400,400] micron x [-400,400] micron x [-10,10] micron
+   resolution: dx = 20 micron
+   voxels: 1600
+   voxel faces: 0
+   volume: 1.28e+07 cubic micron
+Densities: (9 total)
+   virion:
+     units: virion/micron^3
+     diffusion coefficient: 2.5 micron^2 / min
+     decay rate: 0 min^-1
+     diffusion length scale: 1.58114e+06 micron
+     initial condition: 0 virion/micron^3
+     boundary condition: 0 virion/micron^3 (enabled: false)
+   assembled virion:
+     units: virion/micron^3
+     diffusion coefficient: 2.5 micron^2 / min
+     decay rate: 0 min^-1
+     diffusion length scale: 1.58114e+06 micron
+     initial condition: 0 virion/micron^3
+     boundary condition: 0 virion/micron^3 (enabled: false)
+   interferon 1:
+     units: mol/micron^3
+     diffusion coefficient: 25 micron^2 / min
+     decay rate: 0.0102 min^-1
+     diffusion length scale: 49.5074 micron
+     initial condition: 0 mol/micron^3
+     boundary condition: 0 mol/micron^3 (enabled: false)
+   pro-inflammatory cytokine:
+     units: mol/micron^3
+     diffusion coefficient: 555.56 micron^2 / min
+     decay rate: 0.0102 min^-1
+     diffusion length scale: 233.381 micron
+     initial condition: 0 mol/micron^3
+     boundary condition: 0 mol/micron^3 (enabled: false)
+   chemokine:
+     units: mol/micron^3
+     diffusion coefficient: 555.56 micron^2 / min
+     decay rate: 0.0102 min^-1
+     diffusion length scale: 233.381 micron
+     initial condition: 0 mol/micron^3
+     boundary condition: 0 mol/micron^3 (enabled: false)
+   debris:
+     units: mol/micron^3
+     diffusion coefficient: 555.56 micron^2 / min
+     decay rate: 0.0102 min^-1
+     diffusion length scale: 233.381 micron
+     initial condition: 0 mol/micron^3
+     boundary condition: 0 mol/micron^3 (enabled: false)
+   pro-pyroptosis cytokine:
+     units: mol/micron^3
+     diffusion coefficient: 5.56 micron^2 / min
+     decay rate: 0.0102 min^-1
+     diffusion length scale: 23.3473 micron
+     initial condition: 0 mol/micron^3
+     boundary condition: 0 mol/micron^3 (enabled: false)
+   anti-inflammatory cytokine:
+     units: mol/micron^3
+     diffusion coefficient: 555.56 micron^2 / min
+     decay rate: 0.0102 min^-1
+     diffusion length scale: 233.381 micron
+     initial condition: 0 mol/micron^3
+     boundary condition: 0 mol/micron^3 (enabled: false)
+   collagen:
+     units: mol/micron^3
+     diffusion coefficient: 1e-06 micron^2 / min
+     decay rate: 0.0102 min^-1
+     diffusion length scale: 0.00990148 micron
+     initial condition: 0 mol/micron^3
+     boundary condition: 0 mol/micron^3 (enabled: false)
+
+Processing default ... 
+Note: setting cell definition to 2D based on microenvironment domain settings ... 
+Note: Overriding to set cell motility to 2D based on microenvironment domain settings ... 
+1 * grad( chemokine )
+Processing lung epithelium ... 
+	Inheriting from type default ... 
+Note: setting cell definition to 2D based on microenvironment domain settings ... 
+Note: Overriding to set cell motility to 2D based on microenvironment domain settings ... 
+Processing immune ... 
+	Inheriting from type default ... 
+Note: setting cell definition to 2D based on microenvironment domain settings ... 
+Note: Overriding to set cell motility to 2D based on microenvironment domain settings ... 
+1 * grad( chemokine )
+Processing CD8 Tcell ... 
+	Inheriting from type immune ... 
+Note: setting cell definition to 2D based on microenvironment domain settings ... 
+Note: Overriding to set cell motility to 2D based on microenvironment domain settings ... 
+1 * grad( chemokine )
+Processing macrophage ... 
+	Inheriting from type immune ... 
+Note: setting cell definition to 2D based on microenvironment domain settings ... 
+Note: Overriding to set cell motility to 2D based on microenvironment domain settings ... 
+1 * grad( debris )
+Processing neutrophil ... 
+	Inheriting from type immune ... 
+Note: setting cell definition to 2D based on microenvironment domain settings ... 
+Note: Overriding to set cell motility to 2D based on microenvironment domain settings ... 
+1 * grad( debris )
+Processing DC ... 
+	Inheriting from type immune ... 
+Note: setting cell definition to 2D based on microenvironment domain settings ... 
+Note: Overriding to set cell motility to 2D based on microenvironment domain settings ... 
+1 * grad( chemokine )
+Processing CD4 Tcell ... 
+	Inheriting from type immune ... 
+Note: setting cell definition to 2D based on microenvironment domain settings ... 
+Note: Overriding to set cell motility to 2D based on microenvironment domain settings ... 
+1 * grad( chemokine )
+Processing fibroblast ... 
+	Inheriting from type immune ... 
+Note: setting cell definition to 2D based on microenvironment domain settings ... 
+Note: Overriding to set cell motility to 2D based on microenvironment domain settings ... 
+1 * grad( anti-inflammatory cytokine )
+The following submodels are registered: 
+=======================================
+Submodel: CD8 Tcell model (Version 0.4.0)
+	microenvironment variables: 
+		virion
+		interferon 1
+		pro-inflammatory cytokine
+		chemokine
+	cell variables: 
+	functions: 
+		main: NULL
+		phenotype: 106829762614293
+		mechanics: 106829762614980
+
+Submodel: macrophage model (Version 0.4.0)
+	microenvironment variables: 
+		virion
+		interferon 1
+		pro-inflammatory cytokine
+		chemokine
+	cell variables: 
+	functions: 
+		main: NULL
+		phenotype: 106829762617506
+		mechanics: 106829762635869
+
+Submodel: neutrophil model (Version 0.4.0)
+	microenvironment variables: 
+		virion
+		interferon 1
+		pro-inflammatory cytokine
+		chemokine
+	cell variables: 
+	functions: 
+		main: NULL
+		phenotype: 106829762636536
+		mechanics: 106829762640466
+
+Submodel: DC model (Version 0.4.0)
+	microenvironment variables: 
+		virion
+		interferon 1
+		pro-inflammatory cytokine
+		chemokine
+	cell variables: 
+	functions: 
+		main: NULL
+		phenotype: 106829762641133
+		mechanics: 106829762645207
+
+Submodel: CD4 Tcell model (Version 0.4.0)
+	microenvironment variables: 
+		virion
+		interferon 1
+		pro-inflammatory cytokine
+		chemokine
+		virion
+		interferon 1
+		pro-inflammatory cytokine
+		chemokine
+	cell variables: 
+	functions: 
+		main: NULL
+		phenotype: 106829762645874
+		mechanics: 106829762645896
+
+Submodel: fibroblast model (Version 0.4.0)
+	microenvironment variables: 
+		virion
+		interferon 1
+		pro-inflammatory cytokine
+		chemokine
+	cell variables: 
+	functions: 
+		main: NULL
+		phenotype: 106829762646563
+		mechanics: 106829762647419
+
+Submodel: receptor dynamics (Version 0.4.0)
+	microenvironment variables: 
+		virion
+		assembled virion
+	cell variables: 
+		unbound_external_ACE2
+		bound_external_ACE2
+		unbound_internal_ACE2
+		bound_internal_ACE2
+		ACE2_binding_rate
+		ACE2_endocytosis_rate
+		ACE2_cargo_release_rate
+		ACE2_recycling_rate
+	functions: 
+		main: 106829762602518
+		phenotype: NULL
+		mechanics: NULL
+
+Submodel: internal viral replication dynamics (Version 0.4.0)
+	microenvironment variables: 
+		assembled virion
+	cell variables: 
+		virion
+		uncoated_virion
+		viral_RNA
+		viral_protein
+		assembled_virion
+		export_virion
+		virion_uncoating_rate
+		uncoated_to_RNA_rate
+		protein_synthesis_rate
+		virion_assembly_rate
+		virion_export_rate
+		max_RNA_replication_rate
+		RNA_replication_half
+		basal_RNA_degradation_rate
+	functions: 
+		main: NULL
+		phenotype: 106829762561883
+		mechanics: NULL
+
+Submodel: internal viral response (Version 0.4.0)
+	microenvironment variables: 
+	cell variables: 
+		max_infected_apoptosis_rate
+		max_apoptosis_half_max
+		apoptosis_hill_power
+	functions: 
+		main: NULL
+		phenotype: 106829762568788
+		mechanics: NULL
+
+Submodel: epithelium model (Version 0.4.0)
+	microenvironment variables: 
+		virion
+		interferon 1
+		pro-inflammatory cytokine
+		chemokine
+		anti-inflammatory cytokine
+		pro-pyroptosis cytokine
+	cell variables: 
+	functions: 
+		main: NULL
+		phenotype: 106829762673472
+		mechanics: 106829762675032
+
+
+0 :: type:0 name: default
+	 cycle model: Flow cytometry model (separated) (code=6)
+		Phase 0: G0/G1
+		Phase 1: S
+		Phase 2: G2
+		Phase 3: M
+		Cycle transitions: 
+		-----------------
+		G0/G1 --> S w mean duration inf min
+		S --> G2 w mean duration 480.001 min
+		G2 --> M w mean duration 240 min
+		M --> G0/G1 w mean duration 59.9999 min
+	 death models: 
+		0 : Apoptosis (code=100) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Apoptotic --> Debris w mean duration 516.001 min
+		1 : Necrosis (code=101) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Necrotic (swelling) --> Necrotic (lysed) w mean duration 1.11111e-10 min
+		Necrotic (lysed) --> Debris w mean duration 86399.8 min
+	 key functions: 
+		 migration bias rule: false
+		 custom rule: false
+		 phenotype rule: false
+		 volume update function: true
+		 mechanics function: true
+	motility (enabled: false in 2D)
+		speed: 4 micron/min
+		bias: 0.7 
+		persistence time: 5 min
+		chemotaxis (enabled: false)
+			along 1 * grad(chemokine) 
+	custom data: 
+		virion: 0 virions
+		uncoated_virion: 0 virions
+		viral_RNA: 0 RNA
+		viral_protein: 0 protein
+		export_virion: 0 virions
+		assembled_virion: 0 virions
+		virion_uncoating_rate: 0.01 1/min
+		uncoated_to_RNA_rate: 0.01 1/min
+		max_RNA_replication_rate: 3 1/min
+		RNA_replication_half: 200 virions
+		basal_RNA_degradation_rate: 0.01 1/min
+		protein_synthesis_rate: 0.01 1/min
+		virion_assembly_rate: 0.01 1/min
+		virion_export_rate: 0.01 1/min
+		unbound_external_ACE2: 1000 receptors
+		bound_external_ACE2: 0 receptors
+		unbound_internal_ACE2: 0 receptors
+		bound_internal_ACE2: 0 receptors
+		ACE2_binding_rate: 0.01 1/min
+		ACE2_endocytosis_rate: 0.01 1/min
+		ACE2_cargo_release_rate: 0.01 1/min
+		ACE2_recycling_rate: 0.01 1/min
+		max_infected_apoptosis_rate: 0.002 1/min
+		max_apoptosis_half_max: 250 virion
+		apoptosis_hill_power: 1 none
+		virus_fraction_released_at_death: 0 none
+		infected_cell_chemokine_secretion_rate: 1 1/min
+		debris_secretion_rate: 1 1/min
+		infected_cell_chemokine_secretion_activated: 0 none
+		nuclear_NFkB: 0.25 a.u. of concentration
+		inactive_NLRP3: 0 a.u. of concentration
+		active_NLRP3: 0 a.u. of concentration
+		bound_NLRP3: 0 a.u. of concentration
+		bound_ASC: 0 a.u. of concentration
+		bound_caspase1: 0 a.u. of concentration
+		cleaved_gasderminD: 0 a.u. of concentration
+		pro_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_1b: 0 a.u. of concentration
+		external_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_18: 0 a.u. of concentration
+		external_IL_18: 0 a.u. of concentration
+		cytoplasmic_volume: 2494 a.u. of volume
+		cell_pyroptosis_flag: 0 dimensionless
+		cell_bystander_pyroptosis_flag: 0 dimensionless
+		cell_virus_induced_apoptosis_flag: 0 dimensionless
+		internalised_pro_pyroptosis_cytokine: 0 none
+		interferon_secretion_rate_via_infection: 0.05 1/min
+		max_interferon_secretion_rate_via_paracrine: 0.5 1/min
+		interferon_max_response_threshold: 1 dimensionless
+		interferon_activation: 0 dimensionless
+		interferon_max_virus_inhibition: 0.9 dimensionless
+		interferon_viral_RNA_threshold: 100 dimensionless
+		interferon_viral_RNA_detection: 1 dimensionless
+		TCell_detection: 10 protein
+		TCell_contact_time: 0 min
+		cell_attachment_rate: 0 1/min
+		cell_attachment_lifetime: 0 min
+		TCell_contact_death_threshold: 50 min
+		max_attachment_distance: 15 micron
+		elastic_attachment_coefficient: 0.01 1/min
+		time_to_next_phagocytosis: 0 min
+		material_internalisation_rate: 1 micron/min
+		threshold_macrophage_volume: 6500 micron
+		threshold_neutrophil_volume: 1581 micron
+		exhausted_macrophage_death_rat: 0.01 1/min
+		ability_to_phagocytose_infected_cell: 0 dimensionless
+		time_of_DC_departure: 0 min
+		phagocytosis_rate: 0.167 1/min
+		sensitivity_to_debris_chemotaxis: 1 dimensionless
+		sensitivity_to_chemokine_chemotaxis: 10 dimensionless
+		activated_speed: 0.4 micron/min
+		activated_cytokine_secretion_rate: 1 1/min
+		activated_immune_cell: 0 dimensionless
+		antiinflammatory_cytokine_secretion_rate: 15 1/min
+		collagen_secretion_rate: 1 1/min
+		virus_expression_threshold: 10 dimensionless
+	custom vector data: 
+			NOTE: custom vector data will eventually be merged with custom data
+1 :: type:1 name: lung epithelium
+	 cycle model: Flow cytometry model (separated) (code=6)
+		Phase 0: G0/G1
+		Phase 1: S
+		Phase 2: G2
+		Phase 3: M
+		Cycle transitions: 
+		-----------------
+		G0/G1 --> S w mean duration inf min
+		S --> G2 w mean duration 480.001 min
+		G2 --> M w mean duration 240 min
+		M --> G0/G1 w mean duration 59.9999 min
+	 death models: 
+		0 : Apoptosis (code=100) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Apoptotic --> Debris w mean duration 516.001 min
+		1 : Necrosis (code=101) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Necrotic (swelling) --> Necrotic (lysed) w mean duration 1.11111e-10 min
+		Necrotic (lysed) --> Debris w mean duration 86399.8 min
+	 key functions: 
+		 migration bias rule: false
+		 custom rule: true
+		 phenotype rule: true
+		 volume update function: true
+		 mechanics function: true
+	motility (enabled: false in 2D)
+		speed: 4 micron/min
+		bias: 0.7 
+		persistence time: 5 min
+		chemotaxis (enabled: false)
+			along 1 * grad(chemokine) 
+	custom data: 
+		virion: 0 virions
+		uncoated_virion: 0 virions
+		viral_RNA: 0 RNA
+		viral_protein: 0 protein
+		export_virion: 0 virions
+		assembled_virion: 0 virions
+		virion_uncoating_rate: 0.01 1/min
+		uncoated_to_RNA_rate: 0.01 1/min
+		max_RNA_replication_rate: 3 1/min
+		RNA_replication_half: 200 virions
+		basal_RNA_degradation_rate: 0.01 1/min
+		protein_synthesis_rate: 0.01 1/min
+		virion_assembly_rate: 0.01 1/min
+		virion_export_rate: 0.01 1/min
+		unbound_external_ACE2: 1000 receptors
+		bound_external_ACE2: 0 receptors
+		unbound_internal_ACE2: 0 receptors
+		bound_internal_ACE2: 0 receptors
+		ACE2_binding_rate: 0.01 1/min
+		ACE2_endocytosis_rate: 0.01 1/min
+		ACE2_cargo_release_rate: 0.01 1/min
+		ACE2_recycling_rate: 0.01 1/min
+		max_infected_apoptosis_rate: 0.002 1/min
+		max_apoptosis_half_max: 250 virion
+		apoptosis_hill_power: 1 none
+		virus_fraction_released_at_death: 0 none
+		infected_cell_chemokine_secretion_rate: 1 1/min
+		debris_secretion_rate: 1 1/min
+		infected_cell_chemokine_secretion_activated: 0 none
+		nuclear_NFkB: 0.25 a.u. of concentration
+		inactive_NLRP3: 0 a.u. of concentration
+		active_NLRP3: 0 a.u. of concentration
+		bound_NLRP3: 0 a.u. of concentration
+		bound_ASC: 0 a.u. of concentration
+		bound_caspase1: 0 a.u. of concentration
+		cleaved_gasderminD: 0 a.u. of concentration
+		pro_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_1b: 0 a.u. of concentration
+		external_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_18: 0 a.u. of concentration
+		external_IL_18: 0 a.u. of concentration
+		cytoplasmic_volume: 2494 a.u. of volume
+		cell_pyroptosis_flag: 0 dimensionless
+		cell_bystander_pyroptosis_flag: 0 dimensionless
+		cell_virus_induced_apoptosis_flag: 0 dimensionless
+		internalised_pro_pyroptosis_cytokine: 0 none
+		interferon_secretion_rate_via_infection: 0.05 1/min
+		max_interferon_secretion_rate_via_paracrine: 0.5 1/min
+		interferon_max_response_threshold: 1 dimensionless
+		interferon_activation: 0 dimensionless
+		interferon_max_virus_inhibition: 0.9 dimensionless
+		interferon_viral_RNA_threshold: 100 dimensionless
+		interferon_viral_RNA_detection: 1 dimensionless
+		TCell_detection: 10 protein
+		TCell_contact_time: 0 min
+		cell_attachment_rate: 0 1/min
+		cell_attachment_lifetime: 0 min
+		TCell_contact_death_threshold: 50 min
+		max_attachment_distance: 15 micron
+		elastic_attachment_coefficient: 0.01 1/min
+		time_to_next_phagocytosis: 0 min
+		material_internalisation_rate: 1 micron/min
+		threshold_macrophage_volume: 6500 micron
+		threshold_neutrophil_volume: 1581 micron
+		exhausted_macrophage_death_rat: 0.01 1/min
+		ability_to_phagocytose_infected_cell: 0 dimensionless
+		time_of_DC_departure: 0 min
+		phagocytosis_rate: 0.167 1/min
+		sensitivity_to_debris_chemotaxis: 1 dimensionless
+		sensitivity_to_chemokine_chemotaxis: 10 dimensionless
+		activated_speed: 0.4 micron/min
+		activated_cytokine_secretion_rate: 1 1/min
+		activated_immune_cell: 0 dimensionless
+		antiinflammatory_cytokine_secretion_rate: 15 1/min
+		collagen_secretion_rate: 1 1/min
+		virus_expression_threshold: 10 dimensionless
+	custom vector data: 
+			NOTE: custom vector data will eventually be merged with custom data
+2 :: type:2 name: immune
+	 cycle model: Flow cytometry model (separated) (code=6)
+		Phase 0: G0/G1
+		Phase 1: S
+		Phase 2: G2
+		Phase 3: M
+		Cycle transitions: 
+		-----------------
+		G0/G1 --> S w mean duration inf min
+		S --> G2 w mean duration 480.001 min
+		G2 --> M w mean duration 240 min
+		M --> G0/G1 w mean duration 59.9999 min
+	 death models: 
+		0 : Apoptosis (code=100) with rate 0.0005 1/min
+		death phase transitions: 
+		------------------------
+		Apoptotic --> Debris w mean duration 516.001 min
+		1 : Necrosis (code=101) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Necrotic (swelling) --> Necrotic (lysed) w mean duration 1.11111e-10 min
+		Necrotic (lysed) --> Debris w mean duration 86399.8 min
+	 key functions: 
+		 migration bias rule: true
+		 custom rule: false
+		 phenotype rule: false
+		 volume update function: true
+		 mechanics function: true
+	motility (enabled: true in 2D)
+		speed: 4 micron/min
+		bias: 0.7 
+		persistence time: 5 min
+		chemotaxis (enabled: true)
+			along 1 * grad(chemokine) 
+	custom data: 
+		virion: 0 virions
+		uncoated_virion: 0 virions
+		viral_RNA: 0 RNA
+		viral_protein: 0 protein
+		export_virion: 0 virions
+		assembled_virion: 0 virions
+		virion_uncoating_rate: 0.01 1/min
+		uncoated_to_RNA_rate: 0.01 1/min
+		max_RNA_replication_rate: 3 1/min
+		RNA_replication_half: 200 virions
+		basal_RNA_degradation_rate: 0.01 1/min
+		protein_synthesis_rate: 0.01 1/min
+		virion_assembly_rate: 0.01 1/min
+		virion_export_rate: 0.01 1/min
+		unbound_external_ACE2: 1000 receptors
+		bound_external_ACE2: 0 receptors
+		unbound_internal_ACE2: 0 receptors
+		bound_internal_ACE2: 0 receptors
+		ACE2_binding_rate: 0.01 1/min
+		ACE2_endocytosis_rate: 0.01 1/min
+		ACE2_cargo_release_rate: 0.01 1/min
+		ACE2_recycling_rate: 0.01 1/min
+		max_infected_apoptosis_rate: 0.002 1/min
+		max_apoptosis_half_max: 250 virion
+		apoptosis_hill_power: 1 none
+		virus_fraction_released_at_death: 0 none
+		infected_cell_chemokine_secretion_rate: 1 1/min
+		debris_secretion_rate: 1 1/min
+		infected_cell_chemokine_secretion_activated: 0 none
+		nuclear_NFkB: 0.25 a.u. of concentration
+		inactive_NLRP3: 0 a.u. of concentration
+		active_NLRP3: 0 a.u. of concentration
+		bound_NLRP3: 0 a.u. of concentration
+		bound_ASC: 0 a.u. of concentration
+		bound_caspase1: 0 a.u. of concentration
+		cleaved_gasderminD: 0 a.u. of concentration
+		pro_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_1b: 0 a.u. of concentration
+		external_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_18: 0 a.u. of concentration
+		external_IL_18: 0 a.u. of concentration
+		cytoplasmic_volume: 2494 a.u. of volume
+		cell_pyroptosis_flag: 0 dimensionless
+		cell_bystander_pyroptosis_flag: 0 dimensionless
+		cell_virus_induced_apoptosis_flag: 0 dimensionless
+		internalised_pro_pyroptosis_cytokine: 0 none
+		interferon_secretion_rate_via_infection: 0.05 1/min
+		max_interferon_secretion_rate_via_paracrine: 0.5 1/min
+		interferon_max_response_threshold: 1 dimensionless
+		interferon_activation: 0 dimensionless
+		interferon_max_virus_inhibition: 0.9 dimensionless
+		interferon_viral_RNA_threshold: 100 dimensionless
+		interferon_viral_RNA_detection: 1 dimensionless
+		TCell_detection: 10 protein
+		TCell_contact_time: 0 min
+		cell_attachment_rate: 0 1/min
+		cell_attachment_lifetime: 0 min
+		TCell_contact_death_threshold: 50 min
+		max_attachment_distance: 15 micron
+		elastic_attachment_coefficient: 0.01 1/min
+		time_to_next_phagocytosis: 0 min
+		material_internalisation_rate: 1 micron/min
+		threshold_macrophage_volume: 6500 micron
+		threshold_neutrophil_volume: 1581 micron
+		exhausted_macrophage_death_rat: 0.01 1/min
+		ability_to_phagocytose_infected_cell: 0 dimensionless
+		time_of_DC_departure: 0 min
+		phagocytosis_rate: 0.167 1/min
+		sensitivity_to_debris_chemotaxis: 1 dimensionless
+		sensitivity_to_chemokine_chemotaxis: 10 dimensionless
+		activated_speed: 0.4 micron/min
+		activated_cytokine_secretion_rate: 1 1/min
+		activated_immune_cell: 0 dimensionless
+		antiinflammatory_cytokine_secretion_rate: 15 1/min
+		collagen_secretion_rate: 1 1/min
+		virus_expression_threshold: 10 dimensionless
+	custom vector data: 
+			NOTE: custom vector data will eventually be merged with custom data
+3 :: type:3 name: CD8 Tcell
+	 cycle model: Flow cytometry model (separated) (code=6)
+		Phase 0: G0/G1
+		Phase 1: S
+		Phase 2: G2
+		Phase 3: M
+		Cycle transitions: 
+		-----------------
+		G0/G1 --> S w mean duration inf min
+		S --> G2 w mean duration 480.001 min
+		G2 --> M w mean duration 240 min
+		M --> G0/G1 w mean duration 59.9999 min
+	 death models: 
+		0 : Apoptosis (code=100) with rate 0.00028 1/min
+		death phase transitions: 
+		------------------------
+		Apoptotic --> Debris w mean duration 516.001 min
+		1 : Necrosis (code=101) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Necrotic (swelling) --> Necrotic (lysed) w mean duration 1.11111e-10 min
+		Necrotic (lysed) --> Debris w mean duration 86399.8 min
+	 key functions: 
+		 migration bias rule: true
+		 custom rule: true
+		 phenotype rule: true
+		 volume update function: true
+		 mechanics function: true
+	motility (enabled: true in 2D)
+		speed: 4 micron/min
+		bias: 0.7 
+		persistence time: 5 min
+		chemotaxis (enabled: true)
+			along 1 * grad(chemokine) 
+	custom data: 
+		virion: 0 virions
+		uncoated_virion: 0 virions
+		viral_RNA: 0 RNA
+		viral_protein: 0 protein
+		export_virion: 0 virions
+		assembled_virion: 0 virions
+		virion_uncoating_rate: 0.01 1/min
+		uncoated_to_RNA_rate: 0.01 1/min
+		max_RNA_replication_rate: 3 1/min
+		RNA_replication_half: 200 virions
+		basal_RNA_degradation_rate: 0.01 1/min
+		protein_synthesis_rate: 0.01 1/min
+		virion_assembly_rate: 0.01 1/min
+		virion_export_rate: 0.01 1/min
+		unbound_external_ACE2: 1000 receptors
+		bound_external_ACE2: 0 receptors
+		unbound_internal_ACE2: 0 receptors
+		bound_internal_ACE2: 0 receptors
+		ACE2_binding_rate: 0.01 1/min
+		ACE2_endocytosis_rate: 0.01 1/min
+		ACE2_cargo_release_rate: 0.01 1/min
+		ACE2_recycling_rate: 0.01 1/min
+		max_infected_apoptosis_rate: 0.002 1/min
+		max_apoptosis_half_max: 250 virion
+		apoptosis_hill_power: 1 none
+		virus_fraction_released_at_death: 0 none
+		infected_cell_chemokine_secretion_rate: 1 1/min
+		debris_secretion_rate: 1 1/min
+		infected_cell_chemokine_secretion_activated: 0 none
+		nuclear_NFkB: 0.25 a.u. of concentration
+		inactive_NLRP3: 0 a.u. of concentration
+		active_NLRP3: 0 a.u. of concentration
+		bound_NLRP3: 0 a.u. of concentration
+		bound_ASC: 0 a.u. of concentration
+		bound_caspase1: 0 a.u. of concentration
+		cleaved_gasderminD: 0 a.u. of concentration
+		pro_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_1b: 0 a.u. of concentration
+		external_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_18: 0 a.u. of concentration
+		external_IL_18: 0 a.u. of concentration
+		cytoplasmic_volume: 2494 a.u. of volume
+		cell_pyroptosis_flag: 0 dimensionless
+		cell_bystander_pyroptosis_flag: 0 dimensionless
+		cell_virus_induced_apoptosis_flag: 0 dimensionless
+		internalised_pro_pyroptosis_cytokine: 0 none
+		interferon_secretion_rate_via_infection: 0.05 1/min
+		max_interferon_secretion_rate_via_paracrine: 0.5 1/min
+		interferon_max_response_threshold: 1 dimensionless
+		interferon_activation: 0 dimensionless
+		interferon_max_virus_inhibition: 0.9 dimensionless
+		interferon_viral_RNA_threshold: 100 dimensionless
+		interferon_viral_RNA_detection: 1 dimensionless
+		TCell_detection: 10 protein
+		TCell_contact_time: 0 min
+		cell_attachment_rate: 0.2 1/min
+		cell_attachment_lifetime: 8.5 min
+		TCell_contact_death_threshold: 50 min
+		max_attachment_distance: 15 micron
+		elastic_attachment_coefficient: 0.01 1/min
+		time_to_next_phagocytosis: 0 min
+		material_internalisation_rate: 1 micron/min
+		threshold_macrophage_volume: 6500 micron
+		threshold_neutrophil_volume: 1581 micron
+		exhausted_macrophage_death_rat: 0.01 1/min
+		ability_to_phagocytose_infected_cell: 0 dimensionless
+		time_of_DC_departure: 0 min
+		phagocytosis_rate: 0.167 1/min
+		sensitivity_to_debris_chemotaxis: 1 dimensionless
+		sensitivity_to_chemokine_chemotaxis: 10 dimensionless
+		activated_speed: 0.4 micron/min
+		activated_cytokine_secretion_rate: 1 1/min
+		activated_immune_cell: 0 dimensionless
+		antiinflammatory_cytokine_secretion_rate: 15 1/min
+		collagen_secretion_rate: 1 1/min
+		virus_expression_threshold: 10 dimensionless
+	custom vector data: 
+			NOTE: custom vector data will eventually be merged with custom data
+4 :: type:4 name: macrophage
+	 cycle model: Flow cytometry model (separated) (code=6)
+		Phase 0: G0/G1
+		Phase 1: S
+		Phase 2: G2
+		Phase 3: M
+		Cycle transitions: 
+		-----------------
+		G0/G1 --> S w mean duration inf min
+		S --> G2 w mean duration 480.001 min
+		G2 --> M w mean duration 240 min
+		M --> G0/G1 w mean duration 59.9999 min
+	 death models: 
+		0 : Apoptosis (code=100) with rate 0.00021 1/min
+		death phase transitions: 
+		------------------------
+		Apoptotic --> Debris w mean duration 516.001 min
+		1 : Necrosis (code=101) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Necrotic (swelling) --> Necrotic (lysed) w mean duration 1.11111e-10 min
+		Necrotic (lysed) --> Debris w mean duration 86399.8 min
+	 key functions: 
+		 migration bias rule: true
+		 custom rule: true
+		 phenotype rule: true
+		 volume update function: true
+		 mechanics function: true
+	motility (enabled: true in 2D)
+		speed: 4 micron/min
+		bias: 0.7 
+		persistence time: 5 min
+		chemotaxis (enabled: false)
+			along 1 * grad(debris) 
+	custom data: 
+		virion: 0 virions
+		uncoated_virion: 0 virions
+		viral_RNA: 0 RNA
+		viral_protein: 0 protein
+		export_virion: 0 virions
+		assembled_virion: 0 virions
+		virion_uncoating_rate: 0.01 1/min
+		uncoated_to_RNA_rate: 0.01 1/min
+		max_RNA_replication_rate: 3 1/min
+		RNA_replication_half: 200 virions
+		basal_RNA_degradation_rate: 0.01 1/min
+		protein_synthesis_rate: 0.01 1/min
+		virion_assembly_rate: 0.01 1/min
+		virion_export_rate: 0.01 1/min
+		unbound_external_ACE2: 1000 receptors
+		bound_external_ACE2: 0 receptors
+		unbound_internal_ACE2: 0 receptors
+		bound_internal_ACE2: 0 receptors
+		ACE2_binding_rate: 0.01 1/min
+		ACE2_endocytosis_rate: 0.01 1/min
+		ACE2_cargo_release_rate: 0.01 1/min
+		ACE2_recycling_rate: 0.01 1/min
+		max_infected_apoptosis_rate: 0.002 1/min
+		max_apoptosis_half_max: 250 virion
+		apoptosis_hill_power: 1 none
+		virus_fraction_released_at_death: 0 none
+		infected_cell_chemokine_secretion_rate: 1 1/min
+		debris_secretion_rate: 1 1/min
+		infected_cell_chemokine_secretion_activated: 0 none
+		nuclear_NFkB: 0.25 a.u. of concentration
+		inactive_NLRP3: 0 a.u. of concentration
+		active_NLRP3: 0 a.u. of concentration
+		bound_NLRP3: 0 a.u. of concentration
+		bound_ASC: 0 a.u. of concentration
+		bound_caspase1: 0 a.u. of concentration
+		cleaved_gasderminD: 0 a.u. of concentration
+		pro_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_1b: 0 a.u. of concentration
+		external_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_18: 0 a.u. of concentration
+		external_IL_18: 0 a.u. of concentration
+		cytoplasmic_volume: 2494 a.u. of volume
+		cell_pyroptosis_flag: 0 dimensionless
+		cell_bystander_pyroptosis_flag: 0 dimensionless
+		cell_virus_induced_apoptosis_flag: 0 dimensionless
+		internalised_pro_pyroptosis_cytokine: 0 none
+		interferon_secretion_rate_via_infection: 0.05 1/min
+		max_interferon_secretion_rate_via_paracrine: 0.5 1/min
+		interferon_max_response_threshold: 1 dimensionless
+		interferon_activation: 0 dimensionless
+		interferon_max_virus_inhibition: 0.9 dimensionless
+		interferon_viral_RNA_threshold: 100 dimensionless
+		interferon_viral_RNA_detection: 1 dimensionless
+		TCell_detection: 10 protein
+		TCell_contact_time: 0 min
+		cell_attachment_rate: 0 1/min
+		cell_attachment_lifetime: 0 min
+		TCell_contact_death_threshold: 50 min
+		max_attachment_distance: 15 micron
+		elastic_attachment_coefficient: 0.01 1/min
+		time_to_next_phagocytosis: 0 min
+		material_internalisation_rate: 1 micron/min
+		threshold_macrophage_volume: 6500 micron
+		threshold_neutrophil_volume: 1581 micron
+		exhausted_macrophage_death_rat: 0.01 1/min
+		ability_to_phagocytose_infected_cell: 0 dimensionless
+		time_of_DC_departure: 0 min
+		phagocytosis_rate: 0.167 1/min
+		sensitivity_to_debris_chemotaxis: 1 dimensionless
+		sensitivity_to_chemokine_chemotaxis: 10 dimensionless
+		activated_speed: 0.4 micron/min
+		activated_cytokine_secretion_rate: 1 1/min
+		activated_immune_cell: 0 dimensionless
+		antiinflammatory_cytokine_secretion_rate: 15 1/min
+		collagen_secretion_rate: 1 1/min
+		virus_expression_threshold: 10 dimensionless
+	custom vector data: 
+			NOTE: custom vector data will eventually be merged with custom data
+5 :: type:5 name: neutrophil
+	 cycle model: Flow cytometry model (separated) (code=6)
+		Phase 0: G0/G1
+		Phase 1: S
+		Phase 2: G2
+		Phase 3: M
+		Cycle transitions: 
+		-----------------
+		G0/G1 --> S w mean duration inf min
+		S --> G2 w mean duration 480.001 min
+		G2 --> M w mean duration 240 min
+		M --> G0/G1 w mean duration 59.9999 min
+	 death models: 
+		0 : Apoptosis (code=100) with rate 0.00089 1/min
+		death phase transitions: 
+		------------------------
+		Apoptotic --> Debris w mean duration 516.001 min
+		1 : Necrosis (code=101) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Necrotic (swelling) --> Necrotic (lysed) w mean duration 1.11111e-10 min
+		Necrotic (lysed) --> Debris w mean duration 86399.8 min
+	 key functions: 
+		 migration bias rule: true
+		 custom rule: true
+		 phenotype rule: true
+		 volume update function: true
+		 mechanics function: true
+	motility (enabled: true in 2D)
+		speed: 19 micron/min
+		bias: 0.91 
+		persistence time: 5 min
+		chemotaxis (enabled: false)
+			along 1 * grad(debris) 
+	custom data: 
+		virion: 0 virions
+		uncoated_virion: 0 virions
+		viral_RNA: 0 RNA
+		viral_protein: 0 protein
+		export_virion: 0 virions
+		assembled_virion: 0 virions
+		virion_uncoating_rate: 0.01 1/min
+		uncoated_to_RNA_rate: 0.01 1/min
+		max_RNA_replication_rate: 3 1/min
+		RNA_replication_half: 200 virions
+		basal_RNA_degradation_rate: 0.01 1/min
+		protein_synthesis_rate: 0.01 1/min
+		virion_assembly_rate: 0.01 1/min
+		virion_export_rate: 0.01 1/min
+		unbound_external_ACE2: 1000 receptors
+		bound_external_ACE2: 0 receptors
+		unbound_internal_ACE2: 0 receptors
+		bound_internal_ACE2: 0 receptors
+		ACE2_binding_rate: 0.01 1/min
+		ACE2_endocytosis_rate: 0.01 1/min
+		ACE2_cargo_release_rate: 0.01 1/min
+		ACE2_recycling_rate: 0.01 1/min
+		max_infected_apoptosis_rate: 0.002 1/min
+		max_apoptosis_half_max: 250 virion
+		apoptosis_hill_power: 1 none
+		virus_fraction_released_at_death: 0 none
+		infected_cell_chemokine_secretion_rate: 1 1/min
+		debris_secretion_rate: 1 1/min
+		infected_cell_chemokine_secretion_activated: 0 none
+		nuclear_NFkB: 0.25 a.u. of concentration
+		inactive_NLRP3: 0 a.u. of concentration
+		active_NLRP3: 0 a.u. of concentration
+		bound_NLRP3: 0 a.u. of concentration
+		bound_ASC: 0 a.u. of concentration
+		bound_caspase1: 0 a.u. of concentration
+		cleaved_gasderminD: 0 a.u. of concentration
+		pro_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_1b: 0 a.u. of concentration
+		external_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_18: 0 a.u. of concentration
+		external_IL_18: 0 a.u. of concentration
+		cytoplasmic_volume: 2494 a.u. of volume
+		cell_pyroptosis_flag: 0 dimensionless
+		cell_bystander_pyroptosis_flag: 0 dimensionless
+		cell_virus_induced_apoptosis_flag: 0 dimensionless
+		internalised_pro_pyroptosis_cytokine: 0 none
+		interferon_secretion_rate_via_infection: 0.05 1/min
+		max_interferon_secretion_rate_via_paracrine: 0.5 1/min
+		interferon_max_response_threshold: 1 dimensionless
+		interferon_activation: 0 dimensionless
+		interferon_max_virus_inhibition: 0.9 dimensionless
+		interferon_viral_RNA_threshold: 100 dimensionless
+		interferon_viral_RNA_detection: 1 dimensionless
+		TCell_detection: 10 protein
+		TCell_contact_time: 0 min
+		cell_attachment_rate: 0 1/min
+		cell_attachment_lifetime: 0 min
+		TCell_contact_death_threshold: 50 min
+		max_attachment_distance: 15 micron
+		elastic_attachment_coefficient: 0.01 1/min
+		time_to_next_phagocytosis: 0 min
+		material_internalisation_rate: 1 micron/min
+		threshold_macrophage_volume: 6500 micron
+		threshold_neutrophil_volume: 1581 micron
+		exhausted_macrophage_death_rat: 0.01 1/min
+		ability_to_phagocytose_infected_cell: 0 dimensionless
+		time_of_DC_departure: 0 min
+		phagocytosis_rate: 0.117 1/min
+		sensitivity_to_debris_chemotaxis: 1 dimensionless
+		sensitivity_to_chemokine_chemotaxis: 10 dimensionless
+		activated_speed: 0.4 micron/min
+		activated_cytokine_secretion_rate: 0 1/min
+		activated_immune_cell: 0 dimensionless
+		antiinflammatory_cytokine_secretion_rate: 15 1/min
+		collagen_secretion_rate: 1 1/min
+		virus_expression_threshold: 10 dimensionless
+	custom vector data: 
+			NOTE: custom vector data will eventually be merged with custom data
+6 :: type:6 name: DC
+	 cycle model: Flow cytometry model (separated) (code=6)
+		Phase 0: G0/G1
+		Phase 1: S
+		Phase 2: G2
+		Phase 3: M
+		Cycle transitions: 
+		-----------------
+		G0/G1 --> S w mean duration inf min
+		S --> G2 w mean duration 480.001 min
+		G2 --> M w mean duration 240 min
+		M --> G0/G1 w mean duration 59.9999 min
+	 death models: 
+		0 : Apoptosis (code=100) with rate 0.00089 1/min
+		death phase transitions: 
+		------------------------
+		Apoptotic --> Debris w mean duration 516.001 min
+		1 : Necrosis (code=101) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Necrotic (swelling) --> Necrotic (lysed) w mean duration 1.11111e-10 min
+		Necrotic (lysed) --> Debris w mean duration 86399.8 min
+	 key functions: 
+		 migration bias rule: true
+		 custom rule: true
+		 phenotype rule: true
+		 volume update function: true
+		 mechanics function: true
+	motility (enabled: true in 2D)
+		speed: 2 micron/min
+		bias: 0.7 
+		persistence time: 5 min
+		chemotaxis (enabled: false)
+			along 1 * grad(chemokine) 
+	custom data: 
+		virion: 0 virions
+		uncoated_virion: 0 virions
+		viral_RNA: 0 RNA
+		viral_protein: 0 protein
+		export_virion: 0 virions
+		assembled_virion: 0 virions
+		virion_uncoating_rate: 0.01 1/min
+		uncoated_to_RNA_rate: 0.01 1/min
+		max_RNA_replication_rate: 3 1/min
+		RNA_replication_half: 200 virions
+		basal_RNA_degradation_rate: 0.01 1/min
+		protein_synthesis_rate: 0.01 1/min
+		virion_assembly_rate: 0.01 1/min
+		virion_export_rate: 0.01 1/min
+		unbound_external_ACE2: 1000 receptors
+		bound_external_ACE2: 0 receptors
+		unbound_internal_ACE2: 0 receptors
+		bound_internal_ACE2: 0 receptors
+		ACE2_binding_rate: 0.01 1/min
+		ACE2_endocytosis_rate: 0.01 1/min
+		ACE2_cargo_release_rate: 0.01 1/min
+		ACE2_recycling_rate: 0.01 1/min
+		max_infected_apoptosis_rate: 0.002 1/min
+		max_apoptosis_half_max: 250 virion
+		apoptosis_hill_power: 1 none
+		virus_fraction_released_at_death: 0 none
+		infected_cell_chemokine_secretion_rate: 1 1/min
+		debris_secretion_rate: 1 1/min
+		infected_cell_chemokine_secretion_activated: 0 none
+		nuclear_NFkB: 0.25 a.u. of concentration
+		inactive_NLRP3: 0 a.u. of concentration
+		active_NLRP3: 0 a.u. of concentration
+		bound_NLRP3: 0 a.u. of concentration
+		bound_ASC: 0 a.u. of concentration
+		bound_caspase1: 0 a.u. of concentration
+		cleaved_gasderminD: 0 a.u. of concentration
+		pro_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_1b: 0 a.u. of concentration
+		external_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_18: 0 a.u. of concentration
+		external_IL_18: 0 a.u. of concentration
+		cytoplasmic_volume: 2494 a.u. of volume
+		cell_pyroptosis_flag: 0 dimensionless
+		cell_bystander_pyroptosis_flag: 0 dimensionless
+		cell_virus_induced_apoptosis_flag: 0 dimensionless
+		internalised_pro_pyroptosis_cytokine: 0 none
+		interferon_secretion_rate_via_infection: 0.05 1/min
+		max_interferon_secretion_rate_via_paracrine: 0.5 1/min
+		interferon_max_response_threshold: 1 dimensionless
+		interferon_activation: 0 dimensionless
+		interferon_max_virus_inhibition: 0.9 dimensionless
+		interferon_viral_RNA_threshold: 100 dimensionless
+		interferon_viral_RNA_detection: 1 dimensionless
+		TCell_detection: 10 protein
+		TCell_contact_time: 0 min
+		cell_attachment_rate: 0 1/min
+		cell_attachment_lifetime: 0 min
+		TCell_contact_death_threshold: 50 min
+		max_attachment_distance: 15 micron
+		elastic_attachment_coefficient: 0.01 1/min
+		time_to_next_phagocytosis: 0 min
+		material_internalisation_rate: 1 micron/min
+		threshold_macrophage_volume: 6500 micron
+		threshold_neutrophil_volume: 1581 micron
+		exhausted_macrophage_death_rat: 0.01 1/min
+		ability_to_phagocytose_infected_cell: 0 dimensionless
+		time_of_DC_departure: 0 min
+		phagocytosis_rate: 0.167 1/min
+		sensitivity_to_debris_chemotaxis: 1 dimensionless
+		sensitivity_to_chemokine_chemotaxis: 10 dimensionless
+		activated_speed: 0.4 micron/min
+		activated_cytokine_secretion_rate: 1 1/min
+		activated_immune_cell: 0 dimensionless
+		antiinflammatory_cytokine_secretion_rate: 15 1/min
+		collagen_secretion_rate: 1 1/min
+		virus_expression_threshold: 10 dimensionless
+	custom vector data: 
+			NOTE: custom vector data will eventually be merged with custom data
+7 :: type:7 name: CD4 Tcell
+	 cycle model: Flow cytometry model (separated) (code=6)
+		Phase 0: G0/G1
+		Phase 1: S
+		Phase 2: G2
+		Phase 3: M
+		Cycle transitions: 
+		-----------------
+		G0/G1 --> S w mean duration inf min
+		S --> G2 w mean duration 480.001 min
+		G2 --> M w mean duration 240 min
+		M --> G0/G1 w mean duration 59.9999 min
+	 death models: 
+		0 : Apoptosis (code=100) with rate 0.00028 1/min
+		death phase transitions: 
+		------------------------
+		Apoptotic --> Debris w mean duration 516.001 min
+		1 : Necrosis (code=101) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Necrotic (swelling) --> Necrotic (lysed) w mean duration 1.11111e-10 min
+		Necrotic (lysed) --> Debris w mean duration 86399.8 min
+	 key functions: 
+		 migration bias rule: true
+		 custom rule: true
+		 phenotype rule: true
+		 volume update function: true
+		 mechanics function: true
+	motility (enabled: true in 2D)
+		speed: 4 micron/min
+		bias: 0.7 
+		persistence time: 5 min
+		chemotaxis (enabled: true)
+			along 1 * grad(chemokine) 
+	custom data: 
+		virion: 0 virions
+		uncoated_virion: 0 virions
+		viral_RNA: 0 RNA
+		viral_protein: 0 protein
+		export_virion: 0 virions
+		assembled_virion: 0 virions
+		virion_uncoating_rate: 0.01 1/min
+		uncoated_to_RNA_rate: 0.01 1/min
+		max_RNA_replication_rate: 3 1/min
+		RNA_replication_half: 200 virions
+		basal_RNA_degradation_rate: 0.01 1/min
+		protein_synthesis_rate: 0.01 1/min
+		virion_assembly_rate: 0.01 1/min
+		virion_export_rate: 0.01 1/min
+		unbound_external_ACE2: 1000 receptors
+		bound_external_ACE2: 0 receptors
+		unbound_internal_ACE2: 0 receptors
+		bound_internal_ACE2: 0 receptors
+		ACE2_binding_rate: 0.01 1/min
+		ACE2_endocytosis_rate: 0.01 1/min
+		ACE2_cargo_release_rate: 0.01 1/min
+		ACE2_recycling_rate: 0.01 1/min
+		max_infected_apoptosis_rate: 0.002 1/min
+		max_apoptosis_half_max: 250 virion
+		apoptosis_hill_power: 1 none
+		virus_fraction_released_at_death: 0 none
+		infected_cell_chemokine_secretion_rate: 1 1/min
+		debris_secretion_rate: 1 1/min
+		infected_cell_chemokine_secretion_activated: 0 none
+		nuclear_NFkB: 0.25 a.u. of concentration
+		inactive_NLRP3: 0 a.u. of concentration
+		active_NLRP3: 0 a.u. of concentration
+		bound_NLRP3: 0 a.u. of concentration
+		bound_ASC: 0 a.u. of concentration
+		bound_caspase1: 0 a.u. of concentration
+		cleaved_gasderminD: 0 a.u. of concentration
+		pro_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_1b: 0 a.u. of concentration
+		external_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_18: 0 a.u. of concentration
+		external_IL_18: 0 a.u. of concentration
+		cytoplasmic_volume: 2494 a.u. of volume
+		cell_pyroptosis_flag: 0 dimensionless
+		cell_bystander_pyroptosis_flag: 0 dimensionless
+		cell_virus_induced_apoptosis_flag: 0 dimensionless
+		internalised_pro_pyroptosis_cytokine: 0 none
+		interferon_secretion_rate_via_infection: 0.05 1/min
+		max_interferon_secretion_rate_via_paracrine: 0.5 1/min
+		interferon_max_response_threshold: 1 dimensionless
+		interferon_activation: 0 dimensionless
+		interferon_max_virus_inhibition: 0.9 dimensionless
+		interferon_viral_RNA_threshold: 100 dimensionless
+		interferon_viral_RNA_detection: 1 dimensionless
+		TCell_detection: 10 protein
+		TCell_contact_time: 0 min
+		cell_attachment_rate: 0 1/min
+		cell_attachment_lifetime: 0 min
+		TCell_contact_death_threshold: 50 min
+		max_attachment_distance: 15 micron
+		elastic_attachment_coefficient: 0.01 1/min
+		time_to_next_phagocytosis: 0 min
+		material_internalisation_rate: 1 micron/min
+		threshold_macrophage_volume: 6500 micron
+		threshold_neutrophil_volume: 1581 micron
+		exhausted_macrophage_death_rat: 0.01 1/min
+		ability_to_phagocytose_infected_cell: 0 dimensionless
+		time_of_DC_departure: 0 min
+		phagocytosis_rate: 0.167 1/min
+		sensitivity_to_debris_chemotaxis: 1 dimensionless
+		sensitivity_to_chemokine_chemotaxis: 10 dimensionless
+		activated_speed: 0.4 micron/min
+		activated_cytokine_secretion_rate: 1 1/min
+		activated_immune_cell: 0 dimensionless
+		antiinflammatory_cytokine_secretion_rate: 15 1/min
+		collagen_secretion_rate: 1 1/min
+		virus_expression_threshold: 10 dimensionless
+	custom vector data: 
+			NOTE: custom vector data will eventually be merged with custom data
+8 :: type:8 name: fibroblast
+	 cycle model: Flow cytometry model (separated) (code=6)
+		Phase 0: G0/G1
+		Phase 1: S
+		Phase 2: G2
+		Phase 3: M
+		Cycle transitions: 
+		-----------------
+		G0/G1 --> S w mean duration inf min
+		S --> G2 w mean duration 480.001 min
+		G2 --> M w mean duration 240 min
+		M --> G0/G1 w mean duration 59.9999 min
+	 death models: 
+		0 : Apoptosis (code=100) with rate 0.00028 1/min
+		death phase transitions: 
+		------------------------
+		Apoptotic --> Debris w mean duration 516.001 min
+		1 : Necrosis (code=101) with rate 0 1/min
+		death phase transitions: 
+		------------------------
+		Necrotic (swelling) --> Necrotic (lysed) w mean duration 1.11111e-10 min
+		Necrotic (lysed) --> Debris w mean duration 86399.8 min
+	 key functions: 
+		 migration bias rule: true
+		 custom rule: true
+		 phenotype rule: true
+		 volume update function: true
+		 mechanics function: true
+	motility (enabled: true in 2D)
+		speed: 4 micron/min
+		bias: 0.7 
+		persistence time: 5 min
+		chemotaxis (enabled: false)
+			along 1 * grad(anti-inflammatory cytokine) 
+	custom data: 
+		virion: 0 virions
+		uncoated_virion: 0 virions
+		viral_RNA: 0 RNA
+		viral_protein: 0 protein
+		export_virion: 0 virions
+		assembled_virion: 0 virions
+		virion_uncoating_rate: 0.01 1/min
+		uncoated_to_RNA_rate: 0.01 1/min
+		max_RNA_replication_rate: 3 1/min
+		RNA_replication_half: 200 virions
+		basal_RNA_degradation_rate: 0.01 1/min
+		protein_synthesis_rate: 0.01 1/min
+		virion_assembly_rate: 0.01 1/min
+		virion_export_rate: 0.01 1/min
+		unbound_external_ACE2: 1000 receptors
+		bound_external_ACE2: 0 receptors
+		unbound_internal_ACE2: 0 receptors
+		bound_internal_ACE2: 0 receptors
+		ACE2_binding_rate: 0.01 1/min
+		ACE2_endocytosis_rate: 0.01 1/min
+		ACE2_cargo_release_rate: 0.01 1/min
+		ACE2_recycling_rate: 0.01 1/min
+		max_infected_apoptosis_rate: 0.002 1/min
+		max_apoptosis_half_max: 250 virion
+		apoptosis_hill_power: 1 none
+		virus_fraction_released_at_death: 0 none
+		infected_cell_chemokine_secretion_rate: 1 1/min
+		debris_secretion_rate: 1 1/min
+		infected_cell_chemokine_secretion_activated: 0 none
+		nuclear_NFkB: 0.25 a.u. of concentration
+		inactive_NLRP3: 0 a.u. of concentration
+		active_NLRP3: 0 a.u. of concentration
+		bound_NLRP3: 0 a.u. of concentration
+		bound_ASC: 0 a.u. of concentration
+		bound_caspase1: 0 a.u. of concentration
+		cleaved_gasderminD: 0 a.u. of concentration
+		pro_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_1b: 0 a.u. of concentration
+		external_IL_1b: 0 a.u. of concentration
+		cytoplasmic_IL_18: 0 a.u. of concentration
+		external_IL_18: 0 a.u. of concentration
+		cytoplasmic_volume: 2494 a.u. of volume
+		cell_pyroptosis_flag: 0 dimensionless
+		cell_bystander_pyroptosis_flag: 0 dimensionless
+		cell_virus_induced_apoptosis_flag: 0 dimensionless
+		internalised_pro_pyroptosis_cytokine: 0 none
+		interferon_secretion_rate_via_infection: 0.05 1/min
+		max_interferon_secretion_rate_via_paracrine: 0.5 1/min
+		interferon_max_response_threshold: 1 dimensionless
+		interferon_activation: 0 dimensionless
+		interferon_max_virus_inhibition: 0.9 dimensionless
+		interferon_viral_RNA_threshold: 100 dimensionless
+		interferon_viral_RNA_detection: 1 dimensionless
+		TCell_detection: 10 protein
+		TCell_contact_time: 0 min
+		cell_attachment_rate: 0 1/min
+		cell_attachment_lifetime: 0 min
+		TCell_contact_death_threshold: 50 min
+		max_attachment_distance: 15 micron
+		elastic_attachment_coefficient: 0.01 1/min
+		time_to_next_phagocytosis: 0 min
+		material_internalisation_rate: 1 micron/min
+		threshold_macrophage_volume: 6500 micron
+		threshold_neutrophil_volume: 1581 micron
+		exhausted_macrophage_death_rat: 0.01 1/min
+		ability_to_phagocytose_infected_cell: 0 dimensionless
+		time_of_DC_departure: 0 min
+		phagocytosis_rate: 0.167 1/min
+		sensitivity_to_debris_chemotaxis: 1 dimensionless
+		sensitivity_to_chemokine_chemotaxis: 10 dimensionless
+		activated_speed: 0.4 micron/min
+		activated_cytokine_secretion_rate: 1 1/min
+		activated_immune_cell: 0 dimensionless
+		antiinflammatory_cytokine_secretion_rate: 15 1/min
+		collagen_secretion_rate: 1 1/min
+		virus_expression_threshold: 10 dimensionless
+	custom vector data: 
+			NOTE: custom vector data will eventually be merged with custom data
+Placing 279 virions ... 
+Using PhysiCell version 1.7.2beta
+	Please cite DOI: 10.1371/journal.pcbi.1005991
+	Project website: http://PhysiCell.MathCancer.org
+
+See ALL_CITATIONS.txt for this list.
+
+
+***** This is COVID19 integrated version 0.4.0. *****
+
+current simulated time: 0 min (max: 14400 min)
+total agents: 2871
+interval wall time: 0 days, 0 hours, 0 minutes, and 0.0012413 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 0.00132621 seconds 
+
+
+Using method diffusion_decay_solver__constant_coefficients_LOD_2D (2D LOD with Thomas Algorithm) ... 
+
+Warning and FYI: Very small vectors are normalized to 0 vector
+
+current simulated time: 15 min (max: 14400 min)
+total agents: 2871
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.1851 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 3.18655 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 30 min (max: 14400 min)
+total agents: 2872
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.17253 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 5.35919 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 45 min (max: 14400 min)
+total agents: 2875
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.17189 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 7.53118 seconds 
+
+DC leaves tissue
+	Recruiting 1 neutrophils ... 
+current simulated time: 60 min (max: 14400 min)
+total agents: 2873
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.09114 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 9.62242 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 75 min (max: 14400 min)
+total agents: 2876
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.87108 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 12.4937 seconds 
+
+	Recruiting 1 macrophages ... 
+current simulated time: 90 min (max: 14400 min)
+total agents: 2877
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.07307 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 14.5668 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 105 min (max: 14400 min)
+total agents: 2879
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.15504 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 16.722 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 120 min (max: 14400 min)
+total agents: 2880
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.04668 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 18.7688 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 135 min (max: 14400 min)
+total agents: 2882
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.9641 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 21.733 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 150 min (max: 14400 min)
+total agents: 2884
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.05803 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 23.7911 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 DCs ... 
+current simulated time: 165 min (max: 14400 min)
+total agents: 2887
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.12256 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 25.9138 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 180 min (max: 14400 min)
+total agents: 2889
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.01575 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 27.9297 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 195 min (max: 14400 min)
+total agents: 2892
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.853 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 30.7828 seconds 
+
+Warning and FYI: Very small vector are normalized to 0 vector
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 210 min (max: 14400 min)
+total agents: 2892
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.27943 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 33.0623 seconds 
+
+	Recruiting 1 DCs ... 
+	Recruiting 1 DCs ... 
+current simulated time: 225 min (max: 14400 min)
+total agents: 2894
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.26873 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 35.3311 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 240 min (max: 14400 min)
+total agents: 2896
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.22858 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 37.5598 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+DC leaves tissue
+	Recruiting 1 DCs ... 
+current simulated time: 255 min (max: 14400 min)
+total agents: 2898
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.18695 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 40.7469 seconds 
+
+	Recruiting 1 DCs ... 
+DC leaves tissue
+current simulated time: 270 min (max: 14400 min)
+total agents: 2898
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.33862 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 43.0857 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 285 min (max: 14400 min)
+total agents: 2901
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.29116 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 45.377 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 300 min (max: 14400 min)
+total agents: 2901
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.23066 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 47.6078 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 315 min (max: 14400 min)
+total agents: 2905
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.13981 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 50.7477 seconds 
+
+current simulated time: 330 min (max: 14400 min)
+total agents: 2904
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.28048 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 53.0283 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 macrophages ... 
+current simulated time: 345 min (max: 14400 min)
+total agents: 2908
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.25284 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 55.2813 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 360 min (max: 14400 min)
+total agents: 2909
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.19517 seconds 
+total wall time: 0 days, 0 hours, 0 minutes, and 57.4766 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 375 min (max: 14400 min)
+total agents: 2913
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.97992 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 0.456761 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 390 min (max: 14400 min)
+total agents: 2914
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.18358 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 2.64051 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 405 min (max: 14400 min)
+total agents: 2915
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.28924 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 4.92985 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 420 min (max: 14400 min)
+total agents: 2917
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.25665 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 7.18659 seconds 
+
+	Recruiting 1 DCs ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 435 min (max: 14400 min)
+total agents: 2918
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.01243 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 10.1991 seconds 
+
+current simulated time: 450 min (max: 14400 min)
+total agents: 2918
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.28501 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 12.4842 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 465 min (max: 14400 min)
+total agents: 2922
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.33989 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 14.8242 seconds 
+
+	Recruiting 1 macrophages ... 
+current simulated time: 480 min (max: 14400 min)
+total agents: 2922
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.32091 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 17.1453 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 495 min (max: 14400 min)
+total agents: 2924
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.13357 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 20.2789 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 510 min (max: 14400 min)
+total agents: 2926
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.35919 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 22.6382 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 525 min (max: 14400 min)
+total agents: 2929
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.2363 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 24.8746 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 540 min (max: 14400 min)
+total agents: 2928
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.25865 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 27.1334 seconds 
+
+	Recruiting 1 DCs ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 555 min (max: 14400 min)
+total agents: 2929
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.00466 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 30.1382 seconds 
+
+current simulated time: 570 min (max: 14400 min)
+total agents: 2929
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.28468 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 32.423 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 585 min (max: 14400 min)
+total agents: 2929
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.27759 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 34.7006 seconds 
+
+current simulated time: 600 min (max: 14400 min)
+total agents: 2928
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.27403 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 36.9748 seconds 
+
+	Recruiting 1 DCs ... 
+	Recruiting 1 macrophages ... 
+current simulated time: 615 min (max: 14400 min)
+total agents: 2929
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.11897 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 40.0939 seconds 
+
+current simulated time: 630 min (max: 14400 min)
+total agents: 2928
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.32125 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 42.4153 seconds 
+
+	Recruiting 1 neutrophils ... 
+DC leaves tissue
+current simulated time: 645 min (max: 14400 min)
+total agents: 2928
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.30598 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 44.7213 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 660 min (max: 14400 min)
+total agents: 2928
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.29909 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 47.0205 seconds 
+
+	Recruiting 1 DCs ... 
+	Recruiting 1 macrophages ... 
+current simulated time: 675 min (max: 14400 min)
+total agents: 2929
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.08711 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 50.1077 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 690 min (max: 14400 min)
+total agents: 2931
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.23299 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 52.3408 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 705 min (max: 14400 min)
+total agents: 2933
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.36424 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 54.7051 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 720 min (max: 14400 min)
+total agents: 2933
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.26843 seconds 
+total wall time: 0 days, 0 hours, 1 minutes, and 56.9736 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 735 min (max: 14400 min)
+total agents: 2936
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.12566 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 0.0994232 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 750 min (max: 14400 min)
+total agents: 2939
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.32936 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 2.42887 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 765 min (max: 14400 min)
+total agents: 2941
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.38938 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 4.81835 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 780 min (max: 14400 min)
+total agents: 2941
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.28359 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 7.1022 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 795 min (max: 14400 min)
+total agents: 2945
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.09219 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 10.1945 seconds 
+
+	Recruiting 1 macrophages ... 
+current simulated time: 810 min (max: 14400 min)
+total agents: 2946
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.46948 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 12.6641 seconds 
+
+	Recruiting 1 DCs ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 825 min (max: 14400 min)
+total agents: 2950
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.4308 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 15.0951 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 840 min (max: 14400 min)
+total agents: 2949
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.42184 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 17.517 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 855 min (max: 14400 min)
+total agents: 2951
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.5262 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 21.0433 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 870 min (max: 14400 min)
+total agents: 2950
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.70116 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 23.7446 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 885 min (max: 14400 min)
+total agents: 2951
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.69639 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 26.4411 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 900 min (max: 14400 min)
+total agents: 2951
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.59853 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 29.0397 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 915 min (max: 14400 min)
+total agents: 2954
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.51464 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 32.5546 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 930 min (max: 14400 min)
+total agents: 2956
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.61383 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 35.1685 seconds 
+
+	Recruiting 1 DCs ... 
+	Recruiting 1 DCs ... 
+current simulated time: 945 min (max: 14400 min)
+total agents: 2958
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.72528 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 37.8939 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 960 min (max: 14400 min)
+total agents: 2959
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.63973 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 40.5338 seconds 
+
+DC leaves tissue
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 975 min (max: 14400 min)
+total agents: 2958
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.64501 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 44.1789 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 990 min (max: 14400 min)
+total agents: 2960
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.5962 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 46.7752 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1005 min (max: 14400 min)
+total agents: 2961
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.62437 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 49.3997 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 1020 min (max: 14400 min)
+total agents: 2962
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.66068 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 52.0605 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 1035 min (max: 14400 min)
+total agents: 2965
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.46679 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 55.5274 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 1050 min (max: 14400 min)
+total agents: 2966
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.6739 seconds 
+total wall time: 0 days, 0 hours, 2 minutes, and 58.2014 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1065 min (max: 14400 min)
+total agents: 2969
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.69156 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 0.893096 seconds 
+
+DC leaves tissue
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 1080 min (max: 14400 min)
+total agents: 2970
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.60589 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 3.49913 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 macrophages ... 
+current simulated time: 1095 min (max: 14400 min)
+total agents: 2971
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.43837 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 6.9376 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 1110 min (max: 14400 min)
+total agents: 2970
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.57845 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 9.51616 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1125 min (max: 14400 min)
+total agents: 2975
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.74151 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 12.2578 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 1140 min (max: 14400 min)
+total agents: 2976
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.74513 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 15.003 seconds 
+
+	Recruiting 1 DCs ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1155 min (max: 14400 min)
+total agents: 2977
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.5835 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 18.5867 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 1170 min (max: 14400 min)
+total agents: 2978
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.6958 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 21.2826 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 1185 min (max: 14400 min)
+total agents: 2977
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.74743 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 24.0301 seconds 
+
+	Recruiting 1 macrophages ... 
+current simulated time: 1200 min (max: 14400 min)
+total agents: 2978
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.7848 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 26.8151 seconds 
+
+DC leaves tissue
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 1215 min (max: 14400 min)
+total agents: 2975
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.71984 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 30.535 seconds 
+
+	Recruiting 1 macrophages ... 
+current simulated time: 1230 min (max: 14400 min)
+total agents: 2976
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.73701 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 33.2722 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1245 min (max: 14400 min)
+total agents: 2976
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.8346 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 36.107 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1260 min (max: 14400 min)
+total agents: 2978
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.70413 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 38.8112 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1275 min (max: 14400 min)
+total agents: 2980
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.61225 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 42.4236 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 1290 min (max: 14400 min)
+total agents: 2980
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.7722 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 45.1959 seconds 
+
+	Recruiting 1 DCs ... 
+	Recruiting 1 macrophages ... 
+DC leaves tissue
+current simulated time: 1305 min (max: 14400 min)
+total agents: 2980
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.7318 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 47.9278 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 1320 min (max: 14400 min)
+total agents: 2978
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.61383 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 50.5418 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1335 min (max: 14400 min)
+total agents: 2982
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.54037 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 54.0823 seconds 
+
+current simulated time: 1350 min (max: 14400 min)
+total agents: 2982
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.65845 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 56.7408 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1365 min (max: 14400 min)
+total agents: 2981
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.63634 seconds 
+total wall time: 0 days, 0 hours, 3 minutes, and 59.3772 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+DC leaves tissue
+current simulated time: 1380 min (max: 14400 min)
+total agents: 2982
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.66429 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 2.04164 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 1395 min (max: 14400 min)
+total agents: 2986
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.62384 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 5.66566 seconds 
+
+	Recruiting 1 macrophages ... 
+current simulated time: 1410 min (max: 14400 min)
+total agents: 2983
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.65089 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 8.31666 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 1425 min (max: 14400 min)
+total agents: 2983
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.61414 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 10.9309 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 1440 min (max: 14400 min)
+total agents: 2984
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.64449 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 13.5755 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+DC leaves tissue
+current simulated time: 1455 min (max: 14400 min)
+total agents: 2984
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.51766 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 17.0932 seconds 
+
+	Recruiting 1 macrophages ... 
+current simulated time: 1470 min (max: 14400 min)
+total agents: 2985
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.58157 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 19.6749 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1485 min (max: 14400 min)
+total agents: 2988
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.71483 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 22.3899 seconds 
+
+current simulated time: 1500 min (max: 14400 min)
+total agents: 2987
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.5417 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 24.9317 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 1515 min (max: 14400 min)
+total agents: 2986
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.47043 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 28.4024 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1530 min (max: 14400 min)
+total agents: 2986
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.57308 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 30.9756 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 1545 min (max: 14400 min)
+total agents: 2986
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.55081 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 33.5265 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 1560 min (max: 14400 min)
+total agents: 2986
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.80052 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 36.3273 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1575 min (max: 14400 min)
+total agents: 2988
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.69219 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 40.0196 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1590 min (max: 14400 min)
+total agents: 2988
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.70333 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 42.7231 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1605 min (max: 14400 min)
+total agents: 2992
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.73489 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 45.4582 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1620 min (max: 14400 min)
+total agents: 2994
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.67852 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 48.1368 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1635 min (max: 14400 min)
+total agents: 2996
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.67779 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 51.8147 seconds 
+
+DC leaves tissue
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+DC leaves tissue
+current simulated time: 1650 min (max: 14400 min)
+total agents: 2996
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.71084 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 54.5256 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1665 min (max: 14400 min)
+total agents: 2998
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.65899 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 57.1847 seconds 
+
+DC leaves tissue
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1680 min (max: 14400 min)
+total agents: 3000
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.58771 seconds 
+total wall time: 0 days, 0 hours, 4 minutes, and 59.7726 seconds 
+
+	Recruiting 1 DCs ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1695 min (max: 14400 min)
+total agents: 3000
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.48365 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 3.25631 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 1710 min (max: 14400 min)
+total agents: 2999
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.58142 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 5.83782 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+DC leaves tissue
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1725 min (max: 14400 min)
+total agents: 3001
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.62361 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 8.46157 seconds 
+
+current simulated time: 1740 min (max: 14400 min)
+total agents: 3000
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.54613 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 11.0078 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 1755 min (max: 14400 min)
+total agents: 3003
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.37695 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 14.3848 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 1770 min (max: 14400 min)
+total agents: 3004
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.64499 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 17.03 seconds 
+
+DC leaves tissue
+	Recruiting 1 DCs ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1785 min (max: 14400 min)
+total agents: 3007
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.6892 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 19.7193 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 1800 min (max: 14400 min)
+total agents: 3009
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.65663 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 22.3761 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 1815 min (max: 14400 min)
+total agents: 3007
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.40863 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 25.7848 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1830 min (max: 14400 min)
+total agents: 3008
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.77196 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 28.5569 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1845 min (max: 14400 min)
+total agents: 3009
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.64729 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 31.2043 seconds 
+
+	Recruiting 1 DCs ... 
+DC leaves tissue
+current simulated time: 1860 min (max: 14400 min)
+total agents: 3009
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.65162 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 33.856 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1875 min (max: 14400 min)
+total agents: 3012
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.46732 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 37.3235 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 1890 min (max: 14400 min)
+total agents: 3010
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.68964 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 40.0133 seconds 
+
+	Recruiting 1 DCs ... 
+DC leaves tissue
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+DC leaves tissue
+current simulated time: 1905 min (max: 14400 min)
+total agents: 3009
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.63636 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 42.6498 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1920 min (max: 14400 min)
+total agents: 3010
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.60504 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 45.2549 seconds 
+
+	Recruiting 1 DCs ... 
+	Recruiting 1 macrophages ... 
+current simulated time: 1935 min (max: 14400 min)
+total agents: 3012
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.50783 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 48.7628 seconds 
+
+current simulated time: 1950 min (max: 14400 min)
+total agents: 3012
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.89755 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 51.6605 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 1965 min (max: 14400 min)
+total agents: 3014
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.87465 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 54.5353 seconds 
+
+	Recruiting 1 macrophages ... 
+current simulated time: 1980 min (max: 14400 min)
+total agents: 3014
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.90011 seconds 
+total wall time: 0 days, 0 hours, 5 minutes, and 57.4355 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 1995 min (max: 14400 min)
+total agents: 3017
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.13839 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 1.57405 seconds 
+
+DC leaves tissue
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2010 min (max: 14400 min)
+total agents: 3015
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.88112 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 4.45529 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 2025 min (max: 14400 min)
+total agents: 3018
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.80444 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 7.25987 seconds 
+
+	Recruiting 1 DCs ... 
+DC leaves tissue
+current simulated time: 2040 min (max: 14400 min)
+total agents: 3015
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.7124 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 9.97242 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2055 min (max: 14400 min)
+total agents: 3016
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.66144 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 13.634 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 2070 min (max: 14400 min)
+total agents: 3017
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.65708 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 16.2912 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2085 min (max: 14400 min)
+total agents: 3018
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.68786 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 18.9792 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2100 min (max: 14400 min)
+total agents: 3020
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.74684 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 21.7261 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2115 min (max: 14400 min)
+total agents: 3022
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.59303 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 25.3192 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 2130 min (max: 14400 min)
+total agents: 3021
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.63296 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 27.9523 seconds 
+
+	Recruiting 1 DCs ... 
+DC leaves tissue
+	Recruiting 1 DCs ... 
+current simulated time: 2145 min (max: 14400 min)
+total agents: 3021
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.79891 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 30.7514 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2160 min (max: 14400 min)
+total agents: 3020
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.63746 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 33.3889 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2175 min (max: 14400 min)
+total agents: 3024
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.56397 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 36.953 seconds 
+
+DC leaves tissue
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+DC leaves tissue
+current simulated time: 2190 min (max: 14400 min)
+total agents: 3024
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.66615 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 39.6193 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 2205 min (max: 14400 min)
+total agents: 3026
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.70115 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 42.3205 seconds 
+
+current simulated time: 2220 min (max: 14400 min)
+total agents: 3026
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.66347 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 44.9842 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 2235 min (max: 14400 min)
+total agents: 3029
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.65484 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 48.6392 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 2250 min (max: 14400 min)
+total agents: 3028
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.73686 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 51.3761 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2265 min (max: 14400 min)
+total agents: 3028
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.12974 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 54.506 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 2280 min (max: 14400 min)
+total agents: 3027
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.33891 seconds 
+total wall time: 0 days, 0 hours, 6 minutes, and 57.8451 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 2295 min (max: 14400 min)
+total agents: 3026
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.86349 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 1.70872 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2310 min (max: 14400 min)
+total agents: 3028
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.74012 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 4.44894 seconds 
+
+	Recruiting 1 DCs ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2325 min (max: 14400 min)
+total agents: 3029
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.83086 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 7.27993 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2340 min (max: 14400 min)
+total agents: 3029
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.8274 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 10.1075 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 2355 min (max: 14400 min)
+total agents: 3028
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.93312 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 14.0407 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2370 min (max: 14400 min)
+total agents: 3030
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.87665 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 16.9175 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 2385 min (max: 14400 min)
+total agents: 3031
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.8049 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 19.7225 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 2400 min (max: 14400 min)
+total agents: 3031
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.83325 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 22.5559 seconds 
+
+DC leaves tissue
+DC leaves tissue
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+DC leaves tissue
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2415 min (max: 14400 min)
+total agents: 3032
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.73954 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 26.2955 seconds 
+
+current simulated time: 2430 min (max: 14400 min)
+total agents: 3030
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.75866 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 29.0543 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 2445 min (max: 14400 min)
+total agents: 3028
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.15944 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 32.2139 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2460 min (max: 14400 min)
+total agents: 3029
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.04648 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 35.2605 seconds 
+
+	Recruiting 1 DCs ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2475 min (max: 14400 min)
+total agents: 3027
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.3503 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 39.6109 seconds 
+
+current simulated time: 2490 min (max: 14400 min)
+total agents: 3026
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.92509 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 42.5361 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2505 min (max: 14400 min)
+total agents: 3028
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.09638 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 45.6327 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2520 min (max: 14400 min)
+total agents: 3027
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.17564 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 48.8085 seconds 
+
+	Recruiting 1 DCs ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2535 min (max: 14400 min)
+total agents: 3028
+interval wall time: 0 days, 0 hours, 0 minutes, and 4.24693 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 53.0556 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 2550 min (max: 14400 min)
+total agents: 3027
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.02326 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 56.079 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2565 min (max: 14400 min)
+total agents: 3028
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.21845 seconds 
+total wall time: 0 days, 0 hours, 7 minutes, and 59.2976 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 2580 min (max: 14400 min)
+total agents: 3027
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.85563 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 2.15336 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+DC leaves tissue
+DC leaves tissue
+current simulated time: 2595 min (max: 14400 min)
+total agents: 3025
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.98908 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 6.14259 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 2610 min (max: 14400 min)
+total agents: 3023
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.69661 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 8.83935 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2625 min (max: 14400 min)
+total agents: 3020
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.70719 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 11.5466 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 2640 min (max: 14400 min)
+total agents: 3020
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.7635 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 14.3102 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+DC leaves tissue
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+DC leaves tissue
+current simulated time: 2655 min (max: 14400 min)
+total agents: 3019
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.62595 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 17.9364 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2670 min (max: 14400 min)
+total agents: 3020
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.72553 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 20.6621 seconds 
+
+	Recruiting 1 macrophages ... 
+current simulated time: 2685 min (max: 14400 min)
+total agents: 3019
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.73064 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 23.3929 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 2700 min (max: 14400 min)
+total agents: 3016
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.66308 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 26.056 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+DC leaves tissue
+	Recruiting 1 DCs ... 
+current simulated time: 2715 min (max: 14400 min)
+total agents: 3016
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.5583 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 29.6144 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2730 min (max: 14400 min)
+total agents: 3014
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.05213 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 32.6668 seconds 
+
+DC leaves tissue
+	Recruiting 1 macrophages ... 
+DC leaves tissue
+	Recruiting 1 macrophages ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 2745 min (max: 14400 min)
+total agents: 3009
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.01538 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 35.6823 seconds 
+
+	Recruiting 1 neutrophils ... 
+current simulated time: 2760 min (max: 14400 min)
+total agents: 3009
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.82493 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 38.5074 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 neutrophils ... 
+current simulated time: 2775 min (max: 14400 min)
+total agents: 3009
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.7525 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 42.26 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2790 min (max: 14400 min)
+total agents: 3009
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.65457 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 44.9146 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2805 min (max: 14400 min)
+total agents: 3009
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.6663 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 47.581 seconds 
+
+	Recruiting 1 DCs ... 
+current simulated time: 2820 min (max: 14400 min)
+total agents: 3008
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.56914 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 50.1503 seconds 
+
+	Recruiting 1 DCs ... 
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2835 min (max: 14400 min)
+total agents: 3011
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.49723 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 53.6477 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2850 min (max: 14400 min)
+total agents: 3012
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.63861 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 56.2865 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2865 min (max: 14400 min)
+total agents: 3011
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.65007 seconds 
+total wall time: 0 days, 0 hours, 8 minutes, and 58.9366 seconds 
+
+DC leaves tissue
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2880 min (max: 14400 min)
+total agents: 3011
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.67419 seconds 
+total wall time: 0 days, 0 hours, 9 minutes, and 1.61091 seconds 
+
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+	Recruiting 1 neutrophils ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2895 min (max: 14400 min)
+total agents: 3014
+interval wall time: 0 days, 0 hours, 0 minutes, and 3.55348 seconds 
+total wall time: 0 days, 0 hours, 9 minutes, and 5.16451 seconds 
+
+	Recruiting 1 macrophages ... 
+	Recruiting 1 DCs ... 
+current simulated time: 2910 min (max: 14400 min)
+total agents: 3014
+interval wall time: 0 days, 0 hours, 0 minutes, and 2.72607 seconds 
+total wall time: 0 days, 0 hours, 9 minutes, and 7.89082 seconds 
+

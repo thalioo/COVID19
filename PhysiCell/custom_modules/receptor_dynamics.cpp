@@ -37,7 +37,7 @@ void receptor_dynamics_model_setup( void )
 
 void receptor_dynamics_model( Cell* pCell, Phenotype& phenotype, double dt )
 {
-	static int lung_epithelial_type = get_cell_definition( "lung epithelium" ).type; 
+	static int lung_epithelial_type = get_cell_definition( "EPITHELIAL" ).type; 
 	
 	// bookkeeping -- find microenvironment variables we need
 

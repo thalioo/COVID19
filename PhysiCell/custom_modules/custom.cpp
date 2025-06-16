@@ -64,7 +64,8 @@
 #                                                                             #
 ###############################################################################
 */
-
+#include <fstream>
+#include <sstream>
 #include "./custom.h"
 
 void create_cell_types( void )
@@ -106,7 +107,7 @@ void create_cell_types( void )
 	// register the submodels 
 	// (which ensures that the cells have all the internal variables they need) 
 	
-	Cell_Definition* pCD = find_cell_definition( "lung epithelium" ); 
+	Cell_Definition* pCD = find_cell_definition( "EPITHELIAL" ); 
 	pCD->phenotype.molecular.fraction_released_at_death[virion_index] = 
 		parameters.doubles("virus_fraction_released_at_death"); 
 	pCD->phenotype.molecular.fraction_released_at_death[assembled_virion_index] = 
@@ -139,14 +140,20 @@ void setup_microenvironment( void )
 	default_microenvironment_options.Y_range = {-1000, 1000}; 
 	default_microenvironment_options.simulate_2D = true; 
 */
-	
+
+
+// COMENTADO PORQUE ESTABA FORZANDO AL 2D
+
+	/*
 	// make sure to override and go back to 2D 
 	if( default_microenvironment_options.simulate_2D == false )
 	{
 		std::cout << "Warning: overriding XML config option and setting to 2D!" << std::endl; 
 		default_microenvironment_options.simulate_2D = true; 
 	}
-	
+	*/
+
+
 /* now this is in XML 	
 	// no gradients need for this example 
 
@@ -174,16 +181,130 @@ void setup_microenvironment( void )
 	return; 
 }
 
+// Cargar células desde un CSV con: x, y, z, tipo, volumen
+void load_cells_from_csv(std::string filename)
+{
+    std::ifstream file(filename);
+    if (!file.is_open())
+    {
+        std::cerr << "Error: no se pudo abrir el archivo: " << filename << std::endl;
+        return;
+    }
+
+    std::string line;
+
+    // Leer y descartar la cabecera
+    std::getline(file, line);
+
+    while (std::getline(file, line))
+    {
+        std::stringstream ss(line);
+        std::string x_str, y_str, z_str, tipo, volumen_str;
+
+        std::getline(ss, x_str, ',');
+        std::getline(ss, y_str, ',');
+        std::getline(ss, z_str, ',');
+        std::getline(ss, tipo, ',');
+        std::getline(ss, volumen_str, ',');
+
+        double x = std::stod(x_str);
+        double y = std::stod(y_str);
+        double z = std::stod(z_str);
+        double volumen = std::stod(volumen_str);
+
+        // Crear célula del tipo especificado
+        Cell* pC = create_cell(get_cell_definition(tipo));
+
+		pC->assign_position(x, y, z);
+        pC->phenotype.volume.total = volumen;
+
+		// Inicializar tasas de secreción y absorción
+		int n = microenvironment.number_of_densities();
+		pC->phenotype.secretion.secretion_rates.resize(n, 0.0);
+		pC->phenotype.secretion.uptake_rates.resize(n, 0.0);
+		pC->phenotype.secretion.saturation_densities.resize(n, 0.0);
+
+
+        
+    }
+
+    file.close();
+}
+
+void setup_tissue(void)
+{
+	// Cargar células desde el CSV
+    load_cells_from_csv("./config/esferas_3d.csv"); // ← ruta ya indicada en PhysiCell_settings.xml
+
+
+	static int nV = microenvironment.find_density_index("virion");
+
+	int number_of_virions = (int)(parameters.doubles("multiplicity_of_infection") * (*all_cells).size());
+	double single_virion_density_change = 1.0 / microenvironment.mesh.dV;
+
+	
+	//AÑADIDO PARA COMPROBAR
+	std::cout << "Número inicial de viriones (MOI * número de células): " << number_of_virions << std::endl;
+
+	
+
+	if (parameters.bools("use_single_infected_cell") == true)
+	{
+		std::cout << "Infecting a random cell with one virion ... " << std::endl;
+		if (all_cells->size() > 0)
+		{
+			int rand_index = (int)(UniformRandom() * all_cells->size());
+			Cell* random_cell = (*all_cells)[rand_index];
+			random_cell->phenotype.molecular.internalized_total_substrates[nV] = 1.0;
+		}
+		else
+		{
+			std::cout << "Warning: no cells found to infect." << std::endl;
+		}
+	}
+	else
+	{
+		std::cout << "Placing " << number_of_virions << " virions ... " << std::endl;
+		for (int n = 0; n < number_of_virions; n++)
+		{
+			std::vector<double> position(3, 0.0);
+			// std::vector<double> position{0,0,0};
+			position[0] = microenvironment.mesh.bounding_box[0] +
+						  (microenvironment.mesh.bounding_box[3] - microenvironment.mesh.bounding_box[0]) * UniformRandom();
+			position[1] = microenvironment.mesh.bounding_box[1] +
+						  (microenvironment.mesh.bounding_box[4] - microenvironment.mesh.bounding_box[1]) * UniformRandom();			
+			position[2] = microenvironment.mesh.bounding_box[2] +
+						  (microenvironment.mesh.bounding_box[5] - microenvironment.mesh.bounding_box[2]) * UniformRandom();
+
+			int m = microenvironment.nearest_voxel_index(position);
+			microenvironment(m)[nV] += single_virion_density_change;
+		}
+	}
+
+	initial_immune_cell_placement();
+
+	// Añadimos manualmente un voxel vascularizado para evitar el error
+	std::vector<double> pos = {100, 100, 0};
+	vascularized_voxel_indices.push_back( microenvironment.nearest_voxel_index(pos) );
+	std::cout << "Añadido 1 voxel vascularizado manualmente." << std::endl;
+
+	//std::cout << "Células creadas: " << all_cells->size() << std::endl;
+
+	return;
+}
+
+
+/*
 void setup_tissue( void )
 {
 	static int nV = microenvironment.find_density_index( "virion" ); 
 	
-	choose_initialized_voxels();
+	//choose_initialized_voxels();
 	
 	// create some cells near the origin
 	
 	Cell* pC;
-	
+	/*
 	// hexagonal cell packing 
 	Cell_Definition* pCD = find_cell_definition("lung epithelium"); 
 	
@@ -276,12 +397,16 @@ void setup_tissue( void )
 		}
 	}
 	
+
 	// now place immune cells 
 	
 	initial_immune_cell_placement();
 	
 	return; 
 }
+
+*/
+
 
 std::vector<std::string> epithelium_coloring_function( Cell* pCell )
 {
@@ -361,7 +486,7 @@ std::string blue_yellow_interpolation( double min, double val, double max )
 
 std::vector<std::string> tissue_coloring_function( Cell* pCell )
 {
-	static int lung_epithelial_type = get_cell_definition( "lung epithelium" ).type; 
+	static int lung_epithelial_type = get_cell_definition( "EPITHELIAL" ).type; 
 	
 	static int CD8_Tcell_type = get_cell_definition( "CD8 Tcell" ).type; 
 	static int Macrophage_type = get_cell_definition( "macrophage" ).type; 
@@ -596,7 +721,7 @@ void SVG_plot_virus( std::string filename , Microenvironment& M, double z_slice 
 */
 	os << "  </g>" << std::endl; 
 	
-	static Cell_Definition* pEpithelial = find_cell_definition( "lung epithelium" ); 
+	static Cell_Definition* pEpithelial = find_cell_definition( "EPITHELIAL" ); 
  
 	// plot intersecting epithelial cells 
 	os << "  <g id=\"cells\">" << std::endl; 

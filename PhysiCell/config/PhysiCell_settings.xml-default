@@ -411,7 +411,7 @@
 			</custom_data>
 		</cell_definition>
 		
-		<cell_definition name="lung epithelium" parent_type="default" ID="1">
+		<cell_definition name="EPITHELIAL" parent_type="default" ID="1">
 			<phenotype>
 				<death>
 					<model code="100" name="apoptosis"> 

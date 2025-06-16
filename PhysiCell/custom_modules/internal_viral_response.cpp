@@ -40,7 +40,7 @@ void internal_virus_response_model_setup( void )
 
 void internal_virus_response_model( Cell* pCell, Phenotype& phenotype, double dt )
 {
-	static Cell_Definition* pCD = find_cell_definition( "lung epithelium" ); 
+	static Cell_Definition* pCD = find_cell_definition( "EPITHELIAL" ); 
 	
 	// bookkeeping -- find microenvironment variables we need
 
