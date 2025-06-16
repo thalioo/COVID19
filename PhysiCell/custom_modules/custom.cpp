@@ -267,8 +267,8 @@ void setup_tissue(void)
 		std::cout << "Placing " << number_of_virions << " virions ... " << std::endl;
 		for (int n = 0; n < number_of_virions; n++)
 		{
-			std::vector<double> position(3, 0.0);
-			// std::vector<double> position{0,0,0};
+			// std::vector<double> position(3, 0.0);
+			std::vector<double> position{0,0,0};
 			position[0] = microenvironment.mesh.bounding_box[0] +
 						  (microenvironment.mesh.bounding_box[3] - microenvironment.mesh.bounding_box[0]) * UniformRandom();
 			position[1] = microenvironment.mesh.bounding_box[1] +
