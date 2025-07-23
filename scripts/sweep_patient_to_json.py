@@ -70,15 +70,49 @@ model_mappings = {
     "Mild": ["epithelial_cell_C141", "macrophage_C141"],
     "Severe": ["epithelial_cell_C143", "macrophage_C143"],
     "Wild Type": ["epithelial_cell_2025", "macrophage_2025"],
-    "Mild KO": ["epithelial_cell_C141_FADDko", "macrophage_C141_p38ko"],
-    "Severe KO": ["epithelial_cell_C143_FADDko", "macrophage_C143_p38ko"],
-    "Wild Type KO": ["epithelial_cell_2025_FADDko", "macrophage_2025_p38ko"],
+
+    "Mild p38KO": ["epithelial_cell_C141", "macrophage_C141_p38ko"],
+    "Severe p38KO": ["epithelial_cell_C143", "macrophage_C143_p38ko"],
+    "Wild Type p38KO": ["epithelial_cell_2025", "macrophage_2025_p38ko"],
+
+    "Mild AKT1_FADD_MAPK14 KO": ["epithelial_cell_C141_AKT1_FADD_MAPK14_ko", "macrophage_C141"],
+    "Severe AKT1_FADD_MAPK14 KO": ["epithelial_cell_C143_AKT1_FADD_MAPK14_ko", "macrophage_C143"],
+    "Mild ALL KO ": ["epithelial_cell_C141_AKT1_FADD_MAPK14_ko", "macrophage_C141_p38ko"],
+    "Severe ALL KO ": ["epithelial_cell_C143_AKT1_FADD_MAPK14_ko", "macrophage_C143_p38ko"],
+    
+    
+    
     "Mild FADDKO": ["epithelial_cell_C141_FADDko", "macrophage_C141"],
+    "Mild FADDKO p38ko": ["epithelial_cell_C141_FADDko", "macrophage_C141_p38ko"],
     "Severe FADDKO": ["epithelial_cell_C143_FADDko", "macrophage_C143"],
+    "Severe FADDKO p38ko": ["epithelial_cell_C143_FADDko", "macrophage_C143_p38ko"],
     "Wild Type FADDKO": ["epithelial_cell_2025_FADDko", "macrophage_2025"],
-    "Mild P38KO": ["epithelial_cell_C141", "macrophage_C141_p38ko"],
-    "Severe P38KO": ["epithelial_cell_C143", "macrophage_C143_p38ko"],
-    "Wild Type P38KO": ["epithelial_cell_2025", "macrophage_2025_p38ko"]
+    "Wild Type FADD p38KO": ["epithelial_cell_2025_FADDko", "macrophage_2025_p38ko"],
+
+    "Mild AKT1KO": ["epithelial_cell_C141_AKT1ko", "macrophage_C141"],
+    "Severe AKT1KO": ["epithelial_cell_C143_AKT1ko", "macrophage_C143"],
+    "Mild AKT1KO p38ko": ["epithelial_cell_C141_AKT1ko", "macrophage_C141_p38ko"],
+    "Severe AKT1KO p38ko": ["epithelial_cell_C143_AKT1ko", "macrophage_C143_p38ko"],
+
+    "Mild MAPK14KO": ["epithelial_cell_C141_MAPK14ko", "macrophage_C141"],
+    "Severe MAPK14KO": ["epithelial_cell_C143_MAPK14ko", "macrophage_C143"],
+    "Mild MAPK14KO p38ko": ["epithelial_cell_C141_MAPK14ko", "macrophage_C141_p38ko"],
+    "Severe MAPK14KO p38ko": ["epithelial_cell_C143_MAPK14ko", "macrophage_C143_p38ko"],
+
+    "Mild MAPK14 AKT1KO": ["epithelial_cell_C141_MAPK14_AKT1ko", "macrophage_C141"],
+    "Severe MAPK14 AKT1KO": ["epithelial_cell_C143_MAPK14_AKT1ko", "macrophage_C143"],
+    "Mild MAPK14 AKT1KO p38ko": ["epithelial_cell_C141_MAPK14_AKT1ko", "macrophage_C141_p38ko"],
+    "Severe MAPK14 AKT1KO p38ko": ["epithelial_cell_C143_MAPK14_AKT1ko", "macrophage_C143_p38ko"],
+    
+    "Mild MAPK14 FADDKO": ["epithelial_cell_C141_MAPK14_FADDko", "macrophage_C141"],
+    "Severe MAPK14 FADDKO": ["epithelial_cell_C143_MAPK14_FADDko", "macrophage_C143"],
+    "Mild MAPK14 FADDKO p38ko": ["epithelial_cell_C141_MAPK14_FADDko", "macrophage_C141_p38ko"],
+    "Severe MAPK14 FADDKO p38ko": ["epithelial_cell_C143_MAPK14_FADDko", "macrophage_C143_p38ko"],
+
+    "Mild AKT1 FADDKO": ["epithelial_cell_C141_AKT1_FADDko", "macrophage_C141"],
+    "Severe AKT1 FADDKO": ["epithelial_cell_C143_AKT1_FADDko", "macrophage_C143"],
+    "Mild AKT1 FADDKO p38ko": ["epithelial_cell_C141_AKT1_FADDko", "macrophage_C141_p38ko"],
+    "Severe AKT1 FADDKO p38ko": ["epithelial_cell_C143_AKT1_FADDko", "macrophage_C143_p38ko"]
 }
 
 # Multiplicities to consider
