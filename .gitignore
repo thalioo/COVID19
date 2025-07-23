@@ -1,0 +1,42 @@
+# Ignore Python environment and cache
+python/env/
+python/__pycache__/
+
+# Ignore compiled Python files
+*.pyc
+
+# Ignore R cache and test folders
+R/test/
+
+# Ignore build and object files
+code/PhysiBoSSv2/*.o
+
+# Ignore log and output files
+turbine-output/*.log
+turbine-output/*.txt
+turbine-output/*.xml
+turbine-output/COVID19
+
+# Ignore datasets and misc scripts
+scripts/datasets/
+
+# Ignore Emews and Swift output
+etc/emews_utils.sh
+swift/*.log
+swift/*.tic
+
+# Ignore other common files
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Ignore combinations and job files
+data/combinations.jsonl
+turbine-output/combinations.jsonl
+turbine-output/jobid.txt
+
+# Ignore Alya files
+
+# Ignore output folders
+experiments/*
